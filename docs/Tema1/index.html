@@ -1,0 +1,1015 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../Tema2/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>TEMA 1 — Introducció a Symfony - SYMFONY</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tema-1-introduccio-a-symfony" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SYMFONY" class="md-header__button md-logo" aria-label="SYMFONY" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SYMFONY
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              TEMA 1 — Introducció a Symfony
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SYMFONY" class="md-nav__button md-logo" aria-label="SYMFONY" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SYMFONY
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Índex
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tema 1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tema 1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-un-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Què és un framework?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exemples-de-frameworks-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Exemples de frameworks PHP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-quin-triar" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Quin triar?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-per-que-triar-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Per què triar Symfony?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-recursos-necessaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Recursos necessaris
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conceptes-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Conceptes bàsics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-primers-passos-amb-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Primers passos amb Symfony
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Primers passos amb Symfony">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-projecte-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1. Projecte complet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-projecte-minim" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2. Projecte mínim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-estructura-general-dun-projecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Estructura general d’un projecte
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Estructura general d’un projecte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-estructura-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Estructura principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-elements-mes-importants" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Elements més importants
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-full-rapid-de-comandes-utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Full ràpid de comandes útils
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-conclusio" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Conclusió
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tema 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tema 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-que-es-un-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Què és un framework?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-exemples-de-frameworks-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Exemples de frameworks PHP
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-quin-triar" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Quin triar?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-per-que-triar-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Per què triar Symfony?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-recursos-necessaris" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Recursos necessaris
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-conceptes-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Conceptes bàsics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-primers-passos-amb-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Primers passos amb Symfony
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Primers passos amb Symfony">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-projecte-complet" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1. Projecte complet
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-projecte-minim" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2. Projecte mínim
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-estructura-general-dun-projecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Estructura general d’un projecte
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Estructura general d’un projecte">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-estructura-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Estructura principal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-elements-mes-importants" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. Elements més importants
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-full-rapid-de-comandes-utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Full ràpid de comandes útils
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-conclusio" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Conclusió
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tema-1-introduccio-a-symfony">🧩 TEMA 1 — Introducció a Symfony</h1>
+<h2 id="1-que-es-un-framework">1. Què és un framework?</h2>
+<p>Un <strong>framework</strong> és una eina que proporciona un conjunt d’elements i regles per a facilitar el <strong>desenvolupament d’aplicacions web</strong>.  </p>
+<p>En el cas dels <strong>frameworks PHP</strong>, ofereixen:</p>
+<ul>
+<li>Una <strong>estructura de treball</strong> predefinida (normalment basada en el patró <strong>MVC</strong>).  </li>
+<li>Eines per a crear i gestionar <strong>models de dades</strong>, <strong>controladors</strong> i <strong>vistes</strong>.  </li>
+<li>Suport per a <strong>rutes</strong>, <strong>injecció de dependències</strong>, <strong>seguretat</strong> i <strong>testejos automàtics</strong>.  </li>
+</ul>
+<p>Això permet que el codi siga més <strong>organitzat</strong>, <strong>modular</strong> i <strong>fàcil de mantindre</strong>.</p>
+<hr />
+<h2 id="2-exemples-de-frameworks-php">2. Exemples de frameworks PHP</h2>
+<p>Actualment hi ha molts frameworks PHP disponibles, entre els que destaquem:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Any</th>
+<th>Característiques principals</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Laravel</strong></td>
+<td>2011</td>
+<td>Elegant, simple i amb gran comunitat. Ideal per a projectes nous.</td>
+</tr>
+<tr>
+<td><strong>Symfony</strong></td>
+<td>2005</td>
+<td>Molt estructurat, modular i estable. Segueix bones pràctiques de programació.</td>
+</tr>
+<tr>
+<td><strong>CodeIgniter</strong></td>
+<td>2006</td>
+<td>Lleuger i ràpid d’aprendre, però més limitat.</td>
+</tr>
+<tr>
+<td><strong>Phalcon</strong></td>
+<td>2012</td>
+<td>Extremadament ràpid i flexible, pot funcionar com a microframework.</td>
+</tr>
+<tr>
+<td><strong>CakePHP</strong></td>
+<td>2005</td>
+<td>Senzill i amb una comunitat àmplia.</td>
+</tr>
+<tr>
+<td><strong>Zend</strong></td>
+<td>2006</td>
+<td>Robust i orientat a empreses, encara que menys utilitzat hui dia.</td>
+</tr>
+</tbody>
+</table>
+<p>➡️ Tots ells segueixen el patró <strong>MVC</strong> i permeten el desenvolupament tant de <strong>webs completes</strong> com de crear <strong>APIs RESTful</strong>.</p>
+<hr />
+<h2 id="3-quin-triar">3. Quin triar?</h2>
+<p>Depén de les necessitats del projecte i de l’experiència de l’equip:</p>
+<ul>
+<li><strong>Projectes senzills o d’aprenentatge:</strong> <em>CodeIgniter</em> o <em>CakePHP</em>.  </li>
+<li><strong>Projectes professionals o de llarga duració:</strong> <em>Symfony</em> o <em>Laravel</em>.  </li>
+</ul>
+<blockquote>
+<p>🧠 Symfony és més complex al principi, però proporciona una base sòlida i escalable.</p>
+</blockquote>
+<hr />
+<h2 id="4-per-que-triar-symfony">4. Per què triar Symfony?</h2>
+<p>Symfony és un framework <strong>modern, segur i molt complet</strong>. Els seus principals avantatges són:</p>
+<ul>
+<li>🧱 <strong>Estructura robusta i modular.</strong>  </li>
+<li>🕓 <strong>Versions LTS</strong> (Long Term Support) amb manteniment garantit.  </li>
+<li>🌍 <strong>Gran comunitat</strong> i <strong>documentació oficial</strong> excel·lent.  </li>
+<li>💡 <strong>Bones pràctiques integrades</strong>, seguint estàndards PSR.  </li>
+<li>🔌 <strong>Integració amb llibreries de tercers</strong> com:<ul>
+<li><strong>Twig</strong> → motor de plantilles per a generar vistes.</li>
+<li><strong>Doctrine</strong> → ORM per a treballar amb bases de dades com a objectes.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="5-recursos-necessaris">5. Recursos necessaris</h2>
+<p>Abans de veure els recursos anem a veure el calendari de les diferents versións de Symfony:</p>
+<figure>
+  <img alt="Calendar" src="../img/Tema1/SymfonyRealesesCalendar.PNG" width="90%" />
+</figure>
+<p>Per treballar amb <strong>Symfony 6.4</strong> o superior, cal tindre instal·lats els següents components:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Descripció</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sistema operatiu</strong></td>
+<td>Ubuntu 22.04 (recomanat) o Windows amb WSL2</td>
+</tr>
+<tr>
+<td><strong>Servidor web</strong></td>
+<td>Apache o Nginx amb suport per a PHP 8.1+</td>
+</tr>
+<tr>
+<td><strong>Base de dades</strong></td>
+<td>MariaDB o MySQL</td>
+</tr>
+<tr>
+<td><strong>PHP</strong></td>
+<td>Versió 8.1 o posterior</td>
+</tr>
+<tr>
+<td><strong>Composer</strong></td>
+<td>Gestor de dependències per a PHP</td>
+</tr>
+<tr>
+<td><strong>Symfony CLI</strong></td>
+<td>Eina oficial per a crear i gestionar projectes</td>
+</tr>
+<tr>
+<td><strong>IDE / Editor</strong></td>
+<td>VS Code, PHPStorm o qualsevol altre amb suport per a PHP</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-conceptes-basics">6. Conceptes bàsics</h2>
+<ul>
+<li><strong>Patró MVC:</strong> separa la lògica del programa en tres parts:<ul>
+<li><strong>Model:</strong> dades i connexions amb la BD (<em>Doctrine</em>).</li>
+<li><strong>Vista:</strong> interfície que veu l’usuari (<em>Twig</em>).</li>
+<li><strong>Controlador:</strong> gestiona la lògica i la comunicació entre model i vista.</li>
+</ul>
+</li>
+<li><strong>Bundles:</strong> mòduls o extensions que afegeixen funcionalitats.</li>
+<li><strong>Injecció de dependències:</strong> forma de compartir recursos sense acoblar les classes.</li>
+<li><strong>Entorn de desenvolupament:</strong> dev, prod, test, definit al fitxer .env.</li>
+</ul>
+<hr />
+<h2 id="7-primers-passos-amb-symfony">7. Primers passos amb Symfony</h2>
+<p>Abans de començar a crear els nous projectes, hem de preparar l'<strong>espai de treball</strong> dins del servidor Apache. Substitueix <code>usuari</code> pel teu nom d'usuari a la màquina virtual.</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>/var/www/html
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>symfony
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>usuari:usuari<span class="w"> </span>symfony
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nb">cd</span><span class="w"> </span>symfony
+</span></code></pre></div></td></tr></table></div>
+<h3 id="71-projecte-complet">7.1. Projecte complet</h3>
+<p>Creació d'un nou projecte com una web completa <em>(recomanada per aplicacions web “classiques”)</em></p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>symfony<span class="w"> </span>nom_projecte<span class="w"> </span>--webapp
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>nom_projecte
+</span></code></pre></div></td></tr></table></div>
+<p>Instal·la directament:</p>
+<ul>
+<li><strong>Twig</strong></li>
+<li><strong>Doctrine</strong></li>
+<li><strong>Security</strong></li>
+<li><strong>Mailer</strong></li>
+<li><strong>Routing</strong></li>
+<li>Altres paquets básics del framework.</li>
+</ul>
+<p>💡 És la <strong>manera moderna</strong> i <strong>substitueix els antics esquelets</strong> (<code>website-skeleton</code> i <code>symfony/skeleton</code>).</p>
+<hr />
+<h3 id="72-projecte-minim">7.2. Projecte mínim</h3>
+<p>Creació d'un nou projecte mínim <em>(ideal per a APIs o microserveis)</em></p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>symfony<span class="w"> </span>nom_projecte
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>nom_projecte
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Afegir manualment els components que necessites</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>composer<span class="w"> </span>require<span class="w"> </span>orm
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>composer<span class="w"> </span>require<span class="w"> </span>twig
+</span></code></pre></div></td></tr></table></div>
+<p>🧠 <strong>Diferencia principal:</strong></p>
+<ul>
+<li>L'opcio <code>--webapp</code> instal·la tots els paquets essencials d'entrada.  </li>
+<li>El projecte minim nomes inclou el <strong>nucli de Symfony</strong>, i tu vas afegint els components segons el que necessites.</li>
+</ul>
+<hr />
+<h2 id="8-estructura-general-dun-projecte">8. Estructura general d’un projecte</h2>
+<p>Quan creem un projecte amb Symfony, s’organitza automàticament en una estructura de carpetes molt clara i estandarditzada. Aquesta estructura ajuda a mantenir el codi ordenat i a separar la lògica, les vistes i la configuració.</p>
+<h3 id="81-estructura-principal">8.1. Estructura principal</h3>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>projecte/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>│
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>├── bin/                  # Conté els scripts executables, com `console`
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>├── config/               # Fitxers de configuració de Symfony i serveis
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>├── migrations/           # Fitxers de migracions de base de dades (Doctrine)
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>├── public/               # Carpeta pública del servidor web (arrel del projecte)
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>│   └── index.php         # Punt d’entrada principal de l’aplicació
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>├── src/                  # Codi font del projecte (controladors, entitats, serveis...)
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>│   ├── Controller/       # Controladors (gestió de rutes i lògica)
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>│   ├── Entity/           # Entitats (models de dades per Doctrine)
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>│   ├── Repository/       # Classes per consultar la base de dades
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>│   └── Service/          # Serveis personalitzats del projecte
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a>├── templates/            # Plantilles Twig (vistes HTML)
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a>├── translations/         # Fitxers de traduccions (si n’hi ha)
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>├── var/                  # Fitxers temporals, caché i logs
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a>├── vendor/               # Dependències instal·lades amb Composer
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a>└── .env                  # Fitxer de configuració d’entorn (dev/prod/test)
+</span></code></pre></div></td></tr></table></div>
+<h3 id="82-elements-mes-importants">8.2. Elements més importants</h3>
+<ul>
+<li><strong><code>public/</code></strong> → És l’arrel pública del projecte. Només aquesta carpeta és accessible des del navegador.  </li>
+<li><strong><code>src/</code></strong> → Conté el codi principal de l’aplicació. És on programem els controladors, entitats i serveis.  </li>
+<li><strong><code>config/</code></strong> → Defineix com es comporta Symfony: rutes, serveis, paquets i paràmetres globals.  </li>
+<li><strong><code>templates/</code></strong> → Conté les vistes en format Twig.  </li>
+<li><strong><code>var/</code></strong> → Guarda fitxers generats automàticament: caché, logs, etc.  </li>
+<li><strong><code>vendor/</code></strong> → Inclou totes les llibreries i dependències instal·lades per Composer.  </li>
+<li><strong><code>.env</code></strong> → Defineix variables d’entorn, com connexió a la base de dades o el mode d’execució (<code>dev</code>, <code>prod</code>, <code>test</code>).</li>
+</ul>
+<p>💡 <strong>Consell:</strong> No modifiques directament els fitxers dins de <code>vendor/</code>. Tot el que necessites personalitzar ha d’anar a <code>src/</code> o <code>config/</code>.</p>
+<hr />
+<h2 id="9-full-rapid-de-comandes-utils">9. Full ràpid de comandes útils</h2>
+<p>Comandaments ajuda:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># 🏗️ Crear un projecte complet</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>symfony<span class="w"> </span>new<span class="w"> </span>app<span class="w"> </span>--webapp
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># 🚀 Iniciar el servidor local</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>symfony<span class="w"> </span>serve<span class="w"> </span>-d
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># 🎮 Generar elements basics del projecte</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>bin/console<span class="w"> </span>make:controller<span class="w">     </span><span class="c1"># Crear un controlador</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>bin/console<span class="w"> </span>make:entity<span class="w">         </span><span class="c1"># Crear una entitat</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>bin/console<span class="w"> </span>make:migration<span class="w">      </span><span class="c1"># Crear una migracio</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>bin/console<span class="w"> </span>doctrine:migrations:migrate<span class="w">  </span><span class="c1"># Executar migracions</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># 🧰 CRUD automatic</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a>bin/console<span class="w"> </span>make:crud
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1"># 🔐 Gestio d&#39;usuaris i autenticacio</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17"></a>bin/console<span class="w"> </span>make:user
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18"></a>bin/console<span class="w"> </span>make:auth
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="10-conclusio">10. Conclusió</h2>
+<p>Symfony és una de les millors opcions per a aprendre <strong>desenvolupament web en entorn servidor</strong> amb PHP.<br />
+Et permet entendre com funciona el <strong>patró MVC</strong>, treballar amb <strong>bones pràctiques</strong> i construir aplicacions <strong>professionals, segures i escalables</strong>.</p>
+<blockquote>
+<p>💬 En resum: Symfony és exigent al principi, però t’ensenya a programar “bé”.</p>
+</blockquote>
+<hr />
+<p><strong>Referències:</strong></p>
+<ul>
+<li><a href="https://symfony.com/doc/current/index.html">Documentació oficial de Symfony</a></li>
+<li><a href="https://symfony.com/releases">Releases Symfony</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.top"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

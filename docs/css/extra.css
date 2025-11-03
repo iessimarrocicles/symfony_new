@@ -1,0 +1,61 @@
+/* --- H1: Títol principal del document --- */
+h1 {
+    color: var(--md-primary-fg-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 3px solid var(--md-primary-fg-color);
+    padding-bottom: 0.3em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    letter-spacing: 0.5px;
+}
+
+/* --- H2: Seccions principals (targeta de color) --- */
+h2 {
+    background-color: var(--md-primary-fg-color);
+    color: var(--md-default-bg-color);
+    padding: 0.7em 1em;
+    border-radius: 0.5em;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+/* --- H3: Subseccions (marc lateral subtil) --- */
+h3 {
+    border-left: 5px solid var(--md-primary-fg-color--light);
+    border-bottom: 5px solid var(--md-primary-fg-color--light);
+    padding-left: 0.7em;
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    font-weight: 600;
+    color: var(--md-default-fg-color);
+    background-color: var(--md-default-bg-color--lighter);
+    border-radius: 0.3em;
+}
+
+
+
+/* 
+h1{
+    border-bottom: 2px solid var(--md-default-fg-color-light);
+}
+
+h2, h3, h4 {
+    border-bottom: 1px solid var(--md-typeset-color);
+}
+*/
+
+/* Ocultar la barra lateral secundària */
+/*
+.md-sidebar--secondary {
+  display: none !important;
+}
+*/
+/* Ocultar la barra lateral primària */
+/*
+.md-sidebar--primary {
+  display: none !important;
+}
+  */

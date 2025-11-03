@@ -1,0 +1,63 @@
+# Nom del lloc
+site_name: SYMFONY
+
+# Carpeta amb el documents font
+docs_dir: 'md'
+
+# Carpeta on es generarà el lloc web (mkdocs build)
+site_dir: 'docs'
+
+# Adreça on s'executa el server local (mkdocs serve)
+dev_addr: localhost:4000
+
+# Navegació dels documents
+nav:
+- Índex: index.md
+- Tema 1: Tema1.md
+- Tema 2: Tema2.md
+- Tema 3: Tema3.md
+
+# Extenions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      linenums: true          # línies numerades per defecte
+      use_pygments: true    # ús de Pygments per a l'elevació de sintaxi
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+# Tema a triar
+theme: 
+  name: material # selecció del tema - mkdocs o readthedocs / material (pip install mkdocs-material)
+  highlightjs: true
+  highlight_theme: dracula  # altres opcions: dracula, github, monokai, atom-one-dark, etc.
+  palette:
+   # Boto que canvia a mode oscur
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Botó que canvia a mode clar
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    # utilitats de copia de codi
+    - content.code.copy 
+    - content.code.select
+    - content.code.annotate
+    - navigation.top    # boto flotant de tornar a dalt 
+
+extra_css:
+  - css/extra.css
+
+# Altres afegits
+plugins:
+  - search      # plugin del quadre cerca
