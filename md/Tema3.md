@@ -8,7 +8,7 @@ nav:
 
 ## 1. Definint plantilles de vistes amb Twig
 
-Els controladors que hem vist fins ara generaven HTML directament en el codi PHP. Per a separar el disseny de la lògica, Symfony utilitza **Twig**, un motor de plantilles que permet treballar amb fitxers `.html.twig` dins la carpeta `templates/`.
+Els controladors que hem vist fins ara generaven HTML directament al codi PHP. Per a separar el disseny de la lògica, Symfony utilitza **Twig**, un motor de plantilles que permet treballar amb fitxers `.html.twig` dins la carpeta `templates/`.
 
 Twig ens ajuda a mantindre una **estructura MVC clara**, on el controlador prepara les dades i la vista s'encarrega de mostrar-les.
 
@@ -63,7 +63,7 @@ Les plantilles (vistes) s’emmagatzemen a la carpeta `templates/` i utilitzen l
 
 ## 1.2. Plantilles amb parts variables
 
-Podem passar informació del controlador a la plantilla mitjançant un **array associatiu**:
+Podem passar informació del controlador a la plantilla mitjançant un **array associatiu**:
 
 **Controlador**
 
@@ -142,7 +142,7 @@ Twig permet **reutilitzar estructures HTML comunes** (com capçalera, menú o pe
 
 ---
 
-## 1.4. Comentaris, filtres i estructures de control
+## 1.4. Comentaris, estructures de control i filtres
 
 ### 1.4.1. Comentaris
 ```twig
@@ -368,7 +368,95 @@ Si necessitem generar una **URL absoluta** (per a correus o enllaços externs), 
 | `url('nom_ruta')` | URL **absoluta** | `https://exemple.com/contacte/12` | Enllaços externs o correus |
 
 ---
-## 1.7. Resum
+
+## 1.7. Afegir contingut estàtic a les plantilles
+
+En una aplicació Symfony, tot el contingut públic (com fulls d’estil, imatges o fitxers JavaScript) es guarda dins la carpeta `public/`.  
+Aquests arxius s’anomenen **recursos estàtics** i s’accedixen mitjançant la funció Twig `asset()`.
+
+A continuació veurem com incloure aquests fitxers en les nostres plantilles.
+
+---
+
+### 1.7.1. Fulls d’estil (CSS)
+
+Crea dins de la carpeta `public/` una subcarpeta `css/` i afegeix-hi un fitxer anomenat `estils.css`:
+
+**Ruta del fitxer:**  
+```
+public/css/estils.css
+```
+
+**Contingut de prova:**
+```css
+body {
+  background-color: #99ccff;
+}
+
+h1 {
+  border-bottom: 1px solid black;
+  background-color: white;
+  color: red;
+  margin: 10px auto;
+  text-align: center;
+  width: 50%;
+}
+```
+
+Per carregar aquest full d’estil en totes les pàgines, edita la plantilla base `base.html.twig` i afegeix la línia següent dins del bloc `stylesheets`:
+
+```twig
+{% block stylesheets %}
+  <link href="{{ asset('css/estils.css') }}" rel="stylesheet" />
+{% endblock %}
+```
+
+💡 La funció `asset()` genera automàticament la ruta correcta del fitxer segons la configuració del projecte.
+
+---
+
+### 1.7.2. Imatges
+
+Per mostrar imatges desades a la carpeta `public/imgs/`, pots fer-ho així:
+
+```twig
+<img src="{{ asset('imgs/imatge.png') }}" alt="Exemple d’imatge">
+```
+
+Si necessites una **URL absoluta** (per exemple, per enviar-la en un correu electrònic o per compartir-la fora de la web), pots combinar `absolute_url()` amb `asset()`:
+
+```twig
+<img src="{{ absolute_url(asset('imgs/imatge.png')) }}" alt="Ex. d’imatge">
+```
+
+---
+
+### 1.7.3. Fitxers JavaScript
+
+Els fitxers `.js` s’acostumen a incloure al final del `body` o dins del bloc `javascripts` de la plantilla base.
+
+Per exemple, si tenim un fitxer `public/js/llibreria.js`, el carregaríem així:
+
+```twig
+{% block javascripts %}
+  <script src="{{ asset('js/llibreria.js') }}" defer></script>
+{% endblock %}
+```
+
+💡 L'opció `defer` fa que el JS s'execute després de carregar l'HTML, millorant el rendiment.
+
+---
+
+### 1.7.4. Bones pràctiques
+
+- Guarda tots els recursos estàtics dins `public/` i organitza’ls per carpetes (`css/`, `js/`, `imgs/`...).
+- Fes servir sempre `asset()` o `absolute_url()` en lloc de rutes relatives manuals.
+- Centralitza els enllaços a CSS i JS dins de la plantilla base per evitar duplicacions.
+- Si treballes amb Symfony 6.4+, pots utilitzar **AssetMapper** com a alternativa moderna a `asset()`. No utilitzada en aquest curs.
+
+---
+
+## 1.8. Resum
 
 | Eina Twig | Serveix per a... | Exemple pràctic | Símil programació |
 |------------|------------------|-----------------|-------------------|
@@ -384,7 +472,7 @@ Funcionament:
 
 ---
 
-## 1.8. Bones pràctiques amb Twig
+## 1.9. Bones pràctiques amb Twig
 
 - Mantindre les vistes lliures de lògica de negoci.  
 - Utilitzar blocs, includes i herència per evitar repeticions.  
@@ -405,7 +493,204 @@ Funcionament:
 
 ---
 
-## 3. Recursos recomanats
+## 3. Exemple complet (Twig)
+
+### 3.1. Estructura de fitxers
+
+```
+src/
+└── Controller/
+    └── ContacteController.php
+
+templates/
+├── base.html.twig
+└── contacte/
+    ├── fitxa.html.twig
+    └── cerca.html.twig
+```
+
+---
+
+### 3.2. Controlador
+
+**Fitxer:** `src/Controller/ContacteController.php`
+
+```php
+<?php
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Attribute\Route;
+
+class ContacteController extends AbstractController
+{
+    private array $contactes = [
+        ["codi" => 1, "nom" => "Salvador Sala",
+         "telefon" => "638961244", "email" => "salvasala@simarro.org"],
+        ["codi" => 2, "nom" => "Anna Llopis",
+         "telefon" => "669332004", "email" => "annallopis@simarro.org"],
+        ["codi" => 3, "nom" => "Marc Sanchis",
+         "telefon" => "962286040", "email" => "marcsanchis@simarro.org"],
+        ["codi" => 4, "nom" => "Laura Palop",
+         "telefon" => "663568890", "email" => "laurapalop@simarro.org"],
+    ];
+
+    // Métode 1
+    #[Route('/contacte/{codi}', name: 'fitxa_contacte', requirements: ['codi' => '\\d+'])]
+    public function fitxa(int $codi): Response
+    {
+        // 1) Buscar el contacte pel codi
+        $resultat = array_filter($this->contactes, fn($c) => $c['codi'] === $codi);
+
+        if (!$resultat) {
+            // En un cas real, podríem llançar una 404 o mostrar una vista d’error
+            return $this->render('contacte/fitxa.html.twig', [
+                'contacte' => null,
+                'codi' => $codi,
+            ]);
+        }
+
+        $contacte = array_shift($resultat);
+
+        // 2) Passar dades a la plantilla Twig
+        return $this->render('contacte/fitxa.html.twig', [
+            'contacte' => $contacte,
+            'codi' => $codi,
+        ]);
+    }
+
+    // Métode 2
+    #[Route('/contacte/{text}', name: 'buscar_contacte', requirements: ['text' => '[a-zA-Z]+'])]
+    public function buscar(string $text): Response
+    {
+        // 1) Filtrar per nom (coincidència parcial, sense tindre en compte maj./min.)
+        $resultat = array_filter($this->contactes, function ($c) use ($text) {
+            return stripos($c['nom'], $text) !== false;
+        });
+
+        // 2) Passar la llista (pot ser buida) a la vista
+        return $this->render('contacte/cerca.html.twig', [
+            'text' => $text,
+            'resultats' => $resultat,
+        ]);
+    }
+}
+```
+
+**Què hem canviat respecte a Tema 2?**  
+Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig per a pintar la resposta (exactament el que recomanàvem a la secció *“Separació MVC real”* del tema 2).
+
+---
+
+### 3.3. Plantilla base
+
+**Fitxer:** `templates/base.html.twig`
+
+```html
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Contactes{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+      <h1>👇 Aplicació de contactes</h1>
+      <p class="meta">Exemple MVC amb Twig</p>
+    </header>
+
+    <main>
+      {% block body %}{% endblock %}
+    </main>
+
+    <footer>
+      <p>&copy; {{ "now"|date("Y") }} IES Lluís Simarro</p>
+    </footer>
+  </body>
+</html>
+```
+
+---
+
+### 3.4. Vista de fitxa
+
+**Fitxer:** `templates/contacte/fitxa.html.twig`
+
+```twig
+{% extends 'base.html.twig' %}
+
+{% block title %}Fitxa de contacte{% endblock %}
+
+{% block body %}
+  <h2>Fitxa de contacte</h2>
+
+  {% if contacte %}
+    <ul class="llista">
+      <li><strong>Nom:</strong> {{ contacte.nom }}</li>
+      <li><strong>Telèfon:</strong> {{ contacte.telefon }}</li>
+      <li><strong>Email:</strong> {{ contacte.email }}</li>
+      <li class="meta">Codi intern: {{ codi }}</li>
+    </ul>
+  {% else %}
+    <p>Contacte amb codi {{ codi }} no trobat.</p>
+  {% endif %}
+{% endblock %}
+```
+
+---
+
+### 3.5. Vista de cerca
+
+**Fitxer:** `templates/contacte/cerca.html.twig`
+
+```twig
+{% extends 'base.html.twig' %}
+
+{% block title %}Resultats per "{{ text }}"{% endblock %}
+
+{% block body %}
+  <h2>Resultats de la cerca: “{{ text }}”</h2>
+
+  {% if resultats is not empty %}
+    {% for c in resultats %}
+      <ul class="llista">
+        <li><strong>Nom:</strong> {{ c.nom }}</li>
+        <li><strong>Telèfon:</strong> {{ c.telefon }}</li>
+        <li><strong>Email:</strong> {{ c.email }}</li>
+      </ul>
+      <hr>
+    {% endfor %}
+  {% else %}
+    <p>No s’han trobat contactes amb “{{ text }}”.</p>
+  {% endif %}
+{% endblock %}
+```
+
+---
+
+### 3.6. Proves ràpides
+
+**Fitxa (numèric):**  
+👉 `http://localhost/contacte/3` → mostra la fitxa amb codi 3.
+
+**Cerca (text):**  
+👉 `http://localhost/contacte/anna` → llista coincidències per “anna”.
+
+> Ambdós camins comparteixen prefix i es diferencien pel *requirement* de la ruta (igual que l’exemple original del Tema 2).
+
+---
+
+### 3.7. Notes i bones pràctiques
+
+- Mantín l’HTML fora del controlador; la vista és responsabilitat de Twig.  
+- Centralitza estils i estructura en `base.html.twig` i fes servir herència (`{% extends %}`) i blocs (`{% block %}`).  
+- Si reuses fragments (per ex. el llistat d’un contacte), pots crear un *partial*:  
+`templates/contacte/_targeta.html.twig` i incloure’l amb `{% include %}`.
+
+---
+
+## 4. Recursos recomanats
 
 - [Documentació oficial Twig 3.x](https://twig.symfony.com/doc/3.x/)  
 - [Plantilles en Symfony 6.4+](https://symfony.com/doc/current/templates.html)  

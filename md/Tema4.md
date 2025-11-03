@@ -6,7 +6,7 @@ nav:
 
 # 🧩 Tema 4 — El contenidor de serveis i la injecció de dependències (Symfony 7)
 
-## 1️. Introducció
+## 1. Introducció
 
 En una aplicació moderna, les classes solen necessitar objectes d’altres classes per funcionar.  
 Per exemple, un controlador pot necessitar un servei de registre de logs o accés a la base de dades.
@@ -40,7 +40,7 @@ Això permet:
 
 ---
 
-## 2️⃣ El contenidor de serveis
+## 2. El contenidor de serveis
 
 Symfony disposa d’un **contenidor de serveis (Service Container)**:  
 una estructura central que s’encarrega de crear, configurar i oferir tots els objectes (serveis) de l’aplicació.
@@ -57,7 +57,7 @@ El contenidor s’encarrega de gestionar-los, creant-los només quan cal.
 
 ---
 
-## 3️⃣ Configuració bàsica (`config/services.yaml`)
+## 3. Configuració bàsica (`config/services.yaml`)
 
 Quan creem un projecte amb Symfony, ja trobem un fitxer de configuració:
 
@@ -89,7 +89,7 @@ Ja **no cal registrar-los manualment**.
 
 ---
 
-## 4️⃣ Crear i utilitzar un servei propi
+## 4. Crear i utilitzar un servei propi
 
 ### 4.1 Definició d’un servei
 
@@ -138,7 +138,7 @@ class IniciController extends AbstractController
 
 ---
 
-## 5️⃣ Paràmetres i variables d’entorn
+## 5. Paràmetres i variables d’entorn
 
 Els **paràmetres** s’utilitzen per a valors constants o configuracions globals.
 
@@ -171,7 +171,7 @@ $suport = $this->getParameter('app.suport_email');
 
 ---
 
-## 6️⃣ Serveis públics i privats
+## 6. Serveis públics i privats
 
 Per defecte, els serveis són **privats** (només accessibles via injecció).  
 Si cal exposar-ne algun directament, podem marcar-lo com **públic**:
@@ -185,7 +185,7 @@ Només s’hauria de fer si és estrictament necessari (per exemple, per usar-lo
 
 ---
 
-## 7️⃣ Bones pràctiques
+## 7. Bones pràctiques
 
 | Recomanació | Descripció |
 |--------------|------------|
@@ -197,7 +197,7 @@ Només s’hauria de fer si és estrictament necessari (per exemple, per usar-lo
 
 ---
 
-## 8️⃣ Depuració de serveis
+## 8. Depuració de serveis
 
 Symfony ofereix comandes per inspeccionar el contenidor:
 
@@ -221,7 +221,7 @@ php bin/console debug:autowiring
 
 ---
 
-## 9️⃣ Exemple complet
+## 9. Exemple complet
 
 ```php
 // src/Service/CalculadoraService.php
@@ -258,7 +258,7 @@ class CalculadoraController extends AbstractController
 
 ---
 
-## 🔍 Resum final
+## 10. Resum final
 
 | Conceptes clau | Descripció |
 |----------------|------------|
@@ -271,7 +271,8 @@ class CalculadoraController extends AbstractController
 
 ---
 
-📘 **Referències útils**
+**Referències útils**
+
 - [Documentació oficial de Symfony 7 – Dependency Injection](https://symfony.com/doc/current/service_container.html)
 - [Best Practices: Service Design](https://symfony.com/doc/current/best_practices.html#services)
 

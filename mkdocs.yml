@@ -13,9 +13,15 @@ dev_addr: localhost:4000
 # Navegació dels documents
 nav:
 - Índex: index.md
-- Tema 1: Tema1.md
-- Tema 2: Tema2.md
-- Tema 3: Tema3.md
+- Tema 1: 
+  - Teoria: Tema1.md
+  - Pràctica: Practica1.md
+- Tema 2: 
+  - Teoria: Tema2.md
+  - Pràctica: Practica2.md
+- Tema 3: 
+  - Teoria: Tema3.md
+  - Pràctica: Practica3.md
 - Tema 4: Tema4.md
 
 # Extenions
