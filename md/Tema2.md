@@ -1,7 +1,7 @@
 ---
 title: "TEMA 2 — El patró MVC"
 nav:
-  - TEMA 2: 'tema2.md'
+  - TEMA 2: 'Tema2.md'
 ---
 
 # 🧩 TEMA 2 — El patró MVC

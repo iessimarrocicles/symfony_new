@@ -1,7 +1,7 @@
 ---
 title: "TEMA 3 — Plantilles amb Twig"
 nav:
-  - TEMA 3: 'tema3.md'
+  - TEMA 3: 'Tema3.md'
 ---
 
 # 🧩 TEMA 3 — Plantilles amb Twig

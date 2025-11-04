@@ -1,7 +1,7 @@
 ---
 title: "TEMA 1 — Introducció a Symfony"
 nav:
-  - TEMA 1: 'tema1.md'
+  - TEMA 1: 'Tema1.md'
 ---
 
 # 🧩 TEMA 1 — Introducció a Symfony

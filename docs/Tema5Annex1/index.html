@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Tema4/">
+        <link rel="prev" href="../Tema5/">
       
       
-        <link rel="next" href="../Tema5/">
+        <link rel="next" href="../Practica5/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>TEMA 4 — Pràctica - SYMFONY</title>
+        <title>Annex 1 - SYMFONY</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tema-4-practica" class="md-skip">
+        <a href="#doctrine-schema-tool-vs-migrations" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TEMA 4 — Pràctica
+              Annex 1
             
           </span>
         </div>
@@ -498,19 +498,17 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -524,7 +522,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Tema 4
@@ -539,6 +537,92 @@
   
     <li class="md-nav__item">
       <a href="../Tema4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teoria
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema5/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -572,7 +656,7 @@
           
   
   <span class="md-ellipsis">
-    Pràctica
+    Annex 1
   </span>
   
 
@@ -583,7 +667,7 @@
         
   
   <span class="md-ellipsis">
-    Pràctica
+    Annex 1
   </span>
   
 
@@ -605,36 +689,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exercici-1" class="md-nav__link">
+  <a href="#1-comandaments" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercici 1
+      1. Comandaments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Comandaments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paquet-schema-tool-canvia-lesquema-directament" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paquet “Schema Tool” (canvia l’esquema directament)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paquet-migrations-historial-versionat-desquema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paquet “Migrations” (historial versionat d’esquema)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quines-son-millors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Quines són millors?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Quines són millors?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-a-projectes-reals-equip-integracio-continua-preproduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per a projectes reals (equip, integració contínua, pre/producció):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-a-prototips-o-proves-locals-rapides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per a prototips o proves locals ràpides:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-quan-utilitzar-cadascuna" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Quan utilitzar cadascuna
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercici-2" class="md-nav__link">
+  <a href="#4-resum" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercici 2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercici-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercici 3
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultat-final-esperat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resultat final esperat
+      4. Resum
     </span>
   </a>
   
@@ -644,90 +776,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    Tema 5
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            Tema 5
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Tema5/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Teoria
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Tema5Annex1/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Annex 1
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -788,36 +836,84 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exercici-1" class="md-nav__link">
+  <a href="#1-comandaments" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercici 1
+      1. Comandaments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Comandaments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paquet-schema-tool-canvia-lesquema-directament" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paquet “Schema Tool” (canvia l’esquema directament)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paquet-migrations-historial-versionat-desquema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paquet “Migrations” (historial versionat d’esquema)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-quines-son-millors" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Quines són millors?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Quines són millors?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-a-projectes-reals-equip-integracio-continua-preproduccio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per a projectes reals (equip, integració contínua, pre/producció):
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-a-prototips-o-proves-locals-rapides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per a prototips o proves locals ràpides:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-quan-utilitzar-cadascuna" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Quan utilitzar cadascuna
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercici-2" class="md-nav__link">
+  <a href="#4-resum" class="md-nav__link">
     <span class="md-ellipsis">
-      Exercici 2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exercici-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Exercici 3
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultat-final-esperat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resultat final esperat
+      4. Resum
     </span>
   </a>
   
@@ -838,47 +934,100 @@
                   
 
 
-<h1 id="tema-4-practica">🧩 TEMA 4 — Pràctica</h1>
-<p><strong>Objectiu</strong></p>
-<p>Treballar amb el <strong>contenidor de serveis</strong> de Symfony i aplicar el concepte d’<strong>injecció de dependències</strong> per a gestionar dades i recursos dins de l’aplicació.</p>
-<hr />
-<h2 id="exercici-1">Exercici 1</h2>
-<p><strong>Mostrar les seccions en la pàgina inicial</strong></p>
+<h1 id="doctrine-schema-tool-vs-migrations">Doctrine: Schema Tool vs Migrations</h1>
+<h2 id="1-comandaments">1. Comandaments</h2>
+<h3 id="paquet-schema-tool-canvia-lesquema-directament">Paquet “Schema Tool” (canvia l’esquema directament)</h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Comprova que el mapping (entitats) concorda amb la BD</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:schema:validate
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Mostra el SQL necessari per sincronitzar BD ←→ entitats (no executa)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:schema:update<span class="w"> </span>--dump-sql
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># EXECUTA els canvis directament a la BD (sense historial)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:schema:update<span class="w"> </span>--force
+</span></code></pre></div></td></tr></table></div>
 <ul>
-<li>Modifica la plantilla <code>inici.html.twig</code> perquè <strong>reba com a paràmetre</strong> el llistat de les seccions enviat des de <code>IniciController::inici()</code>.</li>
-<li>Mostra aquestes seccions en la plantilla amb el <strong>format indicat pel professorat</strong>.</li>
+<li><strong>validate</strong> → només verifica inconsistències (ideal per a CI).</li>
+<li><strong>update --dump-sql</strong> → mostra què passaria (segur per a revisar abans d’executar).</li>
+<li><strong>update --force</strong> → aplica els canvis <em>in situ</em>, però <strong>no deixa rastre</strong> ni permet rollback. Pot provocar pèrdua de dades si hi ha <code>DROP</code> o <code>ALTER</code>.</li>
 </ul>
-<p>💡 <em>Pista:</em> hauràs de passar el llistat com a variable al mètode <code>render()</code> del controlador.</p>
 <hr />
-<h2 id="exercici-2">Exercici 2</h2>
-<p><strong>Afegir imatges a cada secció</strong></p>
-<ol>
-<li>Descarrega’t una <strong>imatge o logo representatiu</strong> per a cadascuna de les seccions del teu llistat.</li>
-<li>Afig un <strong>nou camp en les dades de les seccions</strong> amb el nom de la imatge corresponent.</li>
-<li>Modifica la plantilla perquè, en mostrar les dades de cada secció, es veja també la <strong>imatge associada</strong>.</li>
-<li>Recorda que per <strong>concatenar valors en Twig</strong> s’utilitza el símbol <code>~</code>.</li>
-</ol>
-<p>💡 <em>Exemple conceptual:</em> <code>{{ asset('img/' ~ seccio.imatge) }}</code> (no és la solució, només una pista sintàctica).</p>
-<hr />
-<h2 id="exercici-3">Exercici 3</h2>
-<p><strong>Bind de serveis i comprovació</strong></p>
-<ol>
-<li>Edita l’arxiu <code>config/services.yaml</code> i crea un <strong>bind</strong> perquè, sempre que un servei reba un argument anomenat <code>$dadesSeccions</code>, Symfony li assigne una <strong>instància del servei <code>ServeiDadesSeccions</code></strong> creat anteriorment.</li>
-<li>La ruta al servei serà: <code>@App\Service\ServeiDadesSeccions</code></li>
-<li>Comprova que aquest <strong>bind</strong> funciona correctament en les classes <code>IniciController</code> i <code>RetailController</code>.</li>
-<li>Quan tot funcione, fes un <strong>commit amb Git</strong> amb el missatge:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit Serveis RetailNomAlumne&quot;</span>
-</span></code></pre></div></td></tr></table></div></li>
-<li>Crea una <strong>etiqueta (tag)</strong> amb el nom i comentari següents:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>versio3.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 3.0 RetailNomAlumne Serveis&quot;</span>
-</span></code></pre></div></td></tr></table></div></li>
-</ol>
-<hr />
-<h2 id="resultat-final-esperat">Resultat final esperat</h2>
+<h3 id="paquet-migrations-historial-versionat-desquema">Paquet “Migrations” (historial versionat d’esquema)</h3>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Genera un fitxer de migració amb els canvis detectats</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>php<span class="w"> </span>bin/console<span class="w"> </span>make:migration
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Aplica (i registra) les migracions pendents</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:migrations:migrate
+</span></code></pre></div></td></tr></table></div>
 <ul>
-<li>Assegura’t que totes les modificacions funcionen correctament.</li>
-<li>Puja el projecte actualitzat al teu <strong>repositori GitHub o GitLab</strong>.</li>
-<li>Verifica que la versió <code>3.0</code> apareix correctament en les etiquetes del projecte.</li>
+<li><strong>make:migration</strong> → crea un fitxer PHP amb el SQL necessari (<em>diff controlat</em>). Pots revisar, editar i versionar-lo al repositori.</li>
+<li><strong>migrate</strong> → executa de forma segura i registra quina versió d’esquema tens en cada entorn, permetent rollback.</li>
+</ul>
+<blockquote>
+<p>💡 <em><code>make:migration</code> (de MakerBundle) usa internament el motor de Doctrine Migrations. És el flux recomanat.</em></p>
+</blockquote>
+<hr />
+<h2 id="2-quines-son-millors">2. Quines són millors?</h2>
+<h3 id="per-a-projectes-reals-equip-integracio-continua-preproduccio">Per a projectes reals (equip, integració contínua, pre/producció):</h3>
+<p>👉 <strong>MIGRACIONS (<code>make:migration</code> + <code>migrate</code>)</strong> són l’<strong>estàndard</strong>.</p>
+<ul>
+<li>Manté <strong>traça d’històric</strong>.</li>
+<li>Permet <strong>revisions (PR)</strong> i <strong>rollback</strong>.</li>
+<li>Assegura <strong>consistència entre entorns</strong>.</li>
+</ul>
+<h3 id="per-a-prototips-o-proves-locals-rapides">Per a prototips o proves locals ràpides:</h3>
+<p>👉 <strong><code>schema:update --dump-sql</code></strong> per a veure els canvis.<br />
+Usa <strong><code>--force</code> només en local</strong> i si acceptes el risc (⚠️ <strong>mai en producció</strong>).</p>
+<hr />
+<h2 id="3-quan-utilitzar-cadascuna">3. Quan utilitzar cadascuna</h2>
+<table>
+<thead>
+<tr>
+<th>Situació</th>
+<th>Comandes recomanades</th>
+<th>Per què</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Desenvolupament d’equip amb Git/CI</strong></td>
+<td><code>make:migration</code> → revisió PR → <code>migrate</code></td>
+<td>Historial versionat i reproduïble.</td>
+</tr>
+<tr>
+<td><strong>Desplegar a staging/producció</strong></td>
+<td><code>doctrine:migrations:migrate</code> (automatitzat)</td>
+<td>Segur i traçable. Evita divergències.</td>
+</tr>
+<tr>
+<td><strong>Verificar coherència en CI</strong></td>
+<td><code>doctrine:schema:validate</code></td>
+<td>Falla ràpid si mapping ≠ BD.</td>
+</tr>
+<tr>
+<td><strong>Spike / prova local ràpida</strong></td>
+<td><code>schema:update --dump-sql</code> (i només si cal <code>--force</code>)</td>
+<td>Agilitat, però sense historial.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-resum">4. Resum</h2>
+<ul>
+<li>✅ Sempre que hi haja repo i més d’un entorn → MIGRACIONS.</li>
+<li>⚠️ Evita <code>schema:update --force</code> fora de local/proves.</li>
+<li>🔍 Usa <code>schema:validate</code> en CI per detectar problemes de mapping.</li>
 </ul>
 
 
@@ -886,9 +1035,6 @@
 
 
 
-
-  
-  
 
 
 
