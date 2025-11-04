@@ -22,7 +22,9 @@ nav:
 - Tema 3: 
   - Teoria: Tema3.md
   - Pràctica: Practica3.md
-- Tema 4: Tema4.md
+- Tema 4: 
+  - Teoria: Tema4.md
+  - Pràctica: Practica4.md
 
 # Extenions
 markdown_extensions:

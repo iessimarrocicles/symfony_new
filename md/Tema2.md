@@ -1,10 +1,10 @@
 ---
-title: "TEMA 2 — El patró MVC a Symfony"
+title: "TEMA 2 — El patró MVC"
 nav:
   - TEMA 2: 'tema2.md'
 ---
 
-# 🧩 TEMA 2 — El patró MVC a Symfony
+# 🧩 TEMA 2 — El patró MVC
 
 ## 1. Què és el patró MVC?
 

@@ -21,7 +21,7 @@ Al llarg del curs anirem aprofundint en els següents temes:
 3. **Plantilles amb Twig**  
    Separar la lògica del disseny amb el motor de plantilles Twig.
 
-4. **Serveis i injecció de dependències**  
+4. **El contenidor de serveis i la injecció de dependències**  
    Entendre com Symfony gestiona els serveis i la seua reutilització en tota l’aplicació.
 
 5. **Model de dades amb Doctrine**  

@@ -12,13 +12,15 @@
         <link rel="prev" href="../Practica3/">
       
       
+        <link rel="next" href="../Practica4/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
-        <title>TEMA 4 — El contenidor de serveis i la injecció de dependències (Symfony 7) - SYMFONY</title>
+        <title>TEMA 4 — El contenidor de serveis i la injecció de dependències - SYMFONY</title>
       
     
     
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tema-4-el-contenidor-de-serveis-i-la-injeccio-de-dependencies-symfony-7" class="md-skip">
+        <a href="#tema-4-el-contenidor-de-serveis-i-la-injeccio-de-dependencies" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TEMA 4 — El contenidor de serveis i la injecció de dependències (Symfony 7)
+              TEMA 4 — El contenidor de serveis i la injecció de dependències
             
           </span>
         </div>
@@ -500,6 +502,43 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -512,7 +551,7 @@
           
   
   <span class="md-ellipsis">
-    Tema 4
+    Teoria
   </span>
   
 
@@ -523,7 +562,7 @@
         
   
   <span class="md-ellipsis">
-    Tema 4
+    Teoria
   </span>
   
 
@@ -564,9 +603,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#que-es-un-servei" class="md-nav__link">
+  <a href="#21-que-es-un-servei" class="md-nav__link">
     <span class="md-ellipsis">
-      Què és un servei?
+      2.1. Què és un servei?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-necessitat-dun-sistema-dinjeccio-de-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Necessitat d’un sistema d’injecció de dependències
     </span>
   </a>
   
@@ -578,11 +626,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuracio-basica-configservicesyaml" class="md-nav__link">
+  <a href="#3-configuracio-basica" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Configuració bàsica (config/services.yaml)
+      3. Configuració bàsica
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Configuració bàsica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-serveis-publics-i-privats" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Serveis públics i privats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -620,54 +683,78 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-parametres-i-variables-dentorn" class="md-nav__link">
+  <a href="#5-depuracio-de-serveis" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Paràmetres i variables d’entorn
+      5. Depuració de serveis
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-serveis-publics-i-privats" class="md-nav__link">
+  <a href="#6-exemple-de-servei-predefinit" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Serveis públics i privats
+      6. Exemple de servei predefinit
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-bones-practiques" class="md-nav__link">
+  <a href="#7-exemple-de-servei-propi" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Bones pràctiques
+      7. Exemple de servei propi
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-depuracio-de-serveis" class="md-nav__link">
+  <a href="#8-altres-opcions" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Depuració de serveis
+      8. Altres opcions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Altres opcions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-combinar-serveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Combinar serveis
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#9-exemple-complet" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#82-arguments-sense-autowiring" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Exemple complet
+      8.2. Arguments sense "autowiring"
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#83-parametres-globals" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3. Paràmetres globals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#10-resum-final" class="md-nav__link">
+  <a href="#9-resum-final" class="md-nav__link">
     <span class="md-ellipsis">
-      10. Resum final
+      9. Resum final
     </span>
   </a>
   
@@ -676,6 +763,35 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctica
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -727,9 +843,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#que-es-un-servei" class="md-nav__link">
+  <a href="#21-que-es-un-servei" class="md-nav__link">
     <span class="md-ellipsis">
-      Què és un servei?
+      2.1. Què és un servei?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-necessitat-dun-sistema-dinjeccio-de-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Necessitat d’un sistema d’injecció de dependències
     </span>
   </a>
   
@@ -741,11 +866,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-configuracio-basica-configservicesyaml" class="md-nav__link">
+  <a href="#3-configuracio-basica" class="md-nav__link">
     <span class="md-ellipsis">
-      3. Configuració bàsica (config/services.yaml)
+      3. Configuració bàsica
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Configuració bàsica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-serveis-publics-i-privats" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. Serveis públics i privats
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -783,54 +923,78 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-parametres-i-variables-dentorn" class="md-nav__link">
+  <a href="#5-depuracio-de-serveis" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Paràmetres i variables d’entorn
+      5. Depuració de serveis
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-serveis-publics-i-privats" class="md-nav__link">
+  <a href="#6-exemple-de-servei-predefinit" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Serveis públics i privats
+      6. Exemple de servei predefinit
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-bones-practiques" class="md-nav__link">
+  <a href="#7-exemple-de-servei-propi" class="md-nav__link">
     <span class="md-ellipsis">
-      7. Bones pràctiques
+      7. Exemple de servei propi
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-depuracio-de-serveis" class="md-nav__link">
+  <a href="#8-altres-opcions" class="md-nav__link">
     <span class="md-ellipsis">
-      8. Depuració de serveis
+      8. Altres opcions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Altres opcions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-combinar-serveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. Combinar serveis
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#9-exemple-complet" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#82-arguments-sense-autowiring" class="md-nav__link">
     <span class="md-ellipsis">
-      9. Exemple complet
+      8.2. Arguments sense "autowiring"
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#83-parametres-globals" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3. Paràmetres globals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#10-resum-final" class="md-nav__link">
+  <a href="#9-resum-final" class="md-nav__link">
     <span class="md-ellipsis">
-      10. Resum final
+      9. Resum final
     </span>
   </a>
   
@@ -851,53 +1015,90 @@
                   
 
 
-<h1 id="tema-4-el-contenidor-de-serveis-i-la-injeccio-de-dependencies-symfony-7">🧩 Tema 4 — El contenidor de serveis i la injecció de dependències (Symfony 7)</h1>
+<h1 id="tema-4-el-contenidor-de-serveis-i-la-injeccio-de-dependencies">🧩 Tema 4 — El contenidor de serveis i la injecció de dependències</h1>
 <h2 id="1-introduccio">1. Introducció</h2>
 <p>En una aplicació moderna, les classes solen necessitar objectes d’altres classes per funcionar.<br />
 Per exemple, un controlador pot necessitar un servei de registre de logs o accés a la base de dades.</p>
-<p>Sense un sistema d’injecció de dependències, el codi seria rígid i difícil de mantenir:</p>
+<p>Sense un sistema d’injecció de dependències, el codi seria rígid i difícil de mantenir, provocant:</p>
 <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="x">// ❌ Exemple antic</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="x">$logger = new Logger();</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="x">$logger-&gt;info(&#39;S’ha iniciat la pàgina&#39;);</span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">// ❌ Exemple antic</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nv">$logger</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Logger</span><span class="p">();</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nv">$logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;S’ha iniciat la pàgina&#39;</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Amb <strong>injecció de dependències</strong>, és el <em>framework</em> (Symfony) qui crea i proporciona aquests objectes, anomenats <strong>serveis</strong>:</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span>
-<span class="normal"><a href="#__codelineno-1-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="x">// ✅ Exemple modern</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="x">public function __construct(private LoggerInterface $logger) {}</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="x">public function index(): Response</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="x">{</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="x">    $this-&gt;logger-&gt;info(&#39;S’ha iniciat la pàgina&#39;);</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="x">    return new Response(&#39;Hola món&#39;);</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="x">}</span>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">// ✅ Exemple modern</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s1">&#39;S’ha iniciat la pàgina&#39;</span><span class="p">);</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a>    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Hola món&#39;</span><span class="p">);</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="p">}</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Això permet:
-- Desacoblar el codi.
-- Substituir fàcilment implementacions (p. ex. canviar el servei de logs).
-- Fer proves unitàries més senzilles.
-- Reutilitzar components.</p>
+<p>Això permet:</p>
+<ul>
+<li>Millorar l'estructura del codi:<ul>
+<li>Elimina la duplicitat de codi.</li>
+<li>Redueix la dificultat de manteniment.</li>
+<li>Desacobla les classes i les fa més independents.</li>
+</ul>
+</li>
+<li>Augmnetar la flexibilitat:<ul>
+<li>Permet substituir fàcilment implementacions (p. ex. canviar el servei de logs).</li>
+<li>Facilita la reutilització de components en diferents parts de l'aplicació.</li>
+</ul>
+</li>
+<li>Afavorir el desenvolupament i les proves:<ul>
+<li>Simplifica les proves unitàries i la detecció d'errors.</li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="2-el-contenidor-de-serveis">2. El contenidor de serveis</h2>
-<p>Symfony disposa d’un <strong>contenidor de serveis (Service Container)</strong>:<br />
-una estructura central que s’encarrega de crear, configurar i oferir tots els objectes (serveis) de l’aplicació.</p>
-<h3 id="que-es-un-servei">Què és un servei?</h3>
-<p>Un <em>servei</em> és qualsevol classe que realitza una tasca concreta dins de l’aplicació:<br />
-- Enviar correus (<code>MailerInterface</code>)
-- Registrar esdeveniments (<code>LoggerInterface</code>)
-- Accedir a la base de dades (<code>EntityManagerInterface</code>)
-- Validar dades (<code>ValidatorInterface</code>)</p>
+<p>Symfony disposa d’un <strong>contenidor de serveis (Service Container)</strong>:  un component central que s’encarrega de crear, configurar i oferir tots els objectes (serveis) de l’aplicació.</p>
+<h3 id="21-que-es-un-servei">2.1. Què és un servei?</h3>
+<p>Un <em>servei</em> és qualsevol classe que realitza una tasca concreta dins de l’aplicació:</p>
+<ul>
+<li>Enviar correus (<code>MailerInterface</code>)</li>
+<li>Registrar esdeveniments (<code>LoggerInterface</code>)</li>
+<li>Accedir a la base de dades (<code>EntityManagerInterface</code>)</li>
+<li>Validar dades (<code>ValidatorInterface</code>)</li>
+</ul>
 <p>El contenidor s’encarrega de gestionar-los, creant-los només quan cal.</p>
+<h3 id="22-necessitat-dun-sistema-dinjeccio-de-dependencies">2.2. Necessitat d’un sistema d’injecció de dependències</h3>
+<p>En una aplicació, diferents classes poden necessitar accedir a la mateixa base de dades.
+Sense la <strong>injecció de dependències</strong>, cada classe hauria de crear la seua pròpia connexió, duplicant codi i recursos.</p>
+<p>Amb la <strong>injecció de dependències</strong>, és el framework qui crea la connexió una sola vegada i la proporciona a totes les classes que la necessiten.</p>
+<p>Symfony gestiona aquest procés mitjançant el <strong>contenidor de serveis</strong>, un component que crea i administra tots els objectes compartits de l’aplicació, anomenats <strong>serveis</strong>.</p>
 <hr />
-<h2 id="3-configuracio-basica-configservicesyaml">3. Configuració bàsica (<code>config/services.yaml</code>)</h2>
-<p>Quan creem un projecte amb Symfony, ja trobem un fitxer de configuració:</p>
+<h2 id="3-configuracio-basica">3. Configuració bàsica</h2>
+<p>Quan creem un projecte amb Symfony, ja trobem un fitxer de configuració anomenat <code>config/services.yaml</code>:</p>
 <div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -916,56 +1117,51 @@ una estructura central que s’encarrega de crear, configurar i oferir tots els 
 <span class="normal"><a href="#__codelineno-2-16">16</a></span>
 <span class="normal"><a href="#__codelineno-2-17">17</a></span>
 <span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># config/services.yaml</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nt">parameters</span><span class="p">:</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ca&#39;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="nt">_defaults</span><span class="p">:</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="nt">autowire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">      </span><span class="c1"># Symfony injecta automàticament les dependències</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># Registra el servei segons el seu tipus</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">       </span><span class="c1"># Els serveis no són públics per defecte</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">  </span><span class="nt">App\</span><span class="p">:</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/&#39;</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">    </span><span class="nt">exclude</span><span class="p">:</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/DependencyInjection/&#39;</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/Entity/&#39;</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/Kernel.php&#39;</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">  </span><span class="nt">App\Controller\</span><span class="p">:</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/Controller&#39;</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;controller.service_arguments&#39;</span><span class="p p-Indicator">]</span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ca&#39;</span><span class="w">          </span><span class="c1"># Indica la localitazció i idioma per defecte</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="nt">_defaults</span><span class="p">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">    </span><span class="nt">autowire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">      </span><span class="c1"># Symfony injecta automàticament el servei</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">    </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># Crea o registra el servei segons el seu tipus</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">       </span><span class="c1"># Visibilitat: els serveis no privats per defecte</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">  </span><span class="nt">App\</span><span class="p">:</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/&#39;</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">    </span><span class="nt">exclude</span><span class="p">:</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/DependencyInjection/&#39;</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/Entity/&#39;</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;../src/Kernel.php&#39;</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="w">  </span><span class="nt">App\Controller\</span><span class="p">:</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../src/Controller&#39;</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;controller.service_arguments&#39;</span><span class="p p-Indicator">]</span>
 </span></code></pre></div></td></tr></table></div>
-<p>Gràcies a <code>autowire</code> i <code>autoconfigure</code>, Symfony detecta automàticament la majoria de serveis.<br />
-Ja <strong>no cal registrar-los manualment</strong>.</p>
+<p>Symfony <strong>escaneja automàticament</strong> la carpeta <code>src/</code> i registra com a serveis totes les classes que troba, amb aquestes regles:</p>
+<ul>
+<li>Si estan dins d’un namespace conegut (<code>App\...</code>)</li>
+<li>I no són entitats (<code>Entity</code>) ni DTOs</li>
+<li>Aleshores es registren com a serveis automàticament (gràcies a l’<code>autowire</code> i l’<code>autoconfigure</code> activats al services.yaml)</li>
+</ul>
+<p>Això vol dir:</p>
+<ul>
+<li>Tot el que hi ha a <code>src/Service</code>, <code>src/Repository</code>, <code>src/Security</code>... serà un servei disponible.</li>
+<li>Symfony sabrà com crear-lo automàticament. Si alguna classe necessita un servei, l'injectarem al constructor.</li>
+</ul>
+<hr />
+<h3 id="31-serveis-publics-i-privats">3.1. Serveis públics i privats</h3>
+<p>Per defecte, els serveis són <strong>privats</strong> (només accessibles via injecció).<br />
+Si cal exposar-ne algun directament, podem marcar-lo com <strong>públic</strong>:</p>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nt">App\Service\MissatgeService</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">  </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Només s’hauria de fer si és estrictament necessari (per exemple, per usar-lo en comandes o scripts externs).</p>
 <hr />
 <h2 id="4-crear-i-utilitzar-un-servei-propi">4. Crear i utilitzar un servei propi</h2>
 <h3 id="41-definicio-dun-servei">4.1 Definició d’un servei</h3>
 <p>Creem una classe que encapsule una funcionalitat, per exemple un servei de missatges:</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="x">// src/Service/MissatgeService.php</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="x">namespace App\Service;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="x">class MissatgeService</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="x">{</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="x">    public function obtindreSalutacio(string $nom): string</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="x">    {</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="x">        return &quot;Hola, $nom! Benvingut a Symfony 🚀&quot;;</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="x">    }</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="x">}</span>
-</span></code></pre></div></td></tr></table></div>
-<p>Gràcies a l’autowiring, no cal registrar-la. Symfony la detectarà automàticament.</p>
-<h3 id="42-us-del-servei-en-un-controlador">4.2 Ús del servei en un controlador</h3>
+<p><strong>Fitxer:</strong> <code>src/Service/MissatgeService.php</code>
 <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -978,114 +1174,314 @@ Ja <strong>no cal registrar-los manualment</strong>.</p>
 <span class="normal"><a href="#__codelineno-4-10">10</a></span>
 <span class="normal"><a href="#__codelineno-4-11">11</a></span>
 <span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="x">// src/Controller/IniciController.php</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="x">namespace App\Controller;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="x">use App\Service\MissatgeService;</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="x">use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="x">use Symfony\Component\HttpFoundation\Response;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="x">use Symfony\Component\Routing\Annotation\Route;</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="x">class IniciController extends AbstractController</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="x">{</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="x">    public function __construct(private MissatgeService $missatgeService) {}</span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">namespace</span> <span class="nx">App\Service</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">class</span> <span class="nc">MissatgeService</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">obtindreSalutacio</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$nom</span><span class="p">)</span><span class="o">:</span> <span class="nx">string</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="p">{</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>        <span class="k">return</span> <span class="s2">&quot;Hola, </span><span class="si">$nom</span><span class="s2">! Benvingut a Symfony 🚀&quot;</span><span class="p">;</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="p">}</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">}</span>
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="x">    #[Route(&#39;/&#39;, name: &#39;inici&#39;)]</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="x">    public function index(): Response</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="x">    {</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="x">        $text = $this-&gt;missatgeService-&gt;obtindreSalutacio(&#39;Anna&#39;);</span>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="x">        return new Response($text);</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="x">    }</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="x">}</span>
-</span></code></pre></div></td></tr></table></div>
-<blockquote>
-<p>✅ Symfony crearà automàticament l’objecte <code>MissatgeService</code> i l’injectarà en el controlador.</p>
-</blockquote>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p>Gràcies a l’<code>autowire</code>, no cal registrar-la. Symfony la detectarà automàticament.</p>
+<h3 id="42-us-del-servei-en-un-controlador">4.2 Ús del servei en un controlador</h3>
+<p><strong>Fitxer:</strong> <code>src/Controller/IniciController.php</code>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">use</span> <span class="nx">App\Service\MissatgeService</span><span class="p">;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="k">class</span> <span class="nc">IniciController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">{</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">MissatgeService</span> <span class="nv">$missatgeService</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="p">}</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;inici&#39;</span><span class="p">)]</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18"></a>    <span class="p">{</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span class="nv">$text</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">missatgeService</span><span class="o">-&gt;</span><span class="na">obtindreSalutacio</span><span class="p">(</span><span class="s1">&#39;Anna&#39;</span><span class="p">);</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20"></a>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nv">$text</span><span class="p">);</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21"></a>    <span class="p">}</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="p">}</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23"></a>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p>👉 En el constructor, Symfony fa una cosa <strong>automàtica i màgica</strong>:</p>
+<ul>
+<li>Symfony detecta que el controlador necessita un objecte del tipus <code>MissatgeService</code>.</li>
+<li>Busca en el contenidor de serveis si ja existeix un servei registrat amb eixa classe.<ul>
+<li>Si existeix (i el normal és que sí, si està en <code>src/Service/MissatgeService.php</code>), Symfony el crea i l’injecta automàticament quan construeix el controlador.</li>
+</ul>
+</li>
+</ul>
+<p>💡 Açò s’anomena <strong>Injecció de Dependències (DI)</strong> i és una bona pràctica perquè el controlador no s’encarrega de crear el servei, sinó que el rep preparat per a utilitzar-lo.</p>
 <hr />
-<h2 id="5-parametres-i-variables-dentorn">5. Paràmetres i variables d’entorn</h2>
-<p>Els <strong>paràmetres</strong> s’utilitzen per a valors constants o configuracions globals.</p>
-<div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">parameters</span><span class="p">:</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span><span class="nt">app.nom_projecte</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Gestor</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">Contactes&#39;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="nt">app.suport_email</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;%env(SUPPORT_EMAIL)%&#39;</span>
-</span></code></pre></div></td></tr></table></div>
-<p>I en <code>.env</code> podem definir les variables:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>SUPPORT_EMAIL=suport@exemple.com
-</span></code></pre></div></td></tr></table></div>
-<p>Al codi PHP:</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="x">public function __construct(private string $suportEmail)</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="x">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="x">    // Symfony injecta automàticament el valor de l&#39;entorn</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="x">}</span>
-</span></code></pre></div></td></tr></table></div>
-<p>També pots accedir-hi via el contenidor:</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="x">$suport = $this-&gt;getParameter(&#39;app.suport_email&#39;);</span>
-</span></code></pre></div></td></tr></table></div>
-<hr />
-<h2 id="6-serveis-publics-i-privats">6. Serveis públics i privats</h2>
-<p>Per defecte, els serveis són <strong>privats</strong> (només accessibles via injecció).<br />
-Si cal exposar-ne algun directament, podem marcar-lo com <strong>públic</strong>:</p>
-<div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="nt">App\Service\MissatgeService</span><span class="p">:</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span></code></pre></div></td></tr></table></div>
-<p>Només s’hauria de fer si és estrictament necessari (per exemple, per usar-lo en comandes o scripts externs).</p>
-<hr />
-<h2 id="7-bones-practiques">7. Bones pràctiques</h2>
-<table>
-<thead>
-<tr>
-<th>Recomanació</th>
-<th>Descripció</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅ <strong>Injecció per constructor</strong></td>
-<td>És més clara i testejable que per mètode.</td>
-</tr>
-<tr>
-<td>✅ <strong>Evita <code>get()</code></strong></td>
-<td>No accedisques al contenidor manualment (<code>$this-&gt;get()</code>) dins dels controladors.</td>
-</tr>
-<tr>
-<td>✅ <strong>Fes els serveis immutables</strong></td>
-<td>Declara propietats <code>readonly</code> o <code>private</code>.</td>
-</tr>
-<tr>
-<td>✅ <strong>Divideix serveis per responsabilitat</strong></td>
-<td>Un servei = una tasca.</td>
-</tr>
-<tr>
-<td>✅ <strong>Aprofita els <code>ServiceSubscriber</code></strong></td>
-<td>Per injectar només els serveis necessaris dinàmicament.</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="8-depuracio-de-serveis">8. Depuració de serveis</h2>
+<h2 id="5-depuracio-de-serveis">5. Depuració de serveis</h2>
 <p>Symfony ofereix comandes per inspeccionar el contenidor:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container
+<ul>
+<li>Per mostrar tots els serveis disponibles.</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container
 </span></code></pre></div></td></tr></table></div>
-<p>Mostrar tots els serveis disponibles.</p>
-<p>Per buscar un servei concret:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container<span class="w"> </span>MissatgeService
+<ul>
+<li>Per buscar un servei concret:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container<span class="w"> </span>MissatgeService
 </span></code></pre></div></td></tr></table></div>
-<p>O per veure quines classes són autowirables:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:autowiring
+<ul>
+<li>Per veure quines classes són autowirables:</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:autowiring
 </span></code></pre></div></td></tr></table></div>
 <hr />
-<h2 id="9-exemple-complet">9. Exemple complet</h2>
+<h2 id="6-exemple-de-servei-predefinit">6. Exemple de servei predefinit</h2>
+<p>Symfony inclou molts <strong>serveis predefinits</strong> llestos per a utilitzar, com ara:</p>
+<ul>
+<li><code>MailerInterface</code> → enviar correus electrònics  </li>
+<li><code>LoggerInterface</code> → registrar missatges de log (errors, avisos, informació...)</li>
+</ul>
+<p>Per utilitzar un servei, n’hi ha prou amb <strong>injectar-lo al controlador</strong> mitjançant el constructor.</p>
+<p>Veurem un exemple amb <code>LoggerInterface</code> per traure un missatge amb la data i hora de l'accés a la pàgina inicial.</p>
+<p><strong>Fitxer:</strong> <code>src/Controller/IniciController.php</code></p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span>
+<span class="normal"><a href="#__codelineno-9-22">22</a></span>
+<span class="normal"><a href="#__codelineno-9-23">23</a></span>
+<span class="normal"><a href="#__codelineno-9-24">24</a></span>
+<span class="normal"><a href="#__codelineno-9-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="k">class</span> <span class="nc">IniciController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="p">{</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13"></a>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14"></a>    <span class="p">}</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;inici&#39;</span><span class="p">)]</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">inici</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18"></a>    <span class="p">{</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19"></a>        <span class="nv">$dataHora</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Accés el &quot;</span> <span class="o">.</span> <span class="nv">$dataHora</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="s2">&quot;d/m/Y H:i:s&quot;</span><span class="p">));</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;inici.html.twig&#39;</span><span class="p">);</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22"></a>    <span class="p">}</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="p">}</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24"></a>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>📝 Notes:</p>
+<ul>
+<li><code>\DateTime</code> és una classe pròpia de PHP.</li>
+<li>Els missatges es guarden en <code>var/log/dev.log</code> o <code>var/log/prod.log</code> segons l’entorn.</li>
+<li>Podríem haver passat directament l'objecte <code>LoggerInterface</code> al mètode <code>inici</code>. Però és recomanable injectar els serveis al constructor per a poder reutilitzar-los en diversos mètodes.</li>
+</ul>
+<hr />
+<h2 id="7-exemple-de-servei-propi">7. Exemple de servei propi</h2>
+<p>Podem crear <strong>serveis propis</strong> per encapsular funcionalitats o dades reutilitzables dins de l’aplicació.</p>
+<p>En l’exemple de <em>Contactes</em>, extraurem l’array de contactes del controlador i el posarem en un <strong>servei propi</strong> anomenat <code>BDProva</code>.</p>
+<p>Els serveis es poden crear dins de la carpeta <code>src/Service</code>, que cal crear si no existeix.<br />
+Symfony detecta automàticament totes les classes d’aquesta carpeta com a serveis.</p>
+<p><strong>Fitxer:</strong> <code>src/Service/BDProva.php</code>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="k">namespace</span> <span class="nx">App\Service</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="k">class</span> <span class="nc">BDProva</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="p">{</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="k">private</span> <span class="nv">$contactes</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a>        <span class="k">array</span><span class="p">(</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Salvador Sala&quot;</span><span class="p">,</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a>              <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;638961244&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;salvasala@simarro.org&quot;</span><span class="p">),</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a>        <span class="k">array</span><span class="p">(</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Anna Llopis&quot;</span><span class="p">,</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a>              <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;669332004&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;annallopis@simarro.org&quot;</span><span class="p">),</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a>        <span class="k">array</span><span class="p">(</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Marc Sanchis&quot;</span><span class="p">,</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a>              <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;962286040&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;marcsanchis@simarro.org&quot;</span><span class="p">),</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a>        <span class="k">array</span><span class="p">(</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Laura Palop&quot;</span><span class="p">,</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a>              <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;663568890&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;laurapalop@simarro.org&quot;</span><span class="p">),</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a>        <span class="k">array</span><span class="p">(</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Sara Sidle&quot;</span><span class="p">,</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a>              <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;638765434&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;sarasidle@simarro.org&quot;</span><span class="p">),</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18"></a>    <span class="p">);</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19"></a>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">()</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21"></a>    <span class="p">{</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span><span class="p">;</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23"></a>    <span class="p">}</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="p">}</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25"></a>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p><strong>Fitxer:</strong> <code>src/Controller/ContacteController.php</code>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="k">use</span> <span class="nx">App\Service\BDProva</span><span class="p">;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="k">class</span> <span class="nc">ContacteController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="p">{</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a>    <span class="k">private</span> <span class="nv">$contactes</span><span class="p">;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">BDProva</span> <span class="nv">$dades</span><span class="p">)</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a>    <span class="p">{</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span> <span class="o">=</span> <span class="nv">$dades</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a>    <span class="p">}</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a>    <span class="c1">// La resta del controlador (fitxa, buscar...) continua igual</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="p">}</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21"></a>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div></p>
+<p>📝 Notes:</p>
+<ul>
+<li>El servei <code>BDProva</code> s’injecta al <strong>constructor</strong> de <code>ContacteController</code>.</li>
+<li>Les dades es guarden en un atribut privat <code>$contactes</code>, accessible per qualsevol mètode del controlador.</li>
+<li>Recorda afegir la línia <code>use App\Service\BDProva;</code> per importar la classe.</li>
+<li>Symfony gestiona automàticament aquest servei gràcies a l’<strong>autowiring</strong> (no cal registrar-lo manualment a <code>services.yaml</code>).</li>
+</ul>
+<hr />
+<h2 id="8-altres-opcions">8. Altres opcions</h2>
+<p>Ara que ja sabem com crear serveis propis i utilitzar-los, o bé utilitzar serveis de Symfony o de bundles de tercers, podem veure algunes opcions més avançades que afecten el contenidor de serveis i els serveis que utilitzem.</p>
+<h3 id="81-combinar-serveis">8.1. Combinar serveis</h3>
+<p>Quan en una classe o mètode determinat podem necessitar <strong>més d’un servei</strong>. </p>
+<p>Tenim dues alternatives:</p>
+<p><strong>1. Passar diversos serveis al constructor</strong></p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">class</span> <span class="nc">UnaClasse</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span class="k">private</span> <span class="nv">$contactes</span><span class="p">;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">BDProva</span> <span class="nv">$dades</span><span class="p">,</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="p">{</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span> <span class="o">=</span> <span class="nv">$dades</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>    <span class="p">}</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="p">}</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p><strong>2. Crear un servei combinat</strong></p>
+<p>Podem encapsular els serveis dins d’una classe nova, per exemple <code>ServeiCombinat</code>, i injectar només aquesta.</p>
 <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
@@ -1102,52 +1498,184 @@ Si cal exposar-ne algun directament, podem marcar-lo com <strong>públic</strong
 <span class="normal"><a href="#__codelineno-13-14">14</a></span>
 <span class="normal"><a href="#__codelineno-13-15">15</a></span>
 <span class="normal"><a href="#__codelineno-13-16">16</a></span>
-<span class="normal"><a href="#__codelineno-13-17">17</a></span>
-<span class="normal"><a href="#__codelineno-13-18">18</a></span>
-<span class="normal"><a href="#__codelineno-13-19">19</a></span>
-<span class="normal"><a href="#__codelineno-13-20">20</a></span>
-<span class="normal"><a href="#__codelineno-13-21">21</a></span>
-<span class="normal"><a href="#__codelineno-13-22">22</a></span>
-<span class="normal"><a href="#__codelineno-13-23">23</a></span>
-<span class="normal"><a href="#__codelineno-13-24">24</a></span>
-<span class="normal"><a href="#__codelineno-13-25">25</a></span>
-<span class="normal"><a href="#__codelineno-13-26">26</a></span>
-<span class="normal"><a href="#__codelineno-13-27">27</a></span>
-<span class="normal"><a href="#__codelineno-13-28">28</a></span>
-<span class="normal"><a href="#__codelineno-13-29">29</a></span>
-<span class="normal"><a href="#__codelineno-13-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="x">// src/Service/CalculadoraService.php</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="x">namespace App\Service;</span>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="x">class CalculadoraService</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="x">{</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="x">    public function sumar(int $a, int $b): int</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="x">    {</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="x">        return $a + $b;</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="x">    }</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="x">}</span>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="x">// src/Controller/CalculadoraController.php</span>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="x">namespace App\Controller;</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="x">use App\Service\CalculadoraService;</span>
-</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="x">use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;</span>
-</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="x">use Symfony\Component\HttpFoundation\Response;</span>
-</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="x">use Symfony\Component\Routing\Annotation\Route;</span>
-</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19"></a>
-</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="x">class CalculadoraController extends AbstractController</span>
-</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="x">{</span>
-</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="x">    public function __construct(private CalculadoraService $calculadora) {}</span>
-</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23"></a>
-</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="x">    #[Route(&#39;/suma/{a}/{b}&#39;, name: &#39;suma&#39;)]</span>
-</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="x">    public function suma(int $a, int $b): Response</span>
-</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="x">    {</span>
-</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="x">        $resultat = $this-&gt;calculadora-&gt;sumar($a, $b);</span>
-</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="x">        return new Response(&quot;El resultat de la suma és: $resultat&quot;);</span>
-</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="x">    }</span>
-</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="x">}</span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="k">class</span> <span class="nc">ServeiCombinat</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="k">private</span> <span class="nv">$contactes</span><span class="p">;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">BDProva</span> <span class="nv">$dades</span><span class="p">,</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">)</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a>    <span class="p">{</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span> <span class="o">=</span> <span class="nv">$dades</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a>    <span class="p">}</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>    <span class="c1">// Getters o mètodes per accedir als serveis interns</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="p">}</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Aleshores, la classe que els necessite només rebria un objecte d’aquest tipus:</p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="k">class</span> <span class="nc">UnaClasse</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">{</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a>    <span class="k">private</span> <span class="nv">$servei</span><span class="p">;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">ServeiCombinat</span> <span class="nv">$servei</span><span class="p">)</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a>    <span class="p">{</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">servei</span> <span class="o">=</span> <span class="nv">$servei</span><span class="p">;</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a>    <span class="p">}</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="p">}</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Aquesta segona opció millora la llegibilitat i facilita la reutilització de conjunts de serveis.</p>
+<hr />
+<h3 id="82-arguments-sense-autowiring">8.2. Arguments sense "autowiring"</h3>
+<p>L’opció <code>autowire</code> de <code>config/services.yaml</code> permet que Symfony cree automàticament els serveis necessaris en funció del tipus del paràmetre. No obstant això, <strong>hi ha casos en què Symfony no pot autoinjectar valors</strong> (p. ex. variables sense tipus o literals).</p>
+<p><strong>🧩 Exemple</strong></p>
+<p>Suposem que volem que el format de data siga personalitzable en el <code>IniciController</code>:</p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span>
+<span class="normal"><a href="#__codelineno-15-16">16</a></span>
+<span class="normal"><a href="#__codelineno-15-17">17</a></span>
+<span class="normal"><a href="#__codelineno-15-18">18</a></span>
+<span class="normal"><a href="#__codelineno-15-19">19</a></span>
+<span class="normal"><a href="#__codelineno-15-20">20</a></span>
+<span class="normal"><a href="#__codelineno-15-21">21</a></span>
+<span class="normal"><a href="#__codelineno-15-22">22</a></span>
+<span class="normal"><a href="#__codelineno-15-23">23</a></span>
+<span class="normal"><a href="#__codelineno-15-24">24</a></span>
+<span class="normal"><a href="#__codelineno-15-25">25</a></span>
+<span class="normal"><a href="#__codelineno-15-26">26</a></span>
+<span class="normal"><a href="#__codelineno-15-27">27</a></span>
+<span class="normal"><a href="#__codelineno-15-28">28</a></span>
+<span class="normal"><a href="#__codelineno-15-29">29</a></span>
+<span class="normal"><a href="#__codelineno-15-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="k">class</span> <span class="nc">IniciController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="p">{</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12"></a>    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13"></a>    <span class="k">private</span> <span class="nv">$formatData</span><span class="p">;</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14"></a>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">,</span> <span class="nv">$formatData</span><span class="p">)</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16"></a>    <span class="p">{</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">formatData</span> <span class="o">=</span> <span class="nv">$formatData</span><span class="p">;</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19"></a>    <span class="p">}</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20"></a>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;inici&#39;</span><span class="p">)]</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">inici</span><span class="p">()</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23"></a>    <span class="p">{</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24"></a>        <span class="nv">$data_hora</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Accés: &quot;</span><span class="o">.</span> <span class="nv">$data_hora</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">formatData</span><span class="p">));</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;inici.html.twig&#39;</span><span class="p">);</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27"></a>    <span class="p">}</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="p">}</span>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29"></a>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Si intentem executar aquesta classe sense definir <code>$formatData</code>, Symfony llançarà un error, ja que <strong>no sap d’on obtindre aquest valor</strong>.</p>
+<p>🔧 <strong>Solució:</strong></p>
+<p>Definir l’argument al final del fitxer <code>services.yaml</code>:</p>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nt">App\Controller\IniciController</span><span class="p">:</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="nt">arguments</span><span class="p">:</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">        </span><span class="nt">$formatData</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;d/m/y</span><span class="nv"> </span><span class="s">H:i:s&#39;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Amb això, indiquem que el paràmetre <code>$formatData</code> del constructor de <code>IniciController</code> tindrà per defecte el valor <code>'d/m/y H:i:s'</code>.</p>
+<p>📝 <strong>Notes:</strong></p>
+<ul>
+<li>No utilitzes el tabulador per indentar (usa quatre espais).  </li>
+<li>Aquesta tècnica permet definir <strong>paràmetres personalitzats</strong> per a serveis que Symfony no pot autowirejar automàticament.</li>
+</ul>
+<hr />
+<h3 id="83-parametres-globals">8.3. Paràmetres globals</h3>
+<p>Es poden definir <strong>paràmetres de configuració globals</strong> per a tots els serveis dins de la secció <code>parameters</code> de <code>config/services.yaml</code>. Aquests valors poden ser reutilitzats en qualsevol servei o part de l’aplicació.  </p>
+<div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nt">parameters</span><span class="p">:</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">  </span><span class="nt">locale</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;ca&#39;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">  </span><span class="nt">app.nom_projecte</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Gestor</span><span class="nv"> </span><span class="s">de</span><span class="nv"> </span><span class="s">Contactes&#39;</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">  </span><span class="nt">app.suport_email</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;%env(SUPPORT_EMAIL)%&#39;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">  </span><span class="nt">format_data_defecte</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;d/m/y</span><span class="nv"> </span><span class="s">H:i:s&#39;</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="nn">...</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8"></a>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nt">App\Controller\IniciController</span><span class="p">:</span>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">      </span><span class="nt">$formatData</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;%format_data_defecte%&#39;</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="w">      </span><span class="nt">$suportEmail</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;%app.suport_email%&#39;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>I en <code>.env</code> podem definir les variables:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a>SUPPORT_EMAIL=suport@exemple.com
+</span></code></pre></div></td></tr></table></div>
+<p>Al codi PHP:</p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">6</a></span>
+<span class="normal"><a href="#__codelineno-19-7">7</a></span>
+<span class="normal"><a href="#__codelineno-19-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">string</span> <span class="nv">$suportEmail</span><span class="p">)</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="p">{</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5"></a>    <span class="c1">// Symfony injecta automàticament el valor de l&#39;entorn</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="p">}</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>També pots accedir-hi via el contenidor:</p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="x">$suport = $this-&gt;getParameter(&#39;app.suport_email&#39;);</span>
 </span></code></pre></div></td></tr></table></div>
 <hr />
-<h2 id="10-resum-final">10. Resum final</h2>
+<h2 id="9-resum-final">9. Resum final</h2>
 <table>
 <thead>
 <tr>
@@ -1158,7 +1686,7 @@ Si cal exposar-ne algun directament, podem marcar-lo com <strong>públic</strong
 <tbody>
 <tr>
 <td><strong>Servei</strong></td>
-<td>Classe que realitza una tasca concreta.</td>
+<td>Classe que realitza una tasca concreta. Un servei = una tasca.</td>
 </tr>
 <tr>
 <td><strong>Contenidor de serveis</strong></td>
@@ -1185,7 +1713,8 @@ Si cal exposar-ne algun directament, podem marcar-lo com <strong>públic</strong
 <hr />
 <p><strong>Referències útils</strong></p>
 <ul>
-<li><a href="https://symfony.com/doc/current/service_container.html">Documentació oficial de Symfony 7 – Dependency Injection</a></li>
+<li><a href="https://symfony.com/doc/7.0/index.html">Documentació oficial de Symfony 7</a></li>
+<li><a href="https://symfony.com/doc/current/service_container.html">Dependency Injection</a></li>
 <li><a href="https://symfony.com/doc/current/best_practices.html#services">Best Practices: Service Design</a></li>
 </ul>
 

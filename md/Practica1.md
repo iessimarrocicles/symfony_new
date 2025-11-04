@@ -1,10 +1,10 @@
 ---
-title: "TEMA 1 — Pràtica 1"
+title: "TEMA 1 — Pràctica"
 nav:
-  - Pràctica 1: 'Practica1.md'
+  - Pràctica: 'Practica1.md'
 ---
 
-# 🧩 TEMA 1 — Pràtica 1
+# 🧩 TEMA 1 — Pràctica
 
 **Objectiu**
 

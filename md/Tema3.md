@@ -695,4 +695,3 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 - [Documentació oficial Twig 3.x](https://twig.symfony.com/doc/3.x/)  
 - [Plantilles en Symfony 6.4+](https://symfony.com/doc/current/templates.html)  
 - [Symfony AssetMapper (nou sistema d’actius)](https://symfony.com/doc/current/frontend/asset_mapper.html)
-
