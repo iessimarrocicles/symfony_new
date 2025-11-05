@@ -146,6 +146,17 @@ composer require twig
 - L'opcio `--webapp` instal·la tots els paquets essencials d'entrada.  
 - El projecte minim nomes inclou el **nucli de Symfony**, i tu vas afegint els components segons el que necessites.
 
+!!! danger "Projecte de proves"
+    Al llarg de les explicacions teòriques crearem un projecte mínim anomenat **agenda**, que utilitzarem exclusivament per a fer proves i exemples de classe. 
+    
+    Aquest projecte inclourà únicament els components bàsics `orm` i `twig`, i ens servirà per a entendre pas a pas el funcionament de Symfony i per consolidar els coneixements apresos.
+
+!!! danger "Projecte de pràctiques"
+    Paral·lelament, desenvoluparem un segon projecte, que servirà com a base per a les pràctiques avaluables del curs.
+
+    Aquest projecte partirà d'un esquelet mínim i els components bàsics `orm` i `twig`. Tindreu més informació sobre aquest projecte en les pràctiques específiques de cada tema.
+
+
 ---
 
 ## 8. Estructura general d’un projecte

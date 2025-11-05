@@ -1226,6 +1226,16 @@
 <li>L'opcio <code>--webapp</code> instal·la tots els paquets essencials d'entrada.  </li>
 <li>El projecte minim nomes inclou el <strong>nucli de Symfony</strong>, i tu vas afegint els components segons el que necessites.</li>
 </ul>
+<div class="admonition danger">
+<p class="admonition-title">Projecte de proves</p>
+<p>Al llarg de les explicacions teòriques crearem un projecte mínim anomenat <strong>agenda</strong>, que utilitzarem exclusivament per a fer proves i exemples de classe. </p>
+<p>Aquest projecte inclourà únicament els components bàsics <code>orm</code> i <code>twig</code>, i ens servirà per a entendre pas a pas el funcionament de Symfony i per consolidar els coneixements apresos.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Projecte de pràctiques</p>
+<p>Paral·lelament, desenvoluparem un segon projecte, que servirà com a base per a les pràctiques avaluables del curs.</p>
+<p>Aquest projecte partirà d'un esquelet mínim i els components bàsics <code>orm</code> i <code>twig</code>. Tindreu més informació sobre aquest projecte en les pràctiques específiques de cada tema.</p>
+</div>
 <hr />
 <h2 id="8-estructura-general-dun-projecte">8. Estructura general d’un projecte</h2>
 <p>Quan creem un projecte amb Symfony, s’organitza automàticament en una estructura de carpetes molt clara i estandarditzada. Aquesta estructura ajuda a mantenir el codi ordenat i a separar la lògica, les vistes i la configuració.</p>
@@ -1252,12 +1262,12 @@
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>├── config/               # Fitxers de configuració de Symfony i serveis
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>├── migrations/           # Fitxers de migracions de base de dades (Doctrine)
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>├── public/               # Carpeta pública del servidor web (arrel del projecte)
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>│   └── index.php         # Punt d’entrada principal de l’aplicació
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>│   └── index.php           # Punt d’entrada principal de l’aplicació
 </span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>├── src/                  # Codi font del projecte (controladors, entitats, serveis...)
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>│   ├── Controller/       # Controladors (gestió de rutes i lògica)
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>│   ├── Entity/           # Entitats (models de dades per Doctrine)
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>│   ├── Repository/       # Classes per consultar la base de dades
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>│   └── Service/          # Serveis personalitzats del projecte
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>│   ├── Controller/         # Controladors (gestió de rutes i lògica)
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>│   ├── Entity/             # Entitats (models de dades per Doctrine)
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>│   ├── Repository/         # Classes per consultar la base de dades
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>│   └── Service/            # Serveis personalitzats del projecte
 </span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a>├── templates/            # Plantilles Twig (vistes HTML)
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a>├── translations/         # Fitxers de traduccions (si n’hi ha)
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>├── var/                  # Fitxers temporals, caché i logs
@@ -1301,16 +1311,16 @@
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># 🚀 Iniciar el servidor local</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>symfony<span class="w"> </span>serve<span class="w"> </span>-d
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># 🎮 Generar elements basics del projecte</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>bin/console<span class="w"> </span>make:controller<span class="w">     </span><span class="c1"># Crear un controlador</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>bin/console<span class="w"> </span>make:entity<span class="w">         </span><span class="c1"># Crear una entitat</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>bin/console<span class="w"> </span>make:migration<span class="w">      </span><span class="c1"># Crear una migracio</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>bin/console<span class="w"> </span>doctrine:migrations:migrate<span class="w">  </span><span class="c1"># Executar migracions</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># 🎮 Generar elements bàsics del projecte</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>bin/console<span class="w"> </span>make:controller<span class="w">               </span><span class="c1"># Crear un controlador</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a>bin/console<span class="w"> </span>make:entity<span class="w">                   </span><span class="c1"># Crear una entitat</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>bin/console<span class="w"> </span>make:migration<span class="w">                </span><span class="c1"># Crear una migració</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>bin/console<span class="w"> </span>doctrine:migrations:migrate<span class="w">   </span><span class="c1"># Executar migracions</span>
 </span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># 🧰 CRUD automatic</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="c1"># 🧰 CRUD automàtic</span>
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a>bin/console<span class="w"> </span>make:crud
 </span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1"># 🔐 Gestio d&#39;usuaris i autenticacio</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="c1"># 🔐 Gestió d&#39;usuaris i autenticació</span>
 </span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17"></a>bin/console<span class="w"> </span>make:user
 </span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18"></a>bin/console<span class="w"> </span>make:auth
 </span></code></pre></div></td></tr></table></div>

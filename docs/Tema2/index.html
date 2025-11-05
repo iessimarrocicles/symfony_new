@@ -492,18 +492,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-rutes-amb-parametres-amb-requisits" class="md-nav__link">
+  <a href="#31-configurar-rutes-a-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1. Rutes amb paràmetres amb requisits
+      3.1. Configurar rutes a Windows
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-rutes-amb-parametres-per-defecte" class="md-nav__link">
+  <a href="#32-configurar-rutes-a-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2. Rutes amb paràmetres per defecte
+      3.2. Configurar rutes a Linux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-rutes-amb-parametres-amb-requisits" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Rutes amb paràmetres amb requisits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-rutes-amb-parametres-per-defecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Rutes amb paràmetres per defecte
     </span>
   </a>
   
@@ -963,18 +981,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-rutes-amb-parametres-amb-requisits" class="md-nav__link">
+  <a href="#31-configurar-rutes-a-windows" class="md-nav__link">
     <span class="md-ellipsis">
-      3.1. Rutes amb paràmetres amb requisits
+      3.1. Configurar rutes a Windows
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#32-rutes-amb-parametres-per-defecte" class="md-nav__link">
+  <a href="#32-configurar-rutes-a-linux" class="md-nav__link">
     <span class="md-ellipsis">
-      3.2. Rutes amb paràmetres per defecte
+      3.2. Configurar rutes a Linux
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-rutes-amb-parametres-amb-requisits" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. Rutes amb paràmetres amb requisits
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-rutes-amb-parametres-per-defecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. Rutes amb paràmetres per defecte
     </span>
   </a>
   
@@ -1188,32 +1224,96 @@
 <p>Quan accedim a <code>/contacte/3</code> el navegador mostrarà:
 <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Has consultat el contacte amb codi 3
 </span></code></pre></div></td></tr></table></div></p>
-<hr />
-<h3 id="31-rutes-amb-parametres-amb-requisits">3.1. Rutes amb paràmetres amb requisits</h3>
-<p>En Symfony, podem <strong>imposar restriccions</strong> als valors dels paràmetres de la ruta utilitzant <strong>expressions regulars</strong>.  </p>
-<p>Això es fa amb l’opció <code>requirements:</code> dins de l’atribut <code>#[Route]</code>.</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<h3 id="31-configurar-rutes-a-windows">3.1. Configurar rutes a Windows</h3>
+<p>Per a que funcionen les rutes amigables en Symfony hem de generar l’arxiu <code>.htaccess</code> i assegurar que <code>mod_rewrite</code> està activat.</p>
+<p><strong>Pas 1. Generar <code>.htaccess</code> amb Apache Pack</strong></p>
+<p>Obri la terminal (PowerShell) dins de la carpeta del projecte:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
-<span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span>
-<span class="normal"><a href="#__codelineno-4-6">6</a></span>
-<span class="normal"><a href="#__codelineno-4-7">7</a></span>
-<span class="normal"><a href="#__codelineno-4-8">8</a></span>
-<span class="normal"><a href="#__codelineno-4-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?php</span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">cd </span><span class="s2">&quot;C:\xampp\htdocs\symfony\nom_projecte&quot;</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/producte/{id}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;fitxa_producte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\d+&#39;</span><span class="p">])]</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">fitxa</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">{</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;Producte amb ID </span><span class="si">$id</span><span class="s2">&quot;</span><span class="p">);</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="p">}</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="cp">?&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">composer</span> <span class="n">config</span> <span class="n">extra</span><span class="p">.</span><span class="n">symfony</span><span class="p">.</span><span class="n">allow-contrib</span> <span class="n">true</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">composer</span> <span class="n">require</span> <span class="n">symfony</span><span class="p">/</span><span class="n">apache-pack</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Comprova que s’ha creat el fitxer: <code>C:\xampp\htdocs\symfony\nom_projecte\public\.htaccess</code></p>
+<p><strong>Pas 2. Activar mod_rewrite en XAMPP</strong></p>
+<p>Obri el fitxer: <code>C:\xampp\apache\conf\httpd.conf</code></p>
+<p>Localitza i descomenta (traure #):</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">LoadModule</span> <span class="n">rewrite_module</span> <span class="n">modules</span><span class="p">/</span><span class="n">mod_rewrite</span><span class="p">.</span><span class="n">so</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Guarda i reinicia Apache des del XAMPP Control Panel.</p>
+<hr />
+<h3 id="32-configurar-rutes-a-linux">3.2. Configurar rutes a Linux</h3>
+<p>Per a que funcionen les rutes amigables en Symfony hem de generar l’arxiu <code>.htaccess</code> i assegurar que <code>mod_rewrite</code> està activat.</p>
+<p><strong>Pas 1. Generar <code>.htaccess</code> amb Apache Pack</strong></p>
+<p>Situa’t a la carpeta del projecte:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>/var/www/html/symfony/nom_projecte
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>composer<span class="w"> </span>config<span class="w"> </span>extra.symfony.allow-contrib<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>composer<span class="w"> </span>require<span class="w"> </span>symfony/apache-pack
+</span></code></pre></div></td></tr></table></div>
+<p>Comprova que s’ha creat el fitxer: <code>/var/www/html/symfony/nom_projecte/public/.htaccess</code></p>
+<p><strong>Pas 2. Activar mod_rewrite en Apache</strong></p>
+<p>Activa el mòdul:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo<span class="w"> </span>a2enmod<span class="w"> </span>rewrite
+</span></code></pre></div></td></tr></table></div>
+<p>Reincia el servidor Apache:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>o
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>sudo<span class="w"> </span>service<span class="w"> </span>apache2<span class="w"> </span>restart
+</span></code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Atenció amb les rutes amigables</p>
+<p>Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Atenció amb les rutes amigables</p>
+<p>Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Atenció amb les rutes amigables</p>
+<p>Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Atenció amb les rutes amigables</p>
+<p>Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Atenció amb les rutes amigables</p>
+<p>Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.</p>
+</div>
+<hr />
+<h3 id="33-rutes-amb-parametres-amb-requisits">3.3. Rutes amb paràmetres amb requisits</h3>
+<p>En Symfony, podem <strong>imposar restriccions</strong> als valors dels paràmetres de la ruta utilitzant <strong>expressions regulars</strong>.  </p>
+<p>Això es fa amb l’opció <code>requirements:</code> dins de l’atribut <code>#[Route]</code>.</p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span>
+<span class="normal"><a href="#__codelineno-9-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/{codi}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;fitxa_contacte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\d+&#39;</span><span class="p">])]</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">fitxa</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$codi</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="p">{</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;Has consultat el contacte amb codi </span><span class="si">$codi</span><span class="s2">&quot;</span><span class="p">);</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="p">}</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>🧠 <strong>Explicació:</strong></p>
 <ul>
-<li>El paràmetre <code>{id}</code> només serà vàlid si és un <strong>número</strong> (<code>\d+</code> indica un o més dígits).  </li>
-<li>Si l’usuari escriu <code>/producte/abc</code>, Symfony mostrarà un <strong>error 404</strong>, ja que no compleix el requisit.  </li>
+<li>El paràmetre <code>{codi}</code> només serà vàlid si és un <strong>número</strong> (<code>\d+</code> indica un o més dígits).  </li>
+<li>Si l’usuari escriu <code>/contacte/abc</code>, Symfony mostrarà un <strong>error 404</strong>, ja que no compleix el requisit.  </li>
 <li>Es poden definir diversos requisits per a diferents paràmetres.</li>
 </ul>
 <p>Altres exemples de requisits:</p>
@@ -1240,26 +1340,26 @@
 </tbody>
 </table>
 <hr />
-<h3 id="32-rutes-amb-parametres-per-defecte">3.2. Rutes amb paràmetres per defecte</h3>
+<h3 id="34-rutes-amb-parametres-per-defecte">3.4. Rutes amb paràmetres per defecte</h3>
 <p>Podem indicar <strong>valors per defecte</strong> per als paràmetres d’una ruta amb l’opció <code>defaults:</code>.<br />
 Això permet que la ruta siga vàlida encara que no es passe cap valor.</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span>
-<span class="normal"><a href="#__codelineno-5-4">4</a></span>
-<span class="normal"><a href="#__codelineno-5-5">5</a></span>
-<span class="normal"><a href="#__codelineno-5-6">6</a></span>
-<span class="normal"><a href="#__codelineno-5-7">7</a></span>
-<span class="normal"><a href="#__codelineno-5-8">8</a></span>
-<span class="normal"><a href="#__codelineno-5-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">&lt;?php</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/blog/{pagina}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;llista_blog&#39;</span><span class="p">,</span> <span class="nx">defaults</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;pagina&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">])]</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">llista</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$pagina</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">{</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;Estàs a la pàgina </span><span class="si">$pagina</span><span class="s2"> del blog&quot;</span><span class="p">);</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">}</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="cp">?&gt;</span>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span>
+<span class="normal"><a href="#__codelineno-10-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/blog/{pagina}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;llista_blog&#39;</span><span class="p">,</span> <span class="nx">defaults</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;pagina&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">])]</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">llista</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$pagina</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="p">{</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a>    <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;Estàs a la pàgina </span><span class="si">$pagina</span><span class="s2"> del blog&quot;</span><span class="p">);</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="p">}</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>🧠 <strong>Explicació:</strong></p>
 <ul>
@@ -1268,25 +1368,25 @@ Això permet que la ruta siga vàlida encara que no es passe cap valor.</p>
 <li>Els valors per defecte eviten errors i fan les rutes més flexibles.</li>
 </ul>
 <p>També es poden combinar <strong>defaults</strong> i <strong>requirements</strong>:</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">&lt;?php</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="s1">&#39;/blog/{pagina}&#39;</span><span class="p">,</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;llista_blog&#39;</span><span class="p">,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="nx">defaults</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;pagina&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">],</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;pagina&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\d+&#39;</span><span class="p">]</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="p">)]</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="cp">?&gt;</span>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>    <span class="s1">&#39;/blog/{pagina}&#39;</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;llista_blog&#39;</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="nx">defaults</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;pagina&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">],</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;pagina&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\d+&#39;</span><span class="p">]</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="p">)]</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>🧩 Així assegurem que el paràmetre <code>pagina</code> siga un número i, si no es proporciona, prenga el valor <code>1</code> per defecte.</p>
 <hr />
@@ -1297,154 +1397,158 @@ Això permet que la ruta siga vàlida encara que no es passe cap valor.</p>
 <li>Si el paràmetre conté <strong>text</strong>, es farà una <em>cerca</em> de contactes pel nom.</li>
 </ul>
 <p>Abans d’utilitzar una base de dades, simularem les dades amb un <strong>array local</strong> i mostrarem el contacte amb el codi indicat.</p>
-<p>Fitxer: <code>src/Controller/ContacteController.php</code></p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span>
-<span class="normal"><a href="#__codelineno-7-14">14</a></span>
-<span class="normal"><a href="#__codelineno-7-15">15</a></span>
-<span class="normal"><a href="#__codelineno-7-16">16</a></span>
-<span class="normal"><a href="#__codelineno-7-17">17</a></span>
-<span class="normal"><a href="#__codelineno-7-18">18</a></span>
-<span class="normal"><a href="#__codelineno-7-19">19</a></span>
-<span class="normal"><a href="#__codelineno-7-20">20</a></span>
-<span class="normal"><a href="#__codelineno-7-21">21</a></span>
-<span class="normal"><a href="#__codelineno-7-22">22</a></span>
-<span class="normal"><a href="#__codelineno-7-23">23</a></span>
-<span class="normal"><a href="#__codelineno-7-24">24</a></span>
-<span class="normal"><a href="#__codelineno-7-25">25</a></span>
-<span class="normal"><a href="#__codelineno-7-26">26</a></span>
-<span class="normal"><a href="#__codelineno-7-27">27</a></span>
-<span class="normal"><a href="#__codelineno-7-28">28</a></span>
-<span class="normal"><a href="#__codelineno-7-29">29</a></span>
-<span class="normal"><a href="#__codelineno-7-30">30</a></span>
-<span class="normal"><a href="#__codelineno-7-31">31</a></span>
-<span class="normal"><a href="#__codelineno-7-32">32</a></span>
-<span class="normal"><a href="#__codelineno-7-33">33</a></span>
-<span class="normal"><a href="#__codelineno-7-34">34</a></span>
-<span class="normal"><a href="#__codelineno-7-35">35</a></span>
-<span class="normal"><a href="#__codelineno-7-36">36</a></span>
-<span class="normal"><a href="#__codelineno-7-37">37</a></span>
-<span class="normal"><a href="#__codelineno-7-38">38</a></span>
-<span class="normal"><a href="#__codelineno-7-39">39</a></span>
-<span class="normal"><a href="#__codelineno-7-40">40</a></span>
-<span class="normal"><a href="#__codelineno-7-41">41</a></span>
-<span class="normal"><a href="#__codelineno-7-42">42</a></span>
-<span class="normal"><a href="#__codelineno-7-43">43</a></span>
-<span class="normal"><a href="#__codelineno-7-44">44</a></span>
-<span class="normal"><a href="#__codelineno-7-45">45</a></span>
-<span class="normal"><a href="#__codelineno-7-46">46</a></span>
-<span class="normal"><a href="#__codelineno-7-47">47</a></span>
-<span class="normal"><a href="#__codelineno-7-48">48</a></span>
-<span class="normal"><a href="#__codelineno-7-49">49</a></span>
-<span class="normal"><a href="#__codelineno-7-50">50</a></span>
-<span class="normal"><a href="#__codelineno-7-51">51</a></span>
-<span class="normal"><a href="#__codelineno-7-52">52</a></span>
-<span class="normal"><a href="#__codelineno-7-53">53</a></span>
-<span class="normal"><a href="#__codelineno-7-54">54</a></span>
-<span class="normal"><a href="#__codelineno-7-55">55</a></span>
-<span class="normal"><a href="#__codelineno-7-56">56</a></span>
-<span class="normal"><a href="#__codelineno-7-57">57</a></span>
-<span class="normal"><a href="#__codelineno-7-58">58</a></span>
-<span class="normal"><a href="#__codelineno-7-59">59</a></span>
-<span class="normal"><a href="#__codelineno-7-60">60</a></span>
-<span class="normal"><a href="#__codelineno-7-61">61</a></span>
-<span class="normal"><a href="#__codelineno-7-62">62</a></span>
-<span class="normal"><a href="#__codelineno-7-63">63</a></span>
-<span class="normal"><a href="#__codelineno-7-64">64</a></span>
-<span class="normal"><a href="#__codelineno-7-65">65</a></span>
-<span class="normal"><a href="#__codelineno-7-66">66</a></span>
-<span class="normal"><a href="#__codelineno-7-67">67</a></span>
-<span class="normal"><a href="#__codelineno-7-68">68</a></span>
-<span class="normal"><a href="#__codelineno-7-69">69</a></span>
-<span class="normal"><a href="#__codelineno-7-70">70</a></span>
-<span class="normal"><a href="#__codelineno-7-71">71</a></span>
-<span class="normal"><a href="#__codelineno-7-72">72</a></span>
-<span class="normal"><a href="#__codelineno-7-73">73</a></span>
-<span class="normal"><a href="#__codelineno-7-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">&lt;?php</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Attribute\Route</span><span class="p">;</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="k">class</span> <span class="nc">ContacteController</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="p">{</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="c1">// Llista de contactes de mostra</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="k">private</span> <span class="nv">$contactes</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Salvador Sala&quot;</span><span class="p">,</span> 
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;638961244&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;salvasala@simarro.org&quot;</span><span class="p">],</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Anna Llopis&quot;</span><span class="p">,</span> 
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;669332004&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;annallopis@simarro.org&quot;</span><span class="p">],</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Marc Sanchis&quot;</span><span class="p">,</span> 
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;962286040&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;marcsanchis@simarro.org&quot;</span><span class="p">],</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Laura Palop&quot;</span><span class="p">,</span> 
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;663568890&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;laurapalop@simarro.org&quot;</span><span class="p">],</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20"></a>    <span class="p">];</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21"></a>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22"></a>    <span class="c1">// --- Mètode 1: Mostrar la fitxa d’un contacte pel seu codi ---</span>
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23"></a>    <span class="c1">// Ruta activa quan el paràmetre és numèric (\\d+)</span>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/{codi}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;fitxa_contacte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\\d+&#39;</span><span class="p">])]</span>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">fitxa</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$codi</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26"></a>    <span class="p">{</span>
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27"></a>        <span class="nv">$resultat</span> <span class="o">=</span> <span class="nd">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span><span class="p">,</span> 
-</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28"></a>            <span class="k">function</span><span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span> <span class="nd">use</span> <span class="p">(</span><span class="nv">$codi</span><span class="p">){</span>
-</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29"></a>                <span class="nd">return</span> <span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;codi&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$codi</span><span class="p">;</span>
-</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30"></a>            <span class="p">}</span>
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31"></a>        <span class="p">);</span>
-</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32"></a>
-</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33"></a>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$resultat</span><span class="p">)</span> 
-</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34"></a>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Contacte no trobat&#39;</span><span class="p">);</span>
-</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35"></a>
-</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36"></a>        <span class="c1">// Torna 1r element</span>
-</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37"></a>        <span class="nv">$c</span> <span class="o">=</span> <span class="nb">array_shift</span><span class="p">(</span><span class="nv">$resultat</span><span class="p">);</span>
-</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38"></a>        <span class="nv">$resp</span> <span class="o">=</span> <span class="s2">&quot;&lt;ul&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39"></a>                    <span class="s2">&quot;&lt;li&gt;{ </span><span class="si">$c[&#39;nom&#39;]</span><span class="s2"> }&lt;/li&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40"></a>                    <span class="s2">&quot;&lt;li&gt;{ </span><span class="si">$c[&#39;telefon&#39;]</span><span class="s2"> }&lt;/li&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41"></a>                    <span class="s2">&quot;&lt;li&gt;{ </span><span class="si">$c[&#39;email&#39;]</span><span class="s2"> }&lt;/li&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42"></a>                <span class="s2">&quot;&lt;/ul&gt;&quot;</span><span class="p">;</span>
-</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43"></a>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;</span><span class="si">$resp</span><span class="s2">&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
-</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44"></a>    <span class="p">}</span>
-</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45"></a>
-</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46"></a>
-</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47"></a>    <span class="c1">// --- Mètode 2: Buscar contactes pel nom ---</span>
-</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48"></a>    <span class="c1">// Mateixa ruta /contacte/{text}, però amb requirement diferent (només lletres)</span>
-</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/{text}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;buscar_contacte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;[a-zA-Z]+&#39;</span><span class="p">])]</span>
-</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">buscar</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$text</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
-</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51"></a>    <span class="p">{</span>
-</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52"></a>        <span class="nv">$resultat</span> <span class="o">=</span> <span class="nd">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span><span class="p">,</span> 
-</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53"></a>            <span class="k">function</span><span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span> <span class="nd">use</span> <span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54"></a>                <span class="nd">return</span> <span class="nd">stripos</span><span class="p">(</span><span class="nv">$contacte</span><span class="p">[</span><span class="s2">&quot;nom&quot;</span><span class="p">],</span> <span class="nv">$text</span><span class="p">)</span> <span class="o">!==</span> <span class="nd">false</span><span class="p">;</span>
-</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55"></a>            <span class="p">}</span>
-</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56"></a>        <span class="p">);</span>
-</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57"></a>
-</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58"></a>        <span class="nd">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$resultat</span><span class="p">)</span> 
-</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59"></a>            <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;No s&#39;han trobat contactes amb &#39;</span><span class="si">$text</span><span class="s2">&#39;.&quot;</span><span class="p">);</span>
-</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60"></a>
-</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61"></a>
-</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62"></a>        <span class="nv">$resposta</span> <span class="o">=</span> <span class="s2">&quot;&lt;h2&gt;Resultats de la cerca: &#39;</span><span class="si">$text</span><span class="s2">&#39;&lt;/h2&gt;&quot;</span><span class="p">;</span>
-</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63"></a>        <span class="nd">foreach</span> <span class="p">(</span><span class="nv">$resultat</span> <span class="k">as</span> <span class="nv">$contacte</span><span class="p">)</span> <span class="p">{</span>
-</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64"></a>            <span class="nv">$resposta</span> <span class="o">.=</span> <span class="s2">&quot;&lt;ul&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65"></a>                            <span class="s2">&quot;&lt;li&gt;{ </span><span class="si">$contacte[&#39;nom&#39;]</span><span class="s2"> } &lt;/li&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66"></a>                            <span class="s2">&quot;&lt;li&gt;{ </span><span class="si">$contacte[&#39;telefon&#39;]</span><span class="s2"> }&lt;/li&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-67"><a id="__codelineno-7-67" name="__codelineno-7-67"></a>                            <span class="s2">&quot;&lt;li&gt;{ </span><span class="si">$contacte[&#39;email&#39;]</span><span class="s2"> }&lt;/li&gt;&quot;</span><span class="o">.</span>
-</span><span id="__span-7-68"><a id="__codelineno-7-68" name="__codelineno-7-68"></a>                         <span class="s2">&quot;&lt;/ul&gt;&quot;</span><span class="p">;</span>
-</span><span id="__span-7-69"><a id="__codelineno-7-69" name="__codelineno-7-69"></a>        <span class="p">}</span>
-</span><span id="__span-7-70"><a id="__codelineno-7-70" name="__codelineno-7-70"></a>        <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;</span><span class="si">$resposta</span><span class="s2">&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
-</span><span id="__span-7-71"><a id="__codelineno-7-71" name="__codelineno-7-71"></a>
-</span><span id="__span-7-72"><a id="__codelineno-7-72" name="__codelineno-7-72"></a>    <span class="p">}</span>
-</span><span id="__span-7-73"><a id="__codelineno-7-73" name="__codelineno-7-73"></a><span class="p">}</span>
-</span><span id="__span-7-74"><a id="__codelineno-7-74" name="__codelineno-7-74"></a><span class="cp">?&gt;</span>
+<p><strong>Fitxer:</strong> <code>src/Controller/ContacteController.php</code></p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span>
+<span class="normal"><a href="#__codelineno-12-20">20</a></span>
+<span class="normal"><a href="#__codelineno-12-21">21</a></span>
+<span class="normal"><a href="#__codelineno-12-22">22</a></span>
+<span class="normal"><a href="#__codelineno-12-23">23</a></span>
+<span class="normal"><a href="#__codelineno-12-24">24</a></span>
+<span class="normal"><a href="#__codelineno-12-25">25</a></span>
+<span class="normal"><a href="#__codelineno-12-26">26</a></span>
+<span class="normal"><a href="#__codelineno-12-27">27</a></span>
+<span class="normal"><a href="#__codelineno-12-28">28</a></span>
+<span class="normal"><a href="#__codelineno-12-29">29</a></span>
+<span class="normal"><a href="#__codelineno-12-30">30</a></span>
+<span class="normal"><a href="#__codelineno-12-31">31</a></span>
+<span class="normal"><a href="#__codelineno-12-32">32</a></span>
+<span class="normal"><a href="#__codelineno-12-33">33</a></span>
+<span class="normal"><a href="#__codelineno-12-34">34</a></span>
+<span class="normal"><a href="#__codelineno-12-35">35</a></span>
+<span class="normal"><a href="#__codelineno-12-36">36</a></span>
+<span class="normal"><a href="#__codelineno-12-37">37</a></span>
+<span class="normal"><a href="#__codelineno-12-38">38</a></span>
+<span class="normal"><a href="#__codelineno-12-39">39</a></span>
+<span class="normal"><a href="#__codelineno-12-40">40</a></span>
+<span class="normal"><a href="#__codelineno-12-41">41</a></span>
+<span class="normal"><a href="#__codelineno-12-42">42</a></span>
+<span class="normal"><a href="#__codelineno-12-43">43</a></span>
+<span class="normal"><a href="#__codelineno-12-44">44</a></span>
+<span class="normal"><a href="#__codelineno-12-45">45</a></span>
+<span class="normal"><a href="#__codelineno-12-46">46</a></span>
+<span class="normal"><a href="#__codelineno-12-47">47</a></span>
+<span class="normal"><a href="#__codelineno-12-48">48</a></span>
+<span class="normal"><a href="#__codelineno-12-49">49</a></span>
+<span class="normal"><a href="#__codelineno-12-50">50</a></span>
+<span class="normal"><a href="#__codelineno-12-51">51</a></span>
+<span class="normal"><a href="#__codelineno-12-52">52</a></span>
+<span class="normal"><a href="#__codelineno-12-53">53</a></span>
+<span class="normal"><a href="#__codelineno-12-54">54</a></span>
+<span class="normal"><a href="#__codelineno-12-55">55</a></span>
+<span class="normal"><a href="#__codelineno-12-56">56</a></span>
+<span class="normal"><a href="#__codelineno-12-57">57</a></span>
+<span class="normal"><a href="#__codelineno-12-58">58</a></span>
+<span class="normal"><a href="#__codelineno-12-59">59</a></span>
+<span class="normal"><a href="#__codelineno-12-60">60</a></span>
+<span class="normal"><a href="#__codelineno-12-61">61</a></span>
+<span class="normal"><a href="#__codelineno-12-62">62</a></span>
+<span class="normal"><a href="#__codelineno-12-63">63</a></span>
+<span class="normal"><a href="#__codelineno-12-64">64</a></span>
+<span class="normal"><a href="#__codelineno-12-65">65</a></span>
+<span class="normal"><a href="#__codelineno-12-66">66</a></span>
+<span class="normal"><a href="#__codelineno-12-67">67</a></span>
+<span class="normal"><a href="#__codelineno-12-68">68</a></span>
+<span class="normal"><a href="#__codelineno-12-69">69</a></span>
+<span class="normal"><a href="#__codelineno-12-70">70</a></span>
+<span class="normal"><a href="#__codelineno-12-71">71</a></span>
+<span class="normal"><a href="#__codelineno-12-72">72</a></span>
+<span class="normal"><a href="#__codelineno-12-73">73</a></span>
+<span class="normal"><a href="#__codelineno-12-74">74</a></span>
+<span class="normal"><a href="#__codelineno-12-75">75</a></span>
+<span class="normal"><a href="#__codelineno-12-76">76</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Attribute\Route</span><span class="p">;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="k">class</span> <span class="nc">ContacteController</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">{</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a>    <span class="c1">// Llista de contactes de mostra</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a>    <span class="k">private</span> <span class="nv">$contactes</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Salvador Sala&quot;</span><span class="p">,</span> 
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;638961244&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;salvasala@simarro.org&quot;</span><span class="p">],</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Anna Llopis&quot;</span><span class="p">,</span> 
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;669332004&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;annallopis@simarro.org&quot;</span><span class="p">],</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Marc Sanchis&quot;</span><span class="p">,</span> 
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;962286040&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;marcsanchis@simarro.org&quot;</span><span class="p">],</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18"></a>        <span class="p">[</span><span class="s2">&quot;codi&quot;</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;Laura Palop&quot;</span><span class="p">,</span> 
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19"></a>         <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;663568890&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;laurapalop@simarro.org&quot;</span><span class="p">],</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20"></a>    <span class="p">];</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21"></a>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22"></a>    <span class="c1">// --- Mètode 1: Mostrar la fitxa d’un contacte pel seu codi ---</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23"></a>    <span class="c1">// Ruta activa quan el paràmetre és numèric (\\d+)</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/{codi}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;fitxa_contacte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\\d+&#39;</span><span class="p">])]</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">fitxa</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$codi</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26"></a>    <span class="p">{</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27"></a>        <span class="nv">$resultat</span> <span class="o">=</span> <span class="nd">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span><span class="p">,</span> 
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28"></a>            <span class="k">function</span><span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span> <span class="nd">use</span> <span class="p">(</span><span class="nv">$codi</span><span class="p">){</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29"></a>                <span class="nd">return</span> <span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;codi&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$codi</span><span class="p">;</span>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30"></a>            <span class="p">}</span>
+</span><span id="__span-12-31"><a id="__codelineno-12-31" name="__codelineno-12-31"></a>        <span class="p">);</span>
+</span><span id="__span-12-32"><a id="__codelineno-12-32" name="__codelineno-12-32"></a>
+</span><span id="__span-12-33"><a id="__codelineno-12-33" name="__codelineno-12-33"></a>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$resultat</span><span class="p">)</span> 
+</span><span id="__span-12-34"><a id="__codelineno-12-34" name="__codelineno-12-34"></a>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s1">&#39;Contacte no trobat&#39;</span><span class="p">);</span>
+</span><span id="__span-12-35"><a id="__codelineno-12-35" name="__codelineno-12-35"></a>
+</span><span id="__span-12-36"><a id="__codelineno-12-36" name="__codelineno-12-36"></a>        <span class="c1">// Torna 1r element</span>
+</span><span id="__span-12-37"><a id="__codelineno-12-37" name="__codelineno-12-37"></a>        <span class="nv">$contacte</span> <span class="o">=</span> <span class="nb">array_shift</span><span class="p">(</span><span class="nv">$resultat</span><span class="p">);</span>
+</span><span id="__span-12-38"><a id="__codelineno-12-38" name="__codelineno-12-38"></a>        <span class="nv">$resp</span> <span class="o">=</span> <span class="s2">&quot;&lt;ul&gt;</span>
+</span><span id="__span-12-39"><a id="__codelineno-12-39" name="__codelineno-12-39"></a><span class="s2">                    &lt;li&gt;</span><span class="si">{</span><span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/li&gt;</span>
+</span><span id="__span-12-40"><a id="__codelineno-12-40" name="__codelineno-12-40"></a><span class="s2">                    &lt;li&gt;</span><span class="si">{</span><span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;telefon&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/li&gt;</span>
+</span><span id="__span-12-41"><a id="__codelineno-12-41" name="__codelineno-12-41"></a><span class="s2">                    &lt;li&gt;</span><span class="si">{</span><span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/li&gt;</span>
+</span><span id="__span-12-42"><a id="__codelineno-12-42" name="__codelineno-12-42"></a><span class="s2">                &lt;/ul&gt;&quot;</span><span class="p">;</span>
+</span><span id="__span-12-43"><a id="__codelineno-12-43" name="__codelineno-12-43"></a>
+</span><span id="__span-12-44"><a id="__codelineno-12-44" name="__codelineno-12-44"></a>        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;</span><span class="si">$resp</span><span class="s2">&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
+</span><span id="__span-12-45"><a id="__codelineno-12-45" name="__codelineno-12-45"></a>    <span class="p">}</span>
+</span><span id="__span-12-46"><a id="__codelineno-12-46" name="__codelineno-12-46"></a>
+</span><span id="__span-12-47"><a id="__codelineno-12-47" name="__codelineno-12-47"></a>
+</span><span id="__span-12-48"><a id="__codelineno-12-48" name="__codelineno-12-48"></a>    <span class="c1">// --- Mètode 2: Buscar contactes pel nom ---</span>
+</span><span id="__span-12-49"><a id="__codelineno-12-49" name="__codelineno-12-49"></a>    <span class="c1">// Mateixa ruta /contacte/{text}, però amb requirement diferent (només lletres)</span>
+</span><span id="__span-12-50"><a id="__codelineno-12-50" name="__codelineno-12-50"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/{text}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;buscar_contacte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;text&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;[a-zA-Z]+&#39;</span><span class="p">])]</span>
+</span><span id="__span-12-51"><a id="__codelineno-12-51" name="__codelineno-12-51"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">buscar</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$text</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
+</span><span id="__span-12-52"><a id="__codelineno-12-52" name="__codelineno-12-52"></a>    <span class="p">{</span>
+</span><span id="__span-12-53"><a id="__codelineno-12-53" name="__codelineno-12-53"></a>        <span class="nv">$resultat</span> <span class="o">=</span> <span class="nd">array_filter</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span><span class="p">,</span> 
+</span><span id="__span-12-54"><a id="__codelineno-12-54" name="__codelineno-12-54"></a>            <span class="k">function</span><span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span> <span class="nd">use</span> <span class="p">(</span><span class="nv">$text</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-12-55"><a id="__codelineno-12-55" name="__codelineno-12-55"></a>                <span class="nd">return</span> <span class="nd">stripos</span><span class="p">(</span><span class="nv">$contacte</span><span class="p">[</span><span class="s2">&quot;nom&quot;</span><span class="p">],</span> <span class="nv">$text</span><span class="p">)</span> <span class="o">!==</span> <span class="nd">false</span><span class="p">;</span>
+</span><span id="__span-12-56"><a id="__codelineno-12-56" name="__codelineno-12-56"></a>            <span class="p">}</span>
+</span><span id="__span-12-57"><a id="__codelineno-12-57" name="__codelineno-12-57"></a>        <span class="p">);</span>
+</span><span id="__span-12-58"><a id="__codelineno-12-58" name="__codelineno-12-58"></a>
+</span><span id="__span-12-59"><a id="__codelineno-12-59" name="__codelineno-12-59"></a>        <span class="nd">if</span> <span class="p">(</span><span class="o">!</span><span class="nv">$resultat</span><span class="p">)</span> 
+</span><span id="__span-12-60"><a id="__codelineno-12-60" name="__codelineno-12-60"></a>            <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;No s&#39;han trobat contactes amb &#39;</span><span class="si">$text</span><span class="s2">&#39;.&quot;</span><span class="p">);</span>
+</span><span id="__span-12-61"><a id="__codelineno-12-61" name="__codelineno-12-61"></a>
+</span><span id="__span-12-62"><a id="__codelineno-12-62" name="__codelineno-12-62"></a>
+</span><span id="__span-12-63"><a id="__codelineno-12-63" name="__codelineno-12-63"></a>        <span class="nv">$resposta</span> <span class="o">=</span> <span class="s2">&quot;&lt;h2&gt;Resultats de la cerca: &#39;</span><span class="si">$text</span><span class="s2">&#39;&lt;/h2&gt;&quot;</span><span class="p">;</span>
+</span><span id="__span-12-64"><a id="__codelineno-12-64" name="__codelineno-12-64"></a>        <span class="nd">foreach</span> <span class="p">(</span><span class="nv">$resultat</span> <span class="k">as</span> <span class="nv">$contacte</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-12-65"><a id="__codelineno-12-65" name="__codelineno-12-65"></a>            <span class="nv">$resposta</span> <span class="o">.=</span> <span class="s2">&quot;&lt;ul&gt;</span>
+</span><span id="__span-12-66"><a id="__codelineno-12-66" name="__codelineno-12-66"></a><span class="s2">                            &lt;li&gt;</span><span class="si">{</span><span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;nom&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/li&gt;</span>
+</span><span id="__span-12-67"><a id="__codelineno-12-67" name="__codelineno-12-67"></a><span class="s2">                            &lt;li&gt;</span><span class="si">{</span><span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;telefon&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/li&gt;</span>
+</span><span id="__span-12-68"><a id="__codelineno-12-68" name="__codelineno-12-68"></a><span class="s2">                            &lt;li&gt;</span><span class="si">{</span><span class="nv">$contacte</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/li&gt;</span>
+</span><span id="__span-12-69"><a id="__codelineno-12-69" name="__codelineno-12-69"></a><span class="s2">                          &lt;/ul&gt;&quot;</span><span class="p">;</span>
+</span><span id="__span-12-70"><a id="__codelineno-12-70" name="__codelineno-12-70"></a>        <span class="p">}</span>
+</span><span id="__span-12-71"><a id="__codelineno-12-71" name="__codelineno-12-71"></a>
+</span><span id="__span-12-72"><a id="__codelineno-12-72" name="__codelineno-12-72"></a>        <span class="nd">return</span> <span class="nd">new</span> <span class="nd">Response</span><span class="p">(</span><span class="s2">&quot;&lt;html&gt;&lt;body&gt;</span><span class="si">$resposta</span><span class="s2">&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
+</span><span id="__span-12-73"><a id="__codelineno-12-73" name="__codelineno-12-73"></a>
+</span><span id="__span-12-74"><a id="__codelineno-12-74" name="__codelineno-12-74"></a>    <span class="p">}</span>
+</span><span id="__span-12-75"><a id="__codelineno-12-75" name="__codelineno-12-75"></a><span class="p">}</span>
+</span><span id="__span-12-76"><a id="__codelineno-12-76" name="__codelineno-12-76"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <p>🧠 <strong>Explicació del funcionament</strong></p>
@@ -1466,7 +1570,7 @@ Això permet que la ruta siga vàlida encara que no es passe cap valor.</p>
 <p>Els primers exemples encara barregen <strong>vista i controlador</strong>, ja que el text HTML està dins del mètode.</p>
 <p>En un projecte real, el controlador només ha de <strong>passar dades</strong> a una <strong>vista Twig</strong> per a renderitzar el resultat. Ho veurem a tema següent.</p>
 <p>Flux bàsic:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>Usuari → Controlador → Model → Vista (HTML)
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>Usuari → Controlador → Model → Vista (HTML)
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="6-parts-obsoletes-o-a-evitar">6. Parts obsoletes o a evitar</h2>
