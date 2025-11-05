@@ -134,9 +134,90 @@ Quan accedim a `/contacte/3` el navegador mostrarà:
 Has consultat el contacte amb codi 3
 ```
 
+### 3.1. Configurar rutes a Windows
+
+Per a que funcionen les rutes amigables en Symfony hem de generar l’arxiu `.htaccess` i assegurar que `mod_rewrite` està activat.
+
+**Pas 1. Generar `.htaccess` amb Apache Pack**
+
+Obri la terminal (PowerShell) dins de la carpeta del projecte:
+
+```powershell
+cd "C:\xampp\htdocs\symfony\nom_projecte"
+
+composer config extra.symfony.allow-contrib true
+composer require symfony/apache-pack
+```
+
+Comprova que s’ha creat el fitxer: `C:\xampp\htdocs\symfony\nom_projecte\public\.htaccess`
+
+
+**Pas 2. Activar mod_rewrite en XAMPP**
+
+Obri el fitxer: `C:\xampp\apache\conf\httpd.conf`
+
+
+Localitza i descomenta (traure #):
+
+```powershell
+LoadModule rewrite_module modules/mod_rewrite.so
+```
+
+Guarda i reinicia Apache des del XAMPP Control Panel.
+
 ---
 
-### 3.1. Rutes amb paràmetres amb requisits
+### 3.2. Configurar rutes a Linux
+
+Per a que funcionen les rutes amigables en Symfony hem de generar l’arxiu `.htaccess` i assegurar que `mod_rewrite` està activat.
+
+**Pas 1. Generar `.htaccess` amb Apache Pack**
+
+Situa’t a la carpeta del projecte:
+
+```bash
+cd /var/www/html/symfony/nom_projecte
+
+composer config extra.symfony.allow-contrib true
+composer require symfony/apache-pack
+```
+
+Comprova que s’ha creat el fitxer: `/var/www/html/symfony/nom_projecte/public/.htaccess`
+
+**Pas 2. Activar mod_rewrite en Apache**
+
+Activa el mòdul:
+
+```bash
+sudo a2enmod rewrite
+```
+
+Reincia el servidor Apache:
+
+```bash
+sudo systemctl restart apache2
+o
+sudo service apache2 restart
+```
+
+!!! warning "Atenció amb les rutes amigables"
+    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
+
+!!! example "Atenció amb les rutes amigables"
+    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
+
+!!! tip "Atenció amb les rutes amigables"
+    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
+
+!!! important "Atenció amb les rutes amigables"
+    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
+
+!!! danger "Atenció amb les rutes amigables"
+    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
+
+---
+
+### 3.3. Rutes amb paràmetres amb requisits
 
 En Symfony, podem **imposar restriccions** als valors dels paràmetres de la ruta utilitzant **expressions regulars**.  
 
@@ -146,10 +227,10 @@ Això es fa amb l’opció `requirements:` dins de l’atribut `#[Route]`.
 ```php
 <?php
 
-#[Route('/producte/{id}', name: 'fitxa_producte', requirements: ['id' => '\d+'])]
-public function fitxa(int $id): Response
+#[Route('/contacte/{codi}', name: 'fitxa_contacte', requirements: ['codi' => '\d+'])]
+public function fitxa(int $codi): Response
 {
-    return new Response("Producte amb ID $id");
+    return new Response("Has consultat el contacte amb codi $codi");
 }
 
 ?>
@@ -157,8 +238,8 @@ public function fitxa(int $id): Response
 
 🧠 **Explicació:**
 
-- El paràmetre `{id}` només serà vàlid si és un **número** (`\d+` indica un o més dígits).  
-- Si l’usuari escriu `/producte/abc`, Symfony mostrarà un **error 404**, ja que no compleix el requisit.  
+- El paràmetre `{codi}` només serà vàlid si és un **número** (`\d+` indica un o més dígits).  
+- Si l’usuari escriu `/contacte/abc`, Symfony mostrarà un **error 404**, ja que no compleix el requisit.  
 - Es poden definir diversos requisits per a diferents paràmetres.
 
 Altres exemples de requisits:
@@ -171,7 +252,7 @@ Altres exemples de requisits:
 
 ---
 
-### 3.2. Rutes amb paràmetres per defecte
+### 3.4. Rutes amb paràmetres per defecte
 
 Podem indicar **valors per defecte** per als paràmetres d’una ruta amb l’opció `defaults:`.  
 Això permet que la ruta siga vàlida encara que no es passe cap valor.
@@ -222,7 +303,7 @@ A continuació veurem un exemple complet d’un controlador amb **dues rutes amb
 
 Abans d’utilitzar una base de dades, simularem les dades amb un **array local** i mostrarem el contacte amb el codi indicat.
 
-Fitxer: `src/Controller/ContacteController.php`
+**Fitxer:** `src/Controller/ContacteController.php`
 
 ```php
 <?php
@@ -261,12 +342,13 @@ class ContacteController
             return new Response('Contacte no trobat');
 
         // Torna 1r element
-        $c = array_shift($resultat);
-        $resp = "<ul>".
-                    "<li>{ $c['nom'] }</li>".
-                    "<li>{ $c['telefon'] }</li>".
-                    "<li>{ $c['email'] }</li>".
-                "</ul>";
+        $contacte = array_shift($resultat);
+        $resp = "<ul>
+                    <li>{$contacte['nom']}</li>
+                    <li>{$contacte['telefon']}</li>
+                    <li>{$contacte['email']}</li>
+                </ul>";
+        
         return new Response("<html><body>$resp</body></html>");
     }
 
@@ -288,12 +370,13 @@ class ContacteController
 
         $resposta = "<h2>Resultats de la cerca: '$text'</h2>";
         foreach ($resultat as $contacte) {
-            $resposta .= "<ul>".
-                            "<li>{ $contacte['nom'] } </li>".
-                            "<li>{ $contacte['telefon'] }</li>".
-                            "<li>{ $contacte['email'] }</li>".
-                         "</ul>";
+            $resposta .= "<ul>
+                            <li>{$contacte['nom']}</li>
+                            <li>{$contacte['telefon']}</li>
+                            <li>{$contacte['email']}</li>
+                          </ul>";
         }
+
         return new Response("<html><body>$resposta</body></html>");
 
     }

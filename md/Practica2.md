@@ -16,7 +16,9 @@ Partim de l’aplicació **`retailNomAlumne`** creada en la pràctica anterior.
 
 ---
 
-## Exercici 1. Creació de controladors bàsics
+## Exercici 1
+
+**Creació de controladors bàsics**
 
 Afegeix dins de la carpeta `src/Controller` els següents controladors:
 
@@ -56,9 +58,9 @@ A la mateixa classe, declara un **array** amb quatre seccions, cadascuna amb els
 array(
     "codi" => "1",
     "nom" => "Roba",
-    "descripcio" => "Descripció de la secció",
-    "any" => "2024",
-    "articles" => array("Pantalons", "Camisa", "Jersey", "Xaqueta")
+    "descripcio" => "Secció de roba",
+    "any" => "2026",
+    "articles" => array("Pantalons", "Camisa", "Jersei", "Jaqueta")
 )
 ```
 

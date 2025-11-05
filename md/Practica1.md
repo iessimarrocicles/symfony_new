@@ -10,7 +10,9 @@ nav:
 
 En aquesta pràctica crearem un projecte inicial. Per això, hauràs de tindre **operativa la màquina virtual** amb **XAMPP** i **Composer** instal·lats.
 
-## Exercici 1. Creació del projecte inicial
+## Exercici 1
+
+**Creació del projecte inicial**
 
 - **Crea un nou projecte Symfony** anomenat `retailNomAlumne`, que anirem completant posteriorment, dins de la carpeta de treball:
   ```

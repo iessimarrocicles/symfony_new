@@ -160,12 +160,12 @@ projecte/
 ├── config/               # Fitxers de configuració de Symfony i serveis
 ├── migrations/           # Fitxers de migracions de base de dades (Doctrine)
 ├── public/               # Carpeta pública del servidor web (arrel del projecte)
-│   └── index.php         # Punt d’entrada principal de l’aplicació
+│   └── index.php           # Punt d’entrada principal de l’aplicació
 ├── src/                  # Codi font del projecte (controladors, entitats, serveis...)
-│   ├── Controller/       # Controladors (gestió de rutes i lògica)
-│   ├── Entity/           # Entitats (models de dades per Doctrine)
-│   ├── Repository/       # Classes per consultar la base de dades
-│   └── Service/          # Serveis personalitzats del projecte
+│   ├── Controller/         # Controladors (gestió de rutes i lògica)
+│   ├── Entity/             # Entitats (models de dades per Doctrine)
+│   ├── Repository/         # Classes per consultar la base de dades
+│   └── Service/            # Serveis personalitzats del projecte
 ├── templates/            # Plantilles Twig (vistes HTML)
 ├── translations/         # Fitxers de traduccions (si n’hi ha)
 ├── var/                  # Fitxers temporals, caché i logs
@@ -197,16 +197,16 @@ symfony new app --webapp
 # 🚀 Iniciar el servidor local
 symfony serve -d
 
-# 🎮 Generar elements basics del projecte
-bin/console make:controller     # Crear un controlador
-bin/console make:entity         # Crear una entitat
-bin/console make:migration      # Crear una migracio
-bin/console doctrine:migrations:migrate  # Executar migracions
+# 🎮 Generar elements bàsics del projecte
+bin/console make:controller               # Crear un controlador
+bin/console make:entity                   # Crear una entitat
+bin/console make:migration                # Crear una migració
+bin/console doctrine:migrations:migrate   # Executar migracions
 
-# 🧰 CRUD automatic
+# 🧰 CRUD automàtic
 bin/console make:crud
 
-# 🔐 Gestio d'usuaris i autenticacio
+# 🔐 Gestió d'usuaris i autenticació
 bin/console make:user
 bin/console make:auth
 ```

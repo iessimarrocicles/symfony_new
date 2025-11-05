@@ -71,7 +71,7 @@ Podem passar informació del controlador a la plantilla mitjançant un **array a
 <?php
 
 #[Route('/contacte/{codi}', name: 'fitxa_contacte')]
-public function fitxa($codi): Response
+public function fitxa(int $codi): Response
 {
     $contacte = [
         'nom' => 'Anna Puig',
@@ -206,7 +206,6 @@ Resultat generat (simplificat)
 
 💡 En Symfony 6.4+ o superior, es recomana usar sempre **filtres Twig** en lloc de manipular cadenes amb PHP.
 
-
 ---
 
 ## 1.5. Inclusió de plantilles
@@ -214,7 +213,6 @@ Resultat generat (simplificat)
 En Twig podem inserir altres plantilles dins d’una per **reutilitzar codi** i **millorar l’organització** de les nostres vistes.  
 
 Aquesta tècnica s’anomena **inclusió de plantilles** i és especialment útil per a elements comuns com menús, peus de pàgina o barres laterals.
-
 
 ---
 
