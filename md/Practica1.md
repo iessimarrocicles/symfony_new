@@ -22,3 +22,5 @@ En aquesta pràctica crearem un projecte inicial. Per això, hauràs de tindre *
   ```
   http://symfony.retailNomAlumne
   ```
+
+- **Inicia un repositori Git** del teu projecte.

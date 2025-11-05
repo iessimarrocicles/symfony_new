@@ -214,7 +214,7 @@ També podem definir mètodes personalitzats dins del repositori.
 
 L’**EntityManager** és el component encarregat de gestionar el cicle de vida de les entitats, és a dir, les operacions que afecten directament la base de dades: inserir, modificar o eliminar registres.
 
-Per a poder utilitzar-lo en un controlador, s’ha d’injectar la interfície **`EntityManagerInterface`**, que proporciona els mètodes necessaris per a treballar amb les entitats, com ara persist(), remove() o flush().
+Per a poder utilitzar-lo en un controlador, s’ha d’injectar la interfície **`EntityManagerInterface`**, que proporciona els mètodes necessaris per a treballar amb les entitats, com ara `persist()`, `remove()` o `flush()`.
 
 
 ### 5.1. Guardar
@@ -246,7 +246,7 @@ class ContacteController extends AbstractController
         // S’executa la inserció
         $entityManager->flush();
 
-        return new Response("Contacte " . $contacte->getId() . " inserit.");
+        return new Response("Contacte " . $contacte->getId() . " guardat.");
     }
 
     ...
@@ -290,14 +290,18 @@ Si es produeix un error durant la inserció (si algun camp obligatori és nul o 
 Per evitar que l’aplicació es trenque, podem **capturar l’excepció** i mostrar una resposta controlada a l’usuari:
 
 ```php
+<?php
+
 $entityManager->persist($objecte);
 
 try {
     $entityManager->flush();
-    return new Response("Objecte inserit");
+    return new Response("Objecte guardat");
 } catch (\Exception $e) {
-    return new Response("Error inserint objecte");
+    return new Response("Error guardant objecte: " . $e->getMessage());
 }
+
+?>
 ```
 
 Això garanteix un **tractament d’errors segur** i evita que es mostren missatges interns del servidor.
@@ -497,12 +501,31 @@ public function findByEdatMajorQue($edat): array
 ?>
 ```
 
+---
+
+### 6.3. Altres formes
+
+A més d’emprar el `QueryBuilder` o els mètodes per defecte del repositori (`find`, `findOneBy`, `findBy`, etc.), Doctrine permet realitzar consultes mitjançant dues alternatives addicionals:
+
+- **DQL (Doctrine Query Language):** llenguatge similar a SQL però orientat a entitats en lloc de taules.
+- **SQL natiu:** permet escriure consultes directament en SQL quan necessitem màxim control o optimització.
 
 ---
 
 ## 7. Relacions entre entitats
 
-Doctrine permet definir diferents tipus de relacions:
+Fins ara, hem treballat amb operacions centrades en una sola entitat (taula).  
+
+Aquesta secció explica com gestionar i operar amb més d'una entitat que estan relacionades entre si en la base de dades.
+
+Hi ha dos tipus principals de relacions entre entitats:
+
+| Tipus de Relació | Descripció | Implementació |
+|------------------|-------------|----------------|
+| **Molts a Un (Many-to-One)** | Engloba les relacions Un a Molts, Molts a Un i Un a Un. | Es reflecteix afegint una **Clau Aliena (Foreign Key)** en una de les entitats que referencia l'altra. |
+| **Molts a Molts (Many-to-Many)** | Una entitat es pot relacionar amb múltiples instàncies de l'altra, i viceversa. | Requereix una **Taula Addicional** (taula pivot/d’unió) per emmagatzemar la relació entre els IDs de les dues entitats. |
+
+Exemples:
 
 | Tipus de relació | Exemple | Anotació |
 |------------------|----------|----------|
@@ -512,17 +535,132 @@ Doctrine permet definir diferents tipus de relacions:
 
 ---
 
-## 8. Exercicis pràctics
+### 7.1. Relació Molts a Un (`ManyToOne`)
 
-1. **Crea una entitat `Comarca`** amb atributs `id` i `nom`.
-2. **Afegeix la relació** `ManyToOne` des de `Contacte` cap a `Comarca`.
-3. **Crea la base de dades i les taules** amb les comandes de Doctrine.
-4. **Inserix diversos contactes i comarques** mitjançant el controlador.
-5. **Comprova** amb `phpMyAdmin` que s’han creat les claus foranes correctament.
+Com a exemple pràctic, crearem una relació *Molts a Un* entre l'entitat `Contacte` i una nova entitat `Comarca` (un contacte pertany a una comarca, i una comarca pot tenir molts contactes).
 
 ---
 
-## 9. Recursos i documentació
+**Pas 1. Creació de l'Entitat `Comarca`**
+
+Primer, generem l'entitat amb un ID autogenerat i un camp `nom`.
+
+```bash
+$ php bin/console make:entity
+> Comarca
+# ... Afegir el camp 'nom' com a string (255, no nullable)
+```
+
+Després, creem la taula `Comarca` a la base de dades mitjançant una migració:
+
+```bash
+$ php bin/console make:migration
+$ php bin/console doctrine:migration:migrate
+```
+
+---
+
+**Pas 2. Afegir la Relació a l'Entitat `Contacte`**
+
+Editem l'entitat `Contacte` per afegir-li el camp de relació `comarca`:
+
+```bash
+$ php bin/console make:entity
+> Contacte
+# ...
+New property name:
+> comarca
+Field type:
+> relation
+What class should this entity be related to?:
+> Comarca
+Relation type?:
+> ManyToOne
+Is the Contacte.comarca property allowed to be null (nullable)?:
+> no
+Do you want to add a new property to Comarca...?:
+> no
+```
+
+Això afegeix un atribut a l'entitat `Contacte` com el següent:
+
+```php
+<?php
+
+#[ORM\ManyToOne]
+#[ORM\JoinColumn(nullable: false)]
+private ?Comarca $comarca = null;
+
+?>
+```
+
+---
+
+**Pas 3. Actualització de la Base de Dades**
+
+Després de fer els canvis, tornem a generar i executar la migració:
+
+> ⚠️ Si hi ha registres de `Contacte` sense `Comarca`, cal eliminar-los o afegir-los abans per evitar errors de clau aliena.
+
+```bash
+$ php bin/console make:migration
+$ php bin/console doctrine:migration:migrate
+```
+
+Això afegeix la **clau aliena** `comarca_id` a la taula `contacte`.
+
+---
+
+**Pas 4. Treballar amb Entitats Relacionades**
+
+Una vegada les entitats estan relacionades, podem fer operacions d’inserció i de cerca.
+
+---
+
+**- Inserció d’Entitats Relacionades**
+
+- Si la `Comarca` no existeix:
+
+    1. Es creen els objectes `Comarca` i `Contacte`.  
+    2. S’estableix la relació:
+       ```php
+       $contacte->setComarca($comarca);
+       ```
+    3. Es persisteixen ambdós objectes i es crida a `flush()`.
+
+- Si la `Comarca` ja existeix:
+
+    1. Es cerca l'objecte `Comarca` existent:
+       ```php
+       $comarca = $repositori->find(1);
+       ```
+    2. Es crea un nou `Contacte`.  
+    3. S’estableix la relació amb l’objecte `Comarca`.  
+    4. Es persisteix el `Contacte` i s’executa `flush()`.
+
+---
+
+**- Cerca d’Entitats Relacionades**
+
+L’accés a les dades de l’entitat relacionada és directe des de l’entitat principal:
+
+```php
+<?php
+
+// Obtenim l'objecte Contacte amb ID = 1
+$contacte = $doctrine->getRepository(Contacte::class)->find(1);
+
+// Accedim a l'objecte Comarca relacionat i al seu nom
+$nomComarca = $contacte->getComarca()->getNom();
+
+?>
+```
+
+💡 **Nota (Lazy Loading):** Doctrine no recupera les dades de `Comarca` fins que no s’accedeix efectivament a elles (per exemple, quan s’executa `$contacte->getComarca()`).
+
+---
+
+## 8. Recursos i documentació
 
 📘 Documentació oficial de Doctrine ORM  
 👉 [https://symfony.com/doc/current/doctrine.html](https://symfony.com/doc/current/doctrine.html)
