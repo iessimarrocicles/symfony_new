@@ -1,4 +1,4 @@
-# Doctrine: Schema Tool vs Migrations
+# 📎 Annex 1 — Doctrine: Schema Tool vs Migrations
 
 ## 1. Comandaments
 

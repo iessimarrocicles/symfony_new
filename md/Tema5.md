@@ -4,7 +4,7 @@ nav:
   - TEMA 5: 'Tema5.md'
 ---
 
-# 🧩 Tema 5 — Model de dades amb Doctrine
+# 📘 Tema 5 — Model de dades amb Doctrine
 
 ## 1. Introducció a Doctrine
 
@@ -662,9 +662,8 @@ $nomComarca = $contacte->getComarca()->getNom();
 
 ## 8. Recursos i documentació
 
-📘 Documentació oficial de Doctrine ORM  
+- Documentació oficial de Doctrine ORM  
 👉 [https://symfony.com/doc/current/doctrine.html](https://symfony.com/doc/current/doctrine.html)
 
-📗 Documentació d’anotacions i tipus de dades  
+- Documentació d’anotacions i tipus de dades  
 👉 [https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/basic-mapping.html](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/basic-mapping.html)
-

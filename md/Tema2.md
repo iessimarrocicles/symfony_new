@@ -4,7 +4,7 @@ nav:
   - TEMA 2: 'Tema2.md'
 ---
 
-# 🧩 TEMA 2 — El patró MVC
+# 📘 TEMA 2 — El patró MVC
 
 ## 1. Què és el patró MVC?
 

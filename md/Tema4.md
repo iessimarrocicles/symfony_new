@@ -4,7 +4,7 @@ nav:
   - TEMA 4: 'Tema4.md'
 ---
 
-# 🧩 Tema 4 — El contenidor de serveis i la injecció de dependències
+# 📘 Tema 4 — El contenidor de serveis i la injecció de dependències
 
 ## 1. Introducció
 

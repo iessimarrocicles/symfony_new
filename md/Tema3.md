@@ -4,7 +4,7 @@ nav:
   - TEMA 3: 'Tema3.md'
 ---
 
-# 🧩 TEMA 3 — Plantilles amb Twig
+# 📘 TEMA 3 — Plantilles amb Twig
 
 ## 1. Definint plantilles de vistes amb Twig
 
@@ -369,20 +369,45 @@ Si necessitem generar una **URL absoluta** (per a correus o enllaços externs), 
 
 ## 1.7. Afegir contingut estàtic a les plantilles
 
-En una aplicació Symfony, tot el contingut públic (com fulls d’estil, imatges o fitxers JavaScript) es guarda dins la carpeta `public/`.  
-Aquests arxius s’anomenen **recursos estàtics** i s’accedixen mitjançant la funció Twig `asset()`.
+En una aplicació Symfony moderna, els recursos estàtics (fulls d’estil, imatges i JavaScript) es desen dins la carpeta `assets/` i es publiquen automàticament a `public/` mitjançant **AssetMapper**.
 
-A continuació veurem com incloure aquests fitxers en les nostres plantilles.
+**Estructura recomanada de carpetes**
+
+```
+assets/
+└── styles/
+    └── app.css
+└── js/
+    └── app.js
+└── imgs/
+    ├── sony-wh1000xm5.jpg
+    └── ...
+```
+
+**Instal·lació i comandes útils**
+
+```bash
+# Instal.la el component (si no el té)
+composer require symfony/asset-mapper
+
+# Mostra la llista d’actius disponibles
+php bin/console debug:asset-map
+
+# Genera còpies versionades per a producció
+php bin/console asset-map:compile
+```
+
+A continuació veurem com incloure aquests **recursos estàtics** a les nostres plantilles.
 
 ---
 
 ### 1.7.1. Fulls d’estil (CSS)
 
-Crea dins de la carpeta `public/` una subcarpeta `css/` i afegeix-hi un fitxer anomenat `estils.css`:
+Crea dins de la carpeta `assets/` una subcarpeta `styles/` i afegeix-hi un fitxer anomenat `estils.css`:
 
 **Ruta del fitxer:**  
 ```
-public/css/estils.css
+assets/styles/estils.css
 ```
 
 **Contingut de prova:**
@@ -415,7 +440,7 @@ Per carregar aquest full d’estil en totes les pàgines, edita la plantilla bas
 
 ### 1.7.2. Imatges
 
-Per mostrar imatges desades a la carpeta `public/imgs/`, pots fer-ho així:
+Per mostrar imatges desades a la carpeta `assets/imgs/`, pots fer-ho així:
 
 ```twig
 <img src="{{ asset('imgs/imatge.png') }}" alt="Exemple d’imatge">
@@ -433,7 +458,7 @@ Si necessites una **URL absoluta** (per exemple, per enviar-la en un correu elec
 
 Els fitxers `.js` s’acostumen a incloure al final del `body` o dins del bloc `javascripts` de la plantilla base.
 
-Per exemple, si tenim un fitxer `public/js/llibreria.js`, el carregaríem així:
+Per exemple, si tenim un fitxer `assets/js/llibreria.js`, el carregaríem així:
 
 ```twig
 {% block javascripts %}
@@ -447,10 +472,10 @@ Per exemple, si tenim un fitxer `public/js/llibreria.js`, el carregaríem així:
 
 ### 1.7.4. Bones pràctiques
 
-- Guarda tots els recursos estàtics dins `public/` i organitza’ls per carpetes (`css/`, `js/`, `imgs/`...).
+- Guarda tots els recursos estàtics dins `assets/` i organitza’ls per carpetes (`styles/`, `js/`, `imgs/`...).
+- La carpeta `public/` queda per a arxius **realment públics** que no passen per AssetMapper (per exemple `robots.txt`, `favicon.ico` o fitxers pujats per l’usuari).  
 - Fes servir sempre `asset()` o `absolute_url()` en lloc de rutes relatives manuals.
-- Centralitza els enllaços a CSS i JS dins de la plantilla base per evitar duplicacions.
-- Si treballes amb Symfony 6.4+, pots utilitzar **AssetMapper** com a alternativa moderna a `asset()`. No utilitzada en aquest curs.
+- Si vols enllaçar una **URL externa** (p. ex. `https://cdn.jsdelivr.net/...`), posa-la directament al `src` o `href`, sense `asset()`.
 
 ---
 
@@ -491,7 +516,7 @@ Funcionament:
 
 ---
 
-## 3. Exemple complet (Twig)
+## 3. Exemple complet
 
 ### 3.1. Estructura de fitxers
 

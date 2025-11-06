@@ -4,7 +4,7 @@ nav:
   - Pràctica: 'Practica4.md'
 ---
 
-# 🧩 TEMA 4 — Pràctica
+# 💻 TEMA 4 — Pràctica
 
 **Objectiu**
 

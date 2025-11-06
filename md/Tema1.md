@@ -4,7 +4,7 @@ nav:
   - TEMA 1: 'Tema1.md'
 ---
 
-# 🧩 TEMA 1 — Introducció a Symfony
+# 📘 TEMA 1 — Introducció a Symfony
 
 ## 1. Què és un framework?
 
