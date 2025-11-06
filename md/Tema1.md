@@ -111,7 +111,7 @@ cd symfony
 Creació d'un nou projecte com una web completa *(recomanada per aplicacions web “classiques”)*
 
 ```bash
-symfony nom_projecte --webapp
+symfony new nom_projecte --webapp
 cd nom_projecte
 ```
 
@@ -133,12 +133,13 @@ Instal·la directament:
 Creació d'un nou projecte mínim *(ideal per a APIs o microserveis)*
 
 ```bash
-symfony nom_projecte
+symfony new nom_projecte
 cd nom_projecte
 
 # Afegir manualment els components que necessites
 composer require orm
 composer require twig
+composer require symfony/asset-mapper
 ```
 
 🧠 **Diferencia principal:**
@@ -209,17 +210,17 @@ symfony new app --webapp
 symfony serve -d
 
 # 🎮 Generar elements bàsics del projecte
-bin/console make:controller               # Crear un controlador
-bin/console make:entity                   # Crear una entitat
-bin/console make:migration                # Crear una migració
-bin/console doctrine:migrations:migrate   # Executar migracions
+php bin/console make:controller               # Crear un controlador
+php bin/console make:entity                   # Crear una entitat
+php bin/console make:migration                # Crear una migració
+php bin/console doctrine:migrations:migrate   # Executar migracions
 
 # 🧰 CRUD automàtic
-bin/console make:crud
+php bin/console make:crud
 
 # 🔐 Gestió d'usuaris i autenticació
-bin/console make:user
-bin/console make:auth
+php bin/console make:user
+php bin/console make:auth
 ```
 
 ---
