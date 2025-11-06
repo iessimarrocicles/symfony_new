@@ -54,6 +54,21 @@ Preferentment, escull-ne una que tinga un **apartat del menú principal** implem
 
 ---
 
+## Exercici 4
+
+**Control de Versions**
+
+1. Quan tot funcione, fes un commit amb Git:
+
+```bash
+git add --all
+git commit -m "Commit..."
+git tag -a versio4.0 -m "Versió 4.0 EquipsNomAlumne Doctrine"
+git push origin master --tags
+```
+
+---
+
 ## Resultat final esperat
 
 - L’aplicació utilitza **plantilles Twig** per a totes les vistes.

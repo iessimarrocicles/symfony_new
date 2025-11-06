@@ -97,7 +97,7 @@ class IniciController
 Utilitzant la consola de Symfony (arxiu `bin/console` del nostre projecte) podem comprovar quines rutes hi ha actualment definides en la nostra aplicació, mitjançant aquesta instrucció:
 
 ```bash
-$ php bin/console debug:router
+php bin/console debug:router
 ```
 
 Aquesta ordre mostrarà el llistat de rutes, indicant per a cadascuna:
@@ -201,18 +201,6 @@ sudo service apache2 restart
 ```
 
 !!! warning "Atenció amb les rutes amigables"
-    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
-
-!!! example "Atenció amb les rutes amigables"
-    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
-
-!!! tip "Atenció amb les rutes amigables"
-    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
-
-!!! important "Atenció amb les rutes amigables"
-    Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
-
-!!! danger "Atenció amb les rutes amigables"
     Recordar repetir aquestes instruccions en tots els projectes Symfony que utilitzen rutes amigables.
 
 ---

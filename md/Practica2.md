@@ -8,11 +8,11 @@ nav:
 
 **Objectiu**
 
-En aquesta pràctica treballarem amb el **patró MVC** a Symfony, creant els primers controladors i rutes personalitzades dins del projecte `retailNomAlumne`.
+En aquesta pràctica treballarem amb el **patró MVC** a Symfony, creant els primers controladors i rutes personalitzades dins del projecte `tendaNomAlumne`.
 
 **Punt de partida**
 
-Partim de l’aplicació **`retailNomAlumne`** creada en la pràctica anterior.  
+Partim de l’aplicació **`tendaNomAlumne`** creada en la pràctica anterior.  
 
 ---
 
@@ -24,7 +24,7 @@ Afegeix dins de la carpeta `src/Controller` els següents controladors:
 
 ---
 
-### 1.1. Controlador **IniciController**
+### Controlador **IniciController**
 
 1. Crea una classe anomenada `IniciController`.
 2. Afig un **mètode** anomenat `inici`, associat a la **ruta arrel** `/`.
@@ -32,12 +32,12 @@ Afegeix dins de la carpeta `src/Controller` els següents controladors:
 4. Mostra com a **resposta** el missatge següent:
 
    ```
-   Projecte Gestió Retail de nom de alumne
+   Projecte Gestió Tenda de [nom i cognoms de l'alumne]
    ```
 
 ---
 
-### 1.2. Controlador **SeccioController**
+### Controlador **SeccioController**
 
 1. Crea una classe anomenada `SeccioController`.
 2. Afig un **mètode** anomenat `seccio`, associat a la **ruta** `/seccio/{codi}`.
@@ -72,6 +72,87 @@ El controlador ha de **buscar la secció** que coincidisca amb el codi rebut per
   ```
   No s’ha trobat la secció: CodiSeccio
   ```
+
+---
+
+## Exercici 2
+
+**Control de Versions**
+
+Una vegada hages finalitzat les modificacions, afegeix els fitxers canviats a l’àrea de preparació (staging area) de Git i crea un commit amb el missatge:
+
+```bash
+Commit MVC TendaNomAlumne
+```
+
+Tot seguit, crea una etiqueta (tag) amb el nom versio1.0 i el comentari:
+
+```bash
+Versió 1.0 TendaNomAlumne MVC
+```
+
+Amb això, quedaran registrats tant l’estat final del projecte com la marca de versió corresponent.
+
+```bash
+# 1. Afegir tots els canvis a l’àrea de preparació
+git add --all
+
+# 2. Crear el commit amb el missatge indicat
+git commit -m "Commit MVC TendaNomAlumne"
+
+# 3. Crear l’etiqueta (tag) versio1.0 amb comentari
+git tag -a versio1.0 -m "Versió 1.0 TendaNomAlumne MVC"
+
+# 4. Pujar tant el commit com l’etiqueta al repositori remot
+git push origin master --tags
+```
+
+## Explicació
+
+### Utilitat etiqueta (tag)
+
+Una etiqueta en Git és com posar un marcador en un punt concret de la història del projecte.
+Normalment s’utilitza per:
+
+1. Identificar versions importants del programari, com ara:
+    - v1.0
+    - v1.1
+    - v2.0
+
+2. Poder tornar a eixa versió en qualsevol moment per a revisar el codi, restaurar-lo o comparar canvis.
+
+3. Distribuir o entregar treball amb una versió estable i final.
+
+
+### Versions anteriors
+
+Per tornar a una versió anterior identificada per una etiqueta
+
+**Opció 1. Només consultar o executar el codi d’eixa versió (sense modificar res)**
+
+```bash
+git checkout versio1.0
+```
+
+- Pots mirar el codi, compilar-lo, executar-lo, etc.
+- Però si fas commits ací, no estaran associats a cap branca.
+
+**Opció 2. Crear una branca nova a partir del tag (per continuar treballant des d’eixa versió)**
+
+```bash
+git checkout -b nova_versio1.0 versio1.0
+```
+
+- Això crea una branca nova anomenada `nova_versio1.0` basada en eixe tag, i ja pots fer commits amb normalitat.
+
+**Opció 3. Reposicionar la branca actual a eixa versió (tornar enrere “de veritat”)**
+
+```bash
+git reset --hard versio1.0
+```
+
+- Això canviarà l’historial si fas push després.
+
 
 ---
 
