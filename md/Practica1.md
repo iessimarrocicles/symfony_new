@@ -29,3 +29,28 @@ En aquesta pràctica crearem un projecte inicial. Per això, hauràs de tindre *
 ---
 
 - **Inicia un repositori Git** del teu projecte.
+  ```powershell
+  git init
+  git add .
+  git commit -m "Commit Inicial Tenda Alumne"
+  ```
+
+### Explicació
+
+Quan pugem un projecte PHP a GitHub, la carpeta vendor no es puja perquè està exclosa mitjançant .gitignore. Aquesta carpeta conté totes les dependències gestionades per Composer, i per tant, no s’ha de versionar.
+
+!!! warning "Carpeta vendor no inclosa al repositori"
+
+Per això, si descarreguem el projecte en un altre ordinador o entorn de treball, la carpeta vendor no existirà.
+
+En eixe cas, és necessari reinstal·lar totes les dependències executant la següent instrucció dins de la carpeta del projecte:
+
+```
+composer install
+```
+
+Aquesta ordre:
+
+- Llegix el fitxer composer.json.
+- Descarrega totes les llibreries necessàries.
+- Reconstrueix la carpeta vendor.
