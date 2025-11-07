@@ -377,6 +377,7 @@ Si necessitem generar una **URL absoluta** (per a correus o enllaços externs), 
 
 !!! tip "Laboratori"
     Edita la plantilla del menú de navegació i actualitza els següents enllaços:
+    
     - **Inici** que vaja a la pàgina principal (ruta arrel del projecte).
     - **Contacte** que vaja a la ruta del contacte de codi 2 utilitzant la funció `path()`.
 
