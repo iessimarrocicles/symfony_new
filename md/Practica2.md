@@ -42,7 +42,7 @@ Afegeix dins de la carpeta `src/Controller` els següents controladors:
 1. Crea una classe anomenada `SeccioController`.
 2. Afig un **mètode** anomenat `seccio`, associat a la **ruta** `/seccio/{codi}`.
 3. Dona-li el **nom de ruta** `dades_seccio`.
-4. El paràmetre `{codi}` serà el **codi alfanumèric** d’una secció.
+4. El paràmetre `{codi}` serà un **número identificatiu** d’una secció.
 
 A la mateixa classe, declara un **array** amb quatre seccions, cadascuna amb els següents camps:
 

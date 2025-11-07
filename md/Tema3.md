@@ -119,7 +119,9 @@ Twig permet **reutilitzar estructures HTML comunes** (com capçalera, menú o pe
     <header><h1>Contactes</h1></header>
 
     <main>
-      {% block body %}{% endblock %}
+      {% block contingut %}
+        <!-- Contingut específic de cada pàgina -->
+      {% endblock %}
     </main>
 
     <footer>
@@ -130,13 +132,14 @@ Twig permet **reutilitzar estructures HTML comunes** (com capçalera, menú o pe
 ```
 
 **Plantilla filla (`inici.html.twig`)**
+
 ```twig
 {% extends 'base.html.twig' %}
 
 {% block title %}Inici{% endblock %}
 
-{% block body %}
-  <h2>Benvingut a la nostra aplicació</h2>
+{% block contingut %}
+  <h1>Benvingut a la nostra aplicació</h1>
 {% endblock %}
 ```
 
@@ -145,11 +148,13 @@ Twig permet **reutilitzar estructures HTML comunes** (com capçalera, menú o pe
 ## 1.4. Comentaris, estructures de control i filtres
 
 ### 1.4.1. Comentaris
+
 ```twig
 {# Aquest comentari no apareix al navegador #}
 ```
 
 ### 1.4.2. Condicionals
+
 ```twig
 {% if contacte.email %}
   <p>Correu: {{ contacte.email }}</p>
@@ -159,6 +164,7 @@ Twig permet **reutilitzar estructures HTML comunes** (com capçalera, menú o pe
 ```
 
 ### 1.4.3. Bucles
+
 ```twig
 <ul>
   {% for contacte in contactes %}
@@ -181,6 +187,7 @@ Volem mostrar un llistat amb 10 files alternant dos estils de fila: `parell` i `
   </div>
 {% endfor %}
 ```
+
 Com funciona `cycle`:
 
 - El primer argument és una **llista de valors** que es repetiran.
@@ -220,7 +227,7 @@ Aquesta tècnica s’anomena **inclusió de plantilles** i és especialment úti
 
 Suposem que tenim l’estructura següent dins del directori `templates/`:
 
-```
+```bash
 templates/
 │
 ├── base.html.twig
@@ -242,9 +249,9 @@ Aquest fitxer conté el menú principal del nostre lloc web.
 ```twig
 <nav>
   <ul>
-    <li><a href="{{ path('inici') }}">Inici</a></li>
-    <li><a href="{{ path('articles') }}">Articles</a></li>
-    <li><a href="{{ path('contacte') }}">Contacte</a></li>
+    <li><a href="">Inici</a></li>
+    <li><a href="">Articles</a></li>
+    <li><a href="">Contacte</a></li>
   </ul>
 </nav>
 ```
@@ -258,31 +265,31 @@ Ací definim l’estructura principal de la pàgina i **incloem** el menú i el 
 ```twig
 <!DOCTYPE html>
 <html lang="ca">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Benvinguts!{% endblock %}</title>
-</head>
-<body>
+    <title>{% block title %}Aplicació Symfony{% endblock %}</title>
+  </head>
+  <body>
 
     {# Incloem el menú com una plantilla parcial #}
     {% include 'partials/_menu.html.twig' %}
 
     <main>
         {% block contingut %}
-        <!-- Contingut específic de cada pàgina -->
+          <!-- Contingut específic de cada pàgina -->
         {% endblock %}
     </main>
 
     {# Incloem el peu de pàgina #}
     {% include 'partials/_footer.html.twig' %}
 
-</body>
+  </body>
 </html>
 ```
 
 ---
 
-**Fitxer (`index.html.twig`)**
+**Fitxer (`inici.html.twig`)**
 
 Aquesta plantilla **hereta** de `base.html.twig` i defineix el bloc de contingut:
 
@@ -301,14 +308,14 @@ Aquesta plantilla **hereta** de `base.html.twig` i defineix el bloc de contingut
 
 **Resultat en navegador**
 
-Quan renderitzes `index.html.twig`, Twig combinarà totes les plantilles:
+Quan renderitzes `inici.html.twig`, Twig combinarà totes les plantilles:
 
 ```html
 <nav>
   <ul>
-    <li><a href="/inici">Inici</a></li>
-    <li><a href="/articles">Articles</a></li>
-    <li><a href="/contacte">Contacte</a></li>
+    <li><a href="">Inici</a></li>
+    <li><a href="">Articles</a></li>
+    <li><a href="">Contacte</a></li>
   </ul>
 </nav>
 
@@ -318,7 +325,7 @@ Quan renderitzes `index.html.twig`, Twig combinarà totes les plantilles:
 </main>
 
 <footer>
-  © 2025 - El meu lloc web
+  © 2025 IES Lluís Simarro
 </footer>
 ```
 
@@ -373,7 +380,7 @@ En una aplicació Symfony moderna, els recursos estàtics (fulls d’estil, imat
 
 **Estructura recomanada de carpetes**
 
-```
+```bash
 assets/
 └── styles/
     └── app.css
@@ -406,11 +413,13 @@ A continuació veurem com incloure aquests **recursos estàtics** a les nostres 
 Crea dins de la carpeta `assets/` una subcarpeta `styles/` i afegeix-hi un fitxer anomenat `estils.css`:
 
 **Ruta del fitxer:**  
-```
+
+```bash
 assets/styles/estils.css
 ```
 
 **Contingut de prova:**
+
 ```css
 body {
   background-color: #99ccff;
@@ -520,7 +529,7 @@ Funcionament:
 
 ### 3.1. Estructura de fitxers
 
-```
+```bash
 src/
 └── Controller/
     └── ContacteController.php
