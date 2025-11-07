@@ -376,7 +376,9 @@ Si necessitem generar una **URL absoluta** (per a correus o enllaços externs), 
 | `url('nom_ruta')` | URL **absoluta** | `https://exemple.com/contacte/12` | Enllaços externs o correus |
 
 !!! tip "Laboratori"
-    Al menú de navegació, modifica l'enllaç anomenat **Contacte** que vaja a la ruta del contacte de codi 2 utilitzant la funció `path()`.
+    Edita la plantilla del menú de navegació i actualitza els següents enllaços:
+    - **Inici** que vaja a la pàgina principal (ruta arrel del projecte).
+    - **Contacte** que vaja a la ruta del contacte de codi 2 utilitzant la funció `path()`.
 
 ---
 

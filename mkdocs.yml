@@ -13,7 +13,6 @@ dev_addr: localhost:4000
 # Navegació dels documents
 nav:
 - Índex: index.md
-- Plantilla: templates.md
 - Tema 1: 
   - Teoria: Tema1.md
   - Pràctica: Practica1.md
@@ -29,7 +28,8 @@ nav:
 - Tema 5:
   - Teoria: Tema5.md
   - Annex 1: Tema5Annex1.md
-  - Pràctica: Practica5.md  
+  - Pràctica: Practica5.md
+- Plantilla: templates.md  
 
 # Extenions
 markdown_extensions:
