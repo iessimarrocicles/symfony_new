@@ -19,6 +19,7 @@ L’objectiu és **separar les responsabilitats** del codi per a aconseguir apli
 | **Controlador** | Gestiona les peticions de l’usuari, interactua amb el model i tria quina vista mostrar. | Classes dins `src/Controller/` |
 
 ### 1.1. Avantatges del patró MVC
+
 - Codi **més estructurat i mantenible**.  
 - Facilita el **treball en equip** (programador ↔ dissenyador).  
 - Permet **reutilitzar** components i millorar la seguretat.  
@@ -130,7 +131,8 @@ public function fitxa(int $codi): Response
 ```
 
 Quan accedim a `/contacte/3` el navegador mostrarà:
-```
+
+```bash
 Has consultat el contacte amb codi 3
 ```
 
@@ -151,11 +153,9 @@ composer require symfony/apache-pack
 
 Comprova que s’ha creat el fitxer: `C:\xampp\htdocs\symfony\nom_projecte\public\.htaccess`
 
-
 **Pas 2. Activar mod_rewrite en XAMPP**
 
 Obri el fitxer: `C:\xampp\apache\conf\httpd.conf`
-
 
 Localitza i descomenta (traure #):
 
@@ -208,7 +208,6 @@ sudo service apache2 restart
 ### 3.3. Rutes amb paràmetres amb requisits
 
 En Symfony, podem **imposar restriccions** als valors dels paràmetres de la ruta utilitzant **expressions regulars**.  
-
 
 Això es fa amb l’opció `requirements:` dins de l’atribut `#[Route]`.
 
@@ -394,7 +393,7 @@ En un projecte real, el controlador només ha de **passar dades** a una **vista 
 
 Flux bàsic:
 
-```
+```bash
 Usuari → Controlador → Model → Vista (HTML)
 ```
 

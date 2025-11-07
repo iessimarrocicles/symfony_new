@@ -256,6 +256,9 @@ Aquest fitxer conté el menú principal del nostre lloc web.
 </nav>
 ```
 
+!!! tip "Laboratori"
+    Crea un peu de pàgina per a l’aplicació en el fitxer `partials/_footer.html.twig`.
+
 ---
 
 **Fitxer (`base.html.twig`)**
@@ -371,6 +374,9 @@ Si necessitem generar una **URL absoluta** (per a correus o enllaços externs), 
 |--------------|-----------|----------|---------------|
 | `path('nom_ruta')` | URL **relativa** | `/contacte/12` | Enllaços dins la web |
 | `url('nom_ruta')` | URL **absoluta** | `https://exemple.com/contacte/12` | Enllaços externs o correus |
+
+!!! tip "Laboratori"
+    Al menú de navegació, modifica l'enllaç anomenat **Contacte** que vaja a la ruta del contacte de codi 2 utilitzant la funció `path()`.
 
 ---
 

@@ -13,6 +13,7 @@ dev_addr: localhost:4000
 # Navegació dels documents
 nav:
 - Índex: index.md
+- Plantilla: templates.md
 - Tema 1: 
   - Teoria: Tema1.md
   - Pràctica: Practica1.md
