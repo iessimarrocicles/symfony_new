@@ -20,7 +20,7 @@
     
     
       
-        <title>TEMA 1 — Introducció a Symfony - SYMFONY</title>
+        <title>Teoria - SYMFONY</title>
       
     
     
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TEMA 1 — Introducció a Symfony
+              Teoria
             
           </span>
         </div>
@@ -1115,11 +1115,9 @@
 <li>🕓 <strong>Versions LTS</strong> (Long Term Support) amb manteniment garantit.  </li>
 <li>🌍 <strong>Gran comunitat</strong> i <strong>documentació oficial</strong> excel·lent.  </li>
 <li>💡 <strong>Bones pràctiques integrades</strong>, seguint estàndards PSR.  </li>
-<li>🔌 <strong>Integració amb llibreries de tercers</strong> com:<ul>
+<li>🔌 <strong>Integració amb llibreries de tercers</strong> com:</li>
 <li><strong>Twig</strong> → motor de plantilles per a generar vistes.</li>
 <li><strong>Doctrine</strong> → ORM per a treballar amb bases de dades com a objectes.</li>
-</ul>
-</li>
 </ul>
 <hr />
 <h2 id="5-recursos-necessaris">5. Recursos necessaris</h2>
@@ -1215,13 +1213,15 @@
 <span class="normal"><a href="#__codelineno-2-4">4</a></span>
 <span class="normal"><a href="#__codelineno-2-5">5</a></span>
 <span class="normal"><a href="#__codelineno-2-6">6</a></span>
-<span class="normal"><a href="#__codelineno-2-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>symfony<span class="w"> </span>new<span class="w"> </span>nom_projecte
+<span class="normal"><a href="#__codelineno-2-7">7</a></span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>symfony<span class="w"> </span>new<span class="w"> </span>nom_projecte
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>nom_projecte
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Afegir manualment els components que necessites</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>composer<span class="w"> </span>require<span class="w"> </span>orm
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>composer<span class="w"> </span>require<span class="w"> </span>twig
 </span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>composer<span class="w"> </span>require<span class="w"> </span>symfony/asset-mapper
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>composer<span class="w"> </span>require<span class="w"> </span>symfony/asset
 </span></code></pre></div></td></tr></table></div>
 <p>🧠 <strong>Diferencia principal:</strong></p>
 <ul>
@@ -1242,7 +1242,7 @@
 <h2 id="8-estructura-general-dun-projecte">8. Estructura general d’un projecte</h2>
 <p>Quan creem un projecte amb Symfony, s’organitza automàticament en una estructura de carpetes molt clara i estandarditzada. Aquesta estructura ajuda a mantenir el codi ordenat i a separar la lògica, les vistes i la configuració.</p>
 <h3 id="81-estructura-principal">8.1. Estructura principal</h3>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
@@ -1260,21 +1260,21 @@
 <span class="normal"><a href="#__codelineno-3-16">16</a></span>
 <span class="normal"><a href="#__codelineno-3-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>projecte/
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>│
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>├── bin/                  # Conté els scripts executables, com `console`
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>├── config/               # Fitxers de configuració de Symfony i serveis
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>├── migrations/           # Fitxers de migracions de base de dades (Doctrine)
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>├── public/               # Carpeta pública del servidor web (arrel del projecte)
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>│   └── index.php           # Punt d’entrada principal de l’aplicació
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>├── src/                  # Codi font del projecte (controladors, entitats, serveis...)
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>│   ├── Controller/         # Controladors (gestió de rutes i lògica)
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>│   ├── Entity/             # Entitats (models de dades per Doctrine)
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>│   ├── Repository/         # Classes per consultar la base de dades
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>│   └── Service/            # Serveis personalitzats del projecte
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a>├── templates/            # Plantilles Twig (vistes HTML)
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a>├── translations/         # Fitxers de traduccions (si n’hi ha)
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>├── var/                  # Fitxers temporals, caché i logs
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a>├── vendor/               # Dependències instal·lades amb Composer
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a>└── .env                  # Fitxer de configuració d’entorn (dev/prod/test)
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>├──<span class="w"> </span>bin/<span class="w">                  </span><span class="c1"># Conté els scripts executables, com `console`</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>├──<span class="w"> </span>config/<span class="w">               </span><span class="c1"># Fitxers de configuració de Symfony i serveis</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>├──<span class="w"> </span>migrations/<span class="w">           </span><span class="c1"># Fitxers de migracions de base de dades (Doctrine)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>├──<span class="w"> </span>public/<span class="w">               </span><span class="c1"># Carpeta pública del servidor web (arrel del projecte)</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>│<span class="w">   </span>└──<span class="w"> </span>index.php<span class="w">           </span><span class="c1"># Punt d’entrada principal de l’aplicació</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>├──<span class="w"> </span>src/<span class="w">                  </span><span class="c1"># Codi font del projecte (controladors, entitats, serveis...)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>│<span class="w">   </span>├──<span class="w"> </span>Controller/<span class="w">         </span><span class="c1"># Controladors (gestió de rutes i lògica)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>│<span class="w">   </span>├──<span class="w"> </span>Entity/<span class="w">             </span><span class="c1"># Entitats (models de dades per Doctrine)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>│<span class="w">   </span>├──<span class="w"> </span>Repository/<span class="w">         </span><span class="c1"># Classes per consultar la base de dades</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a>│<span class="w">   </span>└──<span class="w"> </span>Service/<span class="w">            </span><span class="c1"># Serveis personalitzats del projecte</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a>├──<span class="w"> </span>templates/<span class="w">            </span><span class="c1"># Plantilles Twig (vistes HTML)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a>├──<span class="w"> </span>translations/<span class="w">         </span><span class="c1"># Fitxers de traduccions (si n’hi ha)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15"></a>├──<span class="w"> </span>var/<span class="w">                  </span><span class="c1"># Fitxers temporals, caché i logs</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16"></a>├──<span class="w"> </span>vendor/<span class="w">               </span><span class="c1"># Dependències instal·lades amb Composer</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17"></a>└──<span class="w"> </span>.env<span class="w">                  </span><span class="c1"># Fitxer de configuració d’entorn (dev/prod/test)</span>
 </span></code></pre></div></td></tr></table></div>
 <h3 id="82-elements-mes-importants">8.2. Elements més importants</h3>
 <ul>
@@ -1345,9 +1345,6 @@ Et permet entendre com funciona el <strong>patró MVC</strong>, treballar amb <s
 
 
 
-
-  
-  
 
 
 

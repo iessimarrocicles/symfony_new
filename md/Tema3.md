@@ -382,13 +382,12 @@ En una aplicació Symfony moderna, els recursos estàtics (fulls d’estil, imat
 
 ```bash
 assets/
+└── imgs/
+    ├── sony-wh1000.jpg
+    └── ...
 └── styles/
     └── app.css
-└── js/
-    └── app.js
-└── imgs/
-    ├── sony-wh1000xm5.jpg
-    └── ...
+└── app.js
 ```
 
 **Instal·lació i comandes útils**
@@ -439,7 +438,7 @@ Per carregar aquest full d’estil en totes les pàgines, edita la plantilla bas
 
 ```twig
 {% block stylesheets %}
-  <link href="{{ asset('css/estils.css') }}" rel="stylesheet" />
+  <link href="{{ asset('styles/estils.css') }}" rel="stylesheet" />
 {% endblock %}
 ```
 

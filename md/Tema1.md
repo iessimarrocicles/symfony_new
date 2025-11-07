@@ -1,9 +1,3 @@
----
-title: "TEMA 1 — Introducció a Symfony"
-nav:
-  - TEMA 1: 'Tema1.md'
----
-
 # 📘 TEMA 1 — Introducció a Symfony
 
 ## 1. Què és un framework?
@@ -57,8 +51,8 @@ Symfony és un framework **modern, segur i molt complet**. Els seus principals a
 - 🌍 **Gran comunitat** i **documentació oficial** excel·lent.  
 - 💡 **Bones pràctiques integrades**, seguint estàndards PSR.  
 - 🔌 **Integració amb llibreries de tercers** com:
-    - **Twig** → motor de plantilles per a generar vistes.
-    - **Doctrine** → ORM per a treballar amb bases de dades com a objectes.
+  - **Twig** → motor de plantilles per a generar vistes.
+  - **Doctrine** → ORM per a treballar amb bases de dades com a objectes.
 
 ---
 
@@ -106,6 +100,7 @@ sudo mkdir symfony
 sudo chown -R usuari:usuari symfony
 cd symfony
 ```
+
 ### 7.1. Projecte complet
 
 Creació d'un nou projecte com una web completa *(recomanada per aplicacions web “classiques”)*
@@ -140,6 +135,7 @@ cd nom_projecte
 composer require orm
 composer require twig
 composer require symfony/asset-mapper
+composer require symfony/asset
 ```
 
 🧠 **Diferencia principal:**
@@ -157,7 +153,6 @@ composer require symfony/asset-mapper
 
     Aquest projecte partirà d'un esquelet mínim i els components bàsics `orm` i `twig`. Tindreu més informació sobre aquest projecte en les pràctiques específiques de cada tema.
 
-
 ---
 
 ## 8. Estructura general d’un projecte
@@ -165,7 +160,8 @@ composer require symfony/asset-mapper
 Quan creem un projecte amb Symfony, s’organitza automàticament en una estructura de carpetes molt clara i estandarditzada. Aquesta estructura ajuda a mantenir el codi ordenat i a separar la lògica, les vistes i la configuració.
 
 ### 8.1. Estructura principal
-```
+
+```bash
 projecte/
 │
 ├── bin/                  # Conté els scripts executables, com `console`
@@ -186,6 +182,7 @@ projecte/
 ```
 
 ### 8.2. Elements més importants
+
 - **`public/`** → És l’arrel pública del projecte. Només aquesta carpeta és accessible des del navegador.  
 - **`src/`** → Conté el codi principal de l’aplicació. És on programem els controladors, entitats i serveis.  
 - **`config/`** → Defineix com es comporta Symfony: rutes, serveis, paquets i paràmetres globals.  
@@ -238,4 +235,3 @@ Et permet entendre com funciona el **patró MVC**, treballar amb **bones pràcti
 
 - [Documentació oficial de Symfony](https://symfony.com/doc/current/index.html)
 - [Releases Symfony](https://symfony.com/releases)
-
