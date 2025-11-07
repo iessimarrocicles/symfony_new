@@ -1776,8 +1776,8 @@ S’utilitza habitualment per canviar colors, classes CSS o estils en llistats.<
 <p class="admonition-title">Laboratori</p>
 <p>Edita la plantilla del menú de navegació i actualitza els següents enllaços:</p>
 <ul>
-<li><strong>Inici</strong> que vaja a la pàgina principal (ruta arrel del projecte).</li>
-<li><strong>Contacte</strong> que vaja a la ruta del contacte de codi 2 utilitzant la funció <code>path()</code>.</li>
+<li>L'enllaç <strong>Inici</strong> que vaja a la pàgina principal (ruta arrel del projecte).</li>
+<li>L'enllaç <strong>Contacte</strong> que vaja a la ruta del contacte de codi 2 utilitzant la funció <code>path()</code>.</li>
 </ul>
 </div>
 <hr />
@@ -2242,27 +2242,35 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 <span class="normal"><a href="#__codelineno-34-18">18</a></span>
 <span class="normal"><a href="#__codelineno-34-19">19</a></span>
 <span class="normal"><a href="#__codelineno-34-20">20</a></span>
-<span class="normal"><a href="#__codelineno-34-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="normal"><a href="#__codelineno-34-21">21</a></span>
+<span class="normal"><a href="#__codelineno-34-22">22</a></span>
+<span class="normal"><a href="#__codelineno-34-23">23</a></span>
+<span class="normal"><a href="#__codelineno-34-24">24</a></span>
+<span class="normal"><a href="#__codelineno-34-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
 </span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;ca&quot;</span><span class="p">&gt;</span>
 </span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
 </span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
-</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}Contactes{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8"></a>    <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
-</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9"></a>      <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>👇 Aplicació de contactes<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10"></a>      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;meta&quot;</span><span class="p">&gt;</span>Exemple MVC amb Twig<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11"></a>    <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
-</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12"></a>
-</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13"></a>    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
-</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14"></a>      {% block body %}{% endblock %}
-</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15"></a>    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
-</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16"></a>
-</span><span id="__span-34-17"><a id="__codelineno-34-17" name="__codelineno-34-17"></a>    <span class="p">&lt;</span><span class="nt">footer</span><span class="p">&gt;</span>
-</span><span id="__span-34-18"><a id="__codelineno-34-18" name="__codelineno-34-18"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="ni">&amp;copy;</span> {{ &quot;now&quot;|date(&quot;Y&quot;) }} IES Lluís Simarro<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</span><span id="__span-34-19"><a id="__codelineno-34-19" name="__codelineno-34-19"></a>    <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
-</span><span id="__span-34-20"><a id="__codelineno-34-20" name="__codelineno-34-20"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</span><span id="__span-34-21"><a id="__codelineno-34-21" name="__codelineno-34-21"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span><span id="__span-34-5"><a id="__codelineno-34-5" name="__codelineno-34-5"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>{% block title %}Aplicació Symfony{% endblock %}<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+</span><span id="__span-34-6"><a id="__codelineno-34-6" name="__codelineno-34-6"></a>    {% block stylesheets %}
+</span><span id="__span-34-7"><a id="__codelineno-34-7" name="__codelineno-34-7"></a>      <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ asset(&#39;styles/estils.css&#39;) }}&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="p">/&gt;</span>
+</span><span id="__span-34-8"><a id="__codelineno-34-8" name="__codelineno-34-8"></a>    {% endblock %}  
+</span><span id="__span-34-9"><a id="__codelineno-34-9" name="__codelineno-34-9"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="__span-34-10"><a id="__codelineno-34-10" name="__codelineno-34-10"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-34-11"><a id="__codelineno-34-11" name="__codelineno-34-11"></a>
+</span><span id="__span-34-12"><a id="__codelineno-34-12" name="__codelineno-34-12"></a>    {# Incloem el menú com una plantilla parcial #}
+</span><span id="__span-34-13"><a id="__codelineno-34-13" name="__codelineno-34-13"></a>    {% include &#39;partials/_menu.html.twig&#39; %}
+</span><span id="__span-34-14"><a id="__codelineno-34-14" name="__codelineno-34-14"></a>
+</span><span id="__span-34-15"><a id="__codelineno-34-15" name="__codelineno-34-15"></a>    <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+</span><span id="__span-34-16"><a id="__codelineno-34-16" name="__codelineno-34-16"></a>        {% block contingut %}
+</span><span id="__span-34-17"><a id="__codelineno-34-17" name="__codelineno-34-17"></a>          <span class="cm">&lt;!-- Contingut específic de cada pàgina --&gt;</span>
+</span><span id="__span-34-18"><a id="__codelineno-34-18" name="__codelineno-34-18"></a>        {% endblock %}
+</span><span id="__span-34-19"><a id="__codelineno-34-19" name="__codelineno-34-19"></a>    <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+</span><span id="__span-34-20"><a id="__codelineno-34-20" name="__codelineno-34-20"></a>
+</span><span id="__span-34-21"><a id="__codelineno-34-21" name="__codelineno-34-21"></a>    {# Incloem el peu de pàgina #}
+</span><span id="__span-34-22"><a id="__codelineno-34-22" name="__codelineno-34-22"></a>    {% include &#39;partials/_footer.html.twig&#39; %}
+</span><span id="__span-34-23"><a id="__codelineno-34-23" name="__codelineno-34-23"></a>
+</span><span id="__span-34-24"><a id="__codelineno-34-24" name="__codelineno-34-24"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-34-25"><a id="__codelineno-34-25" name="__codelineno-34-25"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="34-vista-de-fitxa">3.4. Vista de fitxa</h3>
@@ -2288,7 +2296,7 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 </span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2"></a>
 </span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Fitxa de contacte</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4"></a>
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
 </span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="x">  &lt;h2&gt;Fitxa de contacte&lt;/h2&gt;</span>
 </span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7"></a>
 </span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">contacte</span> <span class="cp">%}</span>
@@ -2296,7 +2304,7 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 </span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10"></a><span class="x">      &lt;li&gt;&lt;strong&gt;Nom:&lt;/strong&gt; </span><span class="cp">{{</span> <span class="nv">contacte.nom</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
 </span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="x">      &lt;li&gt;&lt;strong&gt;Telèfon:&lt;/strong&gt; </span><span class="cp">{{</span> <span class="nv">contacte.telefon</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
 </span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="x">      &lt;li&gt;&lt;strong&gt;Email:&lt;/strong&gt; </span><span class="cp">{{</span> <span class="nv">contacte.email</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
-</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13"></a><span class="x">      &lt;li class=&quot;meta&quot;&gt;Codi intern: </span><span class="cp">{{</span> <span class="nv">codi</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
+</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13"></a><span class="x">      &lt;li&gt;&lt;strong&gt;Codi intern:&lt;/strong&gt; </span><span class="cp">{{</span> <span class="nv">codi</span> <span class="cp">}}</span><span class="x">&lt;/li&gt;</span>
 </span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="x">    &lt;/ul&gt;</span>
 </span><span id="__span-35-15"><a id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="x">  </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
 </span><span id="__span-35-16"><a id="__codelineno-35-16" name="__codelineno-35-16"></a><span class="x">    &lt;p&gt;Contacte amb codi </span><span class="cp">{{</span> <span class="nv">codi</span> <span class="cp">}}</span><span class="x"> no trobat.&lt;/p&gt;</span>
@@ -2329,7 +2337,7 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 </span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2"></a>
 </span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Resultats per &quot;</span><span class="cp">{{</span> <span class="nv">text</span> <span class="cp">}}</span><span class="x">&quot;</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4"></a>
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">body</span> <span class="cp">%}</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
 </span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="x">  &lt;h2&gt;Resultats de la cerca: “</span><span class="cp">{{</span> <span class="nv">text</span> <span class="cp">}}</span><span class="x">”&lt;/h2&gt;</span>
 </span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7"></a>
 </span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8"></a><span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">resultats</span> <span class="k">is</span> <span class="k">not</span> <span class="nf">empty</span> <span class="cp">%}</span>

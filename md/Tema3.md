@@ -377,9 +377,9 @@ Si necessitem generar una **URL absoluta** (per a correus o enllaços externs), 
 
 !!! tip "Laboratori"
     Edita la plantilla del menú de navegació i actualitza els següents enllaços:
-    
-    - **Inici** que vaja a la pàgina principal (ruta arrel del projecte).
-    - **Contacte** que vaja a la ruta del contacte de codi 2 utilitzant la funció `path()`.
+
+    - L'enllaç **Inici** que vaja a la pàgina principal (ruta arrel del projecte).
+    - L'enllaç **Contacte** que vaja a la ruta del contacte de codi 2 utilitzant la funció `path()`.
 
 ---
 
@@ -694,21 +694,25 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 <html lang="ca">
   <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Contactes{% endblock %}</title>
+    <title>{% block title %}Aplicació Symfony{% endblock %}</title>
+    {% block stylesheets %}
+      <link href="{{ asset('styles/estils.css') }}" rel="stylesheet" />
+    {% endblock %}  
   </head>
   <body>
-    <header>
-      <h1>👇 Aplicació de contactes</h1>
-      <p class="meta">Exemple MVC amb Twig</p>
-    </header>
+
+    {# Incloem el menú com una plantilla parcial #}
+    {% include 'partials/_menu.html.twig' %}
 
     <main>
-      {% block body %}{% endblock %}
+        {% block contingut %}
+          <!-- Contingut específic de cada pàgina -->
+        {% endblock %}
     </main>
 
-    <footer>
-      <p>&copy; {{ "now"|date("Y") }} IES Lluís Simarro</p>
-    </footer>
+    {# Incloem el peu de pàgina #}
+    {% include 'partials/_footer.html.twig' %}
+
   </body>
 </html>
 ```
@@ -724,7 +728,7 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 
 {% block title %}Fitxa de contacte{% endblock %}
 
-{% block body %}
+{% block contingut %}
   <h2>Fitxa de contacte</h2>
 
   {% if contacte %}
@@ -732,7 +736,7 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
       <li><strong>Nom:</strong> {{ contacte.nom }}</li>
       <li><strong>Telèfon:</strong> {{ contacte.telefon }}</li>
       <li><strong>Email:</strong> {{ contacte.email }}</li>
-      <li class="meta">Codi intern: {{ codi }}</li>
+      <li><strong>Codi intern:</strong> {{ codi }}</li>
     </ul>
   {% else %}
     <p>Contacte amb codi {{ codi }} no trobat.</p>
@@ -751,7 +755,7 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 
 {% block title %}Resultats per "{{ text }}"{% endblock %}
 
-{% block body %}
+{% block contingut %}
   <h2>Resultats de la cerca: “{{ text }}”</h2>
 
   {% if resultats is not empty %}
