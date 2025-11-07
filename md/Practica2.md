@@ -31,7 +31,7 @@ Afegeix dins de la carpeta `src/Controller` els següents controladors:
 3. Dona-li el **nom de ruta** `inici`.
 4. Mostra com a **resposta** el missatge següent:
 
-   ```
+   ```bash
    Projecte Gestió Tenda de [nom i cognoms de l'alumne]
    ```
 
@@ -69,7 +69,7 @@ El controlador ha de **buscar la secció** que coincidisca amb el codi rebut per
 - Si la troba, mostrarà totes les seues dades en el format que preferisques (text pla o HTML).
 - Si **no** la troba, mostrarà el missatge:
 
-  ```
+  ```bash
   No s’ha trobat la secció: CodiSeccio
   ```
 
@@ -107,8 +107,6 @@ git tag -a versio1.0 -m "Versió 1.0 TendaNomAlumne MVC"
 git push origin master --tags
 ```
 
-## Explicació
-
 ### Utilitat etiqueta (tag)
 
 Una etiqueta en Git és com posar un marcador en un punt concret de la història del projecte.
@@ -122,7 +120,6 @@ Normalment s’utilitza per:
 2. Poder tornar a eixa versió en qualsevol moment per a revisar el codi, restaurar-lo o comparar canvis.
 
 3. Distribuir o entregar treball amb una versió estable i final.
-
 
 ### Versions anteriors
 
@@ -152,7 +149,6 @@ git reset --hard versio1.0
 ```
 
 - Això canviarà l’historial si fas push després.
-
 
 ---
 

@@ -57,8 +57,8 @@ Symfony és un framework **modern, segur i molt complet**. Els seus principals a
 - 🌍 **Gran comunitat** i **documentació oficial** excel·lent.  
 - 💡 **Bones pràctiques integrades**, seguint estàndards PSR.  
 - 🔌 **Integració amb llibreries de tercers** com:
-  - **Twig** → motor de plantilles per a generar vistes.
-  - **Doctrine** → ORM per a treballar amb bases de dades com a objectes.
+    - **Twig** → motor de plantilles per a generar vistes.
+    - **Doctrine** → ORM per a treballar amb bases de dades com a objectes.
 
 ---
 
@@ -140,8 +140,9 @@ cd nom_projecte
 # Afegir manualment els components que necessites
 composer require orm
 composer require twig
-composer require symfony/asset-mapper
+composer require symfony/twig-bundle
 composer require symfony/asset
+composer require symfony/asset-mapper
 ```
 
 🧠 **Diferencia principal:**
@@ -152,7 +153,7 @@ composer require symfony/asset
 !!! danger "Projecte de proves"
     Al llarg de les explicacions teòriques crearem un projecte mínim anomenat **agenda**, que utilitzarem exclusivament per a fer proves i exemples de classe. 
     
-    Aquest projecte inclourà únicament els components bàsics `orm` i `twig`, i ens servirà per a entendre pas a pas el funcionament de Symfony i per consolidar els coneixements apresos.
+    Aquest projecte inclourà únicament els components bàsics indicats `orm`, `twig`, `twig-bundle`, `asset` i `asset-mapper`, i ens servirà per a entendre pas a pas el funcionament de Symfony i per consolidar els coneixements apresos.
 
 !!! danger "Projecte de pràctiques"
     Paral·lelament, desenvoluparem un segon projecte, que servirà com a base per a les pràctiques avaluables del curs.
@@ -170,6 +171,7 @@ Quan creem un projecte amb Symfony, s’organitza automàticament en una estruct
 ```bash
 projecte/
 │
+├── assets/               # Conté els arxius fonts d'estils, imatges...
 ├── bin/                  # Conté els scripts executables, com `console`
 ├── config/               # Fitxers de configuració de Symfony i serveis
 ├── migrations/           # Fitxers de migracions de base de dades (Doctrine)

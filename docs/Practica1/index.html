@@ -821,14 +821,14 @@
 <p><strong>Creació del projecte inicial</strong></p>
 <ul>
 <li><strong>Crea un nou projecte Symfony</strong> anomenat <code>tendaNomAlumne</code>, que anirem completant posteriorment, dins de la carpeta de treball:
-  <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>/var/www/html/symfony
+  <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>/var/www/html/symfony
 </span></code></pre></div></td></tr></table></div>
-  Aquest projecte partirà d'un esquelet mínim i els components bàsics <code>orm</code> i <code>twig</code> <em>(ideal per a APIs o microserveis)</em>.</li>
+  Aquest projecte partirà d'un esquelet mínim i els components bàsics <code>orm</code>, <code>twig</code>, <code>twig-bundle</code>, <code>asset</code> i <code>asset-mapper</code>.</li>
 </ul>
 <hr />
 <ul>
 <li><strong>Modifica el fitxer</strong> <code>/etc/hosts</code> i afegeix una entrada per a crear un <strong>Virtual Host</strong>, de manera que pugues accedir al projecte mitjançant la següent adreça:
-  <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>http://symfony.tendaNomAlumne
+  <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>http://symfony.tendaNomAlumne
 </span></code></pre></div></td></tr></table></div></li>
 </ul>
 <hr />
@@ -848,7 +848,7 @@
 </div>
 <p>Per això, si descarreguem el projecte en un altre ordinador o entorn de treball, la carpeta vendor no existirà.</p>
 <p>En eixe cas, és necessari reinstal·lar totes les dependències executant la següent instrucció dins de la carpeta del projecte:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>composer install
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>composer<span class="w"> </span>install
 </span></code></pre></div></td></tr></table></div>
 <p>Aquesta ordre:</p>
 <ul>
