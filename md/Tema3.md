@@ -420,17 +420,66 @@ assets/styles/estils.css
 **Contingut de prova:**
 
 ```css
+/* Estils generals */
 body {
-  background-color: #99ccff;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-h1 {
-  border-bottom: 1px solid black;
-  background-color: white;
-  color: red;
-  margin: 10px auto;
+/* Contenidor principal */
+main {
+  width: 80%;
+  margin: 2rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+/* Menú */
+nav {
+  background-color: #004b8d;
+  padding: 0.75rem 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   text-align: center;
-  width: 50%;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 1.5rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Títols */
+h1, h2, h3 {
+  color: #004b8d;
+}
+
+/* Peu de pàgina */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #222;
+  color: white;
+  margin-top: 2rem;
 }
 ```
 
@@ -443,6 +492,19 @@ Per carregar aquest full d’estil en totes les pàgines, edita la plantilla bas
 ```
 
 💡 La funció `asset()` genera automàticament la ruta correcta del fitxer segons la configuració del projecte.
+
+!!! tip "Recomanat: compilació automàtica"
+    Perquè cada canvi es recompile automàticament sense haver d'executar cap ordre, utilitza:
+    ```bash
+    php bin/console asset-map:watch
+    ```
+
+!!! warning "Compilació manualment"
+    La compilació dels canvis en els arxius d'estils hauria de fer-se **automàticament** mitjançant el mode watch.  
+    Només utilitzarem la compilació manual **si el mode automàtic no està actiu o no funciona correctament**.
+    ```bash
+    php bin/console asset-map:compile
+    ```
 
 ---
 
