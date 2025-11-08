@@ -891,24 +891,24 @@
 <p>Preferentment, escull-ne una que tinga un <strong>apartat del menú principal</strong> implementat amb un <strong>dropdown</strong>.</p>
 <ol>
 <li>Descomprimeix la plantilla descarregada i copia tots els seus fitxers dins de la carpeta <code>public</code> del projecte Symfony.</li>
-<li>Canvia-li el nom al fitxer <code>index.html</code> per evitar conflictes.  </li>
+<li>Canvia-li el nom al fitxer <code>index.html</code> per evitar conflictes.<br />
+   Per exemple:
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>index.html.old
+</span></code></pre></div></td></tr></table></div></li>
 </ol>
-<p>Per exemple:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>index.html.old
-</span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="exercici-2">Exercici 2</h2>
 <ol>
 <li>Crea una nova <strong>plantilla base</strong> (<code>base.html.twig</code>) dins de la carpeta <code>templates</code>.</li>
-<li>
-<p>Afig-hi les seccions principals amb <strong>blocs Twig</strong> (<code>{% block ... %}</code>) per a:</p>
-<ul>
+<li>Afig-hi les seccions principals amb <strong>blocs Twig</strong> (<code>{% block ... %}</code>) per a:<ul>
 <li><code>title</code></li>
 <li><code>stylesheets</code></li>
 <li><code>body</code></li>
 <li><code>javascripts</code></li>
+</ul>
+</li>
 <li>Importa en aquesta plantilla tots els recursos CSS i JS que necessite la plantilla Bootstrap triada.</li>
-<li>A partir de la plantilla base, crea una <strong>subplantilla d’inici</strong> (<code>inici.html.twig</code>) que herete de la base i mostre:</li>
+<li>A partir de la plantilla base, crea una <strong>subplantilla d’inici</strong> (<code>inici.html.twig</code>) que herete de la base i mostre:<ul>
 <li>El nom del projecte.</li>
 <li>Un breu text de presentació.</li>
 <li>Una imatge o element visual destacat.</li>

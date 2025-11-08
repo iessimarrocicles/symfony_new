@@ -27,9 +27,7 @@ Preferentment, escull-ne una que tinga un **apartat del menú principal** implem
 
 1. Descomprimeix la plantilla descarregada i copia tots els seus fitxers dins de la carpeta `public` del projecte Symfony.
 2. Canvia-li el nom al fitxer `index.html` per evitar conflictes.  
-
    Per exemple:
-
    ```bash
    index.html.old
    ```
@@ -40,7 +38,6 @@ Preferentment, escull-ne una que tinga un **apartat del menú principal** implem
 
 1. Crea una nova **plantilla base** (`base.html.twig`) dins de la carpeta `templates`.
 2. Afig-hi les seccions principals amb **blocs Twig** (`{% block ... %}`) per a:
-
     - `title`
     - `stylesheets`
     - `body`
