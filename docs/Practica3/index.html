@@ -880,31 +880,35 @@
 <p><strong>Objectiu</strong></p>
 <p>Aprendre a crear i utilitzar <strong>plantilles Twig</strong> per generar vistes dinàmiques a Symfony, reutilitzant components i aplicant bones pràctiques en la construcció de la interfície.</p>
 <p><strong>Punt de partida</strong></p>
-<p>Partim de l’aplicació <strong><code>retailNomAlumne</code></strong> creada i configurada en les pràctiques anteriors.</p>
+<p>Partim de l’aplicació <strong><code>tendaNomAlumne</code></strong> creada i configurada en les pràctiques anteriors.</p>
 <hr />
 <h2 id="exercici-1">Exercici 1</h2>
-<p>Tria una <strong>plantilla Bootstrap</strong> d’una de les pàgines web recomanades en el curs d’aules.<br />
-Preferentment, escull-ne una que tinga un <strong>apartat del menú principal</strong> implementat amb un <strong>dropdown</strong>.</p>
+<p>Tria una <strong>plantilla Bootstrap</strong> d’una de les pàgines web recomanades:</p>
+<ul>
+<li><a href="https://bootstrapmade.com/">Bootstrap Made</a>  </li>
+<li><a href="https://themewagon.com/">Theme Wagon</a>  </li>
+</ul>
+<p>Preferentment, escull-ne una que tinga un <strong>apartat del menú principal</strong> implementat amb un <strong>dropdown</strong>.</p>
 <ol>
 <li>Descomprimeix la plantilla descarregada i copia tots els seus fitxers dins de la carpeta <code>public</code> del projecte Symfony.</li>
-<li>Canvia-li el nom al fitxer <code>index.html</code> per evitar conflictes.<br />
-   Per exemple:
-   <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>index.html.old
-</span></code></pre></div></td></tr></table></div></li>
+<li>Canvia-li el nom al fitxer <code>index.html</code> per evitar conflictes.  </li>
 </ol>
+<p>Per exemple:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>index.html.old
+</span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="exercici-2">Exercici 2</h2>
 <ol>
 <li>Crea una nova <strong>plantilla base</strong> (<code>base.html.twig</code>) dins de la carpeta <code>templates</code>.</li>
-<li>Afig-hi les seccions principals amb <strong>blocs Twig</strong> (<code>{% block ... %}</code>) per a:<ul>
+<li>
+<p>Afig-hi les seccions principals amb <strong>blocs Twig</strong> (<code>{% block ... %}</code>) per a:</p>
+<ul>
 <li><code>title</code></li>
 <li><code>stylesheets</code></li>
 <li><code>body</code></li>
 <li><code>javascripts</code></li>
-</ul>
-</li>
 <li>Importa en aquesta plantilla tots els recursos CSS i JS que necessite la plantilla Bootstrap triada.</li>
-<li>A partir de la plantilla base, crea una <strong>subplantilla d’inici</strong> (<code>inici.html.twig</code>) que herete de la base i mostre:<ul>
+<li>A partir de la plantilla base, crea una <strong>subplantilla d’inici</strong> (<code>inici.html.twig</code>) que herete de la base i mostre:</li>
 <li>El nom del projecte.</li>
 <li>Un breu text de presentació.</li>
 <li>Una imatge o element visual destacat.</li>
@@ -929,7 +933,7 @@ Preferentment, escull-ne una que tinga un <strong>apartat del menú principal</s
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
 <span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>add<span class="w"> </span>--all
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit...&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>versio4.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 4.0 EquipsNomAlumne Doctrine&quot;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>versio3.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 3.0 TendaNomAlumne Plantilles TWIG&quot;</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
 </span></code></pre></div></td></tr></table></div>
 <hr />

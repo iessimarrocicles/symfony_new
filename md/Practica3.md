@@ -12,19 +12,25 @@ Aprendre a crear i utilitzar **plantilles Twig** per generar vistes dinàmiques 
 
 **Punt de partida**
 
-Partim de l’aplicació **`retailNomAlumne`** creada i configurada en les pràctiques anteriors.
+Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràctiques anteriors.
 
 ---
 
 ## Exercici 1
 
-Tria una **plantilla Bootstrap** d’una de les pàgines web recomanades en el curs d’aules.  
+Tria una **plantilla Bootstrap** d’una de les pàgines web recomanades:
+
+- [Bootstrap Made](https://bootstrapmade.com/)  
+- [Theme Wagon](https://themewagon.com/)  
+
 Preferentment, escull-ne una que tinga un **apartat del menú principal** implementat amb un **dropdown**.
 
 1. Descomprimeix la plantilla descarregada i copia tots els seus fitxers dins de la carpeta `public` del projecte Symfony.
 2. Canvia-li el nom al fitxer `index.html` per evitar conflictes.  
+
    Per exemple:
-   ```
+
+   ```bash
    index.html.old
    ```
 
@@ -34,6 +40,7 @@ Preferentment, escull-ne una que tinga un **apartat del menú principal** implem
 
 1. Crea una nova **plantilla base** (`base.html.twig`) dins de la carpeta `templates`.
 2. Afig-hi les seccions principals amb **blocs Twig** (`{% block ... %}`) per a:
+
     - `title`
     - `stylesheets`
     - `body`
@@ -63,7 +70,7 @@ Preferentment, escull-ne una que tinga un **apartat del menú principal** implem
 ```bash
 git add --all
 git commit -m "Commit..."
-git tag -a versio4.0 -m "Versió 4.0 EquipsNomAlumne Doctrine"
+git tag -a versio3.0 -m "Versió 3.0 TendaNomAlumne Plantilles TWIG"
 git push origin master --tags
 ```
 

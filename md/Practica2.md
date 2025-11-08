@@ -100,8 +100,8 @@ git add --all
 # 2. Crear el commit amb el missatge indicat
 git commit -m "Commit MVC TendaNomAlumne"
 
-# 3. Crear l’etiqueta (tag) versio1.0 amb comentari
-git tag -a versio1.0 -m "Versió 1.0 TendaNomAlumne MVC"
+# 3. Crear l’etiqueta (tag) versio2.0 amb comentari
+git tag -a versio2.0 -m "Versió 2.0 TendaNomAlumne MVC"
 
 # 4. Pujar tant el commit com l’etiqueta al repositori remot
 git push origin master --tags
@@ -128,7 +128,7 @@ Per tornar a una versió anterior identificada per una etiqueta
 **Opció 1. Només consultar o executar el codi d’eixa versió (sense modificar res)**
 
 ```bash
-git checkout versio1.0
+git checkout versio2.0
 ```
 
 - Pots mirar el codi, compilar-lo, executar-lo, etc.
@@ -137,15 +137,15 @@ git checkout versio1.0
 **Opció 2. Crear una branca nova a partir del tag (per continuar treballant des d’eixa versió)**
 
 ```bash
-git checkout -b nova_versio1.0 versio1.0
+git checkout -b nova_versio2.0 versio2.0
 ```
 
-- Això crea una branca nova anomenada `nova_versio1.0` basada en eixe tag, i ja pots fer commits amb normalitat.
+- Això crea una branca nova anomenada `nova_versio2.0` basada en eixe tag, i ja pots fer commits amb normalitat.
 
 **Opció 3. Reposicionar la branca actual a eixa versió (tornar enrere “de veritat”)**
 
 ```bash
-git reset --hard versio1.0
+git reset --hard versio2.0
 ```
 
 - Això canviarà l’historial si fas push després.

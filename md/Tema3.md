@@ -781,7 +781,7 @@ Ara no construïm HTML al controlador: sols preparem dades i les enviem a Twig p
 👉 `http://localhost/contacte/3` → mostra la fitxa amb codi 3.
 
 **Cerca (text):**  
-👉 `http://localhost/contacte/anna` → llista coincidències per “anna”.
+👉 `http://localhost/contacte/sa` → llista coincidències per "sa".
 
 > Ambdós camins comparteixen prefix i es diferencien pel *requirement* de la ruta (igual que l’exemple original del Tema 2).
 
