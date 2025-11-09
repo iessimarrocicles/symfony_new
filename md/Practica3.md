@@ -56,13 +56,13 @@ Requisits generals:
 ## Exercici 3
 
 1. Crea una carpeta `templates/_fragments` i extrau com a mínim:
-   1. `_menu.html.twig` -> menú de navegació.
-   2. `_footer.html.twig` -> peu de pàgina.
+    1. `_menu.html.twig` -> menú de navegació.
+    2. `_footer.html.twig` -> peu de pàgina.
 2. Crea una carpeta `templates/seccions`:
-   1. Llistat `templates/seccio/llistat.html.twig`: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el **nom de la ruta** corresponent).
-   2. Detall `templates/seccio/detal.html.twig`: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.
+    1. Llistat `templates/seccio/llistat.html.twig`: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el **nom de la ruta** corresponent).
+    2. Detall `templates/seccio/detal.html.twig`: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.
 3. Les rutes mínimes: `inici`, `llistat_seccions` i `dades_seccio` (amb un parametre codi).
-   1. Comprova el funcionament amb `bin/console debug:router` i el profiler.
+    1. Comprova el funcionament amb `bin/console debug:router` i el profiler.
 
 ---
 
