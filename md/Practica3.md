@@ -21,8 +21,8 @@ Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràct
 En aquest exercici tens dues opcions de disseny per començar a treballar amb Bootstrap:
 
 - **Opció A:** Utilitzar una plantilla Bootstrap ja creada (descàrrega d’un portal).
-  - [Bootstrap Made](https://bootstrapmade.com/)  
-  - [Theme Wagon](https://themewagon.com/)  
+    - [Bootstrap Made](https://bootstrapmade.com/)  
+    - [Theme Wagon](https://themewagon.com/)  
 - **Opció B:** Crear la teua pròpia plantilla base amb Bootstrap, amb menú principal i peu de pàgina.
 
 Pots triar lliurement entre aquestes dues opcions segons el teu nivell o preferències. L’objectiu és treballar amb una base Bootstrap funcional i estructurada que servirà per a les vistes Twig posteriors.
@@ -30,9 +30,9 @@ Pots triar lliurement entre aquestes dues opcions segons el teu nivell o prefer�
 Requisits generals:
 
 1. Crea un fitxer `base.html.twig` amb una estructura HTML senzilla que incloga:
-   - Un menú principal amb almenys un element de tipus dropdown.
-   - Un cos principal per al contingut.
-   - Un peu de pàgina amb informació bàsica (autor, any, enllaços legals...).
+    - Un menú principal amb almenys un element de tipus dropdown.
+    - Un cos principal per al contingut.
+    - Un peu de pàgina amb informació bàsica (autor, any, enllaços legals...).
 2. Importa Bootstrap des d’un CDN o mitjançant els fitxers locals.
 3. Assegura’t que la teua plantilla siga responsive i que els estils es mostren correctament.
 
