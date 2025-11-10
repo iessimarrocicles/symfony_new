@@ -94,7 +94,7 @@ services:
   _defaults:
     autowire: true      # Symfony injecta automàticament el servei
     autoconfigure: true # Crea o registra el servei segons el seu tipus
-    public: false       # Visibilitat: els serveis no privats per defecte
+    public: false       # Visibilitat: els serveis son privats per a Symfony
 
   App\:
     resource: '../src/'
@@ -104,15 +104,15 @@ services:
       - '../src/Kernel.php'
 
   App\Controller\:
-    resource: '../src/Controller'
-    tags: ['controller.service_arguments']
+    resource: '../src/Controller'           # Ruta controladors HTTP
+    tags: ['controller.service_arguments']  # Permet injecció dins dels mètodes
 ```
 
 Symfony **escaneja automàticament** la carpeta `src/` i registra com a serveis totes les classes que troba, amb aquestes regles:
 
-- Si estan dins d’un namespace conegut (`App\...`)
-- I no són entitats (`Entity`) ni DTOs
-- Aleshores es registren com a serveis automàticament (gràcies a l’`autowire` i l’`autoconfigure` activats al services.yaml)
+- Si estan dins d’un namespace conegut (`App\...`).
+- I no són entitats (`Entity`) ni DTOs, ni configuracions internes (`DependencyInjection`), ni la classe principal (`Kernel.php`).
+- Aleshores es registren com a serveis automàticament (gràcies a l’`autowire` i l’`autoconfigure` activats al services.yaml).
 
 Això vol dir:
 
@@ -142,6 +142,7 @@ Només s’hauria de fer si és estrictament necessari (per exemple, per usar-lo
 Creem una classe que encapsule una funcionalitat, per exemple un servei de missatges:
 
 **Fitxer:** `src/Service/MissatgeService.php`
+
 ```php
 <?php
 
@@ -162,7 +163,8 @@ Gràcies a l’`autowire`, no cal registrar-la. Symfony la detectarà automàtic
 
 ### 4.2 Ús del servei en un controlador
 
-**Fitxer:** `src/Controller/IniciController.php`
+**Fitxer:** `src/Controller/SalutacioController.php`
+
 ```php
 <?php
 
@@ -173,13 +175,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class IniciController extends AbstractController
+class SalutacioController extends AbstractController
 {
     public function __construct(private MissatgeService $missatgeService) {
 
     }
 
-    #[Route('/', name: 'inici')]
+    #[Route('/salutacio', name: 'salutacio')]
     public function index(): Response
     {
         $text = $this->missatgeService->obtindreSalutacio('Anna');
@@ -208,6 +210,8 @@ Symfony ofereix comandes per inspeccionar el contenidor:
 
 ```bash
 php bin/console debug:container
+
+php bin/console debug:container --namespace=App
 ```
 
 - Per buscar un servei concret:
@@ -232,6 +236,41 @@ Symfony inclou molts **serveis predefinits** llestos per a utilitzar, com ara:
 - `LoggerInterface` → registrar missatges de log (errors, avisos, informació...)
 
 Per utilitzar un servei, n’hi ha prou amb **injectar-lo al controlador** mitjançant el constructor.
+
+---
+
+### 6.1. Monolog - Servei de logs
+
+**Monolog** és la biblioteca encarregada de gestionar els logs dins d’aplicacions PHP. És a dir, és l’eina que escriu els missatges en els fitxers, els envia a la consola, a correu, a serveis externs, etc.
+
+Així, Monolog proporciona els “handlers”, que són els que decideixen on guardar el missatge:
+
+| Handler              | Què fa                                           |
+|----------------------|--------------------------------------------------|
+| **StreamHandler**    | Guarda logs en fitxers (`var/log/{env}.log`)       |
+| **BrowserConsoleHandler** | Envia logs a la consola del navegador       |
+| **FirePHPHandler**   | Envia logs a l’extensió FirePHP                  |
+| **SyslogHandler**    | Envia logs a Syslog (Linux/servidors)            |
+| **SlackWebhookHandler** | Envia logs a un canal de Slack               |
+| **etc.**             | Hi ha molts més handlers disponibles             |
+
+En Symfony, el handler per defecte és `StreamHandler`:
+
+- Si volem modificar el comportament per defecte, cal editar el fitxer de configuració `config/packages/monolog.yaml`.
+
+Per això cal instal·lar:
+
+```bash
+composer require symfony/monolog-bundle
+```
+
+Este bundle:
+
+- Registra Monolog en Symfony.
+- Configura el sistema de logs
+- Crea automàticament var/log/dev.log quan s’escriu el primer missatge
+
+---
 
 Veurem un exemple amb `LoggerInterface` per traure un missatge amb la data i hora de l'accés a la pàgina inicial.
 
@@ -283,6 +322,7 @@ Els serveis es poden crear dins de la carpeta `src/Service`, que cal crear si no
 Symfony detecta automàticament totes les classes d’aquesta carpeta com a serveis.
 
 **Fitxer:** `src/Service/BDProva.php`
+
 ```php
 <?php
 
@@ -313,6 +353,7 @@ class BDProva
 ```
 
 **Fitxer:** `src/Controller/ContacteController.php`
+
 ```php
 <?php
 
