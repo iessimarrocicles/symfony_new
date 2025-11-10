@@ -66,15 +66,15 @@ Requisits generals:
 2. Controlador i rutes de seccions:
     - Classe `src/Controller/SeccioController.php`:
         - **llistat():**
-          - Ruta `/seccions`.
-          - Nom `llistat_seccions`.
-          - Renderitza `seccio/llistat.html.twig`.
+            - Ruta `/seccions`.
+            - Nom `llistat_seccions`.
+            - Renderitza `seccio/llistat.html.twig`.
         - **detall(int $codi):**
-          - Ruta `/seccions/{codi}`.
-          - Nom `dades_seccio`.
-          - Renderitza `seccio/detall.html.twig`.
+            - Ruta `/seccions/{codi}`.
+            - Nom `dades_seccio`.
+            - Renderitza `seccio/detall.html.twig`.
 
-> ⚠️ Per tant, les rutes mínimes del nostre projecte: `inici`, `llistat_seccions` i `dades_seccio` (amb un parametre codi).
+> Les rutes mínimes del nostre projecte: `inici`, `llistat_seccions` i `dades_seccio`.
 >
 > Podem comprovar el funcionament amb `bin/console debug:router` i el profiler.
 

@@ -941,11 +941,13 @@
 </li>
 <li>Controlador i rutes de seccions:<ul>
 <li>Classe <code>src/Controller/SeccioController.php</code>:<ul>
-<li><strong>llistat():</strong></li>
+<li><strong>llistat():</strong><ul>
 <li>Ruta <code>/seccions</code>.</li>
 <li>Nom <code>llistat_seccions</code>.</li>
 <li>Renderitza <code>seccio/llistat.html.twig</code>.</li>
-<li><strong>detall(int $codi):</strong></li>
+</ul>
+</li>
+<li><strong>detall(int $codi):</strong><ul>
 <li>Ruta <code>/seccions/{codi}</code>.</li>
 <li>Nom <code>dades_seccio</code>.</li>
 <li>Renderitza <code>seccio/detall.html.twig</code>.</li>
@@ -953,9 +955,11 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
 </ol>
 <blockquote>
-<p>⚠️ Per tant, les rutes mínimes del nostre projecte: <code>inici</code>, <code>llistat_seccions</code> i <code>dades_seccio</code> (amb un parametre codi).</p>
+<p>Les rutes mínimes del nostre projecte: <code>inici</code>, <code>llistat_seccions</code> i <code>dades_seccio</code>.</p>
 <p>Podem comprovar el funcionament amb <code>bin/console debug:router</code> i el profiler.</p>
 </blockquote>
 <hr />
