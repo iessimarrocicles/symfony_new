@@ -46,23 +46,30 @@ Requisits generals:
     - `contingut`
     - `javascripts`
 2. Importa en aquesta plantilla tots els recursos CSS i JS que necessite la plantilla Bootstrap triada (o creada per tu).
-3. A partir de la plantilla base, crea una **subplantilla d’inici** (`inici.html.twig`) que herete de la base i mostre:
+3. Crea una carpeta `templates/_fragments` i extrau com a mínim:
+    1. `_menu.html.twig` -> menú de navegació.
+    2. `_peu.html.twig` -> peu de pàgina.
+4. A partir de la plantilla base, crea una **subplantilla d’inici** (`inici.html.twig`) que herete de la base i mostre:
     - El nom del projecte.
     - Un breu text de presentació.
     - Una imatge o element visual destacat.
+5. Modifica el controlador `src/Controller/IniciController.php`:
+    - Ha de renderitzar `inici.html.twig`.
 
 ---
 
 ## Exercici 3
 
-1. Crea una carpeta `templates/_fragments` i extrau com a mínim:
-    1. `_menu.html.twig` -> menú de navegació.
-    2. `_footer.html.twig` -> peu de pàgina.
-2. Crea una carpeta `templates/seccions`:
-    1. Llistat `templates/seccio/llistat.html.twig`: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el **nom de la ruta** corresponent).
-    2. Detall `templates/seccio/detal.html.twig`: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.
-3. Les rutes mínimes: `inici`, `llistat_seccions` i `dades_seccio` (amb un parametre codi).
-    1. Comprova el funcionament amb `bin/console debug:router` i el profiler.
+1. Crea una carpeta `templates/seccions`:
+    1. **Llistat `templates/seccio/llistat.html.twig`**: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el nom de la ruta corresponent).
+    2. **Detall `templates/seccio/detall.html.twig`**: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.
+2. Controlador i rutes de seccions:
+    - Classe `src/Controller/SeccioController.php`:
+        - llistat() -> ruta `/seccions`, nom `llistat_seccions`, renderitza `seccio/llistat.html.twig`.
+        - detall(int $codi) -> ruta `/seccions/{codi}`, nom `dades_seccio`, renderitza `seccio/detall.html.twig`.
+
+> ⚠️ Per tant, les rutes mínimes del nostre projecte: `inici`, `llistat_seccions` i `dades_seccio` (amb un parametre codi).
+> Podem comprovar el funcionament amb `bin/console debug:router` i el profiler.
 
 ---
 

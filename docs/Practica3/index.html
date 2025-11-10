@@ -915,31 +915,43 @@
 </ul>
 </li>
 <li>Importa en aquesta plantilla tots els recursos CSS i JS que necessite la plantilla Bootstrap triada (o creada per tu).</li>
+<li>Crea una carpeta <code>templates/_fragments</code> i extrau com a mínim:<ol>
+<li><code>_menu.html.twig</code> -&gt; menú de navegació.</li>
+<li><code>_peu.html.twig</code> -&gt; peu de pàgina.</li>
+</ol>
+</li>
 <li>A partir de la plantilla base, crea una <strong>subplantilla d’inici</strong> (<code>inici.html.twig</code>) que herete de la base i mostre:<ul>
 <li>El nom del projecte.</li>
 <li>Un breu text de presentació.</li>
 <li>Una imatge o element visual destacat.</li>
 </ul>
 </li>
+<li>Modifica el controlador <code>src/Controller/IniciController.php</code>:<ul>
+<li>Ha de renderitzar <code>inici.html.twig</code>.</li>
+</ul>
+</li>
 </ol>
 <hr />
 <h2 id="exercici-3">Exercici 3</h2>
 <ol>
-<li>Crea una carpeta <code>templates/_fragments</code> i extrau com a mínim:<ol>
-<li><code>_menu.html.twig</code> -&gt; menú de navegació.</li>
-<li><code>_footer.html.twig</code> -&gt; peu de pàgina.</li>
-</ol>
-</li>
 <li>Crea una carpeta <code>templates/seccions</code>:<ol>
-<li>Llistat <code>templates/seccio/llistat.html.twig</code>: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el <strong>nom de la ruta</strong> corresponent).</li>
-<li>Detall <code>templates/seccio/detal.html.twig</code>: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.</li>
+<li><strong>Llistat <code>templates/seccio/llistat.html.twig</code></strong>: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el nom de la ruta corresponent).</li>
+<li><strong>Detall <code>templates/seccio/detall.html.twig</code></strong>: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.</li>
 </ol>
 </li>
-<li>Les rutes mínimes: <code>inici</code>, <code>llistat_seccions</code> i <code>dades_seccio</code> (amb un parametre codi).<ol>
-<li>Comprova el funcionament amb <code>bin/console debug:router</code> i el profiler.</li>
-</ol>
+<li>Controlador i rutes de seccions:<ul>
+<li>Classe <code>src/Controller/SeccioController.php</code>:<ul>
+<li>llistat() -&gt; ruta <code>/seccions</code>, nom <code>llistat_seccions</code>, renderitza <code>seccio/llistat.html.twig</code>.</li>
+<li>detall(int $codi) -&gt; ruta <code>/seccions/{codi}</code>, nom <code>dades_seccio</code>, renderitza <code>seccio/detall.html.twig</code>.</li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
+<blockquote>
+<p>⚠️ Per tant, les rutes mínimes del nostre projecte: <code>inici</code>, <code>llistat_seccions</code> i <code>dades_seccio</code> (amb un parametre codi).
+Podem comprovar el funcionament amb <code>bin/console debug:router</code> i el profiler.</p>
+</blockquote>
 <hr />
 <h2 id="exercici-4">Exercici 4</h2>
 <p><strong>Control de Versions</strong></p>
