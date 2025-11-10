@@ -935,22 +935,28 @@
 <h2 id="exercici-3">Exercici 3</h2>
 <ol>
 <li>Crea una carpeta <code>templates/seccions</code>:<ol>
-<li><strong>Llistat <code>templates/seccio/llistat.html.twig</code></strong>: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el nom de la ruta corresponent).</li>
-<li><strong>Detall <code>templates/seccio/detall.html.twig</code></strong>: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.</li>
+<li><strong>Llistat</strong> <code>templates/seccio/llistat.html.twig</code> <strong>:</strong> taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el nom de la ruta corresponent).</li>
+<li><strong>Detall</strong> <code>templates/seccio/detall.html.twig</code> <strong>:</strong> capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.</li>
 </ol>
 </li>
 <li>Controlador i rutes de seccions:<ul>
 <li>Classe <code>src/Controller/SeccioController.php</code>:<ul>
-<li>llistat() -&gt; ruta <code>/seccions</code>, nom <code>llistat_seccions</code>, renderitza <code>seccio/llistat.html.twig</code>.</li>
-<li>detall(int $codi) -&gt; ruta <code>/seccions/{codi}</code>, nom <code>dades_seccio</code>, renderitza <code>seccio/detall.html.twig</code>.</li>
+<li><strong>llistat():</strong></li>
+<li>Ruta <code>/seccions</code>.</li>
+<li>Nom <code>llistat_seccions</code>.</li>
+<li>Renderitza <code>seccio/llistat.html.twig</code>.</li>
+<li><strong>detall(int $codi):</strong></li>
+<li>Ruta <code>/seccions/{codi}</code>.</li>
+<li>Nom <code>dades_seccio</code>.</li>
+<li>Renderitza <code>seccio/detall.html.twig</code>.</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
 <blockquote>
-<p>⚠️ Per tant, les rutes mínimes del nostre projecte: <code>inici</code>, <code>llistat_seccions</code> i <code>dades_seccio</code> (amb un parametre codi).
-Podem comprovar el funcionament amb <code>bin/console debug:router</code> i el profiler.</p>
+<p>⚠️ Per tant, les rutes mínimes del nostre projecte: <code>inici</code>, <code>llistat_seccions</code> i <code>dades_seccio</code> (amb un parametre codi).</p>
+<p>Podem comprovar el funcionament amb <code>bin/console debug:router</code> i el profiler.</p>
 </blockquote>
 <hr />
 <h2 id="exercici-4">Exercici 4</h2>

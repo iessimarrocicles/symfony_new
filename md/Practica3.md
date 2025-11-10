@@ -61,14 +61,21 @@ Requisits generals:
 ## Exercici 3
 
 1. Crea una carpeta `templates/seccions`:
-    1. **Llistat `templates/seccio/llistat.html.twig`**: taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el nom de la ruta corresponent).
-    2. **Detall `templates/seccio/detall.html.twig`**: capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.
+    1. **Llistat** `templates/seccio/llistat.html.twig` **:** taula responsive amb codi, nom, descripció, any i nombre d'articles i un enllaç "Veure" en fer clic, s'obrirà la pàgina de les dades d’eixa secció en concret (utilitzant el nom de la ruta corresponent).
+    2. **Detall** `templates/seccio/detall.html.twig` **:** capçalera amb una imatge i dades; grid de targetes d'articles. Afig un enllaç amb una imatge per tornar al llistat de seccions.
 2. Controlador i rutes de seccions:
     - Classe `src/Controller/SeccioController.php`:
-        - llistat() -> ruta `/seccions`, nom `llistat_seccions`, renderitza `seccio/llistat.html.twig`.
-        - detall(int $codi) -> ruta `/seccions/{codi}`, nom `dades_seccio`, renderitza `seccio/detall.html.twig`.
+        - **llistat():**
+          - Ruta `/seccions`.
+          - Nom `llistat_seccions`.
+          - Renderitza `seccio/llistat.html.twig`.
+        - **detall(int $codi):**
+          - Ruta `/seccions/{codi}`.
+          - Nom `dades_seccio`.
+          - Renderitza `seccio/detall.html.twig`.
 
 > ⚠️ Per tant, les rutes mínimes del nostre projecte: `inici`, `llistat_seccions` i `dades_seccio` (amb un parametre codi).
+>
 > Podem comprovar el funcionament amb `bin/console debug:router` i el profiler.
 
 ---
