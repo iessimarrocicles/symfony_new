@@ -887,10 +887,10 @@
 <li>La ruta al servei serà: <code>@App\Service\ServeiDadesSeccions</code></li>
 <li>Comprova que aquest <strong>bind</strong> funciona correctament en les classes <code>IniciController</code> i <code>RetailController</code>.</li>
 <li>Quan tot funcione, fes un <strong>commit amb Git</strong> amb el missatge:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit Serveis RetailNomAlumne&quot;</span>
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit Serveis TendaNomAlumne&quot;</span>
 </span></code></pre></div></td></tr></table></div></li>
 <li>Crea una <strong>etiqueta (tag)</strong> amb el nom i comentari següents:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>versio3.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 3.0 RetailNomAlumne Serveis&quot;</span>
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v3.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 3.0 TendaNomAlumne Serveis&quot;</span>
 </span></code></pre></div></td></tr></table></div></li>
 </ol>
 <hr />
@@ -899,7 +899,41 @@
 <li>Assegura’t que totes les modificacions funcionen correctament.</li>
 <li>Puja el projecte actualitzat al teu <strong>repositori GitHub o GitLab</strong>.</li>
 <li>Verifica que la versió <code>3.0</code> apareix correctament en les etiquetes del projecte.</li>
+<li>Esquelet de treball (estructura)
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>projecte/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>├─<span class="w"> </span>assets/
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>│<span class="w">  </span>├─<span class="w"> </span>styles/,<span class="w"> </span>imgs/,<span class="w"> </span>imgs/seccio/
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>│<span class="w">  </span>└─<span class="w"> </span>app.js
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>└─<span class="w"> </span>src/
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>│<span class="w">  </span>├─<span class="w"> </span>Controller/IniciController.php
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>│<span class="w">  </span>└─<span class="w"> </span>Controller/SeccioController.php
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>└─<span class="w"> </span>templates/
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">   </span>├─<span class="w"> </span>partials/
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>_menu.html.twig
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>_peu.html.twig
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">   </span>├─<span class="w"> </span>seccio/
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>detall.html.twig
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">   </span>│<span class="w">  </span>└─<span class="w"> </span>llistat.html.twig
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">   </span>├─<span class="w"> </span>base.html.twig
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">   </span>└─<span class="w"> </span>inici.html.twig
+</span></code></pre></div></td></tr></table></div></li>
 </ul>
+<hr />
 
 
 

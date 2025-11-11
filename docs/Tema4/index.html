@@ -1411,9 +1411,13 @@ Si cal exposar-ne algun directament, podem marcar-lo com <strong>públic</strong
 </ul>
 <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container<span class="w"> </span>--namespace<span class="o">=</span>App
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container<span class="w"> </span>App<span class="se">\</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>php<span class="w"> </span>bin/console<span class="w"> </span>debug:container<span class="w"> </span>App<span class="se">\S</span>ervice
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Per buscar un servei concret:</li>
@@ -1539,7 +1543,10 @@ Si cal exposar-ne algun directament, podem marcar-lo com <strong>públic</strong
 </span></code></pre></div></td></tr></table></div>
 <p>📝 Notes:</p>
 <ul>
-<li><code>\DateTime</code> és una classe pròpia de PHP.</li>
+<li><code>\DateTime</code> → La barra invertida inicial \ vol dir “comença des de l’arrel del namespace”, i DateTime és una classe interna de PHP (forma part del nucli del llenguatge).<ul>
+<li>També podem importar la classe amb <code>use</code> i no utilitzar la <code>\</code> davant.  </li>
+</ul>
+</li>
 <li>Els missatges es guarden en <code>var/log/dev.log</code> o <code>var/log/prod.log</code> segons l’entorn.</li>
 <li>Podríem haver passat directament l'objecte <code>LoggerInterface</code> al mètode <code>inici</code>. Però és recomanable injectar els serveis al constructor per a poder reutilitzar-los en diversos mètodes.</li>
 </ul>

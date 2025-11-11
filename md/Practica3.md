@@ -56,6 +56,8 @@ Requisits generals:
 5. Modifica el controlador `src/Controller/IniciController.php`:
     - Ha de renderitzar `inici.html.twig`.
 
+> Per **concatenar valors en Twig** s’utilitza el símbol `~`.
+
 ---
 
 ## Exercici 3
@@ -76,7 +78,7 @@ Requisits generals:
 
 > Les rutes mínimes del nostre projecte: `inici`, `llistat_seccions` i `dades_seccio`.
 >
-> Podem comprovar el funcionament amb `bin/console debug:router` i el profiler.
+> Podem comprovar el funcionament amb `php bin/console debug:router` i el profiler.
 
 ---
 

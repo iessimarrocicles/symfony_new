@@ -36,7 +36,7 @@ Treballar amb el **contenidor de serveis** de Symfony i aplicar el concepte d’
 
 ---
 
-## Exercici 3 
+## Exercici 3
 
 **Bind de serveis i comprovació**
 
@@ -45,11 +45,11 @@ Treballar amb el **contenidor de serveis** de Symfony i aplicar el concepte d’
 2. Comprova que aquest **bind** funciona correctament en les classes `IniciController` i `RetailController`.
 3. Quan tot funcione, fes un **commit amb Git** amb el missatge:
    ```bash
-   git commit -m "Commit Serveis RetailNomAlumne"
+   git commit -m "Commit Serveis TendaNomAlumne"
    ```
 4. Crea una **etiqueta (tag)** amb el nom i comentari següents:
    ```bash
-   git tag -a versio3.0 -m "Versió 3.0 RetailNomAlumne Serveis"
+   git tag -a v3.0 -m "Versió 3.0 TendaNomAlumne Serveis"
    ```
 
 ---
@@ -59,3 +59,24 @@ Treballar amb el **contenidor de serveis** de Symfony i aplicar el concepte d’
 - Assegura’t que totes les modificacions funcionen correctament.
 - Puja el projecte actualitzat al teu **repositori GitHub o GitLab**.
 - Verifica que la versió `3.0` apareix correctament en les etiquetes del projecte.
+- Esquelet de treball (estructura)
+   ```bash
+   projecte/
+   ├─ assets/
+   │  ├─ styles/, imgs/, imgs/seccio/
+   │  └─ app.js
+   └─ src/
+   │  ├─ Controller/IniciController.php
+   │  └─ Controller/SeccioController.php
+   └─ templates/
+      ├─ partials/
+      │  ├─ _menu.html.twig
+      │  ├─ _peu.html.twig
+      ├─ seccio/
+      │  ├─ detall.html.twig
+      │  └─ llistat.html.twig
+      ├─ base.html.twig
+      └─ inici.html.twig
+   ```
+
+---

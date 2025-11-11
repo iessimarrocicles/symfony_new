@@ -211,7 +211,9 @@ Symfony ofereix comandes per inspeccionar el contenidor:
 ```bash
 php bin/console debug:container
 
-php bin/console debug:container --namespace=App
+php bin/console debug:container App\
+
+php bin/console debug:container App\Service
 ```
 
 - Per buscar un servei concret:
@@ -306,7 +308,8 @@ class IniciController extends AbstractController
 
 📝 Notes:
 
-- `\DateTime` és una classe pròpia de PHP.
+- `\DateTime` → La barra invertida inicial \ vol dir “comença des de l’arrel del namespace”, i DateTime és una classe interna de PHP (forma part del nucli del llenguatge).
+    - També podem importar la classe amb `use` i no utilitzar la `\` davant.  
 - Els missatges es guarden en `var/log/dev.log` o `var/log/prod.log` segons l’entorn.
 - Podríem haver passat directament l'objecte `LoggerInterface` al mètode `inici`. Però és recomanable injectar els serveis al constructor per a poder reutilitzar-los en diversos mètodes.
 
