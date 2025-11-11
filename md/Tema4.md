@@ -346,7 +346,7 @@ class BDProva
               "telefon" => "638765434", "email" => "sarasidle@simarro.org"),
     );
 
-    public function get()
+    public function get(): array
     {
         return $this->contactes;
     }
@@ -369,7 +369,7 @@ use App\Service\BDProva;
 
 class ContacteController extends AbstractController
 {
-    private $contactes;
+    private array $contactes;
 
     public function __construct(BDProva $dades)
     {
@@ -484,23 +484,23 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Psr\Log\LoggerInterface;
+use DateTime;
 
 class IniciController extends AbstractController
 {
-    private $logger;
+    private $log;
     private $formatData;
 
-    public function __construct(LoggerInterface $logger, $formatData)
-    {
-        $this->logger = $logger;
+    public function __construct(private LoggerInterface $logger, $formatData) {
+        $this->log = $logger;
         $this->formatData = $formatData;
     }
 
     #[Route('/', name: 'inici')]
-    public function inici()
+    public function inici(): Response
     {
-        $data_hora = new \DateTime();
-        $this->logger->info("Accés: ". $data_hora->format($this->formatData));
+        $dataHora = new DateTime();
+        $this->log->info("Accés el " . $dataHora->format($this->formatData));
         return $this->render('inici.html.twig');
     }
 }
@@ -515,16 +515,16 @@ Si intentem executar aquesta classe sense definir `$formatData`, Symfony llança
 Definir l’argument al final del fitxer `services.yaml`:
 
 ```yaml
-App\Controller\IniciController:
+  App\Controller\IniciController:
     arguments:
-        $formatData: 'd/m/y H:i:s'
+      $formatData: 'd/m/y H:i:s'
 ```
 
 Amb això, indiquem que el paràmetre `$formatData` del constructor de `IniciController` tindrà per defecte el valor `'d/m/y H:i:s'`.
 
 📝 **Notes:**
 
-- No utilitzes el tabulador per indentar (usa quatre espais).  
+- No utilitzes el tabulador per indentar (usa espais).  
 - Aquesta tècnica permet definir **paràmetres personalitzats** per a serveis que Symfony no pot autowirejar automàticament.
 
 ---
@@ -551,7 +551,7 @@ App\Controller\IniciController:
 
 I en `.env` podem definir les variables:
 
-```
+```bash
 SUPPORT_EMAIL=suport@exemple.com
 ```
 

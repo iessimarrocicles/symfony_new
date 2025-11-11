@@ -1601,7 +1601,7 @@ Symfony detecta automàticament totes les classes d’aquesta carpeta com a serv
 </span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a>              <span class="s2">&quot;telefon&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;638765434&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;sarasidle@simarro.org&quot;</span><span class="p">),</span>
 </span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a>    <span class="p">);</span>
 </span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">()</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">get</span><span class="p">()</span><span class="o">:</span> <span class="k">array</span>
 </span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21"></a>    <span class="p">{</span>
 </span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">contactes</span><span class="p">;</span>
 </span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23"></a>    <span class="p">}</span>
@@ -1642,7 +1642,7 @@ Symfony detecta automàticament totes les classes d’aquesta carpeta com a serv
 </span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a>
 </span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="k">class</span> <span class="nc">ContacteController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
 </span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="p">{</span>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>    <span class="k">private</span> <span class="nv">$contactes</span><span class="p">;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>    <span class="k">private</span> <span class="k">array</span> <span class="nv">$contactes</span><span class="p">;</span>
 </span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a>
 </span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">BDProva</span> <span class="nv">$dades</span><span class="p">)</span>
 </span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15"></a>    <span class="p">{</span>
@@ -1804,23 +1804,23 @@ Symfony detecta automàticament totes les classes d’aquesta carpeta com a serv
 </span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
 </span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
 </span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9"></a>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="k">class</span> <span class="nc">IniciController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="p">{</span>
-</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12"></a>    <span class="k">private</span> <span class="nv">$logger</span><span class="p">;</span>
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13"></a>    <span class="k">private</span> <span class="nv">$formatData</span><span class="p">;</span>
-</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14"></a>
-</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">,</span> <span class="nv">$formatData</span><span class="p">)</span>
-</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16"></a>    <span class="p">{</span>
-</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="k">use</span> <span class="nx">DateTime</span><span class="p">;</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10"></a>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="k">class</span> <span class="nc">IniciController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="p">{</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13"></a>    <span class="k">private</span> <span class="nv">$log</span><span class="p">;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14"></a>    <span class="k">private</span> <span class="nv">$formatData</span><span class="p">;</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15"></a>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">LoggerInterface</span> <span class="nv">$logger</span><span class="p">,</span> <span class="nv">$formatData</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log</span> <span class="o">=</span> <span class="nv">$logger</span><span class="p">;</span>
 </span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">formatData</span> <span class="o">=</span> <span class="nv">$formatData</span><span class="p">;</span>
 </span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19"></a>    <span class="p">}</span>
 </span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20"></a>
 </span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;inici&#39;</span><span class="p">)]</span>
-</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">inici</span><span class="p">()</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">inici</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
 </span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23"></a>    <span class="p">{</span>
-</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24"></a>        <span class="nv">$data_hora</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
-</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">logger</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Accés: &quot;</span><span class="o">.</span> <span class="nv">$data_hora</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">formatData</span><span class="p">));</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24"></a>        <span class="nv">$dataHora</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DateTime</span><span class="p">();</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">log</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="s2">&quot;Accés el &quot;</span> <span class="o">.</span> <span class="nv">$dataHora</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">formatData</span><span class="p">));</span>
 </span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;inici.html.twig&#39;</span><span class="p">);</span>
 </span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27"></a>    <span class="p">}</span>
 </span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="p">}</span>
@@ -1832,14 +1832,14 @@ Symfony detecta automàticament totes les classes d’aquesta carpeta com a serv
 <p>Definir l’argument al final del fitxer <code>services.yaml</code>:</p>
 <div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
 <span class="normal"><a href="#__codelineno-17-2">2</a></span>
-<span class="normal"><a href="#__codelineno-17-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nt">App\Controller\IniciController</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="w">  </span><span class="nt">App\Controller\IniciController</span><span class="p">:</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="nt">arguments</span><span class="p">:</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">        </span><span class="nt">$formatData</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;d/m/y</span><span class="nv"> </span><span class="s">H:i:s&#39;</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">      </span><span class="nt">$formatData</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;d/m/y</span><span class="nv"> </span><span class="s">H:i:s&#39;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Amb això, indiquem que el paràmetre <code>$formatData</code> del constructor de <code>IniciController</code> tindrà per defecte el valor <code>'d/m/y H:i:s'</code>.</p>
 <p>📝 <strong>Notes:</strong></p>
 <ul>
-<li>No utilitzes el tabulador per indentar (usa quatre espais).  </li>
+<li>No utilitzes el tabulador per indentar (usa espais).  </li>
 <li>Aquesta tècnica permet definir <strong>paràmetres personalitzats</strong> per a serveis que Symfony no pot autowirejar automàticament.</li>
 </ul>
 <hr />
@@ -1870,7 +1870,7 @@ Symfony detecta automàticament totes les classes d’aquesta carpeta com a serv
 </span><span id="__span-18-12"><a id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="w">      </span><span class="nt">$suportEmail</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;%app.suport_email%&#39;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>I en <code>.env</code> podem definir les variables:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a>SUPPORT_EMAIL=suport@exemple.com
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="nv">SUPPORT_EMAIL</span><span class="o">=</span>suport@exemple.com
 </span></code></pre></div></td></tr></table></div>
 <p>Al codi PHP:</p>
 <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
