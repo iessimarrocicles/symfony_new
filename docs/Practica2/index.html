@@ -511,6 +511,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resultat-final-esperat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultat final esperat
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -921,6 +930,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resultat-final-esperat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultat final esperat
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -996,35 +1014,35 @@
 <hr />
 <h2 id="exercici-2">Exercici 2</h2>
 <p><strong>Control de Versions</strong></p>
-<p>Una vegada hages finalitzat les modificacions, afegeix els fitxers canviats a l’àrea de preparació (staging area) de Git i crea un commit amb el missatge:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>Commit<span class="w"> </span>MVC<span class="w"> </span>TendaNomAlumne
-</span></code></pre></div></td></tr></table></div>
-<p>Tot seguit, crea una etiqueta (tag) amb el nom versio1.0 i el comentari:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>Versió<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span>TendaNomAlumne<span class="w"> </span>MVC
+<p>Una vegada hages finalitzat les modificacions, treballerem amb el control de versions:</p>
+<ul>
+<li>Afegeix els fitxers canviats a l’àrea de preparació (staging area) de Git.</li>
+<li>Crea un commit amb el missatge.</li>
+<li>Crea una etiqueta (tag).</li>
+</ul>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># 1. Afegir tots els canvis a l’àrea de preparació</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>git<span class="w"> </span>add<span class="w"> </span>--all
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># 2. Crear el commit amb el missatge indicat</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit MVC TendaNomAlumne&quot;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># 3. Crear l’etiqueta (tag) versio2.0 amb comentari</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v2.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 2.0 TendaNomAlumne MVC&quot;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># 4. Pujar tant el commit com l’etiqueta al repositori remot</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
 </span></code></pre></div></td></tr></table></div>
 <p>Amb això, quedaran registrats tant l’estat final del projecte com la marca de versió corresponent.</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># 1. Afegir tots els canvis a l’àrea de preparació</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>git<span class="w"> </span>add<span class="w"> </span>--all
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># 2. Crear el commit amb el missatge indicat</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit MVC TendaNomAlumne&quot;</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># 3. Crear l’etiqueta (tag) versio2.0 amb comentari</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v2.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 2.0 TendaNomAlumne MVC&quot;</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># 4. Pujar tant el commit com l’etiqueta al repositori remot</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
-</span></code></pre></div></td></tr></table></div>
 <h3 id="utilitat-etiqueta-tag">Utilitat etiqueta (tag)</h3>
 <p>Una etiqueta en Git és com posar un marcador en un punt concret de la història del projecte.
 Normalment s’utilitza per:</p>
@@ -1045,56 +1063,60 @@ Normalment s’utilitza per:</p>
 </li>
 <li>
 <p>Per llistar les etiquetes existents:
-    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>tag
+    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>git<span class="w"> </span>tag
 </span></code></pre></div></td></tr></table></div></p>
 </li>
 </ol>
 <h3 id="treballant-amb-lhistorial">Treballant amb l'historial</h3>
-<p>Per mostrar l'historial</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span>
-<span class="normal"><a href="#__codelineno-7-5">5</a></span>
-<span class="normal"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>log
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1"># Vista per veure branques i posicions HEAD</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>git<span class="w"> </span>log<span class="w"> </span>--graph<span class="w"> </span>--abbrev-commit<span class="w"> </span>--decorate<span class="w"> </span>--format<span class="o">=</span>format:<span class="s1">&#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)&#39;</span><span class="w"> </span>--all
+<p>Per mostrar l'historial:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>git<span class="w"> </span>log
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="c1"># Vista per veure branques i posicions HEAD</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>git<span class="w"> </span>log<span class="w"> </span>--graph<span class="w"> </span>--abbrev-commit<span class="w"> </span>--decorate<span class="w"> </span>--format<span class="o">=</span>format:<span class="s1">&#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)&#39;</span><span class="w"> </span>--all
 </span></code></pre></div></td></tr></table></div>
 <h3 id="versions-anteriors">Versions anteriors</h3>
 <p>Per tornar a una versió anterior identificada per una etiqueta o hash.</p>
 <p><strong>Opció 1. Només consultar o executar el codi d’eixa versió (sense modificar res)</strong></p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span>
-<span class="normal"><a href="#__codelineno-8-4">4</a></span>
-<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Identifacada per una etiqueta</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>v2.0
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># Identificada per un hash de un commit</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>1bcb819
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Identifacada per una etiqueta</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>v2.0
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># Identificada per un hash de un commit</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>1bcb819
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Pots mirar el codi, compilar-lo, executar-lo, etc.</li>
 <li>Però si fas commits ací, no estaran associats a cap branca.</li>
 </ul>
 <p>Pots tornar a la versió incial:</p>
-<p>´´´bash</p>
-<h1 id="per-veure-la-rama-on-estas">Per veure la rama on estas</h1>
-<p>git branch</p>
-<h1 id="per-tornar-a-la-versio-inicial">Per tornar a la versió inicial</h1>
-<p>git checkout master
-´´´</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Per veure la rama on estas</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>git<span class="w"> </span>branch
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># Per tornar a la versió inicial</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>master
+</span></code></pre></div></td></tr></table></div>
 <p><strong>Opció 2. Crear una branca nova a partir del tag (per continuar treballant des d’eixa versió)</strong></p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>nova_versio2.0<span class="w"> </span>v2.0
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>nova_versio2.0<span class="w"> </span>v2.0
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Això crea una branca nova anomenada <code>nova_versio2.0</code> basada en eixe tag, i ja pots fer commits amb normalitat.</li>
 </ul>
 <p><strong>Opció 3. Reposicionar la branca actual a eixa versió (tornar enrere “de veritat”)</strong></p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>v2.0
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>v2.0
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Això canviarà l’historial si fas push després.</li>

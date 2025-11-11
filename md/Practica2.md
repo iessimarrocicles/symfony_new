@@ -79,19 +79,11 @@ El controlador ha de **buscar la secció** que coincidisca amb el codi rebut per
 
 **Control de Versions**
 
-Una vegada hages finalitzat les modificacions, afegeix els fitxers canviats a l’àrea de preparació (staging area) de Git i crea un commit amb el missatge:
+Una vegada hages finalitzat les modificacions, treballerem amb el control de versions:
 
-```bash
-Commit MVC TendaNomAlumne
-```
-
-Tot seguit, crea una etiqueta (tag) amb el nom versio1.0 i el comentari:
-
-```bash
-Versió 1.0 TendaNomAlumne MVC
-```
-
-Amb això, quedaran registrats tant l’estat final del projecte com la marca de versió corresponent.
+- Afegeix els fitxers canviats a l’àrea de preparació (staging area) de Git.
+- Crea un commit amb el missatge.
+- Crea una etiqueta (tag).
 
 ```bash
 # 1. Afegir tots els canvis a l’àrea de preparació
@@ -106,6 +98,8 @@ git tag -a v2.0 -m "Versió 2.0 TendaNomAlumne MVC"
 # 4. Pujar tant el commit com l’etiqueta al repositori remot
 git push origin master --tags
 ```
+
+Amb això, quedaran registrats tant l’estat final del projecte com la marca de versió corresponent.
 
 ### Utilitat etiqueta (tag)
 
@@ -128,7 +122,7 @@ Normalment s’utilitza per:
 
 ### Treballant amb l'historial
 
-Per mostrar l'historial
+Per mostrar l'historial:
 
 ```bash
 git log
@@ -158,13 +152,13 @@ git checkout 1bcb819
 
 Pots tornar a la versió incial:
 
-´´´bash
+```bash
 # Per veure la rama on estas
 git branch
 
 # Per tornar a la versió inicial
 git checkout master
-´´´
+```
 
 **Opció 2. Crear una branca nova a partir del tag (per continuar treballant des d’eixa versió)**
 
