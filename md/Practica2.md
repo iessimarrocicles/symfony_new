@@ -104,6 +104,7 @@ Amb això, quedaran registrats tant l’estat final del projecte com la marca de
 ### Utilitat etiqueta (tag)
 
 Una etiqueta en Git és com posar un marcador en un punt concret de la història del projecte.
+
 Normalment s’utilitza per:
 
 1. Identificar versions importants del programari, com ara:
