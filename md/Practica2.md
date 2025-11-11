@@ -121,18 +121,50 @@ Normalment s’utilitza per:
 
 3. Distribuir o entregar treball amb una versió estable i final.
 
+4. Per llistar les etiquetes existents:
+    ```bash
+    git tag
+    ```
+
+### Treballant amb l'historial
+
+Per mostrar l'historial
+
+```bash
+git log
+
+git log --oneline
+
+# Vista per veure branques i posicions HEAD
+git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+```
+
 ### Versions anteriors
 
-Per tornar a una versió anterior identificada per una etiqueta
+Per tornar a una versió anterior identificada per una etiqueta o hash.
 
 **Opció 1. Només consultar o executar el codi d’eixa versió (sense modificar res)**
 
 ```bash
+# Identifacada per una etiqueta
 git checkout v2.0
+
+# Identificada per un hash de un commit
+git checkout 1bcb819
 ```
 
 - Pots mirar el codi, compilar-lo, executar-lo, etc.
 - Però si fas commits ací, no estaran associats a cap branca.
+
+Pots tornar a la versió incial:
+
+´´´bash
+# Per veure la rama on estas
+git branch
+
+# Per tornar a la versió inicial
+git checkout master
+´´´
 
 **Opció 2. Crear una branca nova a partir del tag (per continuar treballant des d’eixa versió)**
 

@@ -489,6 +489,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#treballant-amb-lhistorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Treballant amb l'historial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#versions-anteriors" class="md-nav__link">
     <span class="md-ellipsis">
       Versions anteriors
@@ -499,15 +508,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultat-final-esperat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resultat final esperat
-    </span>
-  </a>
   
 </li>
       
@@ -899,6 +899,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#treballant-amb-lhistorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Treballant amb l'historial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#versions-anteriors" class="md-nav__link">
     <span class="md-ellipsis">
       Versions anteriors
@@ -909,15 +918,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resultat-final-esperat" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resultat final esperat
-    </span>
-  </a>
   
 </li>
       
@@ -1043,24 +1043,58 @@ Normalment s’utilitza per:</p>
 <li>
 <p>Distribuir o entregar treball amb una versió estable i final.</p>
 </li>
+<li>
+<p>Per llistar les etiquetes existents:
+    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>tag
+</span></code></pre></div></td></tr></table></div></p>
+</li>
 </ol>
+<h3 id="treballant-amb-lhistorial">Treballant amb l'historial</h3>
+<p>Per mostrar l'historial</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>log
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1"># Vista per veure branques i posicions HEAD</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>git<span class="w"> </span>log<span class="w"> </span>--graph<span class="w"> </span>--abbrev-commit<span class="w"> </span>--decorate<span class="w"> </span>--format<span class="o">=</span>format:<span class="s1">&#39;%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)&#39;</span><span class="w"> </span>--all
+</span></code></pre></div></td></tr></table></div>
 <h3 id="versions-anteriors">Versions anteriors</h3>
-<p>Per tornar a una versió anterior identificada per una etiqueta</p>
+<p>Per tornar a una versió anterior identificada per una etiqueta o hash.</p>
 <p><strong>Opció 1. Només consultar o executar el codi d’eixa versió (sense modificar res)</strong></p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>v2.0
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Identifacada per una etiqueta</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>v2.0
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># Identificada per un hash de un commit</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a>git<span class="w"> </span>checkout<span class="w"> </span>1bcb819
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Pots mirar el codi, compilar-lo, executar-lo, etc.</li>
 <li>Però si fas commits ací, no estaran associats a cap branca.</li>
 </ul>
+<p>Pots tornar a la versió incial:</p>
+<p>´´´bash</p>
+<h1 id="per-veure-la-rama-on-estas">Per veure la rama on estas</h1>
+<p>git branch</p>
+<h1 id="per-tornar-a-la-versio-inicial">Per tornar a la versió inicial</h1>
+<p>git checkout master
+´´´</p>
 <p><strong>Opció 2. Crear una branca nova a partir del tag (per continuar treballant des d’eixa versió)</strong></p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>nova_versio2.0<span class="w"> </span>v2.0
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>nova_versio2.0<span class="w"> </span>v2.0
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Això crea una branca nova anomenada <code>nova_versio2.0</code> basada en eixe tag, i ja pots fer commits amb normalitat.</li>
 </ul>
 <p><strong>Opció 3. Reposicionar la branca actual a eixa versió (tornar enrere “de veritat”)</strong></p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>v2.0
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>v2.0
 </span></code></pre></div></td></tr></table></div>
 <ul>
 <li>Això canviarà l’historial si fas push després.</li>
