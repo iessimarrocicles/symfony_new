@@ -913,14 +913,14 @@
 </ol>
 <hr />
 <h2 id="exercici-3">Exercici 3</h2>
-<p><strong>Servei propi <code>ServeiDadesSeccio</code></strong></p>
-<p>Crea un servei anomenat <code>ServeiDadesSeccio</code> dins de la carpeta <code>src/Service</code> (si no existeix, crea-la primer). Aquest servei s’encarregarà de gestionar totes les dades relacionades amb les seccions, incloent ara també la imatge identificadora de cadascuna.</p>
+<p><strong>Servei propi <code>DadesSeccioServei</code></strong></p>
+<p>Crea un servei anomenat <code>DadesSeccioServei</code> dins de la carpeta <code>src/Service</code> (si no existeix, crea-la primer). Aquest servei s’encarregarà de gestionar totes les dades relacionades amb les seccions, incloent ara també la imatge identificadora de cadascuna.</p>
 <ol>
 <li>
 <p><strong>Trasllat de dades:</strong></p>
 <ul>
 <li>Copia l’array de seccions que fins ara estava declarat dins de <code>src/Controller/SeccioController</code>.</li>
-<li>Porta’l al nou servei <code>ServeiDadesSeccio</code>, on quedarà com una propietat privada de la classe.</li>
+<li>Porta’l al nou servei <code>DadesSeccioServei</code>, on quedarà com una propietat privada de la classe.</li>
 <li>Afig a l'array un nou camp anomenat <code>imatge</code> per cada secció:<ul>
 <li>Descarrega una imatge representativa o un logo per a cada secció (roba, calçat...).</li>
 <li>Guarda-les a la carpeta <code>asset/imgs/seccions/</code> del projecte.</li>
@@ -939,7 +939,7 @@
 <li>
 <p><strong>Ús del servei en els controladors:</strong></p>
 <ul>
-<li>En <code>src/Controller/SeccioController</code>, elimina l’array local i injecta el nou servei <code>ServeiDadesSeccio</code> mitjançant el constructor. Substitueix totes les crides a l’array per les crides als mètodes del servei (<code>llistarSeccions()</code> i <code>obtenirSeccioPerCodi()</code>).</li>
+<li>En <code>src/Controller/SeccioController</code>, elimina l’array local i injecta el nou servei <code>DadesSeccioServei</code> mitjançant el constructor. Substitueix totes les crides a l’array per les crides als mètodes del servei (<code>llistarSeccions()</code> i <code>obtenirSeccioPerCodi()</code>).</li>
 </ul>
 </li>
 <li>
@@ -970,9 +970,11 @@
 <hr />
 <h2 id="resultat-final-esperat">Resultat final esperat</h2>
 <ul>
-<li>L’aplicació utilitza serveis predefinits pel sistema.</li>
-<li>L'aplicació utilitza serveis propis.</li>
-<li>Mostra imatges a les plantilles de Twig.</li>
+<li>Controlador que utilitza serveis predefinits com <code>LoggerInterface</code>.  </li>
+<li>Registres al fitxer <code>var/log/dev.log</code>.</li>
+<li>Generar un servei propi <code>DadesSeccioServei</code>  amb mètodes per llistar i obtenir una seccio.</li>
+<li>Controlador que utilitza un servei propi, el esmentat al punt anterior.</li>
+<li>Mostrar imatges a les vistes de Twig.</li>
 </ul>
 
 

@@ -48,13 +48,13 @@ Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràct
 
 ## Exercici 3
 
-**Servei propi `ServeiDadesSeccio`**
+**Servei propi `DadesSeccioServei`**
 
-Crea un servei anomenat `ServeiDadesSeccio` dins de la carpeta `src/Service` (si no existeix, crea-la primer). Aquest servei s’encarregarà de gestionar totes les dades relacionades amb les seccions, incloent ara també la imatge identificadora de cadascuna.
+Crea un servei anomenat `DadesSeccioServei` dins de la carpeta `src/Service` (si no existeix, crea-la primer). Aquest servei s’encarregarà de gestionar totes les dades relacionades amb les seccions, incloent ara també la imatge identificadora de cadascuna.
 
 1. **Trasllat de dades:**
      - Copia l’array de seccions que fins ara estava declarat dins de `src/Controller/SeccioController`.
-     - Porta’l al nou servei `ServeiDadesSeccio`, on quedarà com una propietat privada de la classe.
+     - Porta’l al nou servei `DadesSeccioServei`, on quedarà com una propietat privada de la classe.
      - Afig a l'array un nou camp anomenat `imatge` per cada secció:
          - Descarrega una imatge representativa o un logo per a cada secció (roba, calçat...).
          - Guarda-les a la carpeta `asset/imgs/seccions/` del projecte.
@@ -65,7 +65,7 @@ Crea un servei anomenat `ServeiDadesSeccio` dins de la carpeta `src/Service` (si
      - Afig també un mètode `obtenirSeccioPerCodi(int $codi)` que, donat un codi, retorne la secció corresponent o `null` si no existeix.
 
 3. **Ús del servei en els controladors:**
-     - En `src/Controller/SeccioController`, elimina l’array local i injecta el nou servei `ServeiDadesSeccio` mitjançant el constructor. Substitueix totes les crides a l’array per les crides als mètodes del servei (`llistarSeccions()` i `obtenirSeccioPerCodi()`).
+     - En `src/Controller/SeccioController`, elimina l’array local i injecta el nou servei `DadesSeccioServei` mitjançant el constructor. Substitueix totes les crides a l’array per les crides als mètodes del servei (`llistarSeccions()` i `obtenirSeccioPerCodi()`).
 
 4. **Mostrar les imatges en les plantilles Twig**
      - A la vista de la secció `detall.html.twig`, mostra la imatge utilitzant la funció asset de Twig i l’operador de concatenació ~.
@@ -92,6 +92,8 @@ git push origin master --tags
 
 ## Resultat final esperat
 
-- L’aplicació utilitza serveis predefinits pel sistema.
-- L'aplicació utilitza serveis propis.
-- Mostra imatges a les plantilles de Twig.
+- Controlador que utilitza serveis predefinits com `LoggerInterface`.  
+- Registres al fitxer `var/log/dev.log`.
+- Generar un servei propi `DadesSeccioServei`  amb mètodes per llistar i obtenir una seccio.
+- Controlador que utilitza un servei propi, el esmentat al punt anterior.
+- Mostrar imatges a les vistes de Twig.
