@@ -900,10 +900,13 @@
 </ol>
 <hr />
 <h2 id="exercici-2">Exercici 2</h2>
-<p><strong>Ús bàsic de <code>LoggerInterface</code> en un controlador</strong></p>
+<p><strong>Ús bàsic de LoggerInterface en un controlador</strong></p>
 <ol>
-<li>Edita el fitxer <code>src/Controller/IniciController.php</code> i injecta LoggerInterface al constructor de la classe. Fes que cada vegada que un usuari accedisca a la pàgina d’inici (/), es guarde un registre amb la data, l’adreça IP i l’URL visitada.</li>
-<li>Entra a <code>http://symfony.tendaNomAlumne/</code> i comprova que s’ha creat o actualitzat el fitxer <code>var/log/dev.log</code>. Hauries de veure una línia semblant a:
+<li>Edita el fitxer <code>src/Controller/IniciController.php</code> i injecta LoggerInterface al constructor de la classe. <ul>
+<li>Fes que cada vegada que un usuari accedisca a la pàgina d’inici (/), es guarde un registre amb la data, l’adreça IP i l’URL visitada.</li>
+</ul>
+</li>
+<li>Entra a http://symfony.tendaNomAlumne/ i comprova que s’ha creat o actualitzat el fitxer <code>var/log/dev.log</code>. Hauries de veure una línia semblant a:
    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Nou<span class="w"> </span>accés<span class="w"> </span>d’usuari:<span class="w"> </span><span class="o">{</span><span class="s2">&quot;ip&quot;</span>:<span class="s2">&quot;127.0.0.1&quot;</span>,<span class="s2">&quot;moment&quot;</span>:<span class="s2">&quot;2025-11-12 09:30:00&quot;</span>,<span class="s2">&quot;ruta&quot;</span>:<span class="s2">&quot;/&quot;</span><span class="o">}</span>
 </span></code></pre></div></td></tr></table></div></li>
 <li>Obri el fitxer de log i verifica que cada vegada que recarregues la pàgina, s’afegeix un nou registre d’accés.</li>
@@ -913,35 +916,39 @@
 <p><strong>Servei propi <code>ServeiDadesSeccio</code></strong></p>
 <p>Crea un servei anomenat <code>ServeiDadesSeccio</code> dins de la carpeta <code>src/Service</code> (si no existeix, crea-la primer). Aquest servei s’encarregarà de gestionar totes les dades relacionades amb les seccions, incloent ara també la imatge identificadora de cadascuna.</p>
 <ol>
-<li><strong>Trasllat de dades:</strong></li>
+<li>
+<p><strong>Trasllat de dades:</strong></p>
+<ul>
 <li>Copia l’array de seccions que fins ara estava declarat dins de <code>src/Controller/SeccioController</code>.</li>
 <li>Porta’l al nou servei <code>ServeiDadesSeccio</code>, on quedarà com una propietat privada de la classe.</li>
-<li>
-<p>Afig a l'array un nou camp anomenat <code>imatge</code> per cada secció:</p>
-<ul>
+<li>Afig a l'array un nou camp anomenat <code>imatge</code> per cada secció:<ul>
 <li>Descarrega una imatge representativa o un logo per a cada secció (p. ex. roba, calçat...).</li>
 <li>Guarda-les a la carpeta <code>asset/imgs/seccions/</code> del projecte.</li>
 <li>Assegura’t que els noms dels fitxers siguen senzills i sense espais (per exemple: roba.jpg, calcat.jpg...).</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
 <p><strong>Mètodes públics:</strong></p>
-</li>
+<ul>
 <li>Defineix un mètode <code>llistarSeccions()</code> que retorne tot l’array de seccions.</li>
-<li>
-<p>Afig també un mètode <code>obtenirSeccioPerCodi(int $codi)</code> que, donat un codi, retorne la secció corresponent o <code>null</code> si no existeix.</p>
+<li>Afig també un mètode <code>obtenirSeccioPerCodi(int $codi)</code> que, donat un codi, retorne la secció corresponent o <code>null</code> si no existeix.</li>
+</ul>
 </li>
 <li>
 <p><strong>Ús del servei en els controladors:</strong></p>
-</li>
-<li>
-<p>En <code>src/Controller/SeccioController</code>, elimina l’array local i injecta el nou servei <code>ServeiDadesSeccio</code> mitjançant el constructor. Substitueix totes les crides a l’array per les crides als mètodes del servei (<code>llistarSeccions()</code> i <code>obtenirSeccioPerCodi()</code>).</p>
+<ul>
+<li>En <code>src/Controller/SeccioController</code>, elimina l’array local i injecta el nou servei <code>ServeiDadesSeccio</code> mitjançant el constructor. Substitueix totes les crides a l’array per les crides als mètodes del servei (<code>llistarSeccions()</code> i <code>obtenirSeccioPerCodi()</code>).</li>
+</ul>
 </li>
 <li>
 <p><strong>Mostrar les imatges en les plantilles Twig</strong></p>
-</li>
+<ul>
 <li>A la vista de la secció <code>detall.html.twig</code>, mostra la imatge utilitzant la funció asset de Twig i l’operador de concatenació ~.<ul>
 <li>Exemple: <code>{{ asset('img/' ~ seccio.imatge) }}</code> (no és la solució, només una pista sintàctica).</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -963,7 +970,9 @@
 <hr />
 <h2 id="resultat-final-esperat">Resultat final esperat</h2>
 <ul>
-<li>...</li>
+<li>L’aplicació utilitza serveis predefinits pel sistema.</li>
+<li>L'aplicació utilitza serveis propis.</li>
+<li>Mostra imatges a les plantilles de Twig.</li>
 </ul>
 
 
