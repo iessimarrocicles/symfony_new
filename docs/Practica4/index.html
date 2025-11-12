@@ -632,6 +632,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#exercici-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercici 4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resultat-final-esperat" class="md-nav__link">
     <span class="md-ellipsis">
       Resultat final esperat
@@ -835,6 +844,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#exercici-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercici 4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resultat-final-esperat" class="md-nav__link">
     <span class="md-ellipsis">
       Resultat final esperat
@@ -861,79 +879,92 @@
 <h1 id="tema-4-practica">💻 TEMA 4 — Pràctica</h1>
 <p><strong>Objectiu</strong></p>
 <p>Treballar amb el <strong>contenidor de serveis</strong> de Symfony i aplicar el concepte d’<strong>injecció de dependències</strong> per a gestionar dades i recursos dins de l’aplicació.</p>
+<p><strong>Punt de partida</strong></p>
+<p>Partim de l’aplicació <strong><code>tendaNomAlumne</code></strong> creada i configurada en les pràctiques anteriors.</p>
 <hr />
 <h2 id="exercici-1">Exercici 1</h2>
-<p><strong>Mostrar les seccions en la pàgina inicial</strong></p>
-<ul>
-<li>Modifica la plantilla <code>inici.html.twig</code> perquè <strong>reba com a paràmetre</strong> el llistat de les seccions enviat des de <code>IniciController::inici()</code>.</li>
-<li>Mostra aquestes seccions en la plantilla amb el <strong>format indicat pel professorat</strong>.</li>
-</ul>
-<p>💡 <em>Pista:</em> hauràs de passar el llistat com a variable al mètode <code>render()</code> del controlador.</p>
+<p><strong>Revisó ràpida del contenidor i autowiring</strong></p>
+<ol>
+<li>Obri <code>config/services.yaml</code> i localitza els <em>defaults</em>:
+   <div class="language-yaml highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">_defaults</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nt">autowire</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="nt">autoconfigure</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="nt">public</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+</span></code></pre></div></td></tr></table></div>
+   Això habilita que Symfony <strong>detecte i injecte</strong> automàticament les dependències per <strong>tipus</strong> (classes/interfícies), i registre serveis segons el seu tipus.</li>
+</ol>
 <hr />
 <h2 id="exercici-2">Exercici 2</h2>
-<p><strong>Afegir imatges a cada secció</strong></p>
+<p><strong>Ús bàsic de <code>LoggerInterface</code> en un controlador</strong></p>
 <ol>
-<li>Descarrega’t una <strong>imatge o logo representatiu</strong> per a cadascuna de les seccions del teu llistat.</li>
-<li>Afig un <strong>nou camp en les dades de les seccions</strong> amb el nom de la imatge corresponent.</li>
-<li>Modifica la plantilla perquè, en mostrar les dades de cada secció, es veja també la <strong>imatge associada</strong>.</li>
-<li>Recorda que per <strong>concatenar valors en Twig</strong> s’utilitza el símbol <code>~</code>.</li>
+<li>Edita el fitxer <code>src/Controller/IniciController.php</code> i injecta LoggerInterface al constructor de la classe. Fes que cada vegada que un usuari accedisca a la pàgina d’inici (/), es guarde un registre amb la data, l’adreça IP i l’URL visitada.</li>
+<li>Entra a <code>http://symfony.tendaNomAlumne/</code> i comprova que s’ha creat o actualitzat el fitxer <code>var/log/dev.log</code>. Hauries de veure una línia semblant a:
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">[</span>info<span class="o">]</span><span class="w"> </span>Nou<span class="w"> </span>accés<span class="w"> </span>d’usuari:<span class="w"> </span><span class="o">{</span><span class="s2">&quot;ip&quot;</span>:<span class="s2">&quot;127.0.0.1&quot;</span>,<span class="s2">&quot;moment&quot;</span>:<span class="s2">&quot;2025-11-12 09:30:00&quot;</span>,<span class="s2">&quot;ruta&quot;</span>:<span class="s2">&quot;/&quot;</span><span class="o">}</span>
+</span></code></pre></div></td></tr></table></div></li>
+<li>Obri el fitxer de log i verifica que cada vegada que recarregues la pàgina, s’afegeix un nou registre d’accés.</li>
 </ol>
-<p>💡 <em>Exemple conceptual:</em> <code>{{ asset('img/' ~ seccio.imatge) }}</code> (no és la solució, només una pista sintàctica).</p>
 <hr />
 <h2 id="exercici-3">Exercici 3</h2>
-<p><strong>Bind de serveis i comprovació</strong></p>
+<p><strong>Servei propi <code>ServeiDadesSeccio</code></strong></p>
+<p>Crea un servei anomenat <code>ServeiDadesSeccio</code> dins de la carpeta <code>src/Service</code> (si no existeix, crea-la primer). Aquest servei s’encarregarà de gestionar totes les dades relacionades amb les seccions, incloent ara també la imatge identificadora de cadascuna.</p>
 <ol>
-<li>Edita l’arxiu <code>config/services.yaml</code> i crea un <strong>bind</strong> perquè, sempre que un servei reba un argument anomenat <code>$dadesSeccions</code>, Symfony li assigne una <strong>instància del servei <code>ServeiDadesSeccions</code></strong> creat anteriorment.</li>
-<li>La ruta al servei serà: <code>@App\Service\ServeiDadesSeccions</code></li>
-<li>Comprova que aquest <strong>bind</strong> funciona correctament en les classes <code>IniciController</code> i <code>RetailController</code>.</li>
-<li>Quan tot funcione, fes un <strong>commit amb Git</strong> amb el missatge:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit Serveis TendaNomAlumne&quot;</span>
-</span></code></pre></div></td></tr></table></div></li>
-<li>Crea una <strong>etiqueta (tag)</strong> amb el nom i comentari següents:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v3.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 3.0 TendaNomAlumne Serveis&quot;</span>
-</span></code></pre></div></td></tr></table></div></li>
+<li><strong>Trasllat de dades:</strong></li>
+<li>Copia l’array de seccions que fins ara estava declarat dins de <code>src/Controller/SeccioController</code>.</li>
+<li>Porta’l al nou servei <code>ServeiDadesSeccio</code>, on quedarà com una propietat privada de la classe.</li>
+<li>
+<p>Afig a l'array un nou camp anomenat <code>imatge</code> per cada secció:</p>
+<ul>
+<li>Descarrega una imatge representativa o un logo per a cada secció (p. ex. roba, calçat...).</li>
+<li>Guarda-les a la carpeta <code>asset/imgs/seccions/</code> del projecte.</li>
+<li>Assegura’t que els noms dels fitxers siguen senzills i sense espais (per exemple: roba.jpg, calcat.jpg...).</li>
+</ul>
+</li>
+<li>
+<p><strong>Mètodes públics:</strong></p>
+</li>
+<li>Defineix un mètode <code>llistarSeccions()</code> que retorne tot l’array de seccions.</li>
+<li>
+<p>Afig també un mètode <code>obtenirSeccioPerCodi(int $codi)</code> que, donat un codi, retorne la secció corresponent o <code>null</code> si no existeix.</p>
+</li>
+<li>
+<p><strong>Ús del servei en els controladors:</strong></p>
+</li>
+<li>
+<p>En <code>src/Controller/SeccioController</code>, elimina l’array local i injecta el nou servei <code>ServeiDadesSeccio</code> mitjançant el constructor. Substitueix totes les crides a l’array per les crides als mètodes del servei (<code>llistarSeccions()</code> i <code>obtenirSeccioPerCodi()</code>).</p>
+</li>
+<li>
+<p><strong>Mostrar les imatges en les plantilles Twig</strong></p>
+</li>
+<li>A la vista de la secció <code>detall.html.twig</code>, mostra la imatge utilitzant la funció asset de Twig i l’operador de concatenació ~.<ul>
+<li>Exemple: <code>{{ asset('img/' ~ seccio.imatge) }}</code> (no és la solució, només una pista sintàctica).</li>
+</ul>
+</li>
 </ol>
+<p>Amb aquest canvi, el teu projecte utilitzarà un <strong>servei centralitzat</strong> per gestionar les dades de seccions, millorant la modularitat i mantenibilitat del codi.</p>
+<hr />
+<h2 id="exercici-4">Exercici 4</h2>
+<p><strong>Control de Versions</strong></p>
+<ol>
+<li>Quan tot funcione, fes un commit amb Git:</li>
+</ol>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git<span class="w"> </span>add<span class="w"> </span>--all
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Tema 4: Contenidor de Serveis&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v4.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 4.0 TendaNomAlumne Contenidor de Serveis&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
+</span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="resultat-final-esperat">Resultat final esperat</h2>
 <ul>
-<li>Assegura’t que totes les modificacions funcionen correctament.</li>
-<li>Puja el projecte actualitzat al teu <strong>repositori GitHub o GitLab</strong>.</li>
-<li>Verifica que la versió <code>3.0</code> apareix correctament en les etiquetes del projecte.</li>
-<li>Esquelet de treball (estructura)
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>projecte/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>├─<span class="w"> </span>assets/
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>│<span class="w">  </span>├─<span class="w"> </span>styles/,<span class="w"> </span>imgs/,<span class="w"> </span>imgs/seccio/
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>│<span class="w">  </span>└─<span class="w"> </span>app.js
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>└─<span class="w"> </span>src/
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>│<span class="w">  </span>├─<span class="w"> </span>Controller/IniciController.php
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>│<span class="w">  </span>└─<span class="w"> </span>Controller/SeccioController.php
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>└─<span class="w"> </span>templates/
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">   </span>├─<span class="w"> </span>partials/
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>_menu.html.twig
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>_peu.html.twig
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">   </span>├─<span class="w"> </span>seccio/
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>detall.html.twig
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">   </span>│<span class="w">  </span>└─<span class="w"> </span>llistat.html.twig
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">   </span>├─<span class="w"> </span>base.html.twig
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">   </span>└─<span class="w"> </span>inici.html.twig
-</span></code></pre></div></td></tr></table></div></li>
+<li>...</li>
 </ul>
-<hr />
 
 
 

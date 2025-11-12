@@ -881,8 +881,8 @@
 <p>Aprendre a crear i utilitzar <strong>plantilles Twig</strong> per generar vistes dinàmiques a Symfony, reutilitzant components i aplicant bones pràctiques en la construcció de la interfície.</p>
 <p><strong>Punt de partida</strong></p>
 <p>Partim de l’aplicació <strong><code>tendaNomAlumne</code></strong> creada i configurada en les pràctiques anteriors.</p>
-<p><strong>Esquelet de treball (estructura)</strong>
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<p><strong>Estructura final</strong></p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -913,7 +913,7 @@
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">   </span>│<span class="w">  </span>└─<span class="w"> </span>llistat.html.twig
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">   </span>├─<span class="w"> </span>base.html.twig
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">   </span>└─<span class="w"> </span>inici.html.twig
-</span></code></pre></div></td></tr></table></div></p>
+</span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="exercici-1">Exercici 1</h2>
 <p>En aquest exercici tens dues opcions de disseny per començar a treballar amb Bootstrap:</p>
@@ -1018,39 +1018,6 @@
 <li>L’aplicació utilitza <strong>plantilles Twig</strong> per a totes les vistes.</li>
 <li>La navegació entre pàgines funciona correctament mitjançant rutes Symfony.</li>
 <li>S’han aplicat estils <strong>Bootstrap</strong> a les vistes.</li>
-<li>Esquelet de treball (estructura)
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>projecte/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>├─<span class="w"> </span>assets/
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>│<span class="w">  </span>├─<span class="w"> </span>styles/,<span class="w"> </span>imgs/,<span class="w"> </span>imgs/seccio/
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>│<span class="w">  </span>└─<span class="w"> </span>app.js
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>└─<span class="w"> </span>src/
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>│<span class="w">  </span>├─<span class="w"> </span>Controller/IniciController.php
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>│<span class="w">  </span>└─<span class="w"> </span>Controller/SeccioController.php
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>└─<span class="w"> </span>templates/
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="w">   </span>├─<span class="w"> </span>partials/
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>_menu.html.twig
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>_peu.html.twig
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="w">   </span>├─<span class="w"> </span>seccio/
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">   </span>│<span class="w">  </span>├─<span class="w"> </span>detall.html.twig
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="w">   </span>│<span class="w">  </span>└─<span class="w"> </span>llistat.html.twig
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="w">   </span>├─<span class="w"> </span>base.html.twig
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="w">   </span>└─<span class="w"> </span>inici.html.twig
-</span></code></pre></div></td></tr></table></div></li>
 </ul>
 
 

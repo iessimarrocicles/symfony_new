@@ -14,7 +14,8 @@ Aprendre a crear i utilitzar **plantilles Twig** per generar vistes dinàmiques 
 
 Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràctiques anteriors.
 
-**Esquelet de treball (estructura)**
+**Estructura final**
+
    ```bash
    projecte/
    ├─ assets/
@@ -122,22 +123,3 @@ git push origin master --tags
 - L’aplicació utilitza **plantilles Twig** per a totes les vistes.
 - La navegació entre pàgines funciona correctament mitjançant rutes Symfony.
 - S’han aplicat estils **Bootstrap** a les vistes.
-- Esquelet de treball (estructura)
-   ```bash
-   projecte/
-   ├─ assets/
-   │  ├─ styles/, imgs/, imgs/seccio/
-   │  └─ app.js
-   └─ src/
-   │  ├─ Controller/IniciController.php
-   │  └─ Controller/SeccioController.php
-   └─ templates/
-      ├─ partials/
-      │  ├─ _menu.html.twig
-      │  ├─ _peu.html.twig
-      ├─ seccio/
-      │  ├─ detall.html.twig
-      │  └─ llistat.html.twig
-      ├─ base.html.twig
-      └─ inici.html.twig
-   ```
