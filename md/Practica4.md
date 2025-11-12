@@ -28,7 +28,7 @@ Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràct
        autoconfigure: true
        public: false
    ```
-   Això habilita que Symfony **detecte i injecte** automàticament les dependències per **tipus** (classes/interfícies), i registre serveis segons el seu tipus.
+   Això habilita que Symfony detecte i injecte automàticament les dependències per tipus (classes/interfícies), i registre serveis segons el seu tipus.
 
 ---
 
@@ -56,9 +56,9 @@ Crea un servei anomenat `ServeiDadesSeccio` dins de la carpeta `src/Service` (si
      - Copia l’array de seccions que fins ara estava declarat dins de `src/Controller/SeccioController`.
      - Porta’l al nou servei `ServeiDadesSeccio`, on quedarà com una propietat privada de la classe.
      - Afig a l'array un nou camp anomenat `imatge` per cada secció:
-         - Descarrega una imatge representativa o un logo per a cada secció (p. ex. roba, calçat...).
+         - Descarrega una imatge representativa o un logo per a cada secció (roba, calçat...).
          - Guarda-les a la carpeta `asset/imgs/seccions/` del projecte.
-         - Assegura’t que els noms dels fitxers siguen senzills i sense espais (per exemple: roba.jpg, calcat.jpg...).
+         - Assegura’t que els noms dels fitxers siguen senzills i sense espais (roba.jpg, calcat.jpg...).
 
 2. **Mètodes públics:**
      - Defineix un mètode `llistarSeccions()` que retorne tot l’array de seccions.
@@ -71,7 +71,7 @@ Crea un servei anomenat `ServeiDadesSeccio` dins de la carpeta `src/Service` (si
      - A la vista de la secció `detall.html.twig`, mostra la imatge utilitzant la funció asset de Twig i l’operador de concatenació ~.
          - Exemple: `{{ asset('img/' ~ seccio.imatge) }}` (no és la solució, només una pista sintàctica).
 
-Amb aquest canvi, el teu projecte utilitzarà un **servei centralitzat** per gestionar les dades de seccions, millorant la modularitat i mantenibilitat del codi.
+Amb aquest canvi, el teu projecte utilitzarà un servei centralitzat per gestionar les dades de seccions, millorant la modularitat i mantenibilitat del codi.
 
 ---
 
