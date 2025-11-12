@@ -92,7 +92,7 @@ git add --all
 # 2. Crear el commit amb el missatge indicat
 git commit -m "Commit MVC TendaNomAlumne"
 
-# 3. Crear l’etiqueta (tag) versio2.0 amb comentari
+# 3. Crear l’etiqueta (tag) v2.0 amb comentari
 git tag -a v2.0 -m "Versió 2.0 TendaNomAlumne MVC"
 
 # 4. Pujar tant el commit com l’etiqueta al repositori remot
