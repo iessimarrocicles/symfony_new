@@ -247,7 +247,7 @@ Per a poder utilitzar-lo en un controlador, s’ha d’injectar la interfície *
 
 ### 5.1. Guardar
 
-Exemple dins d’un controlador:
+Exemple dins d'un mètode al controlador:
 
 ```php
 <?php
@@ -295,7 +295,7 @@ class ContacteController extends AbstractController
 
 $contacte = $repositori->find($id);
 $contacte->setTelefon("600000000");
-$entityManager->flush();
+$gestor->flush();
 
 ?>
 ```
@@ -306,8 +306,8 @@ $entityManager->flush();
 <?php
 
 $contacte = $repositori->find($id);
-$entityManager->remove($contacte);
-$entityManager->flush();
+$gestor->remove($contacte);
+$gestor->flush();
 
 ?>
 ```
@@ -321,10 +321,10 @@ Per evitar que l’aplicació es trenque, podem **capturar l’excepció** i mos
 ```php
 <?php
 
-$entityManager->persist($objecte);
+$gestor->persist($objecte);
 
 try {
-    $entityManager->flush();
+    $gestor->flush();
     return new Response("Objecte guardat");
 } catch (\Exception $e) {
     return new Response("Error guardant objecte: " . $e->getMessage());
@@ -339,9 +339,7 @@ Això garanteix un **tractament d’errors segur** i evita que es mostren missat
 
 ## 6. Consultar objectes
 
-Doctrine crea automàticament una classe de **repositori** per a cada entitat (per exemple, ContacteRepository).
-
-Aquesta classe hereta de `ServiceEntityRepository` i permet:
+Doctrine crea automàticament una classe de **repositori** per a cada entitat (per exemple, ContacteRepository). Aquesta classe hereta de `ServiceEntityRepository` i permet:
 
 - Recuperar dades.
 - Fer cerques personalitzades.
@@ -445,16 +443,22 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
 ```php
 <?php
 
+# En el constructor hem injectat EntityManagerInterface com a $gestor
+
 #[Route('/contacte/{codi}', name:'fitxa_contacte', requirements: ['codi' => '\d+'])]
-public function fitxa(int $codi, EntityManagerInterface $gestor)
+public function fitxa(int $codi)
 {
     $repositori = $gestor->getRepository(Contacte::class);
     $contacte = $repositori->find($codi);
 
     if ($contacte)
-        return $this->render('fitxa_contacte.html.twig', ['contacte' => $contacte]);
+        return $this->render('fitxa_contacte.html.twig', [
+            'contacte' => $contacte
+        ]);
     else
-        return $this->render('fitxa_contacte.html.twig', ['contacte' => null]);
+        return $this->render('fitxa_contacte.html.twig', [
+            'contacte' => null
+        ]);
 }
 
 ?>
@@ -496,8 +500,10 @@ I podem cridar-la des del controlador:
 ```php
 <?php
 
+# En el constructor hem injectat EntityManagerInterface com a $gestor
+
 #[Route('/contacte/buscar/{text}', name:'buscar_contacte')]
-public function buscar($text, EntityManagerInterface $gestor)
+public function buscar($text)
 {
     $repositori = $gestor->getRepository(Contacte::class);
     $resultats = $repositori->findByName($text);
