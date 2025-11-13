@@ -122,6 +122,7 @@ El camp **codi** que abans utilitzavem com a identificador s’ha substituït pe
 
 !!! tip "Symfony"
     L’execució de la instrucció genera automàticament les següents classes:
+    
     -  El fitxer de l’entitat en `src/Entity/Contate.php`.
     -  El seu repositori en `src/Repository/ContacteRepository.php` (si no existia)
 

@@ -1347,9 +1347,11 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <p>El camp <strong>codi</strong> que abans utilitzavem com a identificador s’ha substituït per un <strong>id</strong> autonumèric que Doctrine genera automàticament com a clau principal. Així, només cal definir els altres camps (nom, telèfon i email) amb el seu tipus corresponent.</p>
 <div class="admonition tip">
 <p class="admonition-title">Symfony</p>
-<p>L’execució de la instrucció genera automàticament les següents classes:
--  El fitxer de l’entitat en <code>src/Entity/Contate.php</code>.
--  El seu repositori en <code>src/Repository/ContacteRepository.php</code> (si no existia)</p>
+<p>L’execució de la instrucció genera automàticament les següents classes:</p>
+<ul>
+<li>El fitxer de l’entitat en <code>src/Entity/Contate.php</code>.</li>
+<li>El seu repositori en <code>src/Repository/ContacteRepository.php</code> (si no existia)</li>
+</ul>
 <p>Recorda no es modifica la base de dades. Per aplicar els canvis al esquema cal generar i executar la migració, tal com explicarem en l’apartat següent.</p>
 </div>
 <p>Els tipus de dades més habituals en Doctrine són:</p>
