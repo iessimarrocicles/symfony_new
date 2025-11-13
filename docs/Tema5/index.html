@@ -1474,18 +1474,21 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 Per a una descripció més detallada de cada comanda i les seues diferències, consulteu l’<strong>Annex 1</strong>.</p>
 <hr />
 <h2 id="4-funcionament-intern">4. Funcionament intern</h2>
-<p>Abans d’entendre què és un repositori, convé conéixer breument dos components que Doctrine utilitza internament:</p>
+<p>Per comprendre bé el funcionament, primer necessitem conéixer tres components bàsics que Doctrine utilitza internament.</p>
 <ul>
 <li>
-<p><strong>ManagerRegistry:</strong> és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).
-    Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.</p>
+<p><strong>ManagerRegistry:</strong> és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).</p>
+<p>Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.</p>
 </li>
 <li>
-<p><strong>EntityManager:</strong> és el gestor d’entitats.
-    S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:
-        - Sap com guardar, modificar, eliminar de la base de dades.
-        - També permet accedir a buscar informació, mitjançant el repositori de cada entitat.
-            - Repositori: és una classe especialitzada a obtenir entitats d'un tipus concret.</p>
+<p><strong>EntityManager:</strong> és el gestor d’entitats.</p>
+<p>S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>- Sap com guardar, modificar, eliminar de la base de dades.
+- També permet accedir a buscar informació, mitjançant el repositori de cada entitat.
+    - **Repositori**: és una classe especialitzada a obtenir entitats d&#39;un tipus concret.
+</code></pre></div></td></tr></table></div>
 </li>
 </ul>
 <hr />
