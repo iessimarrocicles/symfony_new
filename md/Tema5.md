@@ -23,7 +23,7 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:
 
 ---
 
-### 1.2 Configuració bàsica de Doctrine
+### 1.2 Configuració bàsica
 
 Doctrine utilitza el fitxer `.env` per a definir la **connexió amb la base de dades**. 
 
@@ -169,7 +169,7 @@ Finalment, cal generar i aplicar una nova migració perquè la base de dades s�
 
 ---
 
-## 3. Actualització de l'esquema de la base de dades
+## 3. Actualitzar la base de dades
 
 Una vegada definida l’entitat o les seues modificacions, és necessari sincronitzar els canvis amb la base de dades perquè l’estructura (taules, columnes, relacions...) coincidisca amb el model definit al projecte.
 
@@ -197,17 +197,14 @@ Per a una descripció més detallada de cada comanda i les seues diferències, c
 
 Per comprendre bé el funcionament, primer necessitem conéixer tres components bàsics que Doctrine utilitza internament.
 
-**ManagerRegistry:** és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).
+- **ManagerRegistry:** és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).
+    - Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.
 
-- Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.
-
-**EntityManager:** és el gestor d’entitats.
-
-- S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:
-
-  - Sap com guardar, modificar, eliminar de la base de dades.
-  - També permet accedir a buscar informació, mitjançant el repositori de cada entitat.
-      - **Repositori**: és una classe especialitzada a obtenir entitats d'un tipus concret.
+- **EntityManager:** és el gestor d’entitats.
+    - S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:
+        - Sap com guardar, modificar, eliminar de la base de dades.
+        - També permet accedir a buscar informació, mitjançant el repositori de cada entitat.
+            - **Repositori**: és una classe especialitzada a obtenir entitats d'un tipus concret.
 
 ---
 
@@ -221,24 +218,7 @@ Per comprendre bé el funcionament, primer necessitem conéixer tres components 
 
 ---
 
-### 4.2. Analogia
-
-Si en canvi tens diversos magatzems (una per país o projecte):
-
-- Necessites primer la centraleta (**ManagerRegistry**) per saber a quin encarregat tocar.
-
-Imagina una empresa amb un únic magatzem:
-
-- Pots parlar directament amb l’encarregat (**EntityManager**).
-
-!!! important "Symfony"
-    En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament **EntityManagerInterface**, que és més simple i net.
-
-    No necessitem cridar `$registry->getManager()` perquè no hi ha cap dubte sobre quin manager s’ha d’utilitzar.
-
----
-
-## 4.3. Resum visual
+### 4.2. Resum visual
 
 ```bash
 ManagerRegistry
@@ -250,6 +230,11 @@ ManagerRegistry
                         ├── find(), findBy()
                         └── mètodes personalitzats (createQueryBuilder)
 ```
+
+!!! important "Symfony"
+    En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament **EntityManagerInterface**, que és més simple i net.
+
+    No necessitem cridar `$registry->getManager()` perquè no hi ha cap dubte sobre quin manager s’ha d’utilitzar.
 
 ---
 
@@ -276,18 +261,18 @@ class ContacteController extends AbstractController
     ...
 
     #[Route('/contacte/afegir', name: 'afegir_contacte')]
-    public function afegir(EntityManagerInterface $entityManager)
+    public function afegir(EntityManagerInterface $gestor)
     {
         $contacte = new Contacte();
-        $contacte->setNom("Frank Gallagher");
+        $contacte->setNom("Juan Cuesta");
         $contacte->setTelefon("659231544");
-        $contacte->setEmail("frank@simarro.org");
+        $contacte->setEmail("juan@simarro.org");
 
         // Indiquem que volem guardar aquest objecte
-        $entityManager->persist($contacte);
+        $gestor->persist($contacte);
 
         // S’executa la inserció
-        $entityManager->flush();
+        $gestor->flush();
 
         return new Response("Contacte " . $contacte->getId() . " guardat.");
     }
@@ -308,7 +293,7 @@ class ContacteController extends AbstractController
 ```php
 <?php
 
-$contacte = $contacteRepository->find($id);
+$contacte = $repositori->find($id);
 $contacte->setTelefon("600000000");
 $entityManager->flush();
 
@@ -320,7 +305,7 @@ $entityManager->flush();
 ```php
 <?php
 
-$contacte = $contacteRepository->find($id);
+$contacte = $repositori->find($id);
 $entityManager->remove($contacte);
 $entityManager->flush();
 
@@ -352,37 +337,18 @@ Això garanteix un **tractament d’errors segur** i evita que es mostren missat
 
 ---
 
-## 6. Consultar objectes (Repository)
+## 6. Consultar objectes
 
-
-Doctrine crea automàticament una classe de **repositori** per a cada entitat (per exemple, `ContacteRepository`).
+Doctrine crea automàticament una classe de **repositori** per a cada entitat (per exemple, ContacteRepository).
 
 Aquesta classe hereta de `ServiceEntityRepository` i permet:
 
-- Recuperar dades
-- Fer cerques personalitzades
-- Accedir a l’EntityManager per fer canvis
-
-Exemple:
-
-```php
-<?php
-
-$contactes = $contacteRepository->findAll();
-$contacte = $contacteRepository->find($id);
-
-?>
-```
-
-També podem definir mètodes personalitzats dins del repositori.
-
-
-
-A l'hora d'obtenir objectes d'una taula, existeixen diferents mètodes que podem emprar.  
-Aquests mètodes formen part del **repositori** de cada entitat, que és l'encarregat de gestionar l'accés a la base de dades per a aquesta classe.
+- Recuperar dades.
+- Fer cerques personalitzades.
+- Accedir a l’EntityManager per fer canvis.
 
 - **Per fer consultes** (lectura de dades):  
-  S’injecta el component **`ManagerRegistry`**, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.
+  S’injecta el component **`EntityManagerInterface`**, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.
 
 ---
 
@@ -393,12 +359,12 @@ Per exemple, si tenim una entitat `Contacte`, podem obtindre el seu repositori p
 
 
 // Injecció de dependència al constructor
-public function __construct(ManagerRegistry $doctrine){
+public function __construct(EntityManagerInterface $gestor){
 
 }
 
 // Després on volem utilitzarla
-$repositori = $doctrine->getRepository(Contacte::class);
+$repositori = $gestor->getRepository(Contacte::class);
 
 ?>
 ```
