@@ -1673,14 +1673,9 @@ Per a una descripció més detallada de cada comanda i les seues diferències, c
 <ul>
 <li>Recuperar dades.</li>
 <li>Fer cerques personalitzades.</li>
-<li>
-<p>Accedir a l’EntityManager per fer canvis.</p>
-</li>
-<li>
-<p><strong>Per fer consultes</strong> (lectura de dades):<br />
-  S’injecta el component <strong><code>EntityManagerInterface</code></strong>, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.</p>
-</li>
+<li>Accedir a l’EntityManager per fer canvis.</li>
 </ul>
+<p>Per a poder fer consultes a la nostra base de dades, s’ha d’injectar al controlador la interfície <strong><code>EntityManagerInterface</code></strong>, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.</p>
 <hr />
 <p>Per exemple, si tenim una entitat <code>Contacte</code>, podem obtindre el seu repositori per fer consultes així:</p>
 <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>

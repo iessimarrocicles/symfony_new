@@ -347,8 +347,7 @@ Aquesta classe hereta de `ServiceEntityRepository` i permet:
 - Fer cerques personalitzades.
 - Accedir a l’EntityManager per fer canvis.
 
-- **Per fer consultes** (lectura de dades):  
-  S’injecta el component **`EntityManagerInterface`**, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.
+Per a poder fer consultes a la nostra base de dades, s’ha d’injectar al controlador la interfície **`EntityManagerInterface`**, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.
 
 ---
 
