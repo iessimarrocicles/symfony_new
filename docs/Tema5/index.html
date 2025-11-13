@@ -1475,16 +1475,18 @@ Per a una descripció més detallada de cada comanda i les seues diferències, c
 <hr />
 <h2 id="4-funcionament-intern">4. Funcionament intern</h2>
 <p>Per comprendre bé el funcionament, primer necessitem conéixer tres components bàsics que Doctrine utilitza internament.</p>
+<p><strong>ManagerRegistry:</strong> és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).</p>
 <ul>
-<li><strong>ManagerRegistry:</strong> és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).</li>
+<li>Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.</li>
 </ul>
-<p>Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.</p>
+<p><strong>EntityManager:</strong> és el gestor d’entitats.</p>
 <ul>
-<li><strong>EntityManager:</strong> és el gestor d’entitats.</li>
-</ul>
+<li>
 <p>S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:</p>
-<ul>
-<li>Sap com guardar, modificar, eliminar de la base de dades.</li>
+</li>
+<li>
+<p>Sap com guardar, modificar, eliminar de la base de dades.</p>
+</li>
 <li>També permet accedir a buscar informació, mitjançant el repositori de cada entitat.<ul>
 <li><strong>Repositori</strong>: és una classe especialitzada a obtenir entitats d'un tipus concret.</li>
 </ul>
@@ -1529,11 +1531,13 @@ Per a una descripció més detallada de cada comanda i les seues diferències, c
 <hr />
 <h3 id="42-analogia">4.2. Analogia</h3>
 <p>Si en canvi tens diversos magatzems (una per país o projecte):</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>- Necessites primer la centraleta (**ManagerRegistry**) per saber a quin encarregat tocar.
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>Necessites primer la centraleta (<strong>ManagerRegistry</strong>) per saber a quin encarregat tocar.</li>
+</ul>
 <p>Imagina una empresa amb un únic magatzem:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>- Pots parlar directament amb l’encarregat (**EntityManager**).
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>Pots parlar directament amb l’encarregat (<strong>EntityManager</strong>).</li>
+</ul>
 <div class="admonition important">
 <p class="admonition-title">Symfony</p>
 <p>En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament <strong>EntityManagerInterface</strong>, que és més simple i net.</p>

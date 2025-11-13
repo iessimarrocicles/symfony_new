@@ -197,13 +197,13 @@ Per a una descripció més detallada de cada comanda i les seues diferències, c
 
 Per comprendre bé el funcionament, primer necessitem conéixer tres components bàsics que Doctrine utilitza internament.
 
-- **ManagerRegistry:** és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).
+**ManagerRegistry:** és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).
 
-  Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.
+- Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.
 
-- **EntityManager:** és el gestor d’entitats.
+**EntityManager:** és el gestor d’entitats.
 
-  S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:
+- S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:
 
   - Sap com guardar, modificar, eliminar de la base de dades.
   - També permet accedir a buscar informació, mitjançant el repositori de cada entitat.
@@ -225,11 +225,11 @@ Per comprendre bé el funcionament, primer necessitem conéixer tres components 
 
 Si en canvi tens diversos magatzems (una per país o projecte):
 
-    - Necessites primer la centraleta (**ManagerRegistry**) per saber a quin encarregat tocar.
+- Necessites primer la centraleta (**ManagerRegistry**) per saber a quin encarregat tocar.
 
 Imagina una empresa amb un únic magatzem:
 
-    - Pots parlar directament amb l’encarregat (**EntityManager**).
+- Pots parlar directament amb l’encarregat (**EntityManager**).
 
 !!! important "Symfony"
     En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament **EntityManagerInterface**, que és més simple i net.
