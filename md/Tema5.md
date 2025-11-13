@@ -124,7 +124,7 @@ El camp **codi** que abans utilitzavem com a identificador s’ha substituït pe
     L’execució de la instrucció genera automàticament les següents classes:
     
     -  El fitxer de l’entitat en `src/Entity/Contate.php`.
-    -  El seu repositori en `src/Repository/ContacteRepository.php` (si no existia)
+    -  El seu repositori en `src/Repository/ContacteRepository.php` (si no existia).
 
     Recorda no es modifica la base de dades. Per aplicar els canvis al esquema cal generar i executar la migració, tal com explicarem en l’apartat següent.
 
@@ -193,28 +193,57 @@ Per a una descripció més detallada de cada comanda i les seues diferències, c
 
 ---
 
-## 4. Repositoris
+## 4. Funcionament intern
 
-Doctrine crea automàticament una classe de **repositori** per a cada entitat (per exemple, `ContacteRepository`).
+Abans d’entendre què és un repositori, convé conéixer breument dos components que Doctrine utilitza internament:
 
-Aquesta classe hereta de `ServiceEntityRepository` i permet:
+- **ManagerRegistry:** és el punt central de connexió que sap quins gestors hi ha disponibles i com accedir (com la centraleta de Doctrine).
+    Serveix per obtindre l’EntityManager adequat. En la majoria de projectes només hi ha un, però aquest servei permetria gestionar diversos gestors de base de dades.
 
-- Recuperar dades
-- Fer cerques personalitzades
-- Accedir a l’EntityManager per fer canvis
+- **EntityManager:** és el gestor d’entitats.
+    S’encarrega de les operacions d’escriptura i gestió del cicle de vida de les entitats:
+        - Sap com guardar, modificar, eliminar de la base de dades.
+        - També permet accedir a buscar informació, mitjançant el repositori de cada entitat.
+            - Repositori: és una classe especialitzada a obtenir entitats d'un tipus concret.
 
-Exemple:
+---
 
-```php
-<?php
+### 4.1. Com es relacionen
 
-$contactes = $contacteRepository->findAll();
-$contacte = $contacteRepository->find($id);
+| **Element**       | **Rol**                                   | **Analogia**                 | **S’obté de**                   | **Exemple**                           |
+|-------------------|--------------------------------------------|-------------------------------|----------------------------------|----------------------------------------|
+| **ManagerRegistry** | Punt d’accés central als EntityManagers   | ☎️ Centraleta de gestors      | S’injecta automàticament        | `getManager()`, `getManagerForClass()` |
+| **EntityManager** | Gestiona el cicle de vida de les entitats | 🧰 L’encarregat del magatzem | `ManagerRegistry->getManager()` | `persist()`, `flush()`, `remove()`     |
+| **Repository**    | Busca i recupera entitats concretes        | 📗 Catàleg o venedor          | `EntityManager->getRepository()` | `find()`, `findBy()`, `findAll()`      |
 
-?>
+---
+
+### 4.2. Analogia
+
+Si en canvi tens diversos magatzems (una per país o projecte):
+    - Necessites primer la centraleta (ManagerRegistry) per saber a quin encarregat tocar.
+
+Imagina una empresa amb un únic magatzem:
+    - Pots parlar directament amb l’encarregat (EntityManager).
+
+!!! important "Symfony"
+    En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament **EntityManagerInterface**, que és més simple i net.
+    No necessitem cridar `$registry->getManager()` perquè no hi ha cap dubte sobre quin manager s’ha d’utilitzar.
+
+---
+
+## 4.3. Resum visual
+
+```bash
+ManagerRegistry
+     │
+     └──> EntityManager
+              │
+              ├── persist(), flush(), remove()
+              └──> Repository (per entitat)
+                        ├── find(), findBy()
+                        └── mètodes personalitzats (createQueryBuilder)
 ```
-
-També podem definir mètodes personalitzats dins del repositori.
 
 ---
 
@@ -281,6 +310,7 @@ $entityManager->flush();
 ```
 
 ### 5.3. Eliminar
+
 ```php
 <?php
 
@@ -316,7 +346,31 @@ Això garanteix un **tractament d’errors segur** i evita que es mostren missat
 
 ---
 
-## 6. Consultar objectes
+## 6. Consultar objectes (Repository)
+
+
+Doctrine crea automàticament una classe de **repositori** per a cada entitat (per exemple, `ContacteRepository`).
+
+Aquesta classe hereta de `ServiceEntityRepository` i permet:
+
+- Recuperar dades
+- Fer cerques personalitzades
+- Accedir a l’EntityManager per fer canvis
+
+Exemple:
+
+```php
+<?php
+
+$contactes = $contacteRepository->findAll();
+$contacte = $contacteRepository->find($id);
+
+?>
+```
+
+També podem definir mètodes personalitzats dins del repositori.
+
+
 
 A l'hora d'obtenir objectes d'una taula, existeixen diferents mètodes que podem emprar.  
 Aquests mètodes formen part del **repositori** de cada entitat, que és l'encarregat de gestionar l'accés a la base de dades per a aquesta classe.
