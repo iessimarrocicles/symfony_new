@@ -224,13 +224,16 @@ Per comprendre bé el funcionament, primer necessitem conéixer tres components 
 ### 4.2. Analogia
 
 Si en canvi tens diversos magatzems (una per país o projecte):
-    - Necessites primer la centraleta (ManagerRegistry) per saber a quin encarregat tocar.
+
+    - Necessites primer la centraleta (**ManagerRegistry**) per saber a quin encarregat tocar.
 
 Imagina una empresa amb un únic magatzem:
-    - Pots parlar directament amb l’encarregat (EntityManager).
+
+    - Pots parlar directament amb l’encarregat (**EntityManager**).
 
 !!! important "Symfony"
     En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament **EntityManagerInterface**, que és més simple i net.
+
     No necessitem cridar `$registry->getManager()` perquè no hi ha cap dubte sobre quin manager s’ha d’utilitzar.
 
 ---

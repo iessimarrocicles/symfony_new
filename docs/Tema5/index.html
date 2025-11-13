@@ -1529,14 +1529,16 @@ Per a una descripció més detallada de cada comanda i les seues diferències, c
 </table>
 <hr />
 <h3 id="42-analogia">4.2. Analogia</h3>
-<p>Si en canvi tens diversos magatzems (una per país o projecte):
-    - Necessites primer la centraleta (ManagerRegistry) per saber a quin encarregat tocar.</p>
-<p>Imagina una empresa amb un únic magatzem:
-    - Pots parlar directament amb l’encarregat (EntityManager).</p>
+<p>Si en canvi tens diversos magatzems (una per país o projecte):</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>- Necessites primer la centraleta (**ManagerRegistry**) per saber a quin encarregat tocar.
+</code></pre></div></td></tr></table></div>
+<p>Imagina una empresa amb un únic magatzem:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>- Pots parlar directament amb l’encarregat (**EntityManager**).
+</code></pre></div></td></tr></table></div>
 <div class="admonition important">
 <p class="admonition-title">Symfony</p>
-<p>En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament <strong>EntityManagerInterface</strong>, que és més simple i net.
-No necessitem cridar <code>$registry-&gt;getManager()</code> perquè no hi ha cap dubte sobre quin manager s’ha d’utilitzar.</p>
+<p>En els nostres projectes només tenim una base de dades i un únic gestor, per això injectem directament <strong>EntityManagerInterface</strong>, que és més simple i net.</p>
+<p>No necessitem cridar <code>$registry-&gt;getManager()</code> perquè no hi ha cap dubte sobre quin manager s’ha d’utilitzar.</p>
 </div>
 <hr />
 <h2 id="43-resum-visual">4.3. Resum visual</h2>
