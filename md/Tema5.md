@@ -347,7 +347,7 @@ Aquesta classe hereta de `ServiceEntityRepository` i permet:
 - Fer cerques personalitzades.
 - Accedir a l’EntityManager per fer canvis.
 
-Per a poder fer consultes a la nostra base de dades, s’ha d’injectar al controlador la interfície **`EntityManagerInterface`**, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.
+Per a poder fer **consultes** a la nostra base de dades, s’ha d’injectar al controlador la interfície `EntityManagerInterface`, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.
 
 ---
 
@@ -446,9 +446,9 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
 <?php
 
 #[Route('/contacte/{codi}', name:'fitxa_contacte', requirements: ['codi' => '\d+'])]
-public function fitxa($codi, ManagerRegistry $doctrine)
+public function fitxa(int $codi, EntityManagerInterface $gestor)
 {
-    $repositori = $doctrine->getRepository(Contacte::class);
+    $repositori = $gestor->getRepository(Contacte::class);
     $contacte = $repositori->find($codi);
 
     if ($contacte)
@@ -497,9 +497,9 @@ I podem cridar-la des del controlador:
 <?php
 
 #[Route('/contacte/buscar/{text}', name:'buscar_contacte')]
-public function buscar($text, ManagerRegistry $doctrine)
+public function buscar($text, EntityManagerInterface $gestor)
 {
-    $repositori = $doctrine->getRepository(Contacte::class);
+    $repositori = $gestor->getRepository(Contacte::class);
     $resultats = $repositori->findByName($text);
 
     return $this->render('llista_contactes.html.twig', [
@@ -579,16 +579,21 @@ Com a exemple pràctic, crearem una relació *Molts a Un* entre l'entitat `Conta
 Primer, generem l'entitat amb un ID autogenerat i un camp `nom`.
 
 ```bash
-$ php bin/console make:entity
+php bin/console make:entity
+
 > Comarca
 # ... Afegir el camp 'nom' com a string (255, no nullable)
+
 ```
 
 Després, creem la taula `Comarca` a la base de dades mitjançant una migració:
 
 ```bash
-$ php bin/console make:migration
-$ php bin/console doctrine:migration:migrate
+# 1. Genera un fitxer de migració amb els canvis detectats
+php bin/console make:migration
+
+# 2. Aplica (i registra) les migracions pendents
+php bin/console doctrine:migration:migrate
 ```
 
 ---
@@ -598,7 +603,8 @@ $ php bin/console doctrine:migration:migrate
 Editem l'entitat `Contacte` per afegir-li el camp de relació `comarca`:
 
 ```bash
-$ php bin/console make:entity
+php bin/console make:entity
+
 > Contacte
 # ...
 New property name:
@@ -636,8 +642,11 @@ Després de fer els canvis, tornem a generar i executar la migració:
 > ⚠️ Si hi ha registres de `Contacte` sense `Comarca`, cal eliminar-los o afegir-los abans per evitar errors de clau aliena.
 
 ```bash
-$ php bin/console make:migration
-$ php bin/console doctrine:migration:migrate
+# 1. Genera un fitxer de migració amb els canvis detectats
+php bin/console make:migration
+
+# 2. Aplica (i registra) les migracions pendents
+php bin/console doctrine:migration:migrate
 ```
 
 Això afegeix la **clau aliena** `comarca_id` a la taula `contacte`.
@@ -681,7 +690,7 @@ L’accés a les dades de l’entitat relacionada és directe des de l’entitat
 <?php
 
 // Obtenim l'objecte Contacte amb ID = 1
-$contacte = $doctrine->getRepository(Contacte::class)->find(1);
+$contacte = $gestor->getRepository(Contacte::class)->find(1);
 
 // Accedim a l'objecte Comarca relacionat i al seu nom
 $nomComarca = $contacte->getComarca()->getNom();
