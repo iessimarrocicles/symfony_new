@@ -44,6 +44,8 @@ Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràct
    ```
 3. Obri el fitxer de log i verifica que cada vegada que recarregues la pàgina, s’afegeix un nou registre d’accés.
 
+> 💡 Si el mètode del controlador rep com a paràmetre un objecte Request, Symfony l’injecta automàticament i pots consultar-hi dades de la petició (IP, URI, etc.).
+
 ---
 
 ## Exercici 3

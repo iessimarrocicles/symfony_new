@@ -143,6 +143,7 @@ composer require twig
 composer require symfony/twig-bundle
 composer require symfony/asset
 composer require symfony/asset-mapper
+composer require symfony/maker-bundle --dev
 ```
 
 🧠 **Diferencia principal:**

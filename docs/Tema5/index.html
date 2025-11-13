@@ -1231,7 +1231,7 @@
 Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <ul>
 <li>Podem connectar-nos a una base de dades relacional (MySQL, MariaDB, PostgreSQL, etc.).</li>
-<li>Les taules i columnes es mapegen automàticament amb <strong>classes i atributs PHP</strong>.</li>
+<li>Les taules i columnes es mapegen automàticament amb classes i atributs PHP.</li>
 <li>Ens abstrau del gestor de base de dades concret, ja que tot es fa a través d’objectes.</li>
 </ul>
 <p><strong>Avantatge principal:</strong>  </p>
@@ -1245,7 +1245,7 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 </span></code></pre></div></td></tr></table></div></p>
 <p>Exemple:</p>
-<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>DATABASE_URL=&quot;mysql://root@127.0.0.1:3306/contactes&quot;
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>DATABASE_URL=&quot;mysql://root@127.0.0.1:3306/daw_agenda&quot;
 </span></code></pre></div></td></tr></table></div>
 <p>Després, podem crear la base de dades amb la comanda:</p>
 <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:database:create
@@ -1345,6 +1345,13 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 </span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div></p>
 <p>El camp <strong>codi</strong> que abans utilitzavem com a identificador s’ha substituït per un <strong>id</strong> autonumèric que Doctrine genera automàticament com a clau principal. Així, només cal definir els altres camps (nom, telèfon i email) amb el seu tipus corresponent.</p>
+<div class="admonition tip">
+<p class="admonition-title">Symfony</p>
+<p>L’execució de la instrucció genera automàticament les següents classes:
+-  El fitxer de l’entitat en <code>src/Entity/Contate.php</code>.
+-  El seu repositori en <code>src/Repository/ContacteRepository.php</code> (si no existia)</p>
+<p>Recorda no es modifica la base de dades. Per aplicar els canvis al esquema cal generar i executar la migració, tal com explicarem en l’apartat següent.</p>
+</div>
 <p>Els tipus de dades més habituals en Doctrine són:</p>
 <ul>
 <li>string (text amb longitud limitada)</li>

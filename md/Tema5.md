@@ -14,7 +14,7 @@ Un **ORM** (*Object Relational Mapping*) és un sistema que permet treballar amb
 Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:
 
 - Podem connectar-nos a una base de dades relacional (MySQL, MariaDB, PostgreSQL, etc.).
-- Les taules i columnes es mapegen automàticament amb **classes i atributs PHP**.
+- Les taules i columnes es mapegen automàticament amb classes i atributs PHP.
 - Ens abstrau del gestor de base de dades concret, ja que tot es fa a través d’objectes.
 
 **Avantatge principal:**  
@@ -35,7 +35,7 @@ DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
 Exemple:
 
 ```env
-DATABASE_URL="mysql://root@127.0.0.1:3306/contactes"
+DATABASE_URL="mysql://root@127.0.0.1:3306/daw_agenda"
 ```
 
 Després, podem crear la base de dades amb la comanda:
@@ -119,6 +119,13 @@ class Contacte
 ```
 
 El camp **codi** que abans utilitzavem com a identificador s’ha substituït per un **id** autonumèric que Doctrine genera automàticament com a clau principal. Així, només cal definir els altres camps (nom, telèfon i email) amb el seu tipus corresponent.
+
+!!! tip "Symfony"
+    L’execució de la instrucció genera automàticament les següents classes:
+    -  El fitxer de l’entitat en `src/Entity/Contate.php`.
+    -  El seu repositori en `src/Repository/ContacteRepository.php` (si no existia)
+
+    Recorda no es modifica la base de dades. Per aplicar els canvis al esquema cal generar i executar la migració, tal com explicarem en l’apartat següent.
 
 Els tipus de dades més habituals en Doctrine són:
 
