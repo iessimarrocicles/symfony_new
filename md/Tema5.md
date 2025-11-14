@@ -729,12 +729,9 @@ $nomComarca = $contacte->getComarca()->getNom();
     Modifica el menú principal de l'aplicació perquè incloga les opcions següents, totes operatives:
 
     - **Inici**: ha d'enllaçar amb la ruta principal de l'aplicació i mostrar la pàgina d'inici.
-    - **Contacte**: mostra la fitxa d’un contacte concret, utilitzant un identificador fix.  
-      En aquesta fitxa s'ha de visualitzar tota la informació disponible del contacte, incloent-hi el nom de la seua Comarca.
-    - **Llistar**: mostra un llistat de tots els contactes registrats en la base de dades.  
-      La informació pot aparéixer resumida (nom, telèfon).
-    - **Afegir**: permet inserir un nou contacte utilitzant un formulari Symfony.  
-      L’alta ha d’incloure també la selecció de la comarca relacionada.
+    - **Contacte**: mostra la fitxa d’un contacte concret, utilitzant un identificador fix. En aquesta fitxa s'ha de visualitzar tota la informació disponible del contacte, incloent-hi el nom de la seua Comarca.
+    - **Llistar**: mostra un llistat de tots els contactes registrats en la base de dades. La informació pot aparéixer resumida (nom, telèfon).
+    - **Afegir**: permet inserir un nou contacte utilitzant un formulari Symfony. L’alta ha d’incloure també la selecció de la comarca relacionada.
 
 ---
 
