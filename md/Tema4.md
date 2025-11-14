@@ -192,13 +192,70 @@ class SalutacioController extends AbstractController
 ?>
 ```
 
-👉 En el constructor, Symfony fa una cosa **automàtica i màgica**:
+👉 En el constructor, el que fa PHP amb *Property Promotion*:
 
-- Symfony detecta que el controlador necessita un objecte del tipus `MissatgeService`.
-- Busca en el contenidor de serveis si ja existeix un servei registrat amb eixa classe.
-    - Si existeix (i el normal és que sí, si està en `src/Service/MissatgeService.php`), Symfony el crea i l’injecta automàticament quan construeix el controlador.
+1. Declara l’atribut private MissatgeService $missatgeService.
+2. Declara el paràmetre del constructor.
+3. Assigna automàticament $this->missatgeService = $missatgeService.
+
+👉 En el constructor, el que fa Symfony amb la *Injecció de dependències*:
+
+1. Detecta que el controlador necessita MissatgeService.
+2. Busca el servei en el contenidor.
+3. El crea automàticament (autowiring).
+4. L’injecta com a paràmetre en el constructor.
 
 💡 Açò s’anomena **Injecció de Dependències (DI)** i és una bona pràctica perquè el controlador no s’encarrega de crear el servei, sinó que el rep preparat per a utilitzar-lo.
+
+---
+
+### 4.3. Exemple clàssic
+
+En este punt veurem com quedaria el controlador si no férem ús de la característica *Property Promotion* introduïda en PHP 8.
+
+Aquesta és la forma "clàssica" de declarar dependències en un controlador de Symfony.
+
+**Fitxer:** `src/Controller/SalutacioController.php`
+
+```php
+<?php
+
+namespace App\Controller;
+
+use App\Service\MissatgeService;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class SalutacioController extends AbstractController
+{
+
+    // Declaració manual de l'atribut
+    private MissatgeService $missatgeService;
+
+    public function __construct(MissatgeService $missatgeService) {
+        // Assignació manual de la dependència
+        $this->missatgeService = $missatgeService;
+    }
+
+    #[Route('/salutacio', name: 'salutacio')]
+    public function index(): Response
+    {
+        $text = $this->missatgeService->obtindreSalutacio('Anna');
+        return new Response($text);
+    }
+}
+
+?>
+```
+
+Treballar sense *Property Promotion* implica diversos desavantatges:
+
+- Més codi repetitiu: has d’escriure l’atribut i també l’assignació en el constructor.
+- Menys net i menys llegible.
+- Afegeix treball innecessari: cada dependència obliga a un atribut + una assignació.
+- Propens a errors: és fàcil oblidar-se d’escriure $this->... = ..., ocasionant errors com “undefined property” o “undefined variable”.
+- Manteniment més complicat: si afegeixes o elimines dependències, cal tocar més codi.
 
 ---
 
@@ -488,12 +545,9 @@ use DateTime;
 
 class IniciController extends AbstractController
 {
-    private $log;
-    private $formatData;
 
-    public function __construct(private LoggerInterface $logger, $formatData) {
-        $this->log = $logger;
-        $this->formatData = $formatData;
+    public function __construct(private LoggerInterface $log, private $formatData) {
+
     }
 
     #[Route('/', name: 'inici')]
