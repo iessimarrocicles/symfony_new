@@ -699,7 +699,7 @@ Una vegada les entitats estan relacionades, podem fer operacions d’inserció i
 
     1. Es cerca l'objecte `Comarca` existent:
        ```php
-       $comarca = $repositori->find(1);
+       $comarca = $this->repositori->find(1);
        ```
     2. Es crea un nou `Contacte`.  
     3. S’estableix la relació amb l’objecte `Comarca`.  
@@ -715,7 +715,7 @@ L’accés a les dades de l’entitat relacionada és directe des de l’entitat
 <?php
 
 // Obtenim l'objecte Contacte amb ID = 1
-$contacte = $gestor->getRepository(Contacte::class)->find(1);
+$contacte = $this->repositori->find(1);
 
 // Accedim a l'objecte Comarca relacionat i al seu nom
 $nomComarca = $contacte->getComarca()->getNom();
