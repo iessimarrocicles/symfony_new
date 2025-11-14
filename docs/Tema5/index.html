@@ -1778,28 +1778,34 @@ Retorna un array d’objectes.</p>
 <span class="normal"><a href="#__codelineno-20-17">17</a></span>
 <span class="normal"><a href="#__codelineno-20-18">18</a></span>
 <span class="normal"><a href="#__codelineno-20-19">19</a></span>
-<span class="normal"><a href="#__codelineno-20-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">&lt;?php</span>
+<span class="normal"><a href="#__codelineno-20-20">20</a></span>
+<span class="normal"><a href="#__codelineno-20-21">21</a></span>
+<span class="normal"><a href="#__codelineno-20-22">22</a></span>
+<span class="normal"><a href="#__codelineno-20-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1"># En el constructor hem injectat EntityManagerInterface com a $gestor</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a>
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/{codi}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;fitxa_contacte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\d+&#39;</span><span class="p">])]</span>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">fitxa</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$codi</span><span class="p">)</span>
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="p">{</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8"></a>    <span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$codi</span><span class="p">);</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9"></a>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10"></a>    <span class="nd">if</span> <span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11"></a>        <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;fitxa_contacte.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="nv">$contacte</span>
-</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13"></a>        <span class="p">]);</span>
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14"></a>    <span class="k">else</span>
-</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;fitxa_contacte.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
-</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span>
-</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17"></a>        <span class="p">]);</span>
-</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="p">}</span>
-</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19"></a>
-</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="cp">?&gt;</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8"></a>    <span class="c1">// 1) Buscar el contacte pel codi</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9"></a>    <span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$codi</span><span class="p">);</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10"></a>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11"></a>    <span class="nd">if</span> <span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12"></a>        <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;contacte/fitxa.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="nv">$contacte</span><span class="p">,</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14"></a>            <span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="nv">$codi</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15"></a>        <span class="p">]);</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16"></a>    <span class="k">else</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;contacte/fitxa.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19"></a>            <span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="nv">$codi</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20"></a>        <span class="p">]);</span>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="p">}</span>
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22"></a>
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
-<p>En aquest exemple, el controlador accedeix al repositori de Contacte i recupera un objecte segons el seu id. Si el troba, renderitza la plantilla fitxa_contacte.html.twig amb les dades del contacte; en cas contrari, envia el contacte buit.</p>
+<p>En aquest exemple, el controlador accedeix al repositori de Contacte i recupera un objecte segons el seu id. Si el troba, renderitza la plantilla fitxa.html.twig amb les dades del contacte; en cas contrari, envia el contacte buit.</p>
 <hr />
 <h3 id="62-consultes-avancades-querybuilder">6.2. Consultes avançades (QueryBuilder)</h3>
 <p>Els mètodes anteriors permeten buscar per igualtat directa.

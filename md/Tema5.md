@@ -458,22 +458,25 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
 #[Route('/contacte/{codi}', name:'fitxa_contacte', requirements: ['codi' => '\d+'])]
 public function fitxa(int $codi)
 {
+    // 1) Buscar el contacte pel codi
     $contacte = $this->repositori->find($codi);
 
     if ($contacte)
-        return $this->render('fitxa_contacte.html.twig', [
-            'contacte' => $contacte
+        return $this->render('contacte/fitxa.html.twig', [
+            'contacte' => $contacte,
+            'codi' => $codi
         ]);
     else
-        return $this->render('fitxa_contacte.html.twig', [
-            'contacte' => null
+        return $this->render('contacte/fitxa.html.twig', [
+            'contacte' => null,
+            'codi' => $codi
         ]);
 }
 
 ?>
 ```
 
-En aquest exemple, el controlador accedeix al repositori de Contacte i recupera un objecte segons el seu id. Si el troba, renderitza la plantilla fitxa_contacte.html.twig amb les dades del contacte; en cas contrari, envia el contacte buit.
+En aquest exemple, el controlador accedeix al repositori de Contacte i recupera un objecte segons el seu id. Si el troba, renderitza la plantilla fitxa.html.twig amb les dades del contacte; en cas contrari, envia el contacte buit.
 
 ---
 
