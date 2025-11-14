@@ -348,19 +348,21 @@ Per a poder fer **consultes** a la nostra base de dades, s’ha d’injectar al 
 
 ---
 
-Per exemple, si tenim una entitat `Contacte`, podem obtindre el seu repositori per fer consultes així:
+En Symfony és una molt bona pràctica injectar l’EntityManagerInterface en el constructor. Això et permet tindre disponible l’entity manager en tots els mètodes del controlador.
+
+Si tenim una entitat `Contacte`, podem obtindre el seu repositori per fer consultes així:
 
 ```php
 <?php
 
 
 // Injecció de dependència al constructor
-public function __construct(EntityManagerInterface $gestor){
+public function __construct(private EntityManagerInterface $gestor){
 
 }
 
 // Després on volem utilitzarla
-$repositori = $gestor->getRepository(Contacte::class);
+$repositori = $this->gestor->getRepository(Contacte::class);
 
 ?>
 ```

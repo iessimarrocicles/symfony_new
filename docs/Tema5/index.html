@@ -1654,7 +1654,8 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 </ul>
 <p>Per a poder fer <strong>consultes</strong> a la nostra base de dades, s’ha d’injectar al controlador la interfície <code>EntityManagerInterface</code>, que ens permet obtindre el repositori de qualsevol entitat i accedir a les seues dades.</p>
 <hr />
-<p>Per exemple, si tenim una entitat <code>Contacte</code>, podem obtindre el seu repositori per fer consultes així:</p>
+<p>En Symfony és una molt bona pràctica injectar l’EntityManagerInterface en el constructor. Això et permet tindre disponible l’entity manager en tots els mètodes del controlador.</p>
+<p>Si tenim una entitat <code>Contacte</code>, podem obtindre el seu repositori per fer consultes així:</p>
 <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
@@ -1670,12 +1671,12 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>
 </span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>
 </span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1">// Injecció de dependència al constructor</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">EntityManagerInterface</span> <span class="nv">$gestor</span><span class="p">){</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">EntityManagerInterface</span> <span class="nv">$gestor</span><span class="p">){</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="p">}</span>
 </span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a>
 </span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1">// Després on volem utilitzarla</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$gestor</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Contacte</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Contacte</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
 </span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>
 </span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
