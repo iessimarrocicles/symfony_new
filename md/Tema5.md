@@ -189,7 +189,6 @@ php bin/console doctrine:migrations:migrate
 ```
 
 Aquest procés crea o modifica les taules que corresponen a les entitats del projecte de manera controlada i reversible.
-Per a una descripció més detallada de cada comanda i les seues diferències, consulteu l’**Annex 1**.
 
 ---
 
