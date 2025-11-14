@@ -453,7 +453,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
 ```php
 <?php
 
-# En el constructor hem injectat EntityManagerInterface com a $gestor
+# Al constructor hem injectat EntityManagerInterface com a $gestor
 
 #[Route('/contacte/{codi}', name:'fitxa_contacte', requirements: ['codi' => '\d+'])]
 public function fitxa(int $codi)
@@ -512,15 +512,20 @@ I podem cridar-la des del controlador:
 ```php
 <?php
 
-# En el constructor hem injectat EntityManagerInterface i asignat el repositori 
+# Al constructor hem:
+# - Injectat EntityManagerInterface.
+# - Asignat el repositori.
 
-#[Route('/contacte/buscar/{text}', name:'buscar_contacte')]
-public function buscar(string $text)
+#[Route('/contacte/{text}', name: 'buscar_contacte', requirements: ['text' => '[a-zA-Z]+'])]
+public function buscar(string $text): Response
 {
-    $resultats = $this->repositori->findByName($text);
+    // 1) Filtrar pel mètode creat al repositori
+    $resultat = $this->repositori->findByName($text);
 
-    return $this->render('llista_contactes.html.twig', [
-        'contactes' => $resultats
+    // 2) Passar la llista (pot ser buida) a la vista
+    return $this->render('contacte/cerca.html.twig', [
+        'text' => $text,
+        'resultats' => $resultat
     ]);
 }
 
