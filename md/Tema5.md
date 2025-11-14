@@ -367,7 +367,7 @@ class ContacteController extends AbstractController
     }
 
     // A partir d'ací, qualsevol mètode pot utilitzar:
-    // → $this->gestor     → per a persistir, eliminar o treballar amb entitats
+    // → $this->gestor     → per a persistir, modificar o eliminar
     // → $this->repositori → per a fer consultes sobre Contacte
 
     ...
