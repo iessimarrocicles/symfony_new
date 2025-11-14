@@ -725,8 +725,9 @@ $nomComarca = $contacte->getComarca()->getNom();
 
 💡 **Nota (Lazy Loading):** Doctrine no recupera les dades de `Comarca` fins que no s’accedeix efectivament a elles (per exemple, quan s’executa `$contacte->getComarca()`).
 
-!!! tip "Laboratori"
+!!! example "Laboratori"
     Modifica el menú principal de l'aplicació perquè incloga les opcions següents, totes operatives:
+
     - **Inici**: ha d'enllaçar amb la ruta principal de l'aplicació i mostrar la pàgina d'inici.
     - **Contacte**: mostra la fitxa d’un contacte concret, utilitzant un identificador fix.  
       En aquesta fitxa s'ha de visualitzar tota la informació disponible del contacte, incloent-hi el nom de la seua Comarca.
