@@ -292,7 +292,7 @@ class ContacteController extends AbstractController
 ```php
 <?php
 
-$contacte = $repositori->find($id);
+$contacte = $this->repositori->find($id);
 $contacte->setTelefon("600000000");
 $gestor->flush();
 
@@ -304,7 +304,7 @@ $gestor->flush();
 ```php
 <?php
 
-$contacte = $repositori->find($id);
+$contacte = $this->repositori->find($id);
 $gestor->remove($contacte);
 $gestor->flush();
 
@@ -355,18 +355,27 @@ Si tenim una entitat `Contacte`, podem obtindre el seu repositori per fer consul
 ```php
 <?php
 
+class ContacteController extends AbstractController
+{
+    private $repositori;
 
-// Injecció de dependència al constructor
-public function __construct(private EntityManagerInterface $gestor){
+    // Injecció de dependència al constructor
+    public function __construct(private EntityManagerInterface $gestor)
+    {
+        // Instància única del repositori de Contacte
+        $this->repositori = $this->gestor->getRepository(Contacte::class);
+    }
+
+    // A partir d'ací, qualsevol mètode pot utilitzar:
+    // → $this->gestor     → per a persistir, eliminar o treballar amb entitats
+    // → $this->repositori → per a fer consultes sobre Contacte
+
+    ...
 
 }
 
-// Després on volem utilitzarla
-$repositori = $this->gestor->getRepository(Contacte::class);
-
 ?>
 ```
-
 
 Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
 
@@ -375,7 +384,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
     Localiza un objecte per la clau primària (normalment l’id) que se li passa com a paràmetre.
 
     ```php
-    $contacte = $repositori->find(1);
+    $contacte = $this->repositori->find(1);
     ```
 
     ➡️ Aquesta instrucció buscarà el contacte amb id = 1.
@@ -387,7 +396,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
     Localitza un únic objecte que complisca els criteris de cerca passats com a paràmetre (en forma d’array associatiu).
 
     ```php
-    $contacte = $repositori->findOneBy(["telefon" => "687908070"]);
+    $contacte = $this->repositori->findOneBy(["telefon" => "687908070"]);
     ```
 
     ➡️ Aquesta consulta busca el contacte el telèfon del qual siga "687908070".
@@ -395,7 +404,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
     Si volem indicar més d’un criteri, podem afegir-los a l’array:
 
     ```php
-    $contacte = $repositori->findOneBy([
+    $contacte = $this->repositori->findOneBy([
         "nom" => "Laura",
         "email" => "laura@gmail.com"
     ]);
@@ -409,7 +418,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
     Retorna un array d’objectes.
 
     ```php
-    $contactes = $repositori->findBy(["comarca" => "La Costera"]);
+    $contactes = $this->repositori->findBy(["comarca" => "La Costera"]);
     ```
 
     ➡️ Retorna un array amb tots els contactes que pertanyen a la comarca “La Costera”.
@@ -417,7 +426,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
     També es pot afegir ordre i límit als resultats:
 
     ```php
-    $contactes = $repositori->findBy(
+    $contactes = $this->repositori->findBy(
         ["comarca" => "La Costera"],
         ["nom" => "ASC"], // ordre ascendent pel nom
         10,               // màxim 10 resultats
@@ -432,7 +441,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
     Recupera tots els objectes de la taula corresponent a l’entitat.
 
     ```php
-    $contactes = $repositori->findAll();
+    $contactes = $this->repositori->findAll();
     ```
 
     ➡️ Retorna un array amb tots els contactes existents en la base de dades.
@@ -449,8 +458,7 @@ Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.
 #[Route('/contacte/{codi}', name:'fitxa_contacte', requirements: ['codi' => '\d+'])]
 public function fitxa(int $codi)
 {
-    $repositori = $gestor->getRepository(Contacte::class);
-    $contacte = $repositori->find($codi);
+    $contacte = $this->repositori->find($codi);
 
     if ($contacte)
         return $this->render('fitxa_contacte.html.twig', [
@@ -501,13 +509,12 @@ I podem cridar-la des del controlador:
 ```php
 <?php
 
-# En el constructor hem injectat EntityManagerInterface com a $gestor
+# En el constructor hem injectat EntityManagerInterface i asignat el repositori 
 
 #[Route('/contacte/buscar/{text}', name:'buscar_contacte')]
-public function buscar($text)
+public function buscar(string $text)
 {
-    $repositori = $gestor->getRepository(Contacte::class);
-    $resultats = $repositori->findByName($text);
+    $resultats = $this->repositori->findByName($text);
 
     return $this->render('llista_contactes.html.twig', [
         'contactes' => $resultats
@@ -528,7 +535,7 @@ Aquest controlador permet buscar contactes pel nom introduït en la URL, utilitz
 ```php
 <?php
 
-public function findByEdatMajorQue($edat): array
+public function findByEdatMajorQue(int $edat): array
 {
     $qb = $this->createQueryBuilder('p')
         ->andWhere('p.edat > :edat')
@@ -540,6 +547,9 @@ public function findByEdatMajorQue($edat): array
 
 ?>
 ```
+
+!!! danger "Laboratori"
+    Aquesta consulta no funcionarà al projecte actual perquè l'entitat Contacte no té definit el camp edat.
 
 ---
 

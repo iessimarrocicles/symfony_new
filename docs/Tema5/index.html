@@ -1595,7 +1595,7 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <span class="normal"><a href="#__codelineno-10-6">6</a></span>
 <span class="normal"><a href="#__codelineno-10-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="nv">$contacte</span><span class="o">-&gt;</span><span class="na">setTelefon</span><span class="p">(</span><span class="s2">&quot;600000000&quot;</span><span class="p">);</span>
 </span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="nv">$gestor</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a>
@@ -1610,7 +1610,7 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <span class="normal"><a href="#__codelineno-11-6">6</a></span>
 <span class="normal"><a href="#__codelineno-11-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="nv">$gestor</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="nv">$contacte</span><span class="p">);</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="nv">$gestor</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
 </span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a>
@@ -1667,25 +1667,45 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-13-10">10</a></span>
 <span class="normal"><a href="#__codelineno-13-11">11</a></span>
-<span class="normal"><a href="#__codelineno-13-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">&lt;?php</span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1">// Injecció de dependència al constructor</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">EntityManagerInterface</span> <span class="nv">$gestor</span><span class="p">){</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="k">class</span> <span class="nc">ContacteController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="p">{</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="k">private</span> <span class="nv">$repositori</span><span class="p">;</span>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="p">}</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1">// Després on volem utilitzarla</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Contacte</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="cp">?&gt;</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="c1">// Injecció de dependència al constructor</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">EntityManagerInterface</span> <span class="nv">$gestor</span><span class="p">)</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a>    <span class="p">{</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a>        <span class="c1">// Instància única del repositori de Contacte</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositori</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Contacte</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a>    <span class="p">}</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a>    <span class="c1">// A partir d&#39;ací, qualsevol mètode pot utilitzar:</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a>    <span class="c1">// → $this-&gt;gestor     → per a persistir, eliminar o treballar amb entitats</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a>    <span class="c1">// → $this-&gt;repositori → per a fer consultes sobre Contacte</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18"></a>    <span class="o">...</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19"></a>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="p">}</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21"></a>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Una vegada tenim el repositori, podem utilitzar diferents mètodes de consulta.</p>
 <ul>
 <li>
 <p><strong>Mètode <code>find()</code></strong></p>
 <p>Localiza un objecte per la clau primària (normalment l’id) que se li passa com a paràmetre.</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="x">$contacte = $repositori-&gt;find(1);</span>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="x">$contacte = $this-&gt;repositori-&gt;find(1);</span>
 </span></code></pre></div></td></tr></table></div>
 <p>➡️ Aquesta instrucció buscarà el contacte amb id = 1.</p>
 <hr />
@@ -1693,14 +1713,14 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <li>
 <p><strong>Mètode <code>findOneBy()</code></strong></p>
 <p>Localitza un únic objecte que complisca els criteris de cerca passats com a paràmetre (en forma d’array associatiu).</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="x">$contacte = $repositori-&gt;findOneBy([&quot;telefon&quot; =&gt; &quot;687908070&quot;]);</span>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="x">$contacte = $this-&gt;repositori-&gt;findOneBy([&quot;telefon&quot; =&gt; &quot;687908070&quot;]);</span>
 </span></code></pre></div></td></tr></table></div>
 <p>➡️ Aquesta consulta busca el contacte el telèfon del qual siga "687908070".</p>
 <p>Si volem indicar més d’un criteri, podem afegir-los a l’array:</p>
 <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
 <span class="normal"><a href="#__codelineno-16-2">2</a></span>
 <span class="normal"><a href="#__codelineno-16-3">3</a></span>
-<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="x">$contacte = $repositori-&gt;findOneBy([</span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="x">$contacte = $this-&gt;repositori-&gt;findOneBy([</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="x">    &quot;nom&quot; =&gt; &quot;Laura&quot;,</span>
 </span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="x">    &quot;email&quot; =&gt; &quot;laura@gmail.com&quot;</span>
 </span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="x">]);</span>
@@ -1711,7 +1731,7 @@ Doctrine és l’ORM més utilitzat amb Symfony. Gràcies a ell:</p>
 <p><strong>Mètode <code>findBy()</code></strong></p>
 <p>Localitza tots els objectes que complisquen els criteris passats com a paràmetre.
 Retorna un array d’objectes.</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="x">$contactes = $repositori-&gt;findBy([&quot;comarca&quot; =&gt; &quot;La Costera&quot;]);</span>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="x">$contactes = $this-&gt;repositori-&gt;findBy([&quot;comarca&quot; =&gt; &quot;La Costera&quot;]);</span>
 </span></code></pre></div></td></tr></table></div>
 <p>➡️ Retorna un array amb tots els contactes que pertanyen a la comarca “La Costera”.</p>
 <p>També es pot afegir ordre i límit als resultats:</p>
@@ -1720,7 +1740,7 @@ Retorna un array d’objectes.</p>
 <span class="normal"><a href="#__codelineno-18-3">3</a></span>
 <span class="normal"><a href="#__codelineno-18-4">4</a></span>
 <span class="normal"><a href="#__codelineno-18-5">5</a></span>
-<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="x">$contactes = $repositori-&gt;findBy(</span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="x">$contactes = $this-&gt;repositori-&gt;findBy(</span>
 </span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="x">    [&quot;comarca&quot; =&gt; &quot;La Costera&quot;],</span>
 </span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="x">    [&quot;nom&quot; =&gt; &quot;ASC&quot;], // ordre ascendent pel nom</span>
 </span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="x">    10,               // màxim 10 resultats</span>
@@ -1732,7 +1752,7 @@ Retorna un array d’objectes.</p>
 <li>
 <p><strong>Mètode <code>findAll()</code></strong></p>
 <p>Recupera tots els objectes de la taula corresponent a l’entitat.</p>
-<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="x">$contactes = $repositori-&gt;findAll();</span>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="x">$contactes = $this-&gt;repositori-&gt;findAll();</span>
 </span></code></pre></div></td></tr></table></div>
 <p>➡️ Retorna un array amb tots els contactes existents en la base de dades.</p>
 <hr />
@@ -1758,28 +1778,26 @@ Retorna un array d’objectes.</p>
 <span class="normal"><a href="#__codelineno-20-17">17</a></span>
 <span class="normal"><a href="#__codelineno-20-18">18</a></span>
 <span class="normal"><a href="#__codelineno-20-19">19</a></span>
-<span class="normal"><a href="#__codelineno-20-20">20</a></span>
-<span class="normal"><a href="#__codelineno-20-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">&lt;?php</span>
+<span class="normal"><a href="#__codelineno-20-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1"># En el constructor hem injectat EntityManagerInterface com a $gestor</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4"></a>
 </span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/{codi}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;fitxa_contacte&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\d+&#39;</span><span class="p">])]</span>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">fitxa</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$codi</span><span class="p">)</span>
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="p">{</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8"></a>    <span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$gestor</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Contacte</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9"></a>    <span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$codi</span><span class="p">);</span>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10"></a>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11"></a>    <span class="nd">if</span> <span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12"></a>        <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;fitxa_contacte.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
-</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="nv">$contacte</span>
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14"></a>        <span class="p">]);</span>
-</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15"></a>    <span class="k">else</span>
-</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;fitxa_contacte.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
-</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span>
-</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18"></a>        <span class="p">]);</span>
-</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="p">}</span>
-</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20"></a>
-</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="cp">?&gt;</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8"></a>    <span class="nv">$contacte</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$codi</span><span class="p">);</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9"></a>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10"></a>    <span class="nd">if</span> <span class="p">(</span><span class="nv">$contacte</span><span class="p">)</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11"></a>        <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;fitxa_contacte.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="nv">$contacte</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13"></a>        <span class="p">]);</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14"></a>    <span class="k">else</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;fitxa_contacte.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16"></a>            <span class="s1">&#39;contacte&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17"></a>        <span class="p">]);</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="p">}</span>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19"></a>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>En aquest exemple, el controlador accedeix al repositori de Contacte i recupera un objecte segons el seu id. Si el troba, renderitza la plantilla fitxa_contacte.html.twig amb les dades del contacte; en cas contrari, envia el contacte buit.</p>
 <hr />
@@ -1830,23 +1848,21 @@ Si volem fer cerques parcials o condicionals, podem afegir mètodes personalitza
 <span class="normal"><a href="#__codelineno-22-12">12</a></span>
 <span class="normal"><a href="#__codelineno-22-13">13</a></span>
 <span class="normal"><a href="#__codelineno-22-14">14</a></span>
-<span class="normal"><a href="#__codelineno-22-15">15</a></span>
-<span class="normal"><a href="#__codelineno-22-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">&lt;?php</span>
+<span class="normal"><a href="#__codelineno-22-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2"></a>
-</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="c1"># En el constructor hem injectat EntityManagerInterface com a $gestor</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="c1"># En el constructor hem injectat EntityManagerInterface i asignat el repositori </span>
 </span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4"></a>
 </span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/contacte/buscar/{text}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;buscar_contacte&#39;</span><span class="p">)]</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">buscar</span><span class="p">(</span><span class="nv">$text</span><span class="p">)</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">buscar</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$text</span><span class="p">)</span>
 </span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="p">{</span>
-</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8"></a>    <span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$gestor</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Contacte</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9"></a>    <span class="nv">$resultats</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">findByName</span><span class="p">(</span><span class="nv">$text</span><span class="p">);</span>
-</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10"></a>
-</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11"></a>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;llista_contactes.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
-</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12"></a>        <span class="s1">&#39;contactes&#39;</span> <span class="o">=&gt;</span> <span class="nv">$resultats</span>
-</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13"></a>    <span class="p">]);</span>
-</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14"></a><span class="p">}</span>
-</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15"></a>
-</span><span id="__span-22-16"><a id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="cp">?&gt;</span>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8"></a>    <span class="nv">$resultats</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositori</span><span class="o">-&gt;</span><span class="na">findByName</span><span class="p">(</span><span class="nv">$text</span><span class="p">);</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9"></a>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10"></a>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;llista_contactes.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11"></a>        <span class="s1">&#39;contactes&#39;</span> <span class="o">=&gt;</span> <span class="nv">$resultats</span>
+</span><span id="__span-22-12"><a id="__codelineno-22-12" name="__codelineno-22-12"></a>    <span class="p">]);</span>
+</span><span id="__span-22-13"><a id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="p">}</span>
+</span><span id="__span-22-14"><a id="__codelineno-22-14" name="__codelineno-22-14"></a>
+</span><span id="__span-22-15"><a id="__codelineno-22-15" name="__codelineno-22-15"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Aquest controlador permet buscar contactes pel nom introduït en la URL, utilitzant la consulta definida al repositori. Després envia els resultats a una vista llista_contactes.html.twig per a mostrar-los.</p>
 <hr />
@@ -1866,7 +1882,7 @@ Si volem fer cerques parcials o condicionals, podem afegir mètodes personalitza
 <span class="normal"><a href="#__codelineno-23-12">12</a></span>
 <span class="normal"><a href="#__codelineno-23-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2"></a>
-</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">findByEdatMajorQue</span><span class="p">(</span><span class="nv">$edat</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">findByEdatMajorQue</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$edat</span><span class="p">)</span><span class="o">:</span> <span class="k">array</span>
 </span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="p">{</span>
 </span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5"></a>    <span class="nv">$qb</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">createQueryBuilder</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
 </span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6"></a>        <span class="o">-&gt;</span><span class="na">andWhere</span><span class="p">(</span><span class="s1">&#39;p.edat &gt; :edat&#39;</span><span class="p">)</span>
@@ -1878,6 +1894,10 @@ Si volem fer cerques parcials o condicionals, podem afegir mètodes personalitza
 </span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12"></a>
 </span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="cp">?&gt;</span>
 </span></code></pre></div></td></tr></table></div>
+<div class="admonition danger">
+<p class="admonition-title">Laboratori</p>
+<p>Aquesta consulta no funcionarà al projecte actual perquè l'entitat Contacte no té definit el camp edat.</p>
+</div>
 <hr />
 <h3 id="63-altres-formes">6.3. Altres formes</h3>
 <p>A més d’emprar el <code>QueryBuilder</code> o els mètodes per defecte del repositori (<code>find</code>, <code>findOneBy</code>, <code>findBy</code>, etc.), Doctrine permet realitzar consultes mitjançant dues alternatives addicionals:</p>
