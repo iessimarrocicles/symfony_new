@@ -186,3 +186,13 @@ git commit -m "Tema 5: Doctrine"
 git tag -a v5.0 -m "Versió 5.0 TendaNomAlumne Doctrine"
 git push origin master --tags
 ```
+
+---
+
+## Resultat final esperat
+
+- Controlador que utilitza serveis predefinits com `LoggerInterface`.  
+- Registres al fitxer `var/log/dev.log`.
+- Generar un servei propi `DadesSeccioServei`  amb mètodes per llistar i obtenir una seccio.
+- Controlador que utilitza un servei propi, el esmentat al punt anterior.
+- Mostrar imatges a les vistes de Twig.
