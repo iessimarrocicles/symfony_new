@@ -876,30 +876,31 @@
 <h1 id="tema-5-practica">💻 TEMA 5 — Pràctica</h1>
 <p><strong>Objectiu</strong></p>
 <p>Aquest tema tracta sobre com gestionar el model de dades en Symfony utilitzant <strong>Doctrine ORM</strong>, incloent la creació d’entitats, relacions i operacions amb la base de dades.</p>
+<p><strong>Punt de partida</strong></p>
+<p>Partim de l’aplicació <strong><code>tendaNomAlumne</code></strong> creada i configurada en les pràctiques anteriors.</p>
 <hr />
 <h2 id="exercici-1">Exercici 1</h2>
-<p><strong>Creació de la Base de Dades i Entitat <code>Equip</code></strong></p>
-<p>Configurar la connexió a la base de dades i crear l’entitat <code>Equip</code> dins l’aplicació <strong>Equips</strong>.</p>
+<p><strong>Creació de la Base de Dades i Entitat <code>Seccio</code></strong></p>
+<p>Configurar la connexió a la base de dades i crear l’entitat dins l’aplicació.</p>
 <ol>
 <li>Defineix la variable d’entorn <code>DATABASE_URL</code> al fitxer <code>.env</code>:
-   <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>DATABASE_URL=&quot;mysql://root@127.0.0.1:3306/equips&quot;
+   <div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>DATABASE_URL=&quot;mysql://root@127.0.0.1:3306/daw_tenda&quot;
 </span></code></pre></div></td></tr></table></div></li>
 <li>Crea la base de dades:
    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:database:create
 </span></code></pre></div></td></tr></table></div></li>
-<li>Genera la nova entitat <code>Equip</code>:
+<li>Genera la nova entitat <code>Seccio</code>:
    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>make:entity
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>&gt;<span class="w"> </span>Equip
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>&gt;<span class="w"> </span>Seccio
 </span></code></pre></div></td></tr></table></div></li>
 <li>
 <p>Afegeix els següents camps:</p>
 <ul>
 <li><code>nom</code> (string, 50)</li>
-<li><code>cicle</code> (string, 10)</li>
-<li><code>curs</code> (string, 10)</li>
-<li><code>imatge</code> (string, 255)</li>
-<li><code>nota</code> (float o decimal amb 2 dígits, pot ser nul)</li>
+<li><code>descripcio</code> (string, 255)</li>
+<li><code>any</code> (int)</li>
+<li><code>articles</code> (int)</li>
 </ul>
 </li>
 <li>
@@ -912,10 +913,10 @@
 </ol>
 <hr />
 <h2 id="exercici-2">Exercici 2</h2>
-<p><strong>Inserció d’Equips des del Controlador</strong></p>
+<p><strong>Inserció de seccions des del Controlador</strong></p>
 <ol>
 <li>
-<p>Afegeix un nou mètode <code>inserir</code> al controlador <code>EquipsController</code> per inserir un equip de prova:
+<p>Afegeix un nou mètode <code>inserir</code> al controlador <code>SeccioController</code> per inserir una secció de prova:
    <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -940,8 +941,8 @@
 <span class="normal"><a href="#__codelineno-4-22">22</a></span>
 <span class="normal"><a href="#__codelineno-4-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">&lt;?php</span>
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1">// src/Controller/EquipsController.php</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/equip/inserir&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;inserir_equip&#39;</span><span class="p">)]</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1">// src/Controller/SeccioController.php</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/seccions/inserir&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;inserir_seccio&#39;</span><span class="p">)]</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">inserir</span><span class="p">(</span><span class="nx">ManagerRegistry</span> <span class="nv">$doctrine</span><span class="p">)</span><span class="o">:</span> <span class="nx">Response</span> <span class="p">{</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$doctrine</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="nv">$equip</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Equip</span><span class="p">();</span>
@@ -977,20 +978,20 @@
 </span></code></pre></div></td></tr></table></div></p>
 </li>
 <li>
-<p>Afegeix un enllaç en el menú de la plantilla principal per accedir a <code>/equip/inserir</code>.</p>
+<p>Afegeix un enllaç en el menú de la plantilla principal per accedir a <code>/seccio/inserir</code>.</p>
 </li>
 </ol>
 <hr />
 <h2 id="exercici-3">Exercici 3</h2>
 <p><strong>Inserció Múltiple</strong></p>
 <ol>
-<li>Crea una nova ruta <code>/equip/inserirmultiple</code> que inserisca 3 equips més.</li>
-<li>Mostra un missatge de confirmació amb la plantilla <code>inserir_equip_multiple.html.twig</code>.</li>
+<li>Crea una nova ruta <code>/seccio/inserirmultiple</code> que inserisca 3 equips més.</li>
+<li>Mostra un missatge de confirmació amb la plantilla <code>inserir_seccio_multiple.html.twig</code>.</li>
 </ol>
 <hr />
 <h2 id="exercici-4">Exercici 4</h2>
-<p><strong>Entitat <code>Membre</code> amb Relació ManyToOne a <code>Equip</code></strong></p>
-<p>Crear una nova entitat <code>Membre</code> relacionada amb <code>Equip</code> (Molts a Un).</p>
+<p><strong>Entitat <code>Article</code> amb Relació ManyToOne a <code>Seccio</code></strong></p>
+<p>Crear una nova entitat <code>Article</code> relacionada amb <code>Seccio</code> (Molts a Un).</p>
 <ol>
 <li>Genera l’entitat:
    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
@@ -1001,13 +1002,10 @@
 <p>Afegeix els camps:</p>
 <ul>
 <li><code>nom</code> (string, 100)</li>
-<li><code>cognoms</code> (string, 100)</li>
-<li><code>email</code> (string, 150)</li>
-<li><code>telefon</code> (string, 15)</li>
-<li><code>data_naixement</code> (date)</li>
-<li><code>imatge_perfil</code> (string, 255)</li>
-<li><code>nota</code> (float, pot ser nul)</li>
-<li><code>equip</code> (relació ManyToOne amb Equip)</li>
+<li><code>preu</code> (float)</li>
+<li><code>stock</code> (int)</li>
+<li><code>imatge</code> (string, 255)</li>
+<li><code>seccio</code> (relació ManyToOne amb Seccio)</li>
 </ul>
 </li>
 <li>
@@ -1020,10 +1018,10 @@
 </ol>
 <hr />
 <h2 id="exercici-5">Exercici 5</h2>
-<p><strong>Inserció d’un Membre amb Relació</strong></p>
+<p><strong>Inserció d’un article amb Relació</strong></p>
 <ol>
 <li>
-<p>Afegeix un nou controlador per inserir membres:
+<p>Afegeix un nou controlador per inserir articles:
    <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
@@ -1101,8 +1099,8 @@
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
 <span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>git<span class="w"> </span>add<span class="w"> </span>--all
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Commit Doctrine EquipsNomAlumne&quot;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>versio4.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 4.0 EquipsNomAlumne Doctrine&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Tema 5: Doctrine&quot;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v5.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 5.0 TendaNomAlumne Doctrine&quot;</span>
 </span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
 </span></code></pre></div></td></tr></table></div>
 

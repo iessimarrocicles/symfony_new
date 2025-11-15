@@ -10,33 +10,36 @@ nav:
 
 Aquest tema tracta sobre com gestionar el model de dades en Symfony utilitzant **Doctrine ORM**, incloent la creació d’entitats, relacions i operacions amb la base de dades.
 
+**Punt de partida**
+
+Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràctiques anteriors.
+
 ---
 
-## Exercici 1 
+## Exercici 1
 
-**Creació de la Base de Dades i Entitat `Equip`**
+**Creació de la Base de Dades i Entitat `Seccio`**
 
-Configurar la connexió a la base de dades i crear l’entitat `Equip` dins l’aplicació **Equips**.
+Configurar la connexió a la base de dades i crear l’entitat dins l’aplicació.
 
 1. Defineix la variable d’entorn `DATABASE_URL` al fitxer `.env`:
    ```env
-   DATABASE_URL="mysql://root@127.0.0.1:3306/equips"
+   DATABASE_URL="mysql://root@127.0.0.1:3306/daw_tenda"
    ```
 2. Crea la base de dades:
    ```bash
    php bin/console doctrine:database:create
    ```
-3. Genera la nova entitat `Equip`:
+3. Genera la nova entitat `Seccio`:
    ```bash
    php bin/console make:entity
-   > Equip
+   > Seccio
    ```
 4. Afegeix els següents camps:
     - `nom` (string, 50)
-    - `cicle` (string, 10)
-    - `curs` (string, 10)
-    - `imatge` (string, 255)
-    - `nota` (float o decimal amb 2 dígits, pot ser nul)
+    - `descripcio` (string, 255)
+    - `any` (int)
+    - `articles` (int)
 
 5. Genera la migració i aplica-la:
    ```bash
@@ -48,14 +51,14 @@ Configurar la connexió a la base de dades i crear l’entitat `Equip` dins l’
 
 ## Exercici 2
 
-**Inserció d’Equips des del Controlador**
+**Inserció de seccions des del Controlador**
 
-1. Afegeix un nou mètode `inserir` al controlador `EquipsController` per inserir un equip de prova:
+1. Afegeix un nou mètode `inserir` al controlador `SeccioController` per inserir una secció de prova:
    ```php
    <?php
 
-   // src/Controller/EquipsController.php
-   #[Route('/equip/inserir', name: 'inserir_equip')]
+   // src/Controller/SeccioController.php
+   #[Route('/seccions/inserir', name: 'inserir_seccio')]
    public function inserir(ManagerRegistry $doctrine): Response {
        $entityManager = $doctrine->getManager();
        $equip = new Equip();
@@ -86,7 +89,7 @@ Configurar la connexió a la base de dades i crear l’entitat `Equip` dins l’
    <a href="{{ path('inici') }}">Tornar a l'inici</a>
    ```
 
-3. Afegeix un enllaç en el menú de la plantilla principal per accedir a `/equip/inserir`.
+3. Afegeix un enllaç en el menú de la plantilla principal per accedir a `/seccio/inserir`.
 
 ---
 
@@ -94,17 +97,17 @@ Configurar la connexió a la base de dades i crear l’entitat `Equip` dins l’
 
 **Inserció Múltiple**
 
-1. Crea una nova ruta `/equip/inserirmultiple` que inserisca 3 equips més.
-2. Mostra un missatge de confirmació amb la plantilla `inserir_equip_multiple.html.twig`.
+1. Crea una nova ruta `/seccio/inserirmultiple` que inserisca 3 equips més.
+2. Mostra un missatge de confirmació amb la plantilla `inserir_seccio_multiple.html.twig`.
 
 
 ---
 
 ## Exercici 4
 
-**Entitat `Membre` amb Relació ManyToOne a `Equip`**
+**Entitat `Article` amb Relació ManyToOne a `Seccio`**
 
-Crear una nova entitat `Membre` relacionada amb `Equip` (Molts a Un).
+Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
 
 1. Genera l’entitat:
    ```bash
@@ -113,13 +116,10 @@ Crear una nova entitat `Membre` relacionada amb `Equip` (Molts a Un).
    ```
 2. Afegeix els camps:
     - `nom` (string, 100)
-    - `cognoms` (string, 100)
-    - `email` (string, 150)
-    - `telefon` (string, 15)
-    - `data_naixement` (date)
-    - `imatge_perfil` (string, 255)
-    - `nota` (float, pot ser nul)
-    - `equip` (relació ManyToOne amb Equip)
+    - `preu` (float)
+    - `stock` (int)
+    - `imatge` (string, 255)
+    - `seccio` (relació ManyToOne amb Seccio)
 
 3. Genera i executa la migració:
    ```bash
@@ -131,9 +131,9 @@ Crear una nova entitat `Membre` relacionada amb `Equip` (Molts a Un).
 
 ## Exercici 5
 
-**Inserció d’un Membre amb Relació**
+**Inserció d’un article amb Relació**
 
-1. Afegeix un nou controlador per inserir membres:
+1. Afegeix un nou controlador per inserir articles:
    ```php
    <?php
 
@@ -182,7 +182,7 @@ Crear una nova entitat `Membre` relacionada amb `Equip` (Molts a Un).
 
 ```bash
 git add --all
-git commit -m "Commit Doctrine EquipsNomAlumne"
-git tag -a versio4.0 -m "Versió 4.0 EquipsNomAlumne Doctrine"
+git commit -m "Tema 5: Doctrine"
+git tag -a v5.0 -m "Versió 5.0 TendaNomAlumne Doctrine"
 git push origin master --tags
 ```
