@@ -38,8 +38,8 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
 4. Afegeix els següents camps:
     - `nom` (string, 50)
     - `descripcio` (string, 255)
-    - `any` (int)
-    - `articles` (int)
+    - `any` (integer)
+    - `imatge` (string, 100)
 
 5. Genera la migració i aplica-la:
    ```bash
@@ -53,57 +53,101 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
 
 **Inserció de seccions des del Controlador**
 
-1. Afegeix un nou mètode `inserir` al controlador `SeccioController` per inserir una secció de prova:
+1. Afegeix un nou mètode `afegir` al controlador `SeccioController` per inserir totes les seccions:
    ```php
    <?php
 
-   // src/Controller/SeccioController.php
-   #[Route('/seccions/inserir', name: 'inserir_seccio')]
-   public function inserir(ManagerRegistry $doctrine): Response {
-       $entityManager = $doctrine->getManager();
-       $equip = new Equip();
-       $equip->setNom("Simarrets");
-       $equip->setCicle("DAW");
-       $equip->setCurs("22/23");
-       $equip->setNota(9);
-       $equip->setImatge("equipPerDefecte.jpg");
+    public function __construct(private EntityManagerInterface $gestor ) {
 
-       try {
-           $entityManager->persist($equip);
-           $entityManager->flush();
-           return $this->render('equip/inserir_equip.html.twig', ['equip' => $equip]);
-       } catch (\Exception $e) {
-           return $this->render('equip/error.html.twig', ['error' => $e->getMessage()]);
-       }
-   }
+    }
+
+    #[Route('/seccio/afegir', name: 'afegir_seccio')]
+    public function afegir(): Response 
+    {
+        $seccio1 = new Seccio();
+        $seccio1->setNom("Roba");
+        $seccio1->setDescripcio("Secció de roba");
+        $seccio1->setAny(2026);
+        $seccio1->setImatge("roba.webp");
+
+        $seccio2 = new Seccio();
+        $seccio2->setNom("Calçat");
+        $seccio2->setDescripcio("Secció de sabates i esportives");
+        $seccio2->setAny(2025);
+        $seccio2->setImatge("calçat.webp");
+
+        $seccio3 = new Seccio();
+        $seccio3->setNom("Complements");
+        $seccio3->setDescripcio("Secció de complements de moda");
+        $seccio3->setAny(2023);
+        $seccio3->setImatge("complements.webp");
+
+        $seccio4 = new Seccio();
+        $seccio4->setNom("Tecnologia");
+        $seccio4->setDescripcio("Secció d'electrònica i gadgets");
+        $seccio4->setAny(2027);
+        $seccio4->setImatge("tecnologia.webp");
+
+        try {
+            $this->gestor->persist($seccio1);
+            $this->gestor->persist($seccio2);
+            $this->gestor->persist($seccio3);
+            $this->gestor->persist($seccio4);
+
+            $this->gestor->flush();
+            return $this->render('seccio/afegir.html.twig');
+        } catch (\Exception $e) {
+            return $this->render('seccio/error.html.twig', ['error' => $e->getMessage()]);
+        }
+    }
 
    ?>
    ```
 
-2. Crea la plantilla `templates/equip/inserir_equip.html.twig` per mostrar el resultat:
+2. Crea la plantilla `templates/equip/afegir.html.twig` per mostrar el resultat:
    ```twig
-   <h2>Equip inserit correctament!</h2>
-   <p>Nom: {{ equip.nom }}</p>
-   <p>Cicle: {{ equip.cicle }}</p>
-   <img src="{{ asset('images/' ~ equip.imatge) }}" alt="Imatge Equip">
-   <a href="{{ path('inici') }}">Tornar a l'inici</a>
+   {% extends 'base.html.twig' %}
+
+   {% block title %}Tenda Simarro{% endblock %}
+
+   {% block contingut %}
+   <section class="seccio-inici">
+      
+      <h2>Seccio afegida correctament!</h2>
+      <br><br>
+      <a href="{{ path('llistat_seccions') }}" class="btn btn-outline-primary btn-sm">Tornar a seccions</a>
+   {# 
+      <p>Seccio: {{ seccio.nom }}</p>
+      <p>Descripció: {{ seccio.descripcio }}</p>
+      <img src="{{ asset('imgs/seccio/' ~ seccio.imatge) }}" alt="Imatge Secció">
+   #}
+   </section>
+   {% endblock %}
    ```
 
-3. Afegeix un enllaç en el menú de la plantilla principal per accedir a `/seccio/inserir`.
+3. Crea la plantilla `templates/equip/error.html.twig` per mostrar el resultat:
+   ```twig
+   {% extends 'base.html.twig' %}
+
+   {% block title %}Tenda Simarro{% endblock %}
+
+   {% block contingut %}
+   <section class="seccio-inici">
+      
+      <h2>Error afegint una nova secció!</h2>
+      <p class="text-danger">S'ha produït l'error següent: {{ error }}</p>
+      <br><br>
+      <a href="{{ path('llistat_seccions') }}" class="btn btn-outline-primary btn-sm">Tornar a seccions</a>
+      
+   </section>
+   {% endblock %}
+   ```
+
+4. Afegeix un enllaç en el menú de la plantilla principal per accedir a `/seccio/inserir`.
 
 ---
 
 ## Exercici 3
-
-**Inserció Múltiple**
-
-1. Crea una nova ruta `/seccio/inserirmultiple` que inserisca 3 equips més.
-2. Mostra un missatge de confirmació amb la plantilla `inserir_seccio_multiple.html.twig`.
-
-
----
-
-## Exercici 4
 
 **Entitat `Article` amb Relació ManyToOne a `Seccio`**
 
@@ -129,7 +173,7 @@ Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
 
 ---
 
-## Exercici 5
+## Exercici 4
 
 **Inserció d’un article amb Relació**
 
@@ -174,7 +218,7 @@ Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
 
 ---
 
-## Exercici 6
+## Exercici 5
 
 **Control de Versions**
 
