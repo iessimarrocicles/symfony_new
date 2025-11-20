@@ -12,9 +12,9 @@ Actualitza l’índex de paquets i instal·la les actualitzacions pendents. És 
 
 ---
 
-## 2. Instal·lar PHP i extensions necessàries
+## 2. Instal·lar PHP i extensions
 
-Symfony requereix una versió moderna de PHP (8.1 o superior). A Ubuntu sol estar disponible a través del repositori **ondrej/php**.
+Symfony requereix una versió moderna de PHP (8.1 o superior). A Ubuntu sol estar disponible a través del repositori `ondrej/php`.
 
 Afegir repositori PHP modern:
 
@@ -45,9 +45,9 @@ Explicació de les extensions principals:
 
 ---
 
-## 3. Instal·lar Composer (gestor de dependències de PHP)
+## 3. Instal·lar Composer
 
-Symfony depén de Composer per a instal·lar paquets i eines.
+Symfony depén de Composer per a instal·lar paquets i eines. És el nostre gestor de dependències de PHP.
 
 Descarregar Composer:
 
@@ -62,8 +62,9 @@ Ara tens composer disponible globalment.
 
 ---
 
-## 4. Instal·lar Symfony CLI (eina oficial)
-La Symfony CLI permet crear projectes, arrancar servidors locals i comprovar compatibilitat.
+## 4. Instal·lar Symfony CLI
+
+La Symfony CLI (eina oficial) permet crear projectes, arrancar servidors locals i comprovar compatibilitat.
 
 Instal·lació:
 
@@ -80,7 +81,7 @@ symfony -v
 
 ---
 
-## 5. Instal·lar un servidor web (opcional si uses Symfony CLI)
+## 5. Instal·lar un servidor web
 
 Tot i que el servidor integrat funciona bé en desenvolupament, pots instal·lar:
 
@@ -100,7 +101,8 @@ Normalment per a Symfony en producció es recomana **Nginx** per rendiment, per�
 
 ---
 
-## 6. Instal·lar i configurar una base de dades
+## 6. Instal·lar una base de dades
+
 Pots triar entre *MySQL*, *MariaDB* o *PostgreSQL*. Exemple amb MySQL:
 
 ```bash
@@ -112,26 +114,27 @@ Simples passos interactius milloren la seguretat: contrasenya root, eliminar usu
 
 ---
 
-## 7. Comprovar compatibilitat amb Symfony
+## 7. Comprovar compatibilitat
+
+Podem comprovar si falta alguna extensió de PHP o configuració.
 
 ```bash
 symfony check:requirements
 ```
 
-Mostra si falta alguna extensió de PHP o configuració.
-
 ---
 
 ## 8. Validador de seguretat de dependències
+
+Podem comprovar vulnerabilitats conegudes en paquets de Composer.
 
 ```bash
 symfony security:check
 ```
 
-Comprova vulnerabilitats conegudes en paquets de Composer.
-
 ---
 
-## 🎉 Ja estàs preparat per treballar amb Symfony!
+## 🎉 Ja pots treballar amb Symfony!
+
 Aquesta configuració és la recomanada per a entorns docents i de desenvolupament professional.
 
