@@ -1,4 +1,4 @@
-# Instal·lació pas a pas de Symfony en Ubuntu
+# Instal·lació en Ubuntu
 
 A continuació tens una guia detallada, tècnica i pedagògica sobre tot allò que cal instal·lar per poder treballar amb Symfony en una màquina Ubuntu.
 

@@ -1,4 +1,4 @@
-# Instal·lació pas a pas de Symfony en Windows
+# Instal·lació en Windows
 
 Aquesta guia explica què cal instal·lar en un ordinador **Windows** per poder treballar amb Symfony, amb un enfocament docent. Tots els passos estan pensats perquè l’alumnat entenga per a què serveix cadascun dels components.
 
