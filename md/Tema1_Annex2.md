@@ -89,7 +89,8 @@ extension=gd
 extension=zip
 ```
 
-**Per a què serveixen?**
+Per a què serveixen?
+
 - **mysqli / pdo_mysql**: connexió a MySQL/MariaDB.
 - **intl**: internacionalització i formats.
 - **mbstring**: cadenes multibyte (necessari per a Symfony).

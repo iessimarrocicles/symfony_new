@@ -32,7 +32,7 @@ sudo apt install -y php8.2 php8.2-cli php8.2-common php8.2-mysql php8.2-xml \
 php8.2-mbstring php8.2-zip php8.2-intl php8.2-curl php8.2-gd php8.2-sqlite3
 ```
 
-Explicació de les extensions principals:**
+Explicació de les extensions principals:
 
 - **php-cli**: permet executar PHP des de terminal.
 - **php-mysql / php-sqlite3**: connexions a bases de dades.
@@ -46,6 +46,7 @@ Explicació de les extensions principals:**
 ---
 
 ## 3. Instal·lar Composer (gestor de dependències de PHP)
+
 Symfony depén de Composer per a instal·lar paquets i eines.
 
 Descarregar Composer:
@@ -57,7 +58,7 @@ sudo mv composer.phar /usr/local/bin/composer
 sudo chmod +x /usr/local/bin/composer
 ```
 
-Ara tens **composer** disponible globalment.
+Ara tens composer disponible globalment.
 
 ---
 
