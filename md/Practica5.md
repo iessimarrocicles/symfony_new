@@ -61,8 +61,8 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
 
     }
 
-    #[Route('/seccio/afegir', name: 'afegir_seccio')]
-    public function afegir(): Response 
+    #[Route('/seccions/afegir', name: 'afegir_seccions')]
+    public function afegirSeccions(): Response 
     {
         $seccio1 = new Seccio();
         $seccio1->setNom("Roba");
@@ -113,14 +113,10 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
    {% block contingut %}
    <section class="seccio-inici">
       
-      <h2>Seccio afegida correctament!</h2>
+      <h2>Seccions afegides correctament!</h2>
       <br><br>
       <a href="{{ path('llistat_seccions') }}" class="btn btn-outline-primary btn-sm">Tornar a seccions</a>
-   {# 
-      <p>Seccio: {{ seccio.nom }}</p>
-      <p>Descripció: {{ seccio.descripcio }}</p>
-      <img src="{{ asset('imgs/seccio/' ~ seccio.imatge) }}" alt="Imatge Secció">
-   #}
+
    </section>
    {% endblock %}
    ```
@@ -134,7 +130,7 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
    {% block contingut %}
    <section class="seccio-inici">
       
-      <h2>Error afegint una nova secció!</h2>
+      <h2>Error afegint noves seccions!</h2>
       <p class="text-danger">S'ha produït l'error següent: {{ error }}</p>
       <br><br>
       <a href="{{ path('llistat_seccions') }}" class="btn btn-outline-primary btn-sm">Tornar a seccions</a>
@@ -143,7 +139,12 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
    {% endblock %}
    ```
 
-4. Afegeix un enllaç en el menú de la plantilla principal per accedir a `/seccio/inserir`.
+4. Afegeix un enllaç en el menú de la plantilla principal `_menu.html.twig` per accedir a `/seccions/afegir`.
+   ```twig
+   <li class="nav-item">
+      <a class="btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0" href="{{ path('afegir_seccions') }}">Afegir seccions</a>
+   </li>
+   ```
 
 ---
 
@@ -156,14 +157,15 @@ Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
 1. Genera l’entitat:
    ```bash
    php bin/console make:entity
-   > Membre
+   > Article
    ```
 2. Afegeix els camps:
     - `nom` (string, 100)
     - `preu` (float)
-    - `stock` (int)
+    - `stock` (integer)
     - `imatge` (string, 255)
     - `seccio` (relació ManyToOne amb Seccio)
+        - Quan l’assistent ens pregunta si volem afegir una propietat en la classe Seccio per poder accedir als seus articles des del codi. En este cas, acceptem la proposta escrivint yes i definim el nom de la nova propietat com articles. Això ens fara una relació bidireccional. D’esta manera es genera automàticament una relació bidireccional: la classe Article tindrà la propietat seccio, i la classe Seccio disposarà d’una col·lecció articles amb els mètodes getArticles(), addArticle() i removeArticle().
 
 3. Genera i executa la migració:
    ```bash
@@ -177,43 +179,58 @@ Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
 
 **Inserció d’un article amb Relació**
 
-1. Afegeix un nou controlador per inserir articles:
+1. Afegeix un nou controlador `ArticleController.php` per inserir articles:
    ```php
    <?php
 
-   #[Route('/membre/inserir', name: 'inserir_membre')]
-   public function inserirMembre(ManagerRegistry $doctrine): Response {
-       $entityManager = $doctrine->getManager();
-
-       $repositori = $doctrine->getRepository(Equip::class);
-       $equip = $repositori->find(1); // Equip existent
-
-       $membre = new Membre();
-       $membre->setNom("Sarah");
-       $membre->setCognoms("Connor");
-       $membre->setEmail("sarahconnor@terminator.com");
-       $membre->setTelefon("699888777");
-       $membre->setDataNaixement(new \DateTime("1963-11-29"));
-       $membre->setImatgePerfil("sarahconnor.jpg");
-       $membre->setNota(9.7);
-       $membre->setEquip($equip);
-
-       $entityManager->persist($membre);
-       $entityManager->flush();
-
-       return $this->render('membre/inserir_membre.html.twig', ['membre' => $membre]);
+   #[Route('/articles/afegir', name: 'articles_afegir')]
+   public function afegirArticles(ManagerRegistry $doctrine): Response {
+      ...
    }
 
    ?>
    ```
 
-2. Crea la vista `inserir_membre.html.twig`:
+2. Crea la plantilla `templates/article/afegir.html.twig` per mostrar el resultat:
    ```twig
-   <h2>Membre inserit correctament!</h2>
-   <p>{{ membre.nom }} {{ membre.cognoms }}</p>
-   <p>Equip: {{ membre.equip.nom }}</p>
-   <img src="{{ asset('images/' ~ membre.imatgePerfil) }}" alt="Foto del membre">
-   <a href="{{ path('inici') }}">Tornar a l'inici</a>
+   {% extends 'base.html.twig' %}
+
+   {% block title %}Tenda Simarro{% endblock %}
+
+   {% block contingut %}
+   <section class="seccio-inici">
+      
+      <h2>Articles afegits correctament!</h2>
+      <br><br>
+      <a href="{{ path('llistat_seccions') }}" class="btn btn-outline-primary btn-sm">Tornar a seccions</a>
+
+   </section>
+   {% endblock %}
+   ```
+
+3. Crea la plantilla `templates/equip/error.html.twig` per mostrar el resultat:
+   ```twig
+   {% extends 'base.html.twig' %}
+
+   {% block title %}Tenda Simarro{% endblock %}
+
+   {% block contingut %}
+   <section class="seccio-inici">
+      
+      <h2>Error afegint nous articles!</h2>
+      <p class="text-danger">S'ha produït l'error següent: {{ error }}</p>
+      <br><br>
+      <a href="{{ path('llistat_seccions') }}" class="btn btn-outline-primary btn-sm">Tornar a seccions</a>
+      
+   </section>
+   {% endblock %}
+   ```
+
+4. Afegeix un enllaç en el menú de la plantilla principal `_menu.html.twig` per accedir a `/articles/afegir`.
+   ```twig
+   <li class="nav-item">
+      <a class="btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0" href="{{ path('afegir_articles') }}">Afegir articles</a>
+   </li>
    ```
 
 ---
@@ -235,8 +252,9 @@ git push origin master --tags
 
 ## Resultat final esperat
 
-- Controlador que utilitza serveis predefinits com `LoggerInterface`.  
-- Registres al fitxer `var/log/dev.log`.
-- Generar un servei propi `DadesSeccioServei`  amb mètodes per llistar i obtenir una seccio.
-- Controlador que utilitza un servei propi, el esmentat al punt anterior.
-- Mostrar imatges a les vistes de Twig.
+- Configurar Doctrine i crear la base de dades.
+- Generar l’entitat Seccio i aplicar migracions.
+- Inserir dades des del controlador i mostrar-les amb Twig.
+- Crear l’entitat Article i establir una relació bidireccional ManyToOne amb Seccio.
+- Inserir articles vinculats a seccions existents.
+- Afegir enllaços al menú per facilitar la navegació.

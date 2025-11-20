@@ -969,8 +969,8 @@
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a> <span class="p">}</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a> <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/seccio/afegir&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;afegir_seccio&#39;</span><span class="p">)]</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a> <span class="k">public</span> <span class="k">function</span> <span class="nf">afegir</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span> 
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a> <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/seccions/afegir&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;afegir_seccions&#39;</span><span class="p">)]</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a> <span class="k">public</span> <span class="k">function</span> <span class="nf">afegirSeccions</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span> 
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a> <span class="p">{</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a>     <span class="nv">$seccio1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Seccio</span><span class="p">();</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a>     <span class="nv">$seccio1</span><span class="o">-&gt;</span><span class="na">setNom</span><span class="p">(</span><span class="s2">&quot;Roba&quot;</span><span class="p">);</span>
@@ -1026,27 +1026,19 @@
 <span class="normal"><a href="#__codelineno-5-10">10</a></span>
 <span class="normal"><a href="#__codelineno-5-11">11</a></span>
 <span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span>
-<span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span>
-<span class="normal"><a href="#__codelineno-5-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Tenda Simarro</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="x">&lt;section class=&quot;seccio-inici&quot;&gt;</span>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="x">   &lt;h2&gt;Seccio afegida correctament!&lt;/h2&gt;</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="x">   &lt;h2&gt;Seccions afegides correctament!&lt;/h2&gt;</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="x">   &lt;br&gt;&lt;br&gt;</span>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="x">   &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;llistat_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;Tornar a seccions&lt;/a&gt;</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="c">{# </span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="c">   &lt;p&gt;Seccio: {{ seccio.nom }}&lt;/p&gt;</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="c">   &lt;p&gt;Descripció: {{ seccio.descripcio }}&lt;/p&gt;</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="c">   &lt;img src=&quot;{{ asset(&#39;imgs/seccio/&#39; ~ seccio.imatge) }}&quot; alt=&quot;Imatge Secció&quot;&gt;</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="c">#}</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="x">&lt;/section&gt;</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="x">&lt;/section&gt;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
 </span></code></pre></div></td></tr></table></div></p>
 </li>
 <li>
@@ -1071,7 +1063,7 @@
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
 </span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="x">&lt;section class=&quot;seccio-inici&quot;&gt;</span>
 </span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="x">   &lt;h2&gt;Error afegint una nova secció!&lt;/h2&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="x">   &lt;h2&gt;Error afegint noves seccions!&lt;/h2&gt;</span>
 </span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="x">   &lt;p class=&quot;text-danger&quot;&gt;S&#39;ha produït l&#39;error següent: </span><span class="cp">{{</span> <span class="nv">error</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
 </span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="x">   &lt;br&gt;&lt;br&gt;</span>
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="x">   &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;llistat_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;Tornar a seccions&lt;/a&gt;</span>
@@ -1081,7 +1073,13 @@
 </span></code></pre></div></td></tr></table></div></p>
 </li>
 <li>
-<p>Afegeix un enllaç en el menú de la plantilla principal per accedir a <code>/seccio/inserir</code>.</p>
+<p>Afegeix un enllaç en el menú de la plantilla principal <code>_menu.html.twig</code> per accedir a <code>/seccions/afegir</code>.
+   <div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="x">&lt;li class=&quot;nav-item&quot;&gt;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="x">   &lt;a class=&quot;btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;afegir_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Afegir seccions&lt;/a&gt;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="x">&lt;/li&gt;</span>
+</span></code></pre></div></td></tr></table></div></p>
 </li>
 </ol>
 <hr />
@@ -1090,25 +1088,28 @@
 <p>Crear una nova entitat <code>Article</code> relacionada amb <code>Seccio</code> (Molts a Un).</p>
 <ol>
 <li>Genera l’entitat:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>make:entity
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>&gt;<span class="w"> </span>Membre
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>make:entity
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>&gt;<span class="w"> </span>Article
 </span></code></pre></div></td></tr></table></div></li>
 <li>
 <p>Afegeix els camps:</p>
 <ul>
 <li><code>nom</code> (string, 100)</li>
 <li><code>preu</code> (float)</li>
-<li><code>stock</code> (int)</li>
+<li><code>stock</code> (integer)</li>
 <li><code>imatge</code> (string, 255)</li>
-<li><code>seccio</code> (relació ManyToOne amb Seccio)</li>
+<li><code>seccio</code> (relació ManyToOne amb Seccio)<ul>
+<li>Quan l’assistent ens pregunta si volem afegir una propietat en la classe Seccio per poder accedir als seus articles des del codi. En este cas, acceptem la proposta escrivint yes i definim el nom de la nova propietat com articles. Això ens fara una relació bidireccional. D’esta manera es genera automàticament una relació bidireccional: la classe Article tindrà la propietat seccio, i la classe Seccio disposarà d’una col·lecció articles amb els mètodes getArticles(), addArticle() i removeArticle().</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p>Genera i executa la migració:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>make:migration
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:migration:migrate
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>php<span class="w"> </span>bin/console<span class="w"> </span>make:migration
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>php<span class="w"> </span>bin/console<span class="w"> </span>doctrine:migration:migrate
 </span></code></pre></div></td></tr></table></div></p>
 </li>
 </ol>
@@ -1117,71 +1118,91 @@
 <p><strong>Inserció d’un article amb Relació</strong></p>
 <ol>
 <li>
-<p>Afegeix un nou controlador per inserir articles:
-   <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-9-10">10</a></span>
-<span class="normal"><a href="#__codelineno-9-11">11</a></span>
-<span class="normal"><a href="#__codelineno-9-12">12</a></span>
-<span class="normal"><a href="#__codelineno-9-13">13</a></span>
-<span class="normal"><a href="#__codelineno-9-14">14</a></span>
-<span class="normal"><a href="#__codelineno-9-15">15</a></span>
-<span class="normal"><a href="#__codelineno-9-16">16</a></span>
-<span class="normal"><a href="#__codelineno-9-17">17</a></span>
-<span class="normal"><a href="#__codelineno-9-18">18</a></span>
-<span class="normal"><a href="#__codelineno-9-19">19</a></span>
-<span class="normal"><a href="#__codelineno-9-20">20</a></span>
-<span class="normal"><a href="#__codelineno-9-21">21</a></span>
-<span class="normal"><a href="#__codelineno-9-22">22</a></span>
-<span class="normal"><a href="#__codelineno-9-23">23</a></span>
-<span class="normal"><a href="#__codelineno-9-24">24</a></span>
-<span class="normal"><a href="#__codelineno-9-25">25</a></span>
-<span class="normal"><a href="#__codelineno-9-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">&lt;?php</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/membre/inserir&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;inserir_membre&#39;</span><span class="p">)]</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">inserirMembre</span><span class="p">(</span><span class="nx">ManagerRegistry</span> <span class="nv">$doctrine</span><span class="p">)</span><span class="o">:</span> <span class="nx">Response</span> <span class="p">{</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>    <span class="nv">$entityManager</span> <span class="o">=</span> <span class="nv">$doctrine</span><span class="o">-&gt;</span><span class="na">getManager</span><span class="p">();</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="nv">$repositori</span> <span class="o">=</span> <span class="nv">$doctrine</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Equip</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="nv">$equip</span> <span class="o">=</span> <span class="nv">$repositori</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Equip existent</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a>    <span class="nv">$membre</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Membre</span><span class="p">();</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setNom</span><span class="p">(</span><span class="s2">&quot;Sarah&quot;</span><span class="p">);</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setCognoms</span><span class="p">(</span><span class="s2">&quot;Connor&quot;</span><span class="p">);</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setEmail</span><span class="p">(</span><span class="s2">&quot;sarahconnor@terminator.com&quot;</span><span class="p">);</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setTelefon</span><span class="p">(</span><span class="s2">&quot;699888777&quot;</span><span class="p">);</span>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setDataNaixement</span><span class="p">(</span><span class="k">new</span> <span class="nx">\DateTime</span><span class="p">(</span><span class="s2">&quot;1963-11-29&quot;</span><span class="p">));</span>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setImatgePerfil</span><span class="p">(</span><span class="s2">&quot;sarahconnor.jpg&quot;</span><span class="p">);</span>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setNota</span><span class="p">(</span><span class="mf">9.7</span><span class="p">);</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18"></a>    <span class="nv">$membre</span><span class="o">-&gt;</span><span class="na">setEquip</span><span class="p">(</span><span class="nv">$equip</span><span class="p">);</span>
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19"></a>
-</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20"></a>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$membre</span><span class="p">);</span>
-</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21"></a>    <span class="nv">$entityManager</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
-</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22"></a>
-</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23"></a>    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;membre/inserir_membre.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;membre&#39;</span> <span class="o">=&gt;</span> <span class="nv">$membre</span><span class="p">]);</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="p">}</span>
-</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25"></a>
-</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26"></a><span class="cp">?&gt;</span>
-</span></code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>Crea la vista <code>inserir_membre.html.twig</code>:
-   <div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<p>Afegeix un nou controlador <code>ArticleController.php</code> per inserir articles:
+   <div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
 <span class="normal"><a href="#__codelineno-10-4">4</a></span>
-<span class="normal"><a href="#__codelineno-10-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="x">&lt;h2&gt;Membre inserit correctament!&lt;/h2&gt;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="x">&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">membre.nom</span> <span class="cp">}}</span><span class="x"> </span><span class="cp">{{</span> <span class="nv">membre.cognoms</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="x">&lt;p&gt;Equip: </span><span class="cp">{{</span> <span class="nv">membre.equip.nom</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="x">&lt;img src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;images/&#39;</span> <span class="o">~</span> <span class="nv">membre.imatgePerfil</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; alt=&quot;Foto del membre&quot;&gt;</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="x">&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;inici&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Tornar a l&#39;inici&lt;/a&gt;</span>
+<span class="normal"><a href="#__codelineno-10-5">5</a></span>
+<span class="normal"><a href="#__codelineno-10-6">6</a></span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span>
+<span class="normal"><a href="#__codelineno-10-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/articles/afegir&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;articles_afegir&#39;</span><span class="p">)]</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="k">public</span> <span class="k">function</span> <span class="nf">afegirArticles</span><span class="p">(</span><span class="nx">ManagerRegistry</span> <span class="nv">$doctrine</span><span class="p">)</span><span class="o">:</span> <span class="nx">Response</span> <span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a>   <span class="o">...</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="p">}</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>Crea la plantilla <code>templates/article/afegir.html.twig</code> per mostrar el resultat:
+   <div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Tenda Simarro</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="x">&lt;section class=&quot;seccio-inici&quot;&gt;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="x">   &lt;h2&gt;Articles afegits correctament!&lt;/h2&gt;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="x">   &lt;br&gt;&lt;br&gt;</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="x">   &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;llistat_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;Tornar a seccions&lt;/a&gt;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="x">&lt;/section&gt;</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>Crea la plantilla <code>templates/equip/error.html.twig</code> per mostrar el resultat:
+   <div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Tenda Simarro</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="x">&lt;section class=&quot;seccio-inici&quot;&gt;</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="x">   &lt;h2&gt;Error afegint nous articles!&lt;/h2&gt;</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="x">   &lt;p class=&quot;text-danger&quot;&gt;S&#39;ha produït l&#39;error següent: </span><span class="cp">{{</span> <span class="nv">error</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="x">   &lt;br&gt;&lt;br&gt;</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="x">   &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;llistat_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;Tornar a seccions&lt;/a&gt;</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="x">&lt;/section&gt;</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span></code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>Afegeix un enllaç en el menú de la plantilla principal <code>_menu.html.twig</code> per accedir a <code>/articles/afegir</code>.
+   <div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="x">&lt;li class=&quot;nav-item&quot;&gt;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="x">   &lt;a class=&quot;btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;afegir_articles&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Afegir articles&lt;/a&gt;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="x">&lt;/li&gt;</span>
 </span></code></pre></div></td></tr></table></div></p>
 </li>
 </ol>
@@ -1191,22 +1212,23 @@
 <ol>
 <li>Quan tot funcione, fes un commit amb Git:</li>
 </ol>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span>
-<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>git<span class="w"> </span>add<span class="w"> </span>--all
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Tema 5: Doctrine&quot;</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v5.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 5.0 TendaNomAlumne Doctrine&quot;</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a>git<span class="w"> </span>add<span class="w"> </span>--all
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Tema 5: Doctrine&quot;</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v5.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 5.0 TendaNomAlumne Doctrine&quot;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="resultat-final-esperat">Resultat final esperat</h2>
 <ul>
-<li>Controlador que utilitza serveis predefinits com <code>LoggerInterface</code>.  </li>
-<li>Registres al fitxer <code>var/log/dev.log</code>.</li>
-<li>Generar un servei propi <code>DadesSeccioServei</code>  amb mètodes per llistar i obtenir una seccio.</li>
-<li>Controlador que utilitza un servei propi, el esmentat al punt anterior.</li>
-<li>Mostrar imatges a les vistes de Twig.</li>
+<li>Configurar Doctrine i crear la base de dades.</li>
+<li>Generar l’entitat Seccio i aplicar migracions.</li>
+<li>Inserir dades des del controlador i mostrar-les amb Twig.</li>
+<li>Crear l’entitat Article i establir una relació bidireccional ManyToOne amb Seccio.</li>
+<li>Inserir articles vinculats a seccions existents.</li>
+<li>Afegir enllaços al menú per facilitar la navegació.</li>
 </ul>
 
 
