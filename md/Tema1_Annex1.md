@@ -3,29 +3,37 @@
 A continuació tens una guia detallada, tècnica i pedagògica sobre tot allò que cal instal·lar per poder treballar amb Symfony en una màquina Ubuntu.
 
 ## 1. Actualitzar el sistema
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+
 Actualitza l’índex de paquets i instal·la les actualitzacions pendents. És recomanable fer-ho abans d'instal·lar cap eina.
 
 ---
 
 ## 2. Instal·lar PHP i extensions necessàries
+
 Symfony requereix una versió moderna de PHP (8.1 o superior). A Ubuntu sol estar disponible a través del repositori **ondrej/php**.
 
-### Afegir repositori PHP modern:
+Afegir repositori PHP modern:
+
 ```bash
 sudo add-apt-repository ppa:ondrej/php -y
 sudo apt update
 ```
+
 Això permet accedir a versions de PHP que no venen per defecte a Ubuntu.
 
-### Instal·lar PHP i extensions recomanades per Symfony:
+Instal·lar PHP i extensions recomanades per Symfony:
+
 ```bash
 sudo apt install -y php8.2 php8.2-cli php8.2-common php8.2-mysql php8.2-xml \
 php8.2-mbstring php8.2-zip php8.2-intl php8.2-curl php8.2-gd php8.2-sqlite3
 ```
-**Explicació de les extensions principals:**
+
+Explicació de les extensions principals:**
+
 - **php-cli**: permet executar PHP des de terminal.
 - **php-mysql / php-sqlite3**: connexions a bases de dades.
 - **php-xml**: necessari per a components interns de Symfony.
@@ -40,13 +48,15 @@ php8.2-mbstring php8.2-zip php8.2-intl php8.2-curl php8.2-gd php8.2-sqlite3
 ## 3. Instal·lar Composer (gestor de dependències de PHP)
 Symfony depén de Composer per a instal·lar paquets i eines.
 
-### Descarregar Composer:
+Descarregar Composer:
+
 ```bash
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php
 sudo mv composer.phar /usr/local/bin/composer
 sudo chmod +x /usr/local/bin/composer
 ```
+
 Ara tens **composer** disponible globalment.
 
 ---
@@ -54,13 +64,15 @@ Ara tens **composer** disponible globalment.
 ## 4. Instal·lar Symfony CLI (eina oficial)
 La Symfony CLI permet crear projectes, arrancar servidors locals i comprovar compatibilitat.
 
-### Instal·lació:
+Instal·lació:
+
 ```bash
 wget https://get.symfony.com/cli/installer -O - | bash
 sudo mv /home/$USER/.symfony*/bin/symfony /usr/local/bin/symfony
 ```
 
-### Comprovació:
+Comprovació:
+
 ```bash
 symfony -v
 ```
@@ -68,14 +80,17 @@ symfony -v
 ---
 
 ## 5. Instal·lar un servidor web (opcional si uses Symfony CLI)
+
 Tot i que el servidor integrat funciona bé en desenvolupament, pots instal·lar:
 
-### Apache:
+Apache:
+
 ```bash
 sudo apt install apache2 libapache2-mod-php8.2
 ```
 
-### O bé Nginx:
+O bé Nginx:
+
 ```bash
 sudo apt install nginx
 ```
@@ -97,17 +112,21 @@ Simples passos interactius milloren la seguretat: contrasenya root, eliminar usu
 ---
 
 ## 7. Comprovar compatibilitat amb Symfony
+
 ```bash
 symfony check:requirements
 ```
+
 Mostra si falta alguna extensió de PHP o configuració.
 
 ---
 
 ## 8. Validador de seguretat de dependències
+
 ```bash
 symfony security:check
 ```
+
 Comprova vulnerabilitats conegudes en paquets de Composer.
 
 ---
