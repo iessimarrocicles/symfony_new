@@ -1,0 +1,1733 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Tema1_Annex1/">
+      
+      
+        <link rel="next" href="../Practica1/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Annex 2 - SYMFONY</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installacio-pas-a-pas-de-symfony-en-windows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SYMFONY" class="md-header__button md-logo" aria-label="SYMFONY" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SYMFONY
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Annex 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SYMFONY" class="md-nav__button md-logo" aria-label="SYMFONY" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SYMFONY
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Índex
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema1_Annex1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Annex 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Annex 2
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Annex 2
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-opcio-recomanada-resum-wsl2-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Opció recomanada (resum): WSL2 + Ubuntu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-installar-un-gestor-de-paquets-per-a-windows-chocolatey-opcional-pero-recomanat" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instal·lar un gestor de paquets per a Windows (Chocolatey) (opcional però recomanat)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Instal·lar un gestor de paquets per a Windows (Chocolatey) (opcional però recomanat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-obrir-powershell-com-a-administrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Obrir PowerShell com a administrador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-activar-lexecucio-de-scripts-nomes-una-vegada" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Activar l’execució de scripts (només una vegada)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-installar-chocolatey" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Instal·lar Chocolatey
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installar-php-i-extensions-necessaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instal·lar PHP i extensions necessàries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Instal·lar PHP i extensions necessàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installar-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Instal·lar PHP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-afegir-php-al-path-si-no-es-fa-automaticament" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Afegir PHP al PATH (si no es fa automàticament)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-extensions-de-php-per-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Extensions de PHP per Symfony
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-installar-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Instal·lar Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-installar-composer-gestor-de-dependencies-de-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Instal·lar Composer (gestor de dependències de PHP)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Instal·lar Composer (gestor de dependències de PHP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-descarregar-linstallador-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Descarregar l’instal·lador oficial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-passos-de-linstallador" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Passos de l’instal·lador
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-installar-symfony-cli-eina-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Instal·lar Symfony CLI (eina oficial)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Instal·lar Symfony CLI (eina oficial)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-descarregar-linstallador" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. Descarregar l’instal·lador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-comprovar-installacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. Comprovar instal·lació
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-installar-una-base-de-dades-mysql-mariadb-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Instal·lar una base de dades (MySQL / MariaDB / PostgreSQL)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Instal·lar una base de dades (MySQL / MariaDB / PostgreSQL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-mysql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. MySQL Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-verificar-i-provar" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2. Verificar i provar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-opcional-installar-un-servidor-web-apache-o-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. (Opcional) Instal·lar un servidor web: Apache o Nginx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. (Opcional) Instal·lar un servidor web: Apache o Nginx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-apache-amb-chocolatey" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1. Apache amb Chocolatey
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-nginx-amb-chocolatey" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2. Nginx amb Chocolatey
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-crear-un-projecte-symfony-des-de-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Crear un projecte Symfony des de Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configurar-la-connexio-a-la-base-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Configurar la connexió a la base de dades
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-iniciar-el-servidor-de-desenvolupament-de-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Iniciar el servidor de desenvolupament de Symfony
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-comprovar-requisits-i-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Comprovar requisits i seguretat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Comprovar requisits i seguretat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-requisits-de-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1. Requisits de Symfony
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-vulnerabilitats-de-seguretat-en-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2. Vulnerabilitats de seguretat en dependències
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-resum-per-a-lalumnat" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Resum per a l’alumnat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tema 5
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tema 5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tema5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teoria
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pràctica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plantilla
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-opcio-recomanada-resum-wsl2-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Opció recomanada (resum): WSL2 + Ubuntu
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-installar-un-gestor-de-paquets-per-a-windows-chocolatey-opcional-pero-recomanat" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Instal·lar un gestor de paquets per a Windows (Chocolatey) (opcional però recomanat)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Instal·lar un gestor de paquets per a Windows (Chocolatey) (opcional però recomanat)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-obrir-powershell-com-a-administrador" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. Obrir PowerShell com a administrador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-activar-lexecucio-de-scripts-nomes-una-vegada" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Activar l’execució de scripts (només una vegada)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-installar-chocolatey" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Instal·lar Chocolatey
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installar-php-i-extensions-necessaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instal·lar PHP i extensions necessàries
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Instal·lar PHP i extensions necessàries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-installar-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Instal·lar PHP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-afegir-php-al-path-si-no-es-fa-automaticament" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Afegir PHP al PATH (si no es fa automàticament)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-extensions-de-php-per-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Extensions de PHP per Symfony
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-installar-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Instal·lar Git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-installar-composer-gestor-de-dependencies-de-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Instal·lar Composer (gestor de dependències de PHP)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Instal·lar Composer (gestor de dependències de PHP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-descarregar-linstallador-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. Descarregar l’instal·lador oficial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-passos-de-linstallador" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. Passos de l’instal·lador
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-installar-symfony-cli-eina-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Instal·lar Symfony CLI (eina oficial)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Instal·lar Symfony CLI (eina oficial)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-descarregar-linstallador" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1. Descarregar l’instal·lador
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-comprovar-installacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2. Comprovar instal·lació
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-installar-una-base-de-dades-mysql-mariadb-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Instal·lar una base de dades (MySQL / MariaDB / PostgreSQL)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Instal·lar una base de dades (MySQL / MariaDB / PostgreSQL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-mysql-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. MySQL Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-verificar-i-provar" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2. Verificar i provar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-opcional-installar-un-servidor-web-apache-o-nginx" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. (Opcional) Instal·lar un servidor web: Apache o Nginx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. (Opcional) Instal·lar un servidor web: Apache o Nginx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-apache-amb-chocolatey" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1. Apache amb Chocolatey
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-nginx-amb-chocolatey" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2. Nginx amb Chocolatey
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-crear-un-projecte-symfony-des-de-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Crear un projecte Symfony des de Windows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configurar-la-connexio-a-la-base-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Configurar la connexió a la base de dades
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-iniciar-el-servidor-de-desenvolupament-de-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Iniciar el servidor de desenvolupament de Symfony
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-comprovar-requisits-i-seguretat" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Comprovar requisits i seguretat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Comprovar requisits i seguretat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-requisits-de-symfony" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1. Requisits de Symfony
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-vulnerabilitats-de-seguretat-en-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2. Vulnerabilitats de seguretat en dependències
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-resum-per-a-lalumnat" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Resum per a l’alumnat
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installacio-pas-a-pas-de-symfony-en-windows">Instal·lació pas a pas de Symfony en Windows</h1>
+<p>Aquesta guia explica què cal instal·lar en un ordinador <strong>Windows</strong> per poder treballar amb Symfony, amb un enfocament docent. Tots els passos estan pensats perquè l’alumnat entenga per a què serveix cadascun dels components.</p>
+<blockquote>
+<p>💡 <em>Recomanació prèvia</em>: si el teu equip ho permet, la millor experiència amb Symfony en Windows sol obtindre’s usant <strong>WSL2 + Ubuntu</strong> (Linux dins de Windows). Tot i això, ací també tens la instal·lació <strong>nativa en Windows</strong> sense WSL.</p>
+</blockquote>
+<hr />
+<h2 id="0-opcio-recomanada-resum-wsl2-ubuntu">0. Opció recomanada (resum): WSL2 + Ubuntu</h2>
+<p>Si vols treballar com en un servidor Linux, pots:</p>
+<ol>
+<li>Activar <strong>Subsistema de Windows per a Linux (WSL)</strong>.</li>
+<li>Instal·lar <strong>Ubuntu</strong> des de Microsoft Store.</li>
+<li>Dins d’Ubuntu, seguir exactament la <strong>guia d’Ubuntu</strong> que ja tens preparada.</li>
+</ol>
+<p>Això et dóna un entorn molt semblant a producció. Per a ús docent, però, sovint és suficient la instal·lació nativa que detallem a continuació.</p>
+<hr />
+<h2 id="1-installar-un-gestor-de-paquets-per-a-windows-chocolatey-opcional-pero-recomanat">1. Instal·lar un gestor de paquets per a Windows (Chocolatey) <em>(opcional però recomanat)</em></h2>
+<p><strong>Chocolatey</strong> és un gestor de paquets per a Windows semblant a <code>apt</code> en Ubuntu. Facilita molt instal·lar PHP, Git, etc.</p>
+<h3 id="11-obrir-powershell-com-a-administrador">1.1. Obrir PowerShell com a administrador</h3>
+<ol>
+<li>Cerca <strong>PowerShell</strong> en el menú d’inici.</li>
+<li>Clica amb botó dret → <em>Executar com a administrador</em>.</li>
+</ol>
+<h3 id="12-activar-lexecucio-de-scripts-nomes-una-vegada">1.2. Activar l’execució de scripts (només una vegada)</h3>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-Scope</span> <span class="k">Process</span> <span class="n">-Force</span>
+</span></code></pre></div></td></tr></table></div>
+<h3 id="13-installar-chocolatey">1.3. Instal·lar Chocolatey</h3>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="p">=</span> <span class="no">[System.Net.ServicePointManager]</span><span class="p">::</span><span class="n">SecurityProtocol</span> <span class="o">-bor</span> <span class="n">3072</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">Set-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-Scope</span> <span class="k">Process</span> <span class="n">-Force</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nb">iex </span><span class="p">((</span><span class="nb">New-Object</span> <span class="n">System</span><span class="p">.</span><span class="n">Net</span><span class="p">.</span><span class="n">WebClient</span><span class="p">).</span><span class="n">DownloadString</span><span class="p">(</span><span class="s1">&#39;https://community.chocolatey.org/install.ps1&#39;</span><span class="p">))</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Quan acabe, tanca i torna a obrir PowerShell per assegurar que la comanda <code>choco</code> ja funciona.</p>
+<hr />
+<h2 id="2-installar-php-i-extensions-necessaries">2. Instal·lar PHP i extensions necessàries</h2>
+<p>Symfony necessita una versió moderna de PHP (8.1 o superior). Ho farem amb Chocolatey.</p>
+<h3 id="21-installar-php">2.1. Instal·lar PHP</h3>
+<p>En una <strong>PowerShell amb permisos d’usuari normal</strong> (no cal administrador ara):</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">choco</span> <span class="n">install</span> <span class="n">php</span> <span class="p">-</span><span class="n">-version</span><span class="p">=</span><span class="n">8</span><span class="p">.</span><span class="n">2</span><span class="p">.</span><span class="n">0</span> <span class="n">-y</span>
+</span></code></pre></div></td></tr></table></div>
+<blockquote>
+<p>Si no especifica versió, instal·larà la més recent. L’important és que siga 8.1 o superior.</p>
+</blockquote>
+<h3 id="22-afegir-php-al-path-si-no-es-fa-automaticament">2.2. Afegir PHP al PATH (si no es fa automàticament)</h3>
+<p>En molts casos, Chocolatey ja ho configura. Comprova:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">php</span> <span class="n">-v</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Si mostra la versió de PHP, ja està correcte. Si diu que no es reconeix la comanda, caldrà afegir manualment la carpeta de PHP a la variable d’entorn <strong>PATH</strong>.</p>
+<h3 id="23-extensions-de-php-per-symfony">2.3. Extensions de PHP per Symfony</h3>
+<p>En Windows, les extensions es gestionen al fitxer <code>php.ini</code>. En instal·lacions via Chocolatey solen vindre moltes activables.</p>
+<ol>
+<li>Localitza el directori de PHP, per exemple:</li>
+<li><code>C:\ProgramData\chocolatey\bin\php.exe</code> → normalment el PHP real és a <code>C:\tools\php82</code> o similar.</li>
+<li>Obri el fitxer <code>php.ini</code> (si hi ha un <code>php.ini-development</code> o <code>php.ini-production</code>, copia i renombra un d’ells a <code>php.ini</code>).</li>
+<li>Assegura’t que tens actives (sense <code>;</code> al principi) línies semblants a:</li>
+</ol>
+<div class="language-ini highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="na">extension</span><span class="o">=</span><span class="s">mysqli</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="na">extension</span><span class="o">=</span><span class="s">pdo_mysql</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="na">extension</span><span class="o">=</span><span class="s">intl</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="na">extension</span><span class="o">=</span><span class="s">mbstring</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="na">extension</span><span class="o">=</span><span class="s">xml</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="na">extension</span><span class="o">=</span><span class="s">curl</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="na">extension</span><span class="o">=</span><span class="s">gd</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="na">extension</span><span class="o">=</span><span class="s">zip</span>
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Per a què serveixen?</strong>
+- <strong>mysqli / pdo_mysql</strong>: connexió a MySQL/MariaDB.
+- <strong>intl</strong>: internacionalització i formats.
+- <strong>mbstring</strong>: cadenes multibyte (necessari per a Symfony).
+- <strong>xml</strong>: maneig de XML (algunes eines internes de Symfony).
+- <strong>curl</strong>: peticions HTTP.
+- <strong>gd</strong>: manipulació d’imatges.
+- <strong>zip</strong>: descompressió/creació de fitxers ZIP.</p>
+<p>Després de modificar <code>php.ini</code>, guarda i tanca.</p>
+<hr />
+<h2 id="3-installar-git">3. Instal·lar Git</h2>
+<p><strong>Git</strong> és imprescindible per treballar amb repositoris i amb Symfony en equip.</p>
+<p>Amb Chocolatey:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">choco</span> <span class="n">install</span> <span class="n">git</span> <span class="n">-y</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Comprova:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">git</span> <span class="p">-</span><span class="n">-version</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="4-installar-composer-gestor-de-dependencies-de-php">4. Instal·lar Composer (gestor de dependències de PHP)</h2>
+<h3 id="41-descarregar-linstallador-oficial">4.1. Descarregar l’instal·lador oficial</h3>
+<ol>
+<li>Ves a la pàgina oficial de Composer (des del navegador):</li>
+<li>"Download Composer" (instal·lador per a Windows).</li>
+<li>Executa l’instal·lador <code>.exe</code>.</li>
+</ol>
+<h3 id="42-passos-de-linstallador">4.2. Passos de l’instal·lador</h3>
+<ul>
+<li>Selecciona la ruta de <code>php.exe</code> (normalment la detecta sola).</li>
+<li>Deixa marcada l’opció <strong>Add to PATH</strong> perquè pugues usar <code>composer</code> des de qualsevol terminal.</li>
+</ul>
+<p>Quan acabe la instal·lació, comprova a PowerShell o CMD:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">composer</span> <span class="n">-V</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Això ha de mostrar la versió de Composer.</p>
+<p><strong>Què és Composer?</strong>
+- És el gestor de dependències de PHP.
+- Llig el fitxer <code>composer.json</code> del projecte i instal·la/actualitza llibreries.
+- Symfony (framework i bundles) es distribueix a través de Composer.</p>
+<hr />
+<h2 id="5-installar-symfony-cli-eina-oficial">5. Instal·lar Symfony CLI (eina oficial)</h2>
+<p>La <strong>Symfony CLI</strong> facilita molt el treball: crear projectes, arrencar servidor local, comprovar requisits, etc.</p>
+<h3 id="51-descarregar-linstallador">5.1. Descarregar l’instal·lador</h3>
+<ol>
+<li>Ves a la pàgina oficial de Symfony CLI.</li>
+<li>Descarrega l’instal·lador per a Windows (<code>symfony-cli_windows_amd64.exe</code> o similar).</li>
+<li>Executa l’instal·lador i segueix els passos (normalment afegirà <code>symfony</code> al PATH).</li>
+</ol>
+<h3 id="52-comprovar-installacio">5.2. Comprovar instal·lació</h3>
+<p>Obri una nova finestra de PowerShell i executa:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">symfony</span> <span class="n">-v</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Si apareix la versió, ja està llest.</p>
+<p><strong>Per a què serveix Symfony CLI?</strong>
+- Crear nous projectes amb esquelet complet.
+- Arrencar un servidor de desenvolupament ràpid.
+- Comprovar requisits (<code>check:requirements</code>).
+- Analitzar seguretat de dependències (<code>security:check</code>).</p>
+<hr />
+<h2 id="6-installar-una-base-de-dades-mysql-mariadb-postgresql">6. Instal·lar una base de dades (MySQL / MariaDB / PostgreSQL)</h2>
+<p>Per a un entorn docent i per compatibilitat amb molts exemples, és habitual usar <strong>MySQL</strong> o <strong>MariaDB</strong>.</p>
+<h3 id="61-mysql-server">6.1. MySQL Server</h3>
+<p>Opció A – instal·lació amb Chocolatey:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">choco</span> <span class="n">install</span> <span class="n">mysql</span> <span class="n">-y</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Opció B – instal·lador gràfic:</p>
+<ol>
+<li>Ves a la pàgina oficial de MySQL.</li>
+<li>Descarrega <strong>MySQL Installer for Windows</strong>.</li>
+<li>Tria <code>Developer Default</code> o <code>Server only</code> segons preferències.</li>
+<li>Durant la instal·lació, configura:</li>
+<li>Contrasenya de l’usuari <code>root</code>.</li>
+<li>Mode d’autenticació (pots deixar el per defecte).</li>
+</ol>
+<h3 id="62-verificar-i-provar">6.2. Verificar i provar</h3>
+<ul>
+<li>Comprova que el servei MySQL s’ha iniciat.</li>
+<li>Pots usar <strong>MySQL Workbench</strong> o línia de comandes per a crear una base de dades de prova.</li>
+</ul>
+<p>Exemple:</p>
+<div class="language-sql highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">symfony_demo</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="7-opcional-installar-un-servidor-web-apache-o-nginx">7. (Opcional) Instal·lar un servidor web: Apache o Nginx</h2>
+<p>Per a <strong>desenvolupament</strong>, normalment és suficient el servidor intern de Symfony CLI. Però si vols simular producció o fer pràctiques de configuració, pots instal·lar:</p>
+<h3 id="71-apache-amb-chocolatey">7.1. Apache amb Chocolatey</h3>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">choco</span> <span class="n">install</span> <span class="n">apache-httpd</span> <span class="n">-y</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Haureu de configurar després el <code>DocumentRoot</code> i els <code>VirtualHost</code> perquè apunten al directori <code>public/</code> del projecte Symfony.</p>
+<h3 id="72-nginx-amb-chocolatey">7.2. Nginx amb Chocolatey</h3>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">choco</span> <span class="n">install</span> <span class="n">nginx</span> <span class="n">-y</span>
+</span></code></pre></div></td></tr></table></div>
+<p>També s’haurà de configurar el <code>server</code> block perquè servisca el directori <code>public/</code>.</p>
+<blockquote>
+<p>Per a classe, moltes vegades és més pràctic usar únicament el servidor de Symfony CLI i explicar Apache/Nginx de forma teòrica o amb una pràctica específica.</p>
+</blockquote>
+<hr />
+<h2 id="8-crear-un-projecte-symfony-des-de-windows">8. Crear un projecte Symfony des de Windows</h2>
+<p>Un cop tens PHP, Composer i Symfony CLI, ja pots crear un projecte.</p>
+<p>En una carpeta de treball (per exemple <code>C:\Users\alumne\Documents\symfony</code>):</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="nb">cd </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">alumne</span><span class="p">\</span><span class="n">Documents</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">symfony</span> <span class="n">new</span> <span class="n">mi_projecte</span> <span class="p">-</span><span class="n">-full</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Això crearà una carpeta <code>mi_projecte</code> amb:
+- Estructura de directoris de Symfony (<code>config/</code>, <code>src/</code>, <code>templates/</code>, <code>public/</code>, etc.).
+- Fitxers <code>composer.json</code>, <code>.env</code>, etc.</p>
+<p>Si vols un projecte més lleuger:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">symfony</span> <span class="n">new</span> <span class="n">mi_projecte</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="9-configurar-la-connexio-a-la-base-de-dades">9. Configurar la connexió a la base de dades</h2>
+<p>Dins de la carpeta del projecte hi ha un fitxer <code>.env</code> (i opcionalment <code>.env.local</code>). Allí es configura la connexió.</p>
+<p>Exemple amb MySQL local:</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a>DATABASE_URL=&quot;mysql://root:contrasenya@127.0.0.1:3306/symfony_demo?serverVersion=8.0&quot;
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li><strong>root</strong>: usuari de la base de dades.</li>
+<li><strong>contrasenya</strong>: la que hages configurat.</li>
+<li><strong>symfony_demo</strong>: nom de la base de dades.</li>
+</ul>
+<p>Després, pots crear l’esquema amb Doctrine (si el projecte el fa servir):</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">php</span> <span class="n">bin</span><span class="p">/</span><span class="n">console</span> <span class="n">doctrine</span><span class="p">:</span><span class="n">database</span><span class="p">:</span><span class="n">create</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">php</span> <span class="n">bin</span><span class="p">/</span><span class="n">console</span> <span class="n">doctrine</span><span class="p">:</span><span class="n">schema</span><span class="p">:</span><span class="n">update</span> <span class="p">-</span><span class="n">-force</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="10-iniciar-el-servidor-de-desenvolupament-de-symfony">10. Iniciar el servidor de desenvolupament de Symfony</h2>
+<p>Des de la carpeta del projecte:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nb">cd </span><span class="n">C</span><span class="p">:\</span><span class="n">Users</span><span class="p">\</span><span class="n">alumne</span><span class="p">\</span><span class="n">Documents</span><span class="p">\</span><span class="n">mi_projecte</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">symfony</span> <span class="n">serve</span> <span class="n">-d</span>
+</span></code></pre></div></td></tr></table></div>
+<ul>
+<li>L’opció <code>-d</code> fa que el servidor s’execute en segon pla (detached).</li>
+<li>Per veure l’URL del servidor, pots fer:</li>
+</ul>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">symfony</span> <span class="k">local:</span><span class="n">server</span><span class="p">:</span><span class="n">status</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Normalment serà <code>https://127.0.0.1:8000</code> o semblant. Obri’l al navegador.</p>
+<p>Per parar el servidor:</p>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">symfony</span> <span class="n">server</span><span class="p">:</span><span class="n">stop</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="11-comprovar-requisits-i-seguretat">11. Comprovar requisits i seguretat</h2>
+<h3 id="111-requisits-de-symfony">11.1. Requisits de Symfony</h3>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">symfony</span> <span class="n">check</span><span class="p">:</span><span class="n">requirements</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Mostra si falta alguna extensió de PHP o si hi ha alguna configuració incorrecta.</p>
+<h3 id="112-vulnerabilitats-de-seguretat-en-dependencies">11.2. Vulnerabilitats de seguretat en dependències</h3>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">symfony</span> <span class="n">security</span><span class="p">:</span><span class="n">check</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Comprova si les llibreries instal·lades via Composer tenen vulnerabilitats conegudes.</p>
+<hr />
+<h2 id="12-resum-per-a-lalumnat">12. Resum per a l’alumnat</h2>
+<p>Per poder treballar amb Symfony en Windows, en essència necessitem:</p>
+<ol>
+<li><strong>PHP</strong> actualitzat (8.1+), amb extensions necessàries.</li>
+<li><strong>Composer</strong> per a gestionar les llibreries.</li>
+<li><strong>Symfony CLI</strong> per crear i gestionar projectes i servidor de desenvolupament.</li>
+<li><strong>Git</strong> per controlar versions del codi.</li>
+<li><strong>Base de dades</strong> (MySQL/MariaDB) per a la capa de persistència.</li>
+<li>(Opcional) <strong>Apache o Nginx</strong> si volem treballar escenaris més propers a producció.</li>
+</ol>
+<p>Amb aquests elements instal·lats i configurats, l’alumne/a ja pot crear projectes, generar controladors, entitats, formularis i repositoris, i començar a desenvolupar aplicacions web modernes amb Symfony des de Windows.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.top"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
