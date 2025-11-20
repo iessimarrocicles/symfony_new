@@ -183,12 +183,100 @@ Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
    ```php
    <?php
 
-   #[Route('/articles/afegir', name: 'articles_afegir')]
-   public function afegirArticles(ManagerRegistry $doctrine): Response {
-      ...
-   }
+   namespace App\Controller;
 
-   ?>
+   use App\Entity\Article;
+   use App\Entity\Seccio;
+
+   use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+   use Symfony\Component\HttpFoundation\Response;
+   use Symfony\Component\Routing\Annotation\Route;
+   use Doctrine\ORM\EntityManagerInterface;
+
+
+   class ArticleController extends AbstractController
+   {
+
+      private $repositoriSeccio;
+
+      public function __construct(private EntityManagerInterface $gestor ) {
+         $this->repositoriSeccio = $this->gestor->getRepository(Seccio::class);
+      }
+
+      #[Route('/articles/afegirUn', name: 'afegirUn_article')]
+      public function afegirUnArticle(): Response {
+
+         $seccio = $this->repositoriSeccio->find(1); // Secció existent
+
+
+         $article = new Article();
+         $article->setNom("Pantalons");
+         $article->setPreu(86);
+         $article->setStock(random_int(10, 100));
+         $article->setImatge("https://placehold.co/300x200?text=");
+         $article->setSeccio($seccio);
+
+         $gestor->persist($article);
+         $gestor->flush();
+
+         return $this->render('article/afegir.html.twig', ['article' => $article]);
+      }
+
+      #[Route('/articles/afegir', name: 'afegir_articles')]
+      public function afegirArticles(): Response {
+
+         $seccions = $this->repositoriSeccio->findAll();
+
+         foreach ($seccions as $seccio) {
+
+               // Determinem els articles segons el nom de la secció
+               $articlesAInsertar = [];
+
+               switch (strtolower($seccio->getNom())) {
+
+                  case 'roba':
+                     $articlesAInsertar = ["Pantalons", "Camisa", "Jersei", "Jaqueta"];
+                     break;
+
+                  case 'calçat':
+                     $articlesAInsertar = ["Sabates", "Botes", "Sandàlies", "Esportives"];
+                     break;
+
+                  case 'complements':
+                     $articlesAInsertar = ["Cinturó", "Bufanda", "Ulleres", "Motxilla"];
+                     break;
+
+                  case 'tecnologia':
+                     $articlesAInsertar = ["Auriculars", "Rellotge", "Teclat", "Ratolí"];
+                     break;
+
+               }
+
+               // Generem els articles associats
+               foreach ($articlesAInsertar as $nomArticle) {
+                  $article = new Article();
+                  $article->setNom($nomArticle);
+                  $article->setPreu(random_int(10, 200));
+                  $article->setStock(random_int(10, 100));
+                  $article->setImatge("https://placehold.co/300x200?text=$nomArticle");
+                  $article->setSeccio($seccio);
+
+                  $this->gestor->persist($article);
+               }
+         }
+
+
+         try {
+         // Guardem tot al final
+
+               $this->gestor->flush();
+               return $this->render('seccio/afegir.html.twig');
+         } catch (\Exception $e) {
+               return $this->render('seccio/error.html.twig', ['error' => $e->getMessage()]);
+         }
+      }
+
+   }
    ```
 
 2. Crea la plantilla `templates/article/afegir.html.twig` per mostrar el resultat:
