@@ -18,15 +18,15 @@ Partim de l’aplicació **`tendaNomAlumne`** creada i configurada en les pràct
 
 ## Exercici 1
 
-**Creació de la Base de Dades i Entitat `Seccio`**
+**Creació de la Base de Dades i Entitat Seccio**
 
 Configurar la connexió a la base de dades i crear l’entitat dins l’aplicació.
 
-1. Defineix la variable d’entorn `DATABASE_URL` al fitxer `.env`:
+1. Defineix la variable d’entorn DATABASE_URL al fitxer `.env`:
 
 2. Crea la base de dades.
 
-3. Genera la nova entitat `Seccio`.
+3. Genera la nova entitat Seccio.
 
 4. Afegeix els següents camps:
     - `nom` (string, 50)
@@ -44,9 +44,9 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
 
 1. Afegeix un nou mètode `afegir` al controlador `SeccioController` per inserir totes les seccions.
 
-2. Crea la plantilla `templates/equip/afegir.html.twig` per mostrar el resultat.
+2. Crea la plantilla `templates/seccio/afegir.html.twig` per mostrar el resultat.
 
-3. Crea la plantilla `templates/equip/error.html.twig` per mostrar el resultat en cas d'error.
+3. Crea la plantilla `templates/seccio/error.html.twig` per mostrar el resultat en cas d'error.
 
 4. Afegeix un enllaç en el menú de la plantilla principal `_menu.html.twig` per accedir a `/seccions/afegir`.
 
@@ -54,9 +54,9 @@ Configurar la connexió a la base de dades i crear l’entitat dins l’aplicaci
 
 ## Exercici 3
 
-**Entitat `Article` amb Relació ManyToOne a `Seccio`**
+**Entitat Article amb Relació ManyToOne a Seccio**
 
-Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
+Crear una nova entitat Article relacionada amb Seccio (Molts a Un).
 
 1. Genera l’entitat corresponent.
 
@@ -74,13 +74,13 @@ Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
 
 ## Exercici 4
 
-**Inserció d’un article amb Relació**
+**Inserció d’un article amb relació**
 
 1. Afegeix un nou controlador `ArticleController.php` per inserir articles.
 
 2. Crea la plantilla `templates/article/afegir.html.twig` per mostrar el resultat.
 
-3. Crea la plantilla `templates/equip/error.html.twig` per mostrar el resultat en cas d'error.
+3. Crea la plantilla `templates/article/error.html.twig` per mostrar el resultat en cas d'error.
 
 4. Afegeix un enllaç en el menú de la plantilla principal `_menu.html.twig` per accedir a `/articles/afegir`.
 

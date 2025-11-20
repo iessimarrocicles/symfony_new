@@ -898,17 +898,17 @@
 <p>Partim de l’aplicació <strong><code>tendaNomAlumne</code></strong> creada i configurada en les pràctiques anteriors.</p>
 <hr />
 <h2 id="exercici-1">Exercici 1</h2>
-<p><strong>Creació de la Base de Dades i Entitat <code>Seccio</code></strong></p>
+<p><strong>Creació de la Base de Dades i Entitat Seccio</strong></p>
 <p>Configurar la connexió a la base de dades i crear l’entitat dins l’aplicació.</p>
 <ol>
 <li>
-<p>Defineix la variable d’entorn <code>DATABASE_URL</code> al fitxer <code>.env</code>:</p>
+<p>Defineix la variable d’entorn DATABASE_URL al fitxer <code>.env</code>:</p>
 </li>
 <li>
 <p>Crea la base de dades.</p>
 </li>
 <li>
-<p>Genera la nova entitat <code>Seccio</code>.</p>
+<p>Genera la nova entitat Seccio.</p>
 </li>
 <li>
 <p>Afegeix els següents camps:</p>
@@ -931,10 +931,10 @@
 <p>Afegeix un nou mètode <code>afegir</code> al controlador <code>SeccioController</code> per inserir totes les seccions.</p>
 </li>
 <li>
-<p>Crea la plantilla <code>templates/equip/afegir.html.twig</code> per mostrar el resultat.</p>
+<p>Crea la plantilla <code>templates/seccio/afegir.html.twig</code> per mostrar el resultat.</p>
 </li>
 <li>
-<p>Crea la plantilla <code>templates/equip/error.html.twig</code> per mostrar el resultat en cas d'error.</p>
+<p>Crea la plantilla <code>templates/seccio/error.html.twig</code> per mostrar el resultat en cas d'error.</p>
 </li>
 <li>
 <p>Afegeix un enllaç en el menú de la plantilla principal <code>_menu.html.twig</code> per accedir a <code>/seccions/afegir</code>.</p>
@@ -942,8 +942,8 @@
 </ol>
 <hr />
 <h2 id="exercici-3">Exercici 3</h2>
-<p><strong>Entitat <code>Article</code> amb Relació ManyToOne a <code>Seccio</code></strong></p>
-<p>Crear una nova entitat <code>Article</code> relacionada amb <code>Seccio</code> (Molts a Un).</p>
+<p><strong>Entitat Article amb Relació ManyToOne a Seccio</strong></p>
+<p>Crear una nova entitat Article relacionada amb Seccio (Molts a Un).</p>
 <ol>
 <li>
 <p>Genera l’entitat corresponent.</p>
@@ -967,7 +967,7 @@
 </ol>
 <hr />
 <h2 id="exercici-4">Exercici 4</h2>
-<p><strong>Inserció d’un article amb Relació</strong></p>
+<p><strong>Inserció d’un article amb relació</strong></p>
 <ol>
 <li>
 <p>Afegeix un nou controlador <code>ArticleController.php</code> per inserir articles.</p>
@@ -976,7 +976,7 @@
 <p>Crea la plantilla <code>templates/article/afegir.html.twig</code> per mostrar el resultat.</p>
 </li>
 <li>
-<p>Crea la plantilla <code>templates/equip/error.html.twig</code> per mostrar el resultat en cas d'error.</p>
+<p>Crea la plantilla <code>templates/article/error.html.twig</code> per mostrar el resultat en cas d'error.</p>
 </li>
 <li>
 <p>Afegeix un enllaç en el menú de la plantilla principal <code>_menu.html.twig</code> per accedir a <code>/articles/afegir</code>.</p>
