@@ -1,0 +1,91 @@
+<?php
+
+namespace App\Controller;
+
+use App\Service\DadesSeccioServei;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+use App\Entity\Seccio;
+use Doctrine\ORM\EntityManagerInterface;
+
+
+class SeccioController extends AbstractController
+{
+
+    public function __construct(private DadesSeccioServei $seccioServei,
+                                private EntityManagerInterface $gestor ) {
+
+    }
+
+    /**
+     * Llistat de totes les seccions
+     */
+    #[Route('/seccions', name: 'llistat_seccions', methods: ['GET'])]
+    public function llistarSeccions(): Response
+    {
+        // Pasamos los datos a Twig
+        return $this->render('seccio/llistat.html.twig', [
+            'seccions' => $this->seccioServei->llistarSeccions()
+        ]);
+    }
+
+    /**
+     * Detall d'una secció concreta (ja el tenies, el mantinc i l'adapte)
+     */
+    #[Route('/seccio/{codi}', name: 'dades_seccio', requirements: ['codi' => '\d+'], methods: ['GET'])]
+    public function voreSeccio(int $codi): Response
+    {
+
+        $seccio = $this->seccioServei->obtenirSeccioPerCodi($codi);
+
+        return $this->render('seccio/detall.html.twig', [
+            'seccio' => $seccio
+        ]);
+
+        return new Response("No s'ha trobat la secció: $codi", Response::HTTP_NOT_FOUND);
+    }
+
+    #[Route('/seccions/afegir', name: 'afegir_seccions')]
+    public function afegirSeccions(): Response 
+    {
+        $seccio1 = new Seccio();
+        $seccio1->setNom("Roba");
+        $seccio1->setDescripcio("Secció de roba");
+        $seccio1->setAny(2026);
+        $seccio1->setImatge("roba.webp");
+
+        $seccio2 = new Seccio();
+        $seccio2->setNom("Calçat");
+        $seccio2->setDescripcio("Secció de sabates i esportives");
+        $seccio2->setAny(2025);
+        $seccio2->setImatge("calçat.webp");
+
+        $seccio3 = new Seccio();
+        $seccio3->setNom("Complements");
+        $seccio3->setDescripcio("Secció de complements de moda");
+        $seccio3->setAny(2023);
+        $seccio3->setImatge("complements.webp");
+
+        $seccio4 = new Seccio();
+        $seccio4->setNom("Tecnologia");
+        $seccio4->setDescripcio("Secció d'electrònica i gadgets");
+        $seccio4->setAny(2027);
+        $seccio4->setImatge("tecnologia.webp");
+
+        try {
+            $this->gestor->persist($seccio1);
+            $this->gestor->persist($seccio2);
+            $this->gestor->persist($seccio3);
+            $this->gestor->persist($seccio4);
+
+            $this->gestor->flush();
+            return $this->render('seccio/afegir.html.twig');
+        } catch (\Exception $e) {
+            return $this->render('seccio/error.html.twig', ['error' => $e->getMessage()]);
+        }
+    }
+}
+
+?>

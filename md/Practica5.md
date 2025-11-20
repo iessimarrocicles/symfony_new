@@ -325,6 +325,289 @@ Crear una nova entitat `Article` relacionada amb `Seccio` (Molts a Un).
 
 ## Exercici 5
 
+**Modificar les vistes perquè utilitzen dades reals de la base de dades**
+
+1. Actualitza totes les vistes i controladors que encara utilitzen el servei antic DadesSeccioServei.php (creat en el tema anterior).
+
+2. Substitueix les crides al servei per consultes reals a Doctrine mitjançant el repositori de Seccio i Article.
+
+3. Revisa totes les plantilles Twig per assegurar que:
+    - Les dades que es mostren provenen dels objectes Seccio i Article recuperats amb Doctrine.
+    - Ja no s'utilitzen arrays ni llistes simulades.
+
+**Fitxer:** `SeccioController.php`
+
+```php
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+use App\Entity\Seccio;
+use Doctrine\ORM\EntityManagerInterface;
+
+
+class SeccioController extends AbstractController
+{
+
+    private $repositoriSeccio;
+
+    public function __construct(private EntityManagerInterface $gestor ) {
+        $this->repositoriSeccio = $this->gestor->getRepository(Seccio::class);
+    }
+
+    /**
+     * Llistat de totes les seccions
+     */
+    #[Route('/seccions', name: 'llistat_seccions', methods: ['GET'])]
+    public function llistarSeccions(): Response
+    {
+        // Pasamos los datos a Twig
+        return $this->render('seccio/llistat.html.twig', [
+            'seccions' => $this->repositoriSeccio->findAll()
+        ]);
+    }
+
+    /**
+     * Detall d'una secció concreta (ja el tenies, el mantinc i l'adapte)
+     */
+    #[Route('/seccio/{codi}', name: 'dades_seccio', requirements: ['codi' => '\d+'], methods: ['GET'])]
+    public function voreSeccio(int $codi): Response
+    {
+
+        $seccio = $this->repositoriSeccio->find($codi);
+
+        if ($seccio){
+            return $this->render('seccio/detall.html.twig', ['seccio' => $seccio]);
+        }else{
+            return new Response("No s'ha trobat la secció: $codi", Response::HTTP_NOT_FOUND);
+        }
+    }
+
+    #[Route('/seccions/afegir', name: 'afegir_seccions')]
+    public function afegirSeccions(): Response 
+    {
+        $seccio1 = new Seccio();
+        $seccio1->setNom("Roba");
+        $seccio1->setDescripcio("Secció de roba");
+        $seccio1->setAny(2026);
+        $seccio1->setImatge("roba.webp");
+
+        $seccio2 = new Seccio();
+        $seccio2->setNom("Calçat");
+        $seccio2->setDescripcio("Secció de sabates i esportives");
+        $seccio2->setAny(2025);
+        $seccio2->setImatge("calçat.webp");
+
+        $seccio3 = new Seccio();
+        $seccio3->setNom("Complements");
+        $seccio3->setDescripcio("Secció de complements de moda");
+        $seccio3->setAny(2023);
+        $seccio3->setImatge("complements.webp");
+
+        $seccio4 = new Seccio();
+        $seccio4->setNom("Tecnologia");
+        $seccio4->setDescripcio("Secció d'electrònica i gadgets");
+        $seccio4->setAny(2027);
+        $seccio4->setImatge("tecnologia.webp");
+
+        try {
+            $this->gestor->persist($seccio1);
+            $this->gestor->persist($seccio2);
+            $this->gestor->persist($seccio3);
+            $this->gestor->persist($seccio4);
+
+            $this->gestor->flush();
+            return $this->render('seccio/afegir.html.twig');
+        } catch (\Exception $e) {
+            return $this->render('seccio/error.html.twig', ['error' => $e->getMessage()]);
+        }
+    }
+}
+
+?>
+```
+
+**Fitxer:** `_menu.html.twig`
+
+```twig
+{# ==========================
+   CAPÇALERA + MENÚ PRINCIPAL
+   ========================== #}
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Menú principal">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ path('inici') }}">Tenda</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Canviar navegació">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    {% if seccions is defined and seccions|length > 0 %}
+                        {% for seccio in seccions %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('dades_seccio', { codi: seccio.id }) }}">
+                                    {{ seccio.nom }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        {# Si no passes 'seccions', mostrem uns enllaços d’exemple #}
+                        <li class="nav-item"><a class="nav-link" href="{{ path('llistat_seccions') }}">Seccions</a></li>
+                    {% endif %}
+                    
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">🛒 Carret
+                            {# Opcional: mostra el nombre d’articles en el carret si 'quantitatCarret' està definit #}
+                            {% if quantitatCarret is defined and quantitatCarret > 0 %}
+                                <span class="badge text-bg-success ms-1">{{ quantitatCarret }}</span>
+                            {% endif %}
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0" href="{{ path('afegir_seccions') }}">Afegir seccions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0" href="{{ path('afegir_articles') }}">Afegir articles</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+```
+
+**Fitxer:** `llistat.html.twig`
+
+```twig
+{% extends 'base.html.twig' %}
+
+{% block title %}Llistat de seccions{% endblock %}
+
+{% block contingut %}
+  <section class="container" style="max-width: 900px; margin: 2rem auto;">
+    <h1 style="margin-bottom: 1rem;">Llistat de seccions</h1>
+
+    {% if seccions is empty %}
+      <p>No hi ha seccions disponibles.</p>
+    {% else %}
+      <table style="width:100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th style="text-align:left; border-bottom:1px solid #ccc; padding: .5rem;">Id</th>
+            <th style="text-align:left; border-bottom:1px solid #ccc; padding: .5rem;">Nom</th>
+            <th style="text-align:left; border-bottom:1px solid #ccc; padding: .5rem;">Descripció</th>
+            <th style="text-align:left; border-bottom:1px solid #ccc; padding: .5rem;">Any</th>
+            <th style="text-align:left; border-bottom:1px solid #ccc; padding: .5rem;">Articles</th>
+            <th style="text-align:left; border-bottom:1px solid #ccc; padding: .5rem;">Accions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for seccion in seccions %}
+            <tr>
+              <td style="padding: .5rem;">{{ seccion.id }}</td>
+              <td style="padding: .5rem;">{{ seccion.nom }}</td>
+              <td style="padding: .5rem;">{{ seccion.descripcio }}</td>
+              <td style="padding: .5rem;">{{ seccion.any }}</td>
+              <td style="padding: .5rem;">
+                {% if seccion.articles is iterable %}
+                  {{ seccion.articles|length }} ítems
+                {% else %}
+                  —
+                {% endif %}
+              </td>
+              <td style="padding: .5rem;">
+                <a href="{{ path('dades_seccio', { codi: seccion.id }) }}" class="btn btn-outline-primary btn-sm">Veure</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </section>
+{% endblock %}
+```
+
+**Fitxer:** `detall.html.twig`
+
+```twig
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ seccio.nom }} — Tenda{% endblock %}
+
+{% block contingut %}
+<header class="d-flex align-items-center justify-content-between mb-4">
+    {# PART ESQUERRA: IMATGE + TEXT #}
+    <div class="d-flex align-items-center gap-4">
+
+      {# IMATGE DE LA SECCIÓ #}
+      <img
+        src="{{ asset('imgs/seccio/' ~ seccio.imatge) }}"
+        alt="Imatge de {{ seccio.nom }}"
+        class="rounded-circle shadow-sm object-fit-cover seccio-foto"
+        width="120" height="120"
+        loading="lazy" decoding="async">
+
+      {# TEXT DESCRIPTIU #}
+      <div>
+          <h1 class="mb-1">{{ seccio.nom }}</h1>
+          <p class="text-muted mb-0">{{ seccio.descripcio }}</p>
+          <small class="text-secondary">Any {{ seccio.any }}</small>
+      </div>
+
+    </div>
+
+    {# PART DRETA: BOTÓ TORNAR A L’INICI #}
+    <a href="{{ path('llistat_seccions') }}" class="d-inline-flex align-items-center">
+        <img
+          src="{{ asset('imgs/home.webp') }}"
+          alt="Inici"
+          width="48" height="48"
+          class="rounded-circle shadow-sm"
+          loading="lazy" decoding="async">
+    </a>
+</header>
+
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    {% for article in seccio.articles %}
+      <div class="col">
+        <div class="card h-100 article-card">
+          {# En un futur pots posar imatge per a cada article; ara utilitzem placehold #}
+          <img
+            class="card-img-top"
+            src="{{ 'https://placehold.co/300x200?text=' ~ article.nom }}"
+            alt="{{ article.nom }}"
+            loading="lazy" decoding="async">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ article.nom }}</h5>
+            <p class="card-text text-muted">Disponible en diferents talles i colors.</p>
+            <a href="#" class="btn btn-outline-primary btn-sm">Veure</a>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <p class="text-muted">Encara no hi ha articles en aquesta secció.</p>
+    {% endfor %}
+  </div>
+{% endblock %}
+```
+
+---
+
+## Exercici 6
+
 **Control de Versions**
 
 1. Quan tot funcione, fes un commit amb Git:
@@ -346,3 +629,4 @@ git push origin master --tags
 - Crear l’entitat Article i establir una relació bidireccional ManyToOne amb Seccio.
 - Inserir articles vinculats a seccions existents.
 - Afegir enllaços al menú per facilitar la navegació.
+- Totes les vistes i controladors deixen d’utilitzar el servei temporal del Tema 4, mostrant informació real guardada en MySQL.

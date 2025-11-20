@@ -734,6 +734,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#exercici-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercici 6
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#resultat-final-esperat" class="md-nav__link">
     <span class="md-ellipsis">
       Resultat final esperat
@@ -844,6 +853,15 @@
   <a href="#exercici-5" class="md-nav__link">
     <span class="md-ellipsis">
       Exercici 5
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exercici 6
     </span>
   </a>
   
@@ -1384,17 +1402,537 @@
 </ol>
 <hr />
 <h2 id="exercici-5">Exercici 5</h2>
+<p><strong>Modificar les vistes perquè utilitzen dades reals de la base de dades</strong></p>
+<ol>
+<li>
+<p>Actualitza totes les vistes i controladors que encara utilitzen el servei antic DadesSeccioServei.php (creat en el tema anterior).</p>
+</li>
+<li>
+<p>Substitueix les crides al servei per consultes reals a Doctrine mitjançant el repositori de Seccio i Article.</p>
+</li>
+<li>
+<p>Revisa totes les plantilles Twig per assegurar que:</p>
+<ul>
+<li>Les dades que es mostren provenen dels objectes Seccio i Article recuperats amb Doctrine.</li>
+<li>Ja no s'utilitzen arrays ni llistes simulades.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Fitxer:</strong> <code>SeccioController.php</code></p>
+<div class="language-php highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span>
+<span class="normal"><a href="#__codelineno-14-17">17</a></span>
+<span class="normal"><a href="#__codelineno-14-18">18</a></span>
+<span class="normal"><a href="#__codelineno-14-19">19</a></span>
+<span class="normal"><a href="#__codelineno-14-20">20</a></span>
+<span class="normal"><a href="#__codelineno-14-21">21</a></span>
+<span class="normal"><a href="#__codelineno-14-22">22</a></span>
+<span class="normal"><a href="#__codelineno-14-23">23</a></span>
+<span class="normal"><a href="#__codelineno-14-24">24</a></span>
+<span class="normal"><a href="#__codelineno-14-25">25</a></span>
+<span class="normal"><a href="#__codelineno-14-26">26</a></span>
+<span class="normal"><a href="#__codelineno-14-27">27</a></span>
+<span class="normal"><a href="#__codelineno-14-28">28</a></span>
+<span class="normal"><a href="#__codelineno-14-29">29</a></span>
+<span class="normal"><a href="#__codelineno-14-30">30</a></span>
+<span class="normal"><a href="#__codelineno-14-31">31</a></span>
+<span class="normal"><a href="#__codelineno-14-32">32</a></span>
+<span class="normal"><a href="#__codelineno-14-33">33</a></span>
+<span class="normal"><a href="#__codelineno-14-34">34</a></span>
+<span class="normal"><a href="#__codelineno-14-35">35</a></span>
+<span class="normal"><a href="#__codelineno-14-36">36</a></span>
+<span class="normal"><a href="#__codelineno-14-37">37</a></span>
+<span class="normal"><a href="#__codelineno-14-38">38</a></span>
+<span class="normal"><a href="#__codelineno-14-39">39</a></span>
+<span class="normal"><a href="#__codelineno-14-40">40</a></span>
+<span class="normal"><a href="#__codelineno-14-41">41</a></span>
+<span class="normal"><a href="#__codelineno-14-42">42</a></span>
+<span class="normal"><a href="#__codelineno-14-43">43</a></span>
+<span class="normal"><a href="#__codelineno-14-44">44</a></span>
+<span class="normal"><a href="#__codelineno-14-45">45</a></span>
+<span class="normal"><a href="#__codelineno-14-46">46</a></span>
+<span class="normal"><a href="#__codelineno-14-47">47</a></span>
+<span class="normal"><a href="#__codelineno-14-48">48</a></span>
+<span class="normal"><a href="#__codelineno-14-49">49</a></span>
+<span class="normal"><a href="#__codelineno-14-50">50</a></span>
+<span class="normal"><a href="#__codelineno-14-51">51</a></span>
+<span class="normal"><a href="#__codelineno-14-52">52</a></span>
+<span class="normal"><a href="#__codelineno-14-53">53</a></span>
+<span class="normal"><a href="#__codelineno-14-54">54</a></span>
+<span class="normal"><a href="#__codelineno-14-55">55</a></span>
+<span class="normal"><a href="#__codelineno-14-56">56</a></span>
+<span class="normal"><a href="#__codelineno-14-57">57</a></span>
+<span class="normal"><a href="#__codelineno-14-58">58</a></span>
+<span class="normal"><a href="#__codelineno-14-59">59</a></span>
+<span class="normal"><a href="#__codelineno-14-60">60</a></span>
+<span class="normal"><a href="#__codelineno-14-61">61</a></span>
+<span class="normal"><a href="#__codelineno-14-62">62</a></span>
+<span class="normal"><a href="#__codelineno-14-63">63</a></span>
+<span class="normal"><a href="#__codelineno-14-64">64</a></span>
+<span class="normal"><a href="#__codelineno-14-65">65</a></span>
+<span class="normal"><a href="#__codelineno-14-66">66</a></span>
+<span class="normal"><a href="#__codelineno-14-67">67</a></span>
+<span class="normal"><a href="#__codelineno-14-68">68</a></span>
+<span class="normal"><a href="#__codelineno-14-69">69</a></span>
+<span class="normal"><a href="#__codelineno-14-70">70</a></span>
+<span class="normal"><a href="#__codelineno-14-71">71</a></span>
+<span class="normal"><a href="#__codelineno-14-72">72</a></span>
+<span class="normal"><a href="#__codelineno-14-73">73</a></span>
+<span class="normal"><a href="#__codelineno-14-74">74</a></span>
+<span class="normal"><a href="#__codelineno-14-75">75</a></span>
+<span class="normal"><a href="#__codelineno-14-76">76</a></span>
+<span class="normal"><a href="#__codelineno-14-77">77</a></span>
+<span class="normal"><a href="#__codelineno-14-78">78</a></span>
+<span class="normal"><a href="#__codelineno-14-79">79</a></span>
+<span class="normal"><a href="#__codelineno-14-80">80</a></span>
+<span class="normal"><a href="#__codelineno-14-81">81</a></span>
+<span class="normal"><a href="#__codelineno-14-82">82</a></span>
+<span class="normal"><a href="#__codelineno-14-83">83</a></span>
+<span class="normal"><a href="#__codelineno-14-84">84</a></span>
+<span class="normal"><a href="#__codelineno-14-85">85</a></span>
+<span class="normal"><a href="#__codelineno-14-86">86</a></span>
+<span class="normal"><a href="#__codelineno-14-87">87</a></span>
+<span class="normal"><a href="#__codelineno-14-88">88</a></span>
+<span class="normal"><a href="#__codelineno-14-89">89</a></span>
+<span class="normal"><a href="#__codelineno-14-90">90</a></span>
+<span class="normal"><a href="#__codelineno-14-91">91</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">&lt;?php</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="k">namespace</span> <span class="nx">App\Controller</span><span class="p">;</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="k">use</span> <span class="nx">Symfony\Bundle\FrameworkBundle\Controller\AbstractController</span><span class="p">;</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="k">use</span> <span class="nx">Symfony\Component\HttpFoundation\Response</span><span class="p">;</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="k">use</span> <span class="nx">Symfony\Component\Routing\Annotation\Route</span><span class="p">;</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="k">use</span> <span class="nx">App\Entity\Seccio</span><span class="p">;</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="k">use</span> <span class="nx">Doctrine\ORM\EntityManagerInterface</span><span class="p">;</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="k">class</span> <span class="nc">SeccioController</span> <span class="k">extends</span> <span class="nx">AbstractController</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="p">{</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15"></a>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16"></a>    <span class="k">private</span> <span class="nv">$repositoriSeccio</span><span class="p">;</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17"></a>
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18"></a>    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="k">private</span> <span class="nx">EntityManagerInterface</span> <span class="nv">$gestor</span> <span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19"></a>        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositoriSeccio</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">getRepository</span><span class="p">(</span><span class="nx">Seccio</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20"></a>    <span class="p">}</span>
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21"></a>
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22"></a>    <span class="sd">/**</span>
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="sd">     * Llistat de totes les seccions</span>
+</span><span id="__span-14-24"><a id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="sd">     */</span>
+</span><span id="__span-14-25"><a id="__codelineno-14-25" name="__codelineno-14-25"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/seccions&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;llistat_seccions&#39;</span><span class="p">,</span> <span class="nx">methods</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])]</span>
+</span><span id="__span-14-26"><a id="__codelineno-14-26" name="__codelineno-14-26"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">llistarSeccions</span><span class="p">()</span><span class="o">:</span> <span class="nx">Response</span>
+</span><span id="__span-14-27"><a id="__codelineno-14-27" name="__codelineno-14-27"></a>    <span class="p">{</span>
+</span><span id="__span-14-28"><a id="__codelineno-14-28" name="__codelineno-14-28"></a>        <span class="c1">// Pasamos los datos a Twig</span>
+</span><span id="__span-14-29"><a id="__codelineno-14-29" name="__codelineno-14-29"></a>        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;seccio/llistat.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+</span><span id="__span-14-30"><a id="__codelineno-14-30" name="__codelineno-14-30"></a>            <span class="s1">&#39;seccions&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositoriSeccio</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">()</span>
+</span><span id="__span-14-31"><a id="__codelineno-14-31" name="__codelineno-14-31"></a>        <span class="p">]);</span>
+</span><span id="__span-14-32"><a id="__codelineno-14-32" name="__codelineno-14-32"></a>    <span class="p">}</span>
+</span><span id="__span-14-33"><a id="__codelineno-14-33" name="__codelineno-14-33"></a>
+</span><span id="__span-14-34"><a id="__codelineno-14-34" name="__codelineno-14-34"></a>    <span class="sd">/**</span>
+</span><span id="__span-14-35"><a id="__codelineno-14-35" name="__codelineno-14-35"></a><span class="sd">     * Detall d&#39;una secció concreta (ja el tenies, el mantinc i l&#39;adapte)</span>
+</span><span id="__span-14-36"><a id="__codelineno-14-36" name="__codelineno-14-36"></a><span class="sd">     */</span>
+</span><span id="__span-14-37"><a id="__codelineno-14-37" name="__codelineno-14-37"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/seccio/{codi}&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;dades_seccio&#39;</span><span class="p">,</span> <span class="nx">requirements</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;codi&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\d+&#39;</span><span class="p">],</span> <span class="nx">methods</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])]</span>
+</span><span id="__span-14-38"><a id="__codelineno-14-38" name="__codelineno-14-38"></a>    <span class="k">public</span> <span class="k">function</span> <span class="nf">voreSeccio</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$codi</span><span class="p">)</span><span class="o">:</span> <span class="nd">Response</span>
+</span><span id="__span-14-39"><a id="__codelineno-14-39" name="__codelineno-14-39"></a>    <span class="p">{</span>
+</span><span id="__span-14-40"><a id="__codelineno-14-40" name="__codelineno-14-40"></a>
+</span><span id="__span-14-41"><a id="__codelineno-14-41" name="__codelineno-14-41"></a>        <span class="nv">$seccio</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">repositoriSeccio</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$codi</span><span class="p">);</span>
+</span><span id="__span-14-42"><a id="__codelineno-14-42" name="__codelineno-14-42"></a>
+</span><span id="__span-14-43"><a id="__codelineno-14-43" name="__codelineno-14-43"></a>        <span class="nd">if</span> <span class="p">(</span><span class="nv">$seccio</span><span class="p">){</span>
+</span><span id="__span-14-44"><a id="__codelineno-14-44" name="__codelineno-14-44"></a>            <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;seccio/detall.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;seccio&#39;</span> <span class="o">=&gt;</span> <span class="nv">$seccio</span><span class="p">]);</span>
+</span><span id="__span-14-45"><a id="__codelineno-14-45" name="__codelineno-14-45"></a>        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+</span><span id="__span-14-46"><a id="__codelineno-14-46" name="__codelineno-14-46"></a>            <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&quot;No s&#39;ha trobat la secció: </span><span class="si">$codi</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nx">Response</span><span class="o">::</span><span class="na">HTTP_NOT_FOUND</span><span class="p">);</span>
+</span><span id="__span-14-47"><a id="__codelineno-14-47" name="__codelineno-14-47"></a>        <span class="p">}</span>
+</span><span id="__span-14-48"><a id="__codelineno-14-48" name="__codelineno-14-48"></a>    <span class="p">}</span>
+</span><span id="__span-14-49"><a id="__codelineno-14-49" name="__codelineno-14-49"></a>
+</span><span id="__span-14-50"><a id="__codelineno-14-50" name="__codelineno-14-50"></a>    <span class="p">#[</span><span class="nd">Route</span><span class="p">(</span><span class="s1">&#39;/seccions/afegir&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;afegir_seccions&#39;</span><span class="p">)]</span>
+</span><span id="__span-14-51"><a id="__codelineno-14-51" name="__codelineno-14-51"></a>    <span class="nd">public</span> <span class="nd">function</span> <span class="nd">afegirSeccions</span><span class="p">()</span><span class="o">:</span> <span class="nd">Response</span> 
+</span><span id="__span-14-52"><a id="__codelineno-14-52" name="__codelineno-14-52"></a>    <span class="p">{</span>
+</span><span id="__span-14-53"><a id="__codelineno-14-53" name="__codelineno-14-53"></a>        <span class="nv">$seccio1</span> <span class="o">=</span> <span class="nd">new</span> <span class="nd">Seccio</span><span class="p">();</span>
+</span><span id="__span-14-54"><a id="__codelineno-14-54" name="__codelineno-14-54"></a>        <span class="nv">$seccio1</span><span class="o">-&gt;</span><span class="na">setNom</span><span class="p">(</span><span class="s2">&quot;Roba&quot;</span><span class="p">);</span>
+</span><span id="__span-14-55"><a id="__codelineno-14-55" name="__codelineno-14-55"></a>        <span class="nv">$seccio1</span><span class="o">-&gt;</span><span class="na">setDescripcio</span><span class="p">(</span><span class="s2">&quot;Secció de roba&quot;</span><span class="p">);</span>
+</span><span id="__span-14-56"><a id="__codelineno-14-56" name="__codelineno-14-56"></a>        <span class="nv">$seccio1</span><span class="o">-&gt;</span><span class="na">setAny</span><span class="p">(</span><span class="mi">2026</span><span class="p">);</span>
+</span><span id="__span-14-57"><a id="__codelineno-14-57" name="__codelineno-14-57"></a>        <span class="nv">$seccio1</span><span class="o">-&gt;</span><span class="na">setImatge</span><span class="p">(</span><span class="s2">&quot;roba.webp&quot;</span><span class="p">);</span>
+</span><span id="__span-14-58"><a id="__codelineno-14-58" name="__codelineno-14-58"></a>
+</span><span id="__span-14-59"><a id="__codelineno-14-59" name="__codelineno-14-59"></a>        <span class="nv">$seccio2</span> <span class="o">=</span> <span class="nd">new</span> <span class="nd">Seccio</span><span class="p">();</span>
+</span><span id="__span-14-60"><a id="__codelineno-14-60" name="__codelineno-14-60"></a>        <span class="nv">$seccio2</span><span class="o">-&gt;</span><span class="na">setNom</span><span class="p">(</span><span class="s2">&quot;Calçat&quot;</span><span class="p">);</span>
+</span><span id="__span-14-61"><a id="__codelineno-14-61" name="__codelineno-14-61"></a>        <span class="nv">$seccio2</span><span class="o">-&gt;</span><span class="na">setDescripcio</span><span class="p">(</span><span class="s2">&quot;Secció de sabates i esportives&quot;</span><span class="p">);</span>
+</span><span id="__span-14-62"><a id="__codelineno-14-62" name="__codelineno-14-62"></a>        <span class="nv">$seccio2</span><span class="o">-&gt;</span><span class="na">setAny</span><span class="p">(</span><span class="mi">2025</span><span class="p">);</span>
+</span><span id="__span-14-63"><a id="__codelineno-14-63" name="__codelineno-14-63"></a>        <span class="nv">$seccio2</span><span class="o">-&gt;</span><span class="na">setImatge</span><span class="p">(</span><span class="s2">&quot;calçat.webp&quot;</span><span class="p">);</span>
+</span><span id="__span-14-64"><a id="__codelineno-14-64" name="__codelineno-14-64"></a>
+</span><span id="__span-14-65"><a id="__codelineno-14-65" name="__codelineno-14-65"></a>        <span class="nv">$seccio3</span> <span class="o">=</span> <span class="nd">new</span> <span class="nd">Seccio</span><span class="p">();</span>
+</span><span id="__span-14-66"><a id="__codelineno-14-66" name="__codelineno-14-66"></a>        <span class="nv">$seccio3</span><span class="o">-&gt;</span><span class="na">setNom</span><span class="p">(</span><span class="s2">&quot;Complements&quot;</span><span class="p">);</span>
+</span><span id="__span-14-67"><a id="__codelineno-14-67" name="__codelineno-14-67"></a>        <span class="nv">$seccio3</span><span class="o">-&gt;</span><span class="na">setDescripcio</span><span class="p">(</span><span class="s2">&quot;Secció de complements de moda&quot;</span><span class="p">);</span>
+</span><span id="__span-14-68"><a id="__codelineno-14-68" name="__codelineno-14-68"></a>        <span class="nv">$seccio3</span><span class="o">-&gt;</span><span class="na">setAny</span><span class="p">(</span><span class="mi">2023</span><span class="p">);</span>
+</span><span id="__span-14-69"><a id="__codelineno-14-69" name="__codelineno-14-69"></a>        <span class="nv">$seccio3</span><span class="o">-&gt;</span><span class="na">setImatge</span><span class="p">(</span><span class="s2">&quot;complements.webp&quot;</span><span class="p">);</span>
+</span><span id="__span-14-70"><a id="__codelineno-14-70" name="__codelineno-14-70"></a>
+</span><span id="__span-14-71"><a id="__codelineno-14-71" name="__codelineno-14-71"></a>        <span class="nv">$seccio4</span> <span class="o">=</span> <span class="nd">new</span> <span class="nd">Seccio</span><span class="p">();</span>
+</span><span id="__span-14-72"><a id="__codelineno-14-72" name="__codelineno-14-72"></a>        <span class="nv">$seccio4</span><span class="o">-&gt;</span><span class="na">setNom</span><span class="p">(</span><span class="s2">&quot;Tecnologia&quot;</span><span class="p">);</span>
+</span><span id="__span-14-73"><a id="__codelineno-14-73" name="__codelineno-14-73"></a>        <span class="nv">$seccio4</span><span class="o">-&gt;</span><span class="na">setDescripcio</span><span class="p">(</span><span class="s2">&quot;Secció d&#39;electrònica i gadgets&quot;</span><span class="p">);</span>
+</span><span id="__span-14-74"><a id="__codelineno-14-74" name="__codelineno-14-74"></a>        <span class="nv">$seccio4</span><span class="o">-&gt;</span><span class="na">setAny</span><span class="p">(</span><span class="mi">2027</span><span class="p">);</span>
+</span><span id="__span-14-75"><a id="__codelineno-14-75" name="__codelineno-14-75"></a>        <span class="nv">$seccio4</span><span class="o">-&gt;</span><span class="na">setImatge</span><span class="p">(</span><span class="s2">&quot;tecnologia.webp&quot;</span><span class="p">);</span>
+</span><span id="__span-14-76"><a id="__codelineno-14-76" name="__codelineno-14-76"></a>
+</span><span id="__span-14-77"><a id="__codelineno-14-77" name="__codelineno-14-77"></a>        <span class="nd">try</span> <span class="p">{</span>
+</span><span id="__span-14-78"><a id="__codelineno-14-78" name="__codelineno-14-78"></a>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$seccio1</span><span class="p">);</span>
+</span><span id="__span-14-79"><a id="__codelineno-14-79" name="__codelineno-14-79"></a>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$seccio2</span><span class="p">);</span>
+</span><span id="__span-14-80"><a id="__codelineno-14-80" name="__codelineno-14-80"></a>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$seccio3</span><span class="p">);</span>
+</span><span id="__span-14-81"><a id="__codelineno-14-81" name="__codelineno-14-81"></a>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">persist</span><span class="p">(</span><span class="nv">$seccio4</span><span class="p">);</span>
+</span><span id="__span-14-82"><a id="__codelineno-14-82" name="__codelineno-14-82"></a>
+</span><span id="__span-14-83"><a id="__codelineno-14-83" name="__codelineno-14-83"></a>            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">gestor</span><span class="o">-&gt;</span><span class="na">flush</span><span class="p">();</span>
+</span><span id="__span-14-84"><a id="__codelineno-14-84" name="__codelineno-14-84"></a>            <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;seccio/afegir.html.twig&#39;</span><span class="p">);</span>
+</span><span id="__span-14-85"><a id="__codelineno-14-85" name="__codelineno-14-85"></a>        <span class="p">}</span> <span class="nd">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="__span-14-86"><a id="__codelineno-14-86" name="__codelineno-14-86"></a>            <span class="nd">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;seccio/error.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;error&#39;</span> <span class="o">=&gt;</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()]);</span>
+</span><span id="__span-14-87"><a id="__codelineno-14-87" name="__codelineno-14-87"></a>        <span class="p">}</span>
+</span><span id="__span-14-88"><a id="__codelineno-14-88" name="__codelineno-14-88"></a>    <span class="p">}</span>
+</span><span id="__span-14-89"><a id="__codelineno-14-89" name="__codelineno-14-89"></a><span class="p">}</span>
+</span><span id="__span-14-90"><a id="__codelineno-14-90" name="__codelineno-14-90"></a>
+</span><span id="__span-14-91"><a id="__codelineno-14-91" name="__codelineno-14-91"></a><span class="cp">?&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Fitxer:</strong> <code>_menu.html.twig</code></p>
+<div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-15-10">10</a></span>
+<span class="normal"><a href="#__codelineno-15-11">11</a></span>
+<span class="normal"><a href="#__codelineno-15-12">12</a></span>
+<span class="normal"><a href="#__codelineno-15-13">13</a></span>
+<span class="normal"><a href="#__codelineno-15-14">14</a></span>
+<span class="normal"><a href="#__codelineno-15-15">15</a></span>
+<span class="normal"><a href="#__codelineno-15-16">16</a></span>
+<span class="normal"><a href="#__codelineno-15-17">17</a></span>
+<span class="normal"><a href="#__codelineno-15-18">18</a></span>
+<span class="normal"><a href="#__codelineno-15-19">19</a></span>
+<span class="normal"><a href="#__codelineno-15-20">20</a></span>
+<span class="normal"><a href="#__codelineno-15-21">21</a></span>
+<span class="normal"><a href="#__codelineno-15-22">22</a></span>
+<span class="normal"><a href="#__codelineno-15-23">23</a></span>
+<span class="normal"><a href="#__codelineno-15-24">24</a></span>
+<span class="normal"><a href="#__codelineno-15-25">25</a></span>
+<span class="normal"><a href="#__codelineno-15-26">26</a></span>
+<span class="normal"><a href="#__codelineno-15-27">27</a></span>
+<span class="normal"><a href="#__codelineno-15-28">28</a></span>
+<span class="normal"><a href="#__codelineno-15-29">29</a></span>
+<span class="normal"><a href="#__codelineno-15-30">30</a></span>
+<span class="normal"><a href="#__codelineno-15-31">31</a></span>
+<span class="normal"><a href="#__codelineno-15-32">32</a></span>
+<span class="normal"><a href="#__codelineno-15-33">33</a></span>
+<span class="normal"><a href="#__codelineno-15-34">34</a></span>
+<span class="normal"><a href="#__codelineno-15-35">35</a></span>
+<span class="normal"><a href="#__codelineno-15-36">36</a></span>
+<span class="normal"><a href="#__codelineno-15-37">37</a></span>
+<span class="normal"><a href="#__codelineno-15-38">38</a></span>
+<span class="normal"><a href="#__codelineno-15-39">39</a></span>
+<span class="normal"><a href="#__codelineno-15-40">40</a></span>
+<span class="normal"><a href="#__codelineno-15-41">41</a></span>
+<span class="normal"><a href="#__codelineno-15-42">42</a></span>
+<span class="normal"><a href="#__codelineno-15-43">43</a></span>
+<span class="normal"><a href="#__codelineno-15-44">44</a></span>
+<span class="normal"><a href="#__codelineno-15-45">45</a></span>
+<span class="normal"><a href="#__codelineno-15-46">46</a></span>
+<span class="normal"><a href="#__codelineno-15-47">47</a></span>
+<span class="normal"><a href="#__codelineno-15-48">48</a></span>
+<span class="normal"><a href="#__codelineno-15-49">49</a></span>
+<span class="normal"><a href="#__codelineno-15-50">50</a></span>
+<span class="normal"><a href="#__codelineno-15-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c">{# ==========================</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c">   CAPÇALERA + MENÚ PRINCIPAL</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c">   ========================== #}</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="x">&lt;header&gt;</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="x">    &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot; aria-label=&quot;Menú principal&quot;&gt;</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="x">        &lt;div class=&quot;container&quot;&gt;</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="x">            &lt;a class=&quot;navbar-brand fw-bold&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;inici&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Tenda&lt;/a&gt;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="x">            &lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot; data-bs-target=&quot;#menuPrincipal&quot; aria-controls=&quot;menuPrincipal&quot; aria-expanded=&quot;false&quot; aria-label=&quot;Canviar navegació&quot;&gt;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="x">                &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="x">            &lt;/button&gt;</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12"></a>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="x">            &lt;div class=&quot;collapse navbar-collapse&quot; id=&quot;menuPrincipal&quot;&gt;</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="x">                &lt;ul class=&quot;navbar-nav me-auto mb-2 mb-lg-0&quot;&gt;</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15"></a>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="x">                    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">seccions</span> <span class="k">is</span> <span class="nf">defined</span> <span class="k">and</span> <span class="nv">seccions</span><span class="o">|</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="cp">%}</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="x">                        </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">seccio</span> <span class="k">in</span> <span class="nv">seccions</span> <span class="cp">%}</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="x">                            &lt;li class=&quot;nav-item&quot;&gt;</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="x">                                &lt;a class=&quot;nav-link&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;dades_seccio&#39;</span><span class="o">,</span> <span class="o">{</span> <span class="nv">codi</span><span class="o">:</span> <span class="nv">seccio.id</span> <span class="o">})</span> <span class="cp">}}</span><span class="x">&quot;&gt;</span>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="x">                                    </span><span class="cp">{{</span> <span class="nv">seccio.nom</span> <span class="cp">}}</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="x">                                &lt;/a&gt;</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="x">                            &lt;/li&gt;</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="x">                        </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="x">                    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+</span><span id="__span-15-25"><a id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="x">                        </span><span class="c">{# Si no passes &#39;seccions&#39;, mostrem uns enllaços d’exemple #}</span>
+</span><span id="__span-15-26"><a id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="x">                        &lt;li class=&quot;nav-item&quot;&gt;&lt;a class=&quot;nav-link&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;llistat_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Seccions&lt;/a&gt;&lt;/li&gt;</span>
+</span><span id="__span-15-27"><a id="__codelineno-15-27" name="__codelineno-15-27"></a><span class="x">                    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</span><span id="__span-15-28"><a id="__codelineno-15-28" name="__codelineno-15-28"></a>
+</span><span id="__span-15-29"><a id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="x">                &lt;/ul&gt;</span>
+</span><span id="__span-15-30"><a id="__codelineno-15-30" name="__codelineno-15-30"></a>
+</span><span id="__span-15-31"><a id="__codelineno-15-31" name="__codelineno-15-31"></a><span class="x">                &lt;ul class=&quot;navbar-nav ms-auto&quot;&gt;</span>
+</span><span id="__span-15-32"><a id="__codelineno-15-32" name="__codelineno-15-32"></a><span class="x">                    &lt;li class=&quot;nav-item&quot;&gt;</span>
+</span><span id="__span-15-33"><a id="__codelineno-15-33" name="__codelineno-15-33"></a><span class="x">                        &lt;a class=&quot;nav-link&quot; href=&quot;&quot;&gt;🛒 Carret</span>
+</span><span id="__span-15-34"><a id="__codelineno-15-34" name="__codelineno-15-34"></a><span class="x">                            </span><span class="c">{# Opcional: mostra el nombre d’articles en el carret si &#39;quantitatCarret&#39; està definit #}</span>
+</span><span id="__span-15-35"><a id="__codelineno-15-35" name="__codelineno-15-35"></a><span class="x">                            </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">quantitatCarret</span> <span class="k">is</span> <span class="nf">defined</span> <span class="k">and</span> <span class="nv">quantitatCarret</span> <span class="o">&gt;</span> <span class="m">0</span> <span class="cp">%}</span>
+</span><span id="__span-15-36"><a id="__codelineno-15-36" name="__codelineno-15-36"></a><span class="x">                                &lt;span class=&quot;badge text-bg-success ms-1&quot;&gt;</span><span class="cp">{{</span> <span class="nv">quantitatCarret</span> <span class="cp">}}</span><span class="x">&lt;/span&gt;</span>
+</span><span id="__span-15-37"><a id="__codelineno-15-37" name="__codelineno-15-37"></a><span class="x">                            </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</span><span id="__span-15-38"><a id="__codelineno-15-38" name="__codelineno-15-38"></a><span class="x">                        &lt;/a&gt;</span>
+</span><span id="__span-15-39"><a id="__codelineno-15-39" name="__codelineno-15-39"></a><span class="x">                    &lt;/li&gt;</span>
+</span><span id="__span-15-40"><a id="__codelineno-15-40" name="__codelineno-15-40"></a>
+</span><span id="__span-15-41"><a id="__codelineno-15-41" name="__codelineno-15-41"></a><span class="x">                    &lt;li class=&quot;nav-item&quot;&gt;</span>
+</span><span id="__span-15-42"><a id="__codelineno-15-42" name="__codelineno-15-42"></a><span class="x">                        &lt;a class=&quot;btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;afegir_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Afegir seccions&lt;/a&gt;</span>
+</span><span id="__span-15-43"><a id="__codelineno-15-43" name="__codelineno-15-43"></a><span class="x">                    &lt;/li&gt;</span>
+</span><span id="__span-15-44"><a id="__codelineno-15-44" name="__codelineno-15-44"></a><span class="x">                    &lt;li class=&quot;nav-item&quot;&gt;</span>
+</span><span id="__span-15-45"><a id="__codelineno-15-45" name="__codelineno-15-45"></a><span class="x">                        &lt;a class=&quot;btn btn-sm btn-primary ms-lg-2 mt-2 mt-lg-0&quot; href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;afegir_articles&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;&gt;Afegir articles&lt;/a&gt;</span>
+</span><span id="__span-15-46"><a id="__codelineno-15-46" name="__codelineno-15-46"></a><span class="x">                    &lt;/li&gt;</span>
+</span><span id="__span-15-47"><a id="__codelineno-15-47" name="__codelineno-15-47"></a><span class="x">                &lt;/ul&gt;</span>
+</span><span id="__span-15-48"><a id="__codelineno-15-48" name="__codelineno-15-48"></a><span class="x">            &lt;/div&gt;</span>
+</span><span id="__span-15-49"><a id="__codelineno-15-49" name="__codelineno-15-49"></a><span class="x">        &lt;/div&gt;</span>
+</span><span id="__span-15-50"><a id="__codelineno-15-50" name="__codelineno-15-50"></a><span class="x">    &lt;/nav&gt;</span>
+</span><span id="__span-15-51"><a id="__codelineno-15-51" name="__codelineno-15-51"></a><span class="x">&lt;/header&gt;</span>
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Fitxer:</strong> <code>llistat.html.twig</code></p>
+<div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span>
+<span class="normal"><a href="#__codelineno-16-19">19</a></span>
+<span class="normal"><a href="#__codelineno-16-20">20</a></span>
+<span class="normal"><a href="#__codelineno-16-21">21</a></span>
+<span class="normal"><a href="#__codelineno-16-22">22</a></span>
+<span class="normal"><a href="#__codelineno-16-23">23</a></span>
+<span class="normal"><a href="#__codelineno-16-24">24</a></span>
+<span class="normal"><a href="#__codelineno-16-25">25</a></span>
+<span class="normal"><a href="#__codelineno-16-26">26</a></span>
+<span class="normal"><a href="#__codelineno-16-27">27</a></span>
+<span class="normal"><a href="#__codelineno-16-28">28</a></span>
+<span class="normal"><a href="#__codelineno-16-29">29</a></span>
+<span class="normal"><a href="#__codelineno-16-30">30</a></span>
+<span class="normal"><a href="#__codelineno-16-31">31</a></span>
+<span class="normal"><a href="#__codelineno-16-32">32</a></span>
+<span class="normal"><a href="#__codelineno-16-33">33</a></span>
+<span class="normal"><a href="#__codelineno-16-34">34</a></span>
+<span class="normal"><a href="#__codelineno-16-35">35</a></span>
+<span class="normal"><a href="#__codelineno-16-36">36</a></span>
+<span class="normal"><a href="#__codelineno-16-37">37</a></span>
+<span class="normal"><a href="#__codelineno-16-38">38</a></span>
+<span class="normal"><a href="#__codelineno-16-39">39</a></span>
+<span class="normal"><a href="#__codelineno-16-40">40</a></span>
+<span class="normal"><a href="#__codelineno-16-41">41</a></span>
+<span class="normal"><a href="#__codelineno-16-42">42</a></span>
+<span class="normal"><a href="#__codelineno-16-43">43</a></span>
+<span class="normal"><a href="#__codelineno-16-44">44</a></span>
+<span class="normal"><a href="#__codelineno-16-45">45</a></span>
+<span class="normal"><a href="#__codelineno-16-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span><span class="x">Llistat de seccions</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="x">  &lt;section class=&quot;container&quot; style=&quot;max-width: 900px; margin: 2rem auto;&quot;&gt;</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="x">    &lt;h1 style=&quot;margin-bottom: 1rem;&quot;&gt;Llistat de seccions&lt;/h1&gt;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="x">    </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">seccions</span> <span class="k">is</span> <span class="nf">empty</span> <span class="cp">%}</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="x">      &lt;p&gt;No hi ha seccions disponibles.&lt;/p&gt;</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="x">      &lt;table style=&quot;width:100%; border-collapse: collapse;&quot;&gt;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="x">        &lt;thead&gt;</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="x">          &lt;tr&gt;</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="x">            &lt;th style=&quot;text-align:left; border-bottom:1px solid #ccc; padding: .5rem;&quot;&gt;Id&lt;/th&gt;</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="x">            &lt;th style=&quot;text-align:left; border-bottom:1px solid #ccc; padding: .5rem;&quot;&gt;Nom&lt;/th&gt;</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="x">            &lt;th style=&quot;text-align:left; border-bottom:1px solid #ccc; padding: .5rem;&quot;&gt;Descripció&lt;/th&gt;</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="x">            &lt;th style=&quot;text-align:left; border-bottom:1px solid #ccc; padding: .5rem;&quot;&gt;Any&lt;/th&gt;</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="x">            &lt;th style=&quot;text-align:left; border-bottom:1px solid #ccc; padding: .5rem;&quot;&gt;Articles&lt;/th&gt;</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="x">            &lt;th style=&quot;text-align:left; border-bottom:1px solid #ccc; padding: .5rem;&quot;&gt;Accions&lt;/th&gt;</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="x">          &lt;/tr&gt;</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="x">        &lt;/thead&gt;</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="x">        &lt;tbody&gt;</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="x">          </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">seccion</span> <span class="k">in</span> <span class="nv">seccions</span> <span class="cp">%}</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="x">            &lt;tr&gt;</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26"></a><span class="x">              &lt;td style=&quot;padding: .5rem;&quot;&gt;</span><span class="cp">{{</span> <span class="nv">seccion.id</span> <span class="cp">}}</span><span class="x">&lt;/td&gt;</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="x">              &lt;td style=&quot;padding: .5rem;&quot;&gt;</span><span class="cp">{{</span> <span class="nv">seccion.nom</span> <span class="cp">}}</span><span class="x">&lt;/td&gt;</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="x">              &lt;td style=&quot;padding: .5rem;&quot;&gt;</span><span class="cp">{{</span> <span class="nv">seccion.descripcio</span> <span class="cp">}}</span><span class="x">&lt;/td&gt;</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29"></a><span class="x">              &lt;td style=&quot;padding: .5rem;&quot;&gt;</span><span class="cp">{{</span> <span class="nv">seccion.any</span> <span class="cp">}}</span><span class="x">&lt;/td&gt;</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="x">              &lt;td style=&quot;padding: .5rem;&quot;&gt;</span>
+</span><span id="__span-16-31"><a id="__codelineno-16-31" name="__codelineno-16-31"></a><span class="x">                </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">seccion.articles</span> <span class="k">is</span> <span class="nf">iterable</span> <span class="cp">%}</span>
+</span><span id="__span-16-32"><a id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="x">                  </span><span class="cp">{{</span> <span class="nv">seccion.articles</span><span class="o">|</span><span class="nf">length</span> <span class="cp">}}</span><span class="x"> ítems</span>
+</span><span id="__span-16-33"><a id="__codelineno-16-33" name="__codelineno-16-33"></a><span class="x">                </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+</span><span id="__span-16-34"><a id="__codelineno-16-34" name="__codelineno-16-34"></a><span class="x">                  —</span>
+</span><span id="__span-16-35"><a id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="x">                </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</span><span id="__span-16-36"><a id="__codelineno-16-36" name="__codelineno-16-36"></a><span class="x">              &lt;/td&gt;</span>
+</span><span id="__span-16-37"><a id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="x">              &lt;td style=&quot;padding: .5rem;&quot;&gt;</span>
+</span><span id="__span-16-38"><a id="__codelineno-16-38" name="__codelineno-16-38"></a><span class="x">                &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;dades_seccio&#39;</span><span class="o">,</span> <span class="o">{</span> <span class="nv">codi</span><span class="o">:</span> <span class="nv">seccion.id</span> <span class="o">})</span> <span class="cp">}}</span><span class="x">&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;Veure&lt;/a&gt;</span>
+</span><span id="__span-16-39"><a id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="x">              &lt;/td&gt;</span>
+</span><span id="__span-16-40"><a id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="x">            &lt;/tr&gt;</span>
+</span><span id="__span-16-41"><a id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="x">          </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</span><span id="__span-16-42"><a id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="x">        &lt;/tbody&gt;</span>
+</span><span id="__span-16-43"><a id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="x">      &lt;/table&gt;</span>
+</span><span id="__span-16-44"><a id="__codelineno-16-44" name="__codelineno-16-44"></a><span class="x">    </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</span><span id="__span-16-45"><a id="__codelineno-16-45" name="__codelineno-16-45"></a><span class="x">  &lt;/section&gt;</span>
+</span><span id="__span-16-46"><a id="__codelineno-16-46" name="__codelineno-16-46"></a><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span></code></pre></div></td></tr></table></div>
+<p><strong>Fitxer:</strong> <code>detall.html.twig</code></p>
+<div class="language-twig highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span>
+<span class="normal"><a href="#__codelineno-17-25">25</a></span>
+<span class="normal"><a href="#__codelineno-17-26">26</a></span>
+<span class="normal"><a href="#__codelineno-17-27">27</a></span>
+<span class="normal"><a href="#__codelineno-17-28">28</a></span>
+<span class="normal"><a href="#__codelineno-17-29">29</a></span>
+<span class="normal"><a href="#__codelineno-17-30">30</a></span>
+<span class="normal"><a href="#__codelineno-17-31">31</a></span>
+<span class="normal"><a href="#__codelineno-17-32">32</a></span>
+<span class="normal"><a href="#__codelineno-17-33">33</a></span>
+<span class="normal"><a href="#__codelineno-17-34">34</a></span>
+<span class="normal"><a href="#__codelineno-17-35">35</a></span>
+<span class="normal"><a href="#__codelineno-17-36">36</a></span>
+<span class="normal"><a href="#__codelineno-17-37">37</a></span>
+<span class="normal"><a href="#__codelineno-17-38">38</a></span>
+<span class="normal"><a href="#__codelineno-17-39">39</a></span>
+<span class="normal"><a href="#__codelineno-17-40">40</a></span>
+<span class="normal"><a href="#__codelineno-17-41">41</a></span>
+<span class="normal"><a href="#__codelineno-17-42">42</a></span>
+<span class="normal"><a href="#__codelineno-17-43">43</a></span>
+<span class="normal"><a href="#__codelineno-17-44">44</a></span>
+<span class="normal"><a href="#__codelineno-17-45">45</a></span>
+<span class="normal"><a href="#__codelineno-17-46">46</a></span>
+<span class="normal"><a href="#__codelineno-17-47">47</a></span>
+<span class="normal"><a href="#__codelineno-17-48">48</a></span>
+<span class="normal"><a href="#__codelineno-17-49">49</a></span>
+<span class="normal"><a href="#__codelineno-17-50">50</a></span>
+<span class="normal"><a href="#__codelineno-17-51">51</a></span>
+<span class="normal"><a href="#__codelineno-17-52">52</a></span>
+<span class="normal"><a href="#__codelineno-17-53">53</a></span>
+<span class="normal"><a href="#__codelineno-17-54">54</a></span>
+<span class="normal"><a href="#__codelineno-17-55">55</a></span>
+<span class="normal"><a href="#__codelineno-17-56">56</a></span>
+<span class="normal"><a href="#__codelineno-17-57">57</a></span>
+<span class="normal"><a href="#__codelineno-17-58">58</a></span>
+<span class="normal"><a href="#__codelineno-17-59">59</a></span>
+<span class="normal"><a href="#__codelineno-17-60">60</a></span>
+<span class="normal"><a href="#__codelineno-17-61">61</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;base.html.twig&#39;</span> <span class="cp">%}</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}{{</span> <span class="nv">seccio.nom</span> <span class="cp">}}</span><span class="x"> — Tenda</span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="cp">{%</span> <span class="k">block</span> <span class="nv">contingut</span> <span class="cp">%}</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="x">&lt;header class=&quot;d-flex align-items-center justify-content-between mb-4&quot;&gt;</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="x">    </span><span class="c">{# PART ESQUERRA: IMATGE + TEXT #}</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="x">    &lt;div class=&quot;d-flex align-items-center gap-4&quot;&gt;</span>
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="x">      </span><span class="c">{# IMATGE DE LA SECCIÓ #}</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="x">      &lt;img</span>
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="x">        src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;imgs/seccio/&#39;</span> <span class="o">~</span> <span class="nv">seccio.imatge</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;</span>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="x">        alt=&quot;Imatge de </span><span class="cp">{{</span> <span class="nv">seccio.nom</span> <span class="cp">}}</span><span class="x">&quot;</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="x">        class=&quot;rounded-circle shadow-sm object-fit-cover seccio-foto&quot;</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="x">        width=&quot;120&quot; height=&quot;120&quot;</span>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16"></a><span class="x">        loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17"></a>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="x">      </span><span class="c">{# TEXT DESCRIPTIU #}</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19"></a><span class="x">      &lt;div&gt;</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20"></a><span class="x">          &lt;h1 class=&quot;mb-1&quot;&gt;</span><span class="cp">{{</span> <span class="nv">seccio.nom</span> <span class="cp">}}</span><span class="x">&lt;/h1&gt;</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="x">          &lt;p class=&quot;text-muted mb-0&quot;&gt;</span><span class="cp">{{</span> <span class="nv">seccio.descripcio</span> <span class="cp">}}</span><span class="x">&lt;/p&gt;</span>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="x">          &lt;small class=&quot;text-secondary&quot;&gt;Any </span><span class="cp">{{</span> <span class="nv">seccio.any</span> <span class="cp">}}</span><span class="x">&lt;/small&gt;</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23"></a><span class="x">      &lt;/div&gt;</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24"></a>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25"></a><span class="x">    &lt;/div&gt;</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26"></a>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27"></a><span class="x">    </span><span class="c">{# PART DRETA: BOTÓ TORNAR A L’INICI #}</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28"></a><span class="x">    &lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">path</span><span class="o">(</span><span class="s1">&#39;llistat_seccions&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot; class=&quot;d-inline-flex align-items-center&quot;&gt;</span>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29"></a><span class="x">        &lt;img</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30"></a><span class="x">          src=&quot;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;imgs/home.webp&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&quot;</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31"></a><span class="x">          alt=&quot;Inici&quot;</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32"></a><span class="x">          width=&quot;48&quot; height=&quot;48&quot;</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33"></a><span class="x">          class=&quot;rounded-circle shadow-sm&quot;</span>
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34"></a><span class="x">          loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35"></a><span class="x">    &lt;/a&gt;</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36"></a><span class="x">&lt;/header&gt;</span>
+</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37"></a>
+</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38"></a>
+</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39"></a><span class="x">  &lt;div class=&quot;row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4&quot;&gt;</span>
+</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40"></a><span class="x">    </span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">article</span> <span class="k">in</span> <span class="nv">seccio.articles</span> <span class="cp">%}</span>
+</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41"></a><span class="x">      &lt;div class=&quot;col&quot;&gt;</span>
+</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42"></a><span class="x">        &lt;div class=&quot;card h-100 article-card&quot;&gt;</span>
+</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43"></a><span class="x">          </span><span class="c">{# En un futur pots posar imatge per a cada article; ara utilitzem placehold #}</span>
+</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44"></a><span class="x">          &lt;img</span>
+</span><span id="__span-17-45"><a id="__codelineno-17-45" name="__codelineno-17-45"></a><span class="x">            class=&quot;card-img-top&quot;</span>
+</span><span id="__span-17-46"><a id="__codelineno-17-46" name="__codelineno-17-46"></a><span class="x">            src=&quot;</span><span class="cp">{{</span> <span class="s1">&#39;https://placehold.co/300x200?text=&#39;</span> <span class="o">~</span> <span class="nv">article.nom</span> <span class="cp">}}</span><span class="x">&quot;</span>
+</span><span id="__span-17-47"><a id="__codelineno-17-47" name="__codelineno-17-47"></a><span class="x">            alt=&quot;</span><span class="cp">{{</span> <span class="nv">article.nom</span> <span class="cp">}}</span><span class="x">&quot;</span>
+</span><span id="__span-17-48"><a id="__codelineno-17-48" name="__codelineno-17-48"></a><span class="x">            loading=&quot;lazy&quot; decoding=&quot;async&quot;&gt;</span>
+</span><span id="__span-17-49"><a id="__codelineno-17-49" name="__codelineno-17-49"></a>
+</span><span id="__span-17-50"><a id="__codelineno-17-50" name="__codelineno-17-50"></a><span class="x">          &lt;div class=&quot;card-body&quot;&gt;</span>
+</span><span id="__span-17-51"><a id="__codelineno-17-51" name="__codelineno-17-51"></a><span class="x">            &lt;h5 class=&quot;card-title&quot;&gt;</span><span class="cp">{{</span> <span class="nv">article.nom</span> <span class="cp">}}</span><span class="x">&lt;/h5&gt;</span>
+</span><span id="__span-17-52"><a id="__codelineno-17-52" name="__codelineno-17-52"></a><span class="x">            &lt;p class=&quot;card-text text-muted&quot;&gt;Disponible en diferents talles i colors.&lt;/p&gt;</span>
+</span><span id="__span-17-53"><a id="__codelineno-17-53" name="__codelineno-17-53"></a><span class="x">            &lt;a href=&quot;#&quot; class=&quot;btn btn-outline-primary btn-sm&quot;&gt;Veure&lt;/a&gt;</span>
+</span><span id="__span-17-54"><a id="__codelineno-17-54" name="__codelineno-17-54"></a><span class="x">          &lt;/div&gt;</span>
+</span><span id="__span-17-55"><a id="__codelineno-17-55" name="__codelineno-17-55"></a><span class="x">        &lt;/div&gt;</span>
+</span><span id="__span-17-56"><a id="__codelineno-17-56" name="__codelineno-17-56"></a><span class="x">      &lt;/div&gt;</span>
+</span><span id="__span-17-57"><a id="__codelineno-17-57" name="__codelineno-17-57"></a><span class="x">    </span><span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+</span><span id="__span-17-58"><a id="__codelineno-17-58" name="__codelineno-17-58"></a><span class="x">      &lt;p class=&quot;text-muted&quot;&gt;Encara no hi ha articles en aquesta secció.&lt;/p&gt;</span>
+</span><span id="__span-17-59"><a id="__codelineno-17-59" name="__codelineno-17-59"></a><span class="x">    </span><span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+</span><span id="__span-17-60"><a id="__codelineno-17-60" name="__codelineno-17-60"></a><span class="x">  &lt;/div&gt;</span>
+</span><span id="__span-17-61"><a id="__codelineno-17-61" name="__codelineno-17-61"></a><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="exercici-6">Exercici 6</h2>
 <p><strong>Control de Versions</strong></p>
 <ol>
 <li>Quan tot funcione, fes un commit amb Git:</li>
 </ol>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span>
-<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a>git<span class="w"> </span>add<span class="w"> </span>--all
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Tema 5: Doctrine&quot;</span>
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v5.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 5.0 TendaNomAlumne Doctrine&quot;</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1"></a>git<span class="w"> </span>add<span class="w"> </span>--all
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Tema 5: Doctrine&quot;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3"></a>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v5.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Versió 5.0 TendaNomAlumne Doctrine&quot;</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master<span class="w"> </span>--tags
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="resultat-final-esperat">Resultat final esperat</h2>
@@ -1405,6 +1943,7 @@
 <li>Crear l’entitat Article i establir una relació bidireccional ManyToOne amb Seccio.</li>
 <li>Inserir articles vinculats a seccions existents.</li>
 <li>Afegir enllaços al menú per facilitar la navegació.</li>
+<li>Totes les vistes i controladors deixen d’utilitzar el servei temporal del Tema 4, mostrant informació real guardada en MySQL.</li>
 </ul>
 
 
