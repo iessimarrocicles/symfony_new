@@ -91,7 +91,7 @@ Si apareix la versió, ja està funcionant.
 
 ---
 
-## 5. Instal·lar una base de dades (MySQL / MariaDB / PostgreSQL)
+## 5. Instal·lar una base de dades
 
 Per a un entorn docent i per compatibilitat amb molts exemples, és habitual usar **MySQL** o **MariaDB**.
 
@@ -99,7 +99,7 @@ Per a un entorn docent i per compatibilitat amb molts exemples, és habitual usa
 
 1. Ves a la pàgina oficial de MySQL.
 2. Descarrega MySQL Installer for Windows.
-3. Tria `Developer Default` o `Server only` segons preferències.
+3. Tria *Developer Default* o *Server only* segons preferències.
 4. Durant la instal·lació, configura:
    - Contrasenya de l’usuari `root`.
    - Mode d’autenticació (pots deixar el per defecte).
@@ -129,9 +129,7 @@ Haureu de configurar després el `DocumentRoot` i els `VirtualHost` perquè apun
 
 ---
 
-## 7. Comprovar requisits i seguretat
-
-### 7.1. Requisits de Symfony
+## 7. Comrprovar requisits
 
 Mostra si falta alguna extensió de PHP o si hi ha alguna configuració incorrecta.
 
@@ -139,7 +137,7 @@ Mostra si falta alguna extensió de PHP o si hi ha alguna configuració incorrec
 symfony check:requirements
 ```
 
-### 7.2. Vulnerabilitats de seguretat en dependències
+## 8. Comprovar vulnerabilitats
 
 Comprova si les llibreries instal·lades via Composer tenen vulnerabilitats conegudes.
 
@@ -149,7 +147,7 @@ symfony security:check
 
 ---
 
-## 8. Resum
+## 9. Resum
 
 Per poder treballar amb Symfony en Windows, en essència necessitem:
 
@@ -161,3 +159,7 @@ Per poder treballar amb Symfony en Windows, en essència necessitem:
 6. (Opcional) **Apache o Nginx** si volem treballar escenaris més propers a producció.
 
 Amb aquests elements instal·lats i configurats, l’alumne/a ja pot crear projectes, generar controladors, entitats, formularis i repositoris, i començar a desenvolupar aplicacions web modernes amb Symfony des de Windows.
+
+## 🎉 Symfony funcionant
+
+Aquesta configuració és la recomanada per a entorns docents i de desenvolupament professional.

@@ -119,9 +119,9 @@ sudo mysql_secure_installation
 
 ---
 
-## 7. Comprovar compatibilitat
+## 7. Comrprovar requisits
 
-Podem comprovar si falta alguna extensió de PHP o configuració.
+Mostra si falta alguna extensió de PHP o si hi ha alguna configuració incorrecta.
 
 ```bash
 symfony check:requirements
@@ -129,9 +129,9 @@ symfony check:requirements
 
 ---
 
-## 8. Validador de seguretat de dependències
+## 8. Comprovar vulnerabilitats
 
-Podem comprovar vulnerabilitats conegudes en paquets de Composer.
+Comprova si les llibreries instal·lades via Composer tenen vulnerabilitats conegudes.
 
 ```bash
 symfony security:check
