@@ -413,18 +413,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-installar-un-servidor-web" class="md-nav__link">
+  <a href="#5-installar-una-base-de-dades" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Instal·lar un servidor web
+      5. Instal·lar una base de dades
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-installar-una-base-de-dades" class="md-nav__link">
+  <a href="#6-installar-un-servidor-web" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Instal·lar una base de dades
+      6. Instal·lar un servidor web
     </span>
   </a>
   
@@ -958,18 +958,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-installar-un-servidor-web" class="md-nav__link">
+  <a href="#5-installar-una-base-de-dades" class="md-nav__link">
     <span class="md-ellipsis">
-      5. Instal·lar un servidor web
+      5. Instal·lar una base de dades
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-installar-una-base-de-dades" class="md-nav__link">
+  <a href="#6-installar-un-servidor-web" class="md-nav__link">
     <span class="md-ellipsis">
-      6. Instal·lar una base de dades
+      6. Instal·lar un servidor web
     </span>
   </a>
   
@@ -1050,9 +1050,8 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Opció alternativa 1</p>
-<p>Si utilitzes <strong><code>sudo apt install php</code></strong>, Ubuntu només instal·la el paquet base de PHP.<br />
-No inclou l’extensió <code>intl</code> ni les extensions de base de dades com <code>php-mysql</code>, totes dues imprescindibles per a Symfony.<br />
-Per tant, després hauràs d’instal·lar-les manualment amb:<br />
+<p>Si utilitzes <strong><code>sudo apt install php</code></strong>, Ubuntu només instal·la el paquet base de PHP. No inclou l’extensió <code>intl</code> ni les extensions de base de dades com <code>php-mysql</code>, totes dues imprescindibles per a Symfony.</p>
+<p>Per tant, després hauràs d’instal·lar-les manualment amb:
 <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php-intl<span class="w"> </span>php-mysql
 </span></code></pre></div></td></tr></table></div></p>
 </div>
@@ -1102,24 +1101,24 @@ Per tant, després hauràs d’instal·lar-les manualment amb:<br />
 <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>symfony<span class="w"> </span>-v
 </span></code></pre></div></td></tr></table></div>
 <hr />
-<h2 id="5-installar-un-servidor-web">5. Instal·lar un servidor web</h2>
-<p>Tot i que el servidor integrat funciona bé en desenvolupament, pots instal·lar:</p>
-<p>Apache:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>libapache2-mod-php8.2
-</span></code></pre></div></td></tr></table></div>
-<p>O bé Nginx:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
-</span></code></pre></div></td></tr></table></div>
-<p>Normalment per a Symfony en producció es recomana <strong>Nginx</strong> per rendiment, però Apache és més senzill per a principiants.</p>
-<hr />
-<h2 id="6-installar-una-base-de-dades">6. Instal·lar una base de dades</h2>
+<h2 id="5-installar-una-base-de-dades">5. Instal·lar una base de dades</h2>
 <p>Pots triar entre <em>MySQL</em>, <em>MariaDB</em> o <em>PostgreSQL</em>.</p>
 <p>Nosaltres utilitzarem el SGBD de MySQL:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server<span class="w"> </span>-y
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server<span class="w"> </span>-y
 </span></code></pre></div></td></tr></table></div>
 <p>Simples passos interactius milloren la seguretat: contrasenya root, eliminar usuaris anònims, etc.</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo<span class="w"> </span>mysql_secure_installation
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>sudo<span class="w"> </span>mysql_secure_installation
 </span></code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="6-installar-un-servidor-web">6. Instal·lar un servidor web</h2>
+<p>Tot i que el servidor integrat funciona bé en desenvolupament, pots instal·lar:</p>
+<p>Apache:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>libapache2-mod-php8.2
+</span></code></pre></div></td></tr></table></div>
+<p>O bé Nginx:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
+</span></code></pre></div></td></tr></table></div>
+<p>Normalment per a Symfony en producció es recomana <strong>Nginx</strong> per rendiment, però Apache és més senzill per a principiants.</p>
 <hr />
 <h2 id="7-comrprovar-requisits">7. Comrprovar requisits</h2>
 <p>Mostra si falta alguna extensió de PHP o si hi ha alguna configuració incorrecta.</p>

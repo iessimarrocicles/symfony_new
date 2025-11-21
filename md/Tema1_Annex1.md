@@ -44,9 +44,9 @@ Explicació de les extensions principals:
 - **php-gd**: manipulació d’imatges.
 
 !!! note "Opció alternativa 1"
-    Si utilitzes **`sudo apt install php`**, Ubuntu només instal·la el paquet base de PHP.  
-    No inclou l’extensió `intl` ni les extensions de base de dades com `php-mysql`, totes dues imprescindibles per a Symfony.  
-    Per tant, després hauràs d’instal·lar-les manualment amb:  
+    Si utilitzes **`sudo apt install php`**, Ubuntu només instal·la el paquet base de PHP. No inclou l’extensió `intl` ni les extensions de base de dades com `php-mysql`, totes dues imprescindibles per a Symfony.
+
+    Per tant, després hauràs d’instal·lar-les manualment amb:
     ```bash
     sudo apt install php-intl php-mysql
     ```
@@ -123,7 +123,25 @@ symfony -v
 
 ---
 
-## 5. Instal·lar un servidor web
+## 5. Instal·lar una base de dades
+
+Pots triar entre *MySQL*, *MariaDB* o *PostgreSQL*.
+
+Nosaltres utilitzarem el SGBD de MySQL:
+
+```bash
+sudo apt install mysql-server -y
+```
+
+Simples passos interactius milloren la seguretat: contrasenya root, eliminar usuaris anònims, etc.
+
+```bash
+sudo mysql_secure_installation
+```
+
+---
+
+## 6. Instal·lar un servidor web
 
 Tot i que el servidor integrat funciona bé en desenvolupament, pots instal·lar:
 
@@ -140,24 +158,6 @@ sudo apt install nginx
 ```
 
 Normalment per a Symfony en producció es recomana **Nginx** per rendiment, però Apache és més senzill per a principiants.
-
----
-
-## 6. Instal·lar una base de dades
-
-Pots triar entre *MySQL*, *MariaDB* o *PostgreSQL*.
-
-Nosaltres utilitzarem el SGBD de MySQL:
-
-```bash
-sudo apt install mysql-server -y
-```
-
-Simples passos interactius milloren la seguretat: contrasenya root, eliminar usuaris anònims, etc.
-
-```bash
-sudo mysql_secure_installation
-```
 
 ---
 
