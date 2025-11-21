@@ -389,6 +389,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2. Instal·lar Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-configuracio-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Configuració inicial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -961,6 +976,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2. Instal·lar Git">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-configuracio-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. Configuració inicial
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1126,7 +1156,7 @@
 <li>Descomprimeix-lo en una carpeta, per exemple C:/php.</li>
 <li>Afig C:/php al PATH de Windows.</li>
 <li>Copia el fitxer php.ini-development a php.ini.</li>
-<li>Assegura't que tens actives (senese ; al principi) les extensions necessàries:
+<li>Assegura't que tens actives (sense ; al principi) les extensions necessàries:
    <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -1146,24 +1176,30 @@
 </ol>
 <p>Per a què serveixen?</p>
 <ul>
-<li>mysqli / pdo_mysql: connexió a MySQL/MariaDB.</li>
-<li>intl: internacionalització i formats.</li>
-<li>mbstring: cadenes multibyte (necessari per a Symfony).</li>
-<li>xml: maneig de XML (algunes eines internes de Symfony).</li>
-<li>curl: peticions HTTP.</li>
-<li>gd: manipulació d’imatges.</li>
-<li>zip: descompressió/creació de fitxers ZIP.</li>
+<li><strong>mysqli / pdo_mysql</strong>: connexió a MySQL/MariaDB.</li>
+<li><strong>intl</strong>: internacionalització i formats.</li>
+<li><strong>mbstring</strong>: cadenes multibyte (necessari per a Symfony).</li>
+<li><strong>xml</strong>: maneig de XML (algunes eines internes de Symfony).</li>
+<li><strong>curl</strong>: peticions HTTP.</li>
+<li><strong>gd</strong>: manipulació d’imatges.</li>
+<li><strong>zip</strong>: descompressió/creació de fitxers ZIP.</li>
 </ul>
 <p>Després de modificar php.ini, guarda i tanca.</p>
 <hr />
 <h2 id="2-installar-git">2. Instal·lar Git</h2>
-<ol>
-<li>Descarrega Git des de la pàgina oficial.</li>
-<li>Instal·la’l deixant l’opció d’afegir al PATH.</li>
-<li>Comprova amb:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>--version.
-</span></code></pre></div></td></tr></table></div></li>
-</ol>
+<p>Per poder gestionar repositoris i treballar amb Symfony, és recomanable tindre Git instal·lat en el sistema.</p>
+<p>Descarrega Git des de la pàgina oficial i instal·la’l deixant l’opció d’afegir al PATH.</p>
+<p>Comprova la instal.lació</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>git<span class="w"> </span>--version.
+</span></code></pre></div></td></tr></table></div>
+<p>Si mostra un número de versió, Git està funcionant.</p>
+<h3 id="21-configuracio-inicial">2.1. Configuració inicial</h3>
+<p>Recomanat per a projectes Symfony que utilitzen Git des del primer moment:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;El Teu Nom&quot;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;el_teu_email@example.com&quot;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Aquesta configuració identifica l’autor de les comandes <code>commit</code>.</p>
 <hr />
 <h2 id="3-installar-composer">3. Instal·lar Composer</h2>
 <p>Què és Composer?</p>
@@ -1181,7 +1217,7 @@
 </ul>
 </li>
 <li>Comprova amb:
-   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>composer<span class="w"> </span>-V
+   <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>composer<span class="w"> </span>-V
 </span></code></pre></div></td></tr></table></div></li>
 </ul>
 <hr />
@@ -1195,7 +1231,7 @@
 </ol>
 <h3 id="42-comprovar-installacio">4.2. Comprovar instal·lació</h3>
 <p>Obri una nova finestra de PowerShell i executa:</p>
-<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">symfony</span> <span class="n">-v</span>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">symfony</span> <span class="n">-v</span>
 </span></code></pre></div></td></tr></table></div>
 <p>Si apareix la versió, ja està funcionant.</p>
 <hr />
@@ -1233,11 +1269,11 @@
 <hr />
 <h2 id="7-comrprovar-requisits">7. Comrprovar requisits</h2>
 <p>Mostra si falta alguna extensió de PHP o si hi ha alguna configuració incorrecta.</p>
-<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">symfony</span> <span class="n">check</span><span class="p">:</span><span class="n">requirements</span>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">symfony</span> <span class="n">check</span><span class="p">:</span><span class="n">requirements</span>
 </span></code></pre></div></td></tr></table></div>
 <h2 id="8-comprovar-vulnerabilitats">8. Comprovar vulnerabilitats</h2>
 <p>Comprova si les llibreries instal·lades via Composer tenen vulnerabilitats conegudes.</p>
-<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">symfony</span> <span class="n">security</span><span class="p">:</span><span class="n">check</span>
+<div class="language-powershell highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">symfony</span> <span class="n">security</span><span class="p">:</span><span class="n">check</span>
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="9-resum">9. Resum</h2>

@@ -2,7 +2,7 @@
 
 A continuació tens una guia detallada sobre tot allò que cal instal·lar per poder treballar amb Symfony en una màquina Ubuntu.
 
-## 1. Actualitzar el sistema
+## 0. Actualitzar el sistema
 
 ```bash
 sudo apt update && sudo apt upgrade -y
@@ -12,7 +12,7 @@ Actualitza l’índex de paquets i instal·la les actualitzacions pendents. És 
 
 ---
 
-## 2. Instal·lar PHP i extensions
+## 1. Instal·lar PHP i extensions
 
 Symfony requereix una versió moderna de PHP (8.1 o superior). A Ubuntu sol estar disponible a través del repositori `ondrej/php`.
 
@@ -43,18 +43,47 @@ Explicació de les extensions principals:
 - **php-zip**: gestió de fitxers ZIP.
 - **php-gd**: manipulació d’imatges.
 
-> ⚠️ Si utilitzem `sudo apt install php` no instal.la *intl* ni les extensions de base de dades com *php-mysql* que son necesaries en Symfony. Per tant, ho hauries de fer després de forma manual amb `sudo apt install php-mysql php-intl`.
+!!! note "Opció alternativa 1"
+    Si utilitzes **`sudo apt install php`**, Ubuntu només instal·la el paquet base de PHP.  
+    No inclou l’extensió `intl` ni les extensions de base de dades com `php-mysql`, totes dues imprescindibles per a Symfony.  
+    Per tant, després hauràs d’instal·lar-les manualment amb:  
+    ```bash
+    sudo apt install php-intl php-mysql
+    ```
 
-> ⚠️ Si utilitzem LAMPP tambe et faltarien algunes de les extensions com *intl*.
+!!! note "Opció alternativa 2"
+    Si utilitzes **LAMPP**, també falten extensions importants com `intl`, que és necessària perquè Symfony funcione correctament. En aquest cas, també caldria afegir-la manualment.
 
-> ⚠️ Si utilitzes `sudo apt install php`, Ubuntu només instal·la el paquet base de PHP.  
-> **No inclou l’extensió `intl` ni les extensions de base de dades com `php-mysql`, totes dues imprescindibles per a Symfony.**  
-> Per tant, després hauràs d’instal·lar-les manualment amb:  
-> ```bash
-> sudo apt install php-intl php-mysql
-> ```
+---
 
-> ⚠️ Si utilitzes **LAMPP**, també falten extensions importants com `intl`, que és necessària perquè Symfony funcione correctament. En aquest cas, també caldria afegir-la manualment.
+## 2. Instal·lar Git
+
+Per poder gestionar repositoris i treballar amb Symfony, és recomanable tindre Git instal·lat en el sistema.
+
+Per instal·lar Git:
+
+```bash
+sudo apt install git -y
+```
+
+Per verificar que Git s’ha instal·lat correctament, executa:
+
+```bash
+git --version
+```
+
+Si mostra un número de versió, Git està funcionant.
+
+### 2.1. Configuració inicial
+
+Recomanat per a projectes Symfony que utilitzen Git des del primer moment:
+
+```bash
+git config --global user.name "El Teu Nom"
+git config --global user.email "el_teu_email@example.com"
+```
+
+Aquesta configuració identifica l’autor de les comandes `commit`.
 
 ---
 

@@ -14,7 +14,7 @@ Symfony requereix PHP 8.1 o superior. Per instal·lar-lo manualment:
 2. Descomprimeix-lo en una carpeta, per exemple C:/php.
 3. Afig C:/php al PATH de Windows.
 4. Copia el fitxer php.ini-development a php.ini.
-5. Assegura't que tens actives (senese ; al principi) les extensions necessàries:
+5. Assegura't que tens actives (sense ; al principi) les extensions necessàries:
    ```bash
    extension=mysqli
    extension=pdo_mysql
@@ -28,13 +28,13 @@ Symfony requereix PHP 8.1 o superior. Per instal·lar-lo manualment:
 
 Per a què serveixen?
 
-- mysqli / pdo_mysql: connexió a MySQL/MariaDB.
-- intl: internacionalització i formats.
-- mbstring: cadenes multibyte (necessari per a Symfony).
-- xml: maneig de XML (algunes eines internes de Symfony).
-- curl: peticions HTTP.
-- gd: manipulació d’imatges.
-- zip: descompressió/creació de fitxers ZIP.
+- **mysqli / pdo_mysql**: connexió a MySQL/MariaDB.
+- **intl**: internacionalització i formats.
+- **mbstring**: cadenes multibyte (necessari per a Symfony).
+- **xml**: maneig de XML (algunes eines internes de Symfony).
+- **curl**: peticions HTTP.
+- **gd**: manipulació d’imatges.
+- **zip**: descompressió/creació de fitxers ZIP.
 
 Després de modificar php.ini, guarda i tanca.
 
@@ -42,12 +42,28 @@ Després de modificar php.ini, guarda i tanca.
 
 ## 2. Instal·lar Git
 
-1. Descarrega Git des de la pàgina oficial.
-2. Instal·la’l deixant l’opció d’afegir al PATH.
-3. Comprova amb:
-   ```bash
-   git --version.
-   ```
+Per poder gestionar repositoris i treballar amb Symfony, és recomanable tindre Git instal·lat en el sistema.
+
+Descarrega Git des de la pàgina oficial i instal·la’l deixant l’opció d’afegir al PATH.
+
+Comprova la instal.lació
+
+```bash
+git --version.
+```
+
+Si mostra un número de versió, Git està funcionant.
+
+### 2.1. Configuració inicial
+
+Recomanat per a projectes Symfony que utilitzen Git des del primer moment:
+
+```bash
+git config --global user.name "El Teu Nom"
+git config --global user.email "el_teu_email@example.com"
+```
+
+Aquesta configuració identifica l’autor de les comandes `commit`.
 
 ---
 
