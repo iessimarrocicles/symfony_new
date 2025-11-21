@@ -1000,58 +1000,68 @@
 <li><strong>php-zip</strong>: gestió de fitxers ZIP.</li>
 <li><strong>php-gd</strong>: manipulació d’imatges.</li>
 </ul>
+<blockquote>
+<p>⚠️ Si utilitzem <code>sudo apt install php</code> no instal.la <em>intl</em> ni les extensions de base de dades com <em>php-mysql</em> que son necesaries en Symfony. Per tant, ho hauries de fer després de forma manual amb <code>sudo apt install php-mysql php-intl</code>.</p>
+<p>⚠️ Si utilitzem LAMPP tambe et faltarien algunes de les extensions com <em>intl</em>.</p>
+<p>⚠️ Si utilitzes <code>sudo apt install php</code>, Ubuntu només instal·la el paquet base de PHP.<br />
+<strong>No inclou l’extensió <code>intl</code> ni les extensions de base de dades com <code>php-mysql</code>, totes dues imprescindibles per a Symfony.</strong><br />
+Per tant, després hauràs d’instal·lar-les manualment amb:<br />
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>php-intl<span class="w"> </span>php-mysql
+</span></code></pre></div></td></tr></table></div></p>
+<p>⚠️ Si utilitzes <strong>LAMPP</strong>, també falten extensions importants com <code>intl</code>, que és necessària perquè Symfony funcione correctament. En aquest cas, també caldria afegir-la manualment.</p>
+</blockquote>
 <hr />
 <h2 id="3-installar-composer">3. Instal·lar Composer</h2>
 <p>Symfony depén de Composer per a instal·lar paquets i eines. És el nostre gestor de dependències de PHP.</p>
 <p>Descarregar Composer:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>php<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;copy(&#39;https://getcomposer.org/installer&#39;, &#39;composer-setup.php&#39;);&quot;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>php<span class="w"> </span>composer-setup.php
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>sudo<span class="w"> </span>mv<span class="w"> </span>composer.phar<span class="w"> </span>/usr/local/bin/composer
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/composer
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>php<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;copy(&#39;https://getcomposer.org/installer&#39;, &#39;composer-setup.php&#39;);&quot;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>php<span class="w"> </span>composer-setup.php
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>sudo<span class="w"> </span>mv<span class="w"> </span>composer.phar<span class="w"> </span>/usr/local/bin/composer
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/composer
 </span></code></pre></div></td></tr></table></div>
 <p>Ara tens composer disponible globalment.</p>
 <hr />
 <h2 id="4-installar-symfony-cli">4. Instal·lar Symfony CLI</h2>
 <p>La Symfony CLI (eina oficial) permet crear projectes, arrancar servidors locals i comprovar compatibilitat.</p>
 <p>Instal·lació:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>wget<span class="w"> </span>https://get.symfony.com/cli/installer<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>sudo<span class="w"> </span>mv<span class="w"> </span>/home/<span class="nv">$USER</span>/.symfony*/bin/symfony<span class="w"> </span>/usr/local/bin/symfony
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>wget<span class="w"> </span>https://get.symfony.com/cli/installer<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>mv<span class="w"> </span>/home/<span class="nv">$USER</span>/.symfony*/bin/symfony<span class="w"> </span>/usr/local/bin/symfony
 </span></code></pre></div></td></tr></table></div>
 <p>Comprovació:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>symfony<span class="w"> </span>-v
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>symfony<span class="w"> </span>-v
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="5-installar-un-servidor-web">5. Instal·lar un servidor web</h2>
 <p>Tot i que el servidor integrat funciona bé en desenvolupament, pots instal·lar:</p>
 <p>Apache:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>libapache2-mod-php8.2
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2<span class="w"> </span>libapache2-mod-php8.2
 </span></code></pre></div></td></tr></table></div>
 <p>O bé Nginx:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>nginx
 </span></code></pre></div></td></tr></table></div>
 <p>Normalment per a Symfony en producció es recomana <strong>Nginx</strong> per rendiment, però Apache és més senzill per a principiants.</p>
 <hr />
 <h2 id="6-installar-una-base-de-dades">6. Instal·lar una base de dades</h2>
 <p>Pots triar entre <em>MySQL</em>, <em>MariaDB</em> o <em>PostgreSQL</em>.</p>
 <p>Nosaltres utilitzarem el SGBD de MySQL:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server<span class="w"> </span>-y
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server<span class="w"> </span>-y
 </span></code></pre></div></td></tr></table></div>
 <p>Simples passos interactius milloren la seguretat: contrasenya root, eliminar usuaris anònims, etc.</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo<span class="w"> </span>mysql_secure_installation
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>sudo<span class="w"> </span>mysql_secure_installation
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="7-comrprovar-requisits">7. Comrprovar requisits</h2>
 <p>Mostra si falta alguna extensió de PHP o si hi ha alguna configuració incorrecta.</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>symfony<span class="w"> </span>check:requirements
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>symfony<span class="w"> </span>check:requirements
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="8-comprovar-vulnerabilitats">8. Comprovar vulnerabilitats</h2>
 <p>Comprova si les llibreries instal·lades via Composer tenen vulnerabilitats conegudes.</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>symfony<span class="w"> </span>security:check
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>symfony<span class="w"> </span>security:check
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="symfony-funcionant">🎉 Symfony funcionant</h2>

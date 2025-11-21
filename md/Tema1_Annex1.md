@@ -43,6 +43,19 @@ Explicació de les extensions principals:
 - **php-zip**: gestió de fitxers ZIP.
 - **php-gd**: manipulació d’imatges.
 
+> ⚠️ Si utilitzem `sudo apt install php` no instal.la *intl* ni les extensions de base de dades com *php-mysql* que son necesaries en Symfony. Per tant, ho hauries de fer després de forma manual amb `sudo apt install php-mysql php-intl`.
+
+> ⚠️ Si utilitzem LAMPP tambe et faltarien algunes de les extensions com *intl*.
+
+> ⚠️ Si utilitzes `sudo apt install php`, Ubuntu només instal·la el paquet base de PHP.  
+> **No inclou l’extensió `intl` ni les extensions de base de dades com `php-mysql`, totes dues imprescindibles per a Symfony.**  
+> Per tant, després hauràs d’instal·lar-les manualment amb:  
+> ```bash
+> sudo apt install php-intl php-mysql
+> ```
+
+> ⚠️ Si utilitzes **LAMPP**, també falten extensions importants com `intl`, que és necessària perquè Symfony funcione correctament. En aquest cas, també caldria afegir-la manualment.
+
 ---
 
 ## 3. Instal·lar Composer

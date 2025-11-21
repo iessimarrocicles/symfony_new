@@ -107,7 +107,7 @@ Per a un entorn docent i per compatibilitat amb molts exemples, és habitual usa
 ### 5.2. Verificar i provar
 
 - Comprova que el servei MySQL s’ha iniciat.
-- Pots usar **MySQL Workbench** o línia de comandes per a crear una base de dades de prova.
+- Pots usar MySQL Workbench o línia de comandes per a crear una base de dades de prova.
 
 ---
 
