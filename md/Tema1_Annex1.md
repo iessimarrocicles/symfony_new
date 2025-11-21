@@ -1,6 +1,6 @@
 # Instal·lació en Ubuntu
 
-A continuació tens una guia detallada, tècnica i pedagògica sobre tot allò que cal instal·lar per poder treballar amb Symfony en una màquina Ubuntu.
+A continuació tens una guia detallada sobre tot allò que cal instal·lar per poder treballar amb Symfony en una màquina Ubuntu.
 
 ## 1. Actualitzar el sistema
 
@@ -103,14 +103,19 @@ Normalment per a Symfony en producció es recomana **Nginx** per rendiment, per�
 
 ## 6. Instal·lar una base de dades
 
-Pots triar entre *MySQL*, *MariaDB* o *PostgreSQL*. Exemple amb MySQL:
+Pots triar entre *MySQL*, *MariaDB* o *PostgreSQL*.
+
+Nosaltres utilitzarem el SGBD de MySQL:
 
 ```bash
 sudo apt install mysql-server -y
-sudo mysql_secure_installation
 ```
 
 Simples passos interactius milloren la seguretat: contrasenya root, eliminar usuaris anònims, etc.
+
+```bash
+sudo mysql_secure_installation
+```
 
 ---
 
@@ -134,7 +139,6 @@ symfony security:check
 
 ---
 
-## 🎉 Ja pots treballar amb Symfony!
+## 🎉 Symfony funcionant
 
 Aquesta configuració és la recomanada per a entorns docents i de desenvolupament professional.
-

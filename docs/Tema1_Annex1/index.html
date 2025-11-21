@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
@@ -234,7 +234,6 @@
   
   <span class="md-ellipsis">
     Índex
-    
   </span>
   
 
@@ -267,7 +266,6 @@
   
   <span class="md-ellipsis">
     Tema 1
-    
   </span>
   
 
@@ -293,7 +291,6 @@
   
   <span class="md-ellipsis">
     Teoria
-    
   </span>
   
 
@@ -324,7 +321,6 @@
   
   <span class="md-ellipsis">
     Annex 1
-    
   </span>
   
 
@@ -336,7 +332,6 @@
   
   <span class="md-ellipsis">
     Annex 1
-    
   </span>
   
 
@@ -430,9 +425,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ja-pots-treballar-amb-symfony" class="md-nav__link">
+  <a href="#symfony-funcionant" class="md-nav__link">
     <span class="md-ellipsis">
-      🎉 Ja pots treballar amb Symfony!
+      🎉 Symfony funcionant
     </span>
   </a>
   
@@ -459,7 +454,6 @@
   
   <span class="md-ellipsis">
     Annex 2
-    
   </span>
   
 
@@ -481,7 +475,6 @@
   
   <span class="md-ellipsis">
     Pràctica
-    
   </span>
   
 
@@ -520,7 +513,6 @@
   
   <span class="md-ellipsis">
     Tema 2
-    
   </span>
   
 
@@ -546,7 +538,6 @@
   
   <span class="md-ellipsis">
     Teoria
-    
   </span>
   
 
@@ -568,7 +559,6 @@
   
   <span class="md-ellipsis">
     Pràctica
-    
   </span>
   
 
@@ -607,7 +597,6 @@
   
   <span class="md-ellipsis">
     Tema 3
-    
   </span>
   
 
@@ -633,7 +622,6 @@
   
   <span class="md-ellipsis">
     Teoria
-    
   </span>
   
 
@@ -655,7 +643,6 @@
   
   <span class="md-ellipsis">
     Pràctica
-    
   </span>
   
 
@@ -694,7 +681,6 @@
   
   <span class="md-ellipsis">
     Tema 4
-    
   </span>
   
 
@@ -720,7 +706,6 @@
   
   <span class="md-ellipsis">
     Teoria
-    
   </span>
   
 
@@ -742,7 +727,6 @@
   
   <span class="md-ellipsis">
     Pràctica
-    
   </span>
   
 
@@ -781,7 +765,6 @@
   
   <span class="md-ellipsis">
     Tema 5
-    
   </span>
   
 
@@ -807,7 +790,6 @@
   
   <span class="md-ellipsis">
     Teoria
-    
   </span>
   
 
@@ -829,7 +811,6 @@
   
   <span class="md-ellipsis">
     Pràctica
-    
   </span>
   
 
@@ -858,7 +839,6 @@
   
   <span class="md-ellipsis">
     Plantilla
-    
   </span>
   
 
@@ -966,9 +946,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ja-pots-treballar-amb-symfony" class="md-nav__link">
+  <a href="#symfony-funcionant" class="md-nav__link">
     <span class="md-ellipsis">
-      🎉 Ja pots treballar amb Symfony!
+      🎉 Symfony funcionant
     </span>
   </a>
   
@@ -989,9 +969,8 @@
                   
 
 
-
 <h1 id="installacio-en-ubuntu">Instal·lació en Ubuntu</h1>
-<p>A continuació tens una guia detallada, tècnica i pedagògica sobre tot allò que cal instal·lar per poder treballar amb Symfony en una màquina Ubuntu.</p>
+<p>A continuació tens una guia detallada sobre tot allò que cal instal·lar per poder treballar amb Symfony en una màquina Ubuntu.</p>
 <h2 id="1-actualitzar-el-sistema">1. Actualitzar el sistema</h2>
 <div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
 </span></code></pre></div></td></tr></table></div>
@@ -1057,24 +1036,25 @@
 <p>Normalment per a Symfony en producció es recomana <strong>Nginx</strong> per rendiment, però Apache és més senzill per a principiants.</p>
 <hr />
 <h2 id="6-installar-una-base-de-dades">6. Instal·lar una base de dades</h2>
-<p>Pots triar entre <em>MySQL</em>, <em>MariaDB</em> o <em>PostgreSQL</em>. Exemple amb MySQL:</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server<span class="w"> </span>-y
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>sudo<span class="w"> </span>mysql_secure_installation
+<p>Pots triar entre <em>MySQL</em>, <em>MariaDB</em> o <em>PostgreSQL</em>.</p>
+<p>Nosaltres utilitzarem el SGBD de MySQL:</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>mysql-server<span class="w"> </span>-y
 </span></code></pre></div></td></tr></table></div>
 <p>Simples passos interactius milloren la seguretat: contrasenya root, eliminar usuaris anònims, etc.</p>
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>sudo<span class="w"> </span>mysql_secure_installation
+</span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="7-comprovar-compatibilitat">7. Comprovar compatibilitat</h2>
 <p>Podem comprovar si falta alguna extensió de PHP o configuració.</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>symfony<span class="w"> </span>check:requirements
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>symfony<span class="w"> </span>check:requirements
 </span></code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="8-validador-de-seguretat-de-dependencies">8. Validador de seguretat de dependències</h2>
 <p>Podem comprovar vulnerabilitats conegudes en paquets de Composer.</p>
-<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>symfony<span class="w"> </span>security:check
+<div class="language-bash highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>symfony<span class="w"> </span>security:check
 </span></code></pre></div></td></tr></table></div>
 <hr />
-<h2 id="ja-pots-treballar-amb-symfony">🎉 Ja pots treballar amb Symfony!</h2>
+<h2 id="symfony-funcionant">🎉 Symfony funcionant</h2>
 <p>Aquesta configuració és la recomanada per a entorns docents i de desenvolupament professional.</p>
 
 
@@ -1128,10 +1108,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.top"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigation.top"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>
