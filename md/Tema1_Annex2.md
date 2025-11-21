@@ -115,7 +115,7 @@ Per a un entorn docent i per compatibilitat amb molts exemples, és habitual usa
 
 Per a desenvolupament, normalment és suficient el servidor intern de Symfony CLI. Però si vols simular producció o fer pràctiques de configuració, pots instal·lar:
 
-### 6.1. Instal.lar Apache
+### 6.1. Apache
 
 1. Descarrega Apache per a Windows des de la pàgina d'Apache Lounge.
 2. Descomprimeix el contingut en una carpeta, per exemple C:/Apache24.
