@@ -15,8 +15,8 @@ nav:
 - Índex: index.md
 - Tema 1: 
   - Teoria: Tema1.md
-  - Annex 1 - Ubuntu: Tema1_Annex1.md
-  - Annex 2 - Windows: Tema1_Annex2.md
+  - Annex 1: Tema1_Annex1.md
+  - Annex 2: Tema1_Annex2.md
   - Pràctica: Practica1.md
 - Tema 2: 
   - Teoria: Tema2.md
